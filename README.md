@@ -21,14 +21,16 @@ Let's show it the painting ["Brücke über die Marne bei Creteil" by Cézanne](h
 If we download the 2,175 × 1,713 pixel version of the painting and open it (e.g. using `PIL.Image.open` from the package `pillow`) as `image` we can then pass it to the `gaze` command.
 
 ```python
-# Assuming you have already saved the image
-from clip_gaze import gaze, EXAMPLE_CATEGORIES
-gaze(image, EXAMPLE_CATEGORIES)
-```
+# Assuming you have already saved the image to `image`
+import clip_gaze
+pprint.pprint(
+    {
+        "artist": clip_gaze.gaze(image, clip_gaze.ARTISTS_BY_TRAINING_PREVALENCE[:200]),
+        "surface": clip_gaze.gaze(image, clip_gaze.SURFACES),
+        "movement": clip_gaze.gaze(image, clip_gaze.MOVEMENTS)
+    }
 
-The expected output is below, and has been tidied up using `pprint`.
-
-```python
+# Returns
 {'artist': ['by paul cézanne (82%)',
             'by clyfford still (07%)',
             'by arnold böcklin (04%)',
@@ -48,19 +50,6 @@ The expected output is below, and has been tidied up using `pprint`.
 
 As you can see CLIP suggests that, of the options provided, the terms "by paul cézanne", "tonalism movement", and "on canvas" are the most likely to describe the input image.
 
-What was in `EXAMPLE_CATEGORIES`?
-
-```python
-# The second argument to `gaze` is just a dictionary of (category name) -> (list of strings)
-EXAMPLE_CATEGORIES = {
-    "artist": ARTISTS_BY_TRAINING_PREVALENCE[:200],
-    "movement": MOVEMENTS,
-    "surface": SURFACES,
-}
-```
-
-The example categories we passed to `gaze` only checks 200 artists,
-and these artists are listed in order of prevalence in CLIP's training data.
 `gaze` works by having CLIP assess the *relative* likelihood of the options within each category.
 Here is a table of lists built into the module.
 
@@ -96,7 +85,7 @@ clip_gaze.MOVEMENTS # A list of the prompts describing art history movements
 ### Finer control
 
 The `clip_gaze.gaze` command wraps multiple calls to `clip_gaze.probabilities`, selecting the highest-probabilitiy options and formatting text.
-If you want raw results based on just one list of prompts then you can skip using `gaze` and instead use:
+If you want raw results based then skip `gaze` and instead use:
 
 ```python
 # Type probabilities(image: "PIL.Image", prompts: List[str], batch_size: int) -> List[Tuple[str, float]]

@@ -22,11 +22,11 @@ If we download the 2,175 × 1,713 pixel version of the painting and open it (e.g
 
 ```python
 # Assuming you have already saved the image
-from clip_gaze import gaze, EXAMPLE_CATEGORIES
-gaze(image, EXAMPLE_CATEGORIES)
+import clip_gaze
+clip_gaze.gaze(image, clip_gaze.MOVEMENTS)
 ```
 
-Just looking at the highest probability outputs we see:
+Just looking at the highest probability outputs for `clip_gaze.ARTISTS_BY_TRAINING_PREVALENCE`, `clip_gaze.Movements`, and `clip_gaze.SURFACES` we see:
 
 ```python
 {'artist': ['by paul cézanne (82%)'], 'movement': ['tonalism movement (16%)'], 'surface': ['on canvas (86%)']}

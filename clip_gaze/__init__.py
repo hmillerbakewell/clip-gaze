@@ -34,7 +34,7 @@ def model_and_processor():
     return model, processor
 
 
-def image_and_prompts_to_tensor(image: "PIL.Image", prompts: List[str]) -> torch.Tensor:
+def image_and_prompts_to_logit_tensor(image: "PIL.Image", prompts: List[str]) -> torch.Tensor:
     """Run CLIP to get a list of scores in logits."""
     if len(prompts) == 0:
         return torch.tensor([[]])
@@ -47,17 +47,30 @@ def image_and_prompts_to_tensor(image: "PIL.Image", prompts: List[str]) -> torch
     return outputs.logits_per_image.detach()
 
 
-def probabilities(image: "PIL.Image", prompts: List[str], batch_size: int) -> List[Tuple[str, float]]:
-    """Batch-run the model and combine the responses to get a probability distribution."""
-    computed: List[torch.Tensor] = []
-    for i in range(1 + (len(prompts) // batch_size)):
-        selection = prompts[i*batch_size:(i+1)*batch_size]
-        if len(selection) > 0:
-            computed.append(image_and_prompts_to_tensor(
-                image, selection))
-    probabilitites = torch.cat(computed, dim=1)[0].softmax(0)
+def image_and_prompts_to_logit_tensor_by_batch(image: "PIL.Image", prompts: List[str], batch_size: int) -> torch.Tensor:
+    """Run CLIP to get a list of scores in logits."""
+    collected_tensors = []
+    batch_count = 1+(len(prompts) // batch_size)
+    for index in range(batch_count):
+        # print(f"{index}/{batch_count}")
+        collected_tensors.append(image_and_prompts_to_logit_tensor(
+            image=image, prompts=prompts[index *
+                                         batch_size: (index+1)*batch_size]
+        ))
 
-    return [(prompt, probabilitites[index].item()) for index, prompt in enumerate(prompts)]
+    return torch.cat(collected_tensors, dim=1)
+
+
+def probabilities(image: "PIL.Image", prompts: List[str], batch_size=10) -> List[Tuple[str, float]]:
+    """Batch-run the model and combine the responses to get a probability distribution."""
+    assert batch_size > 0, "batch_size should be a positive integer"
+
+    prompt_logits = image_and_prompts_to_logit_tensor_by_batch(
+        image, prompts, batch_size=batch_size)[0, :]
+    softmax_tensor = torch.softmax(prompt_logits, dim=0)
+
+    return [(prompt, softmax_tensor[index].item())
+            for index, prompt in enumerate(prompts)]
 
 
 EXAMPLE_CATEGORIES = {
@@ -68,33 +81,29 @@ EXAMPLE_CATEGORIES = {
 
 
 def gaze(image: "PIL.Image",
-         prompt_categories: Dict[str, List[str]],
-         batch_size=10,
+         prompts: List[str],
          only_show_best: Optional[int] = 5,
          format_output=True,
+         batch_size=10
          ) -> Dict[str, str]:
-    """By-category probabilities in human-readable output."""
-    assert batch_size > 0, "Batch size must be at least 1"
-
+    """Prompt inferred probabilities in human-readable output."""
     def format_tuple(str_float: Tuple[str, float]) -> str:
         return f"{str_float[0]} ({100*str_float[1]:02.0f}%)"
 
-    def order_list_by_category(prompts) -> List[str]:
+    prompt_with_prob = probabilities(image=image,
+                                     prompts=prompts,
+                                     batch_size=batch_size)
 
-        prompt_with_prob = probabilities(image=image,
-                                         prompts=prompts,
-                                         batch_size=batch_size)
-
-        prompt_with_prob.sort(
-            key=lambda str_float_tuple: str_float_tuple[1], reverse=True)
-
+    def format_category(prompts_with_probs: List[Tuple[str, float]]):
+        entries = [entry for entry in prompts_with_probs]
+        entries.sort(key=lambda e: e[1], reverse=True)
         if only_show_best:
-            prompt_with_prob = prompt_with_prob[0:only_show_best]
+            entries = entries[0:only_show_best]
         if format_output:
-            return list(map(format_tuple, prompt_with_prob))
-        return prompt_with_prob
+            entries = list(map(format_tuple, entries))
+        return entries
 
-    return {category: order_list_by_category(prompt_categories[category]) for category in prompt_categories}
+    return format_category(prompt_with_prob)
 
 
 """

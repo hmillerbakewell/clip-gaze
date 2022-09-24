@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "clip-gaze"
-version="0.1.2"
+version="0.2.0"
 description = "Compare image prompts using CLIP"
 keywords = ["clip", "art", "art analysis"]
 license = {text = "MIT"}
