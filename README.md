@@ -40,6 +40,8 @@ and I also tidied up the output using `pprint`.
              'on card stock (00%)']}
 ```
 
+As you can see CLIP suggests that, of the options provided, the terms "by paul cézanne", "tonalism movement", and "on canvas" are the most likely to describe the input image.
+
 What was in `EXAMPLE_CATEGORIES`?
 
 ```python
@@ -58,7 +60,7 @@ Here is a table of lists built into the module.
 
 | Variable | Description | Example |
 |----|----|----|
-| ARTISTS_BY_NAME | List of **5000 artists** in alphabetical order. | Sandra Chevrier |
+| ARTISTS_BY_NAME | List of **6000 artists** in alphabetical order. | Sandra Chevrier |
 | ARTISTS_BY_TRAINING_PREVALENCE | List of **900 artists** in the order of prevalence in the training data (most prevalent first). Sometimes the most famous artists are credited *without* a first name, and so you may find those as separate entries alongside their full name. | Sandra Chevrier |
 | MOVEMENTS | Artistic movement | Afrofuturism |
 | PAINTING_MATERIALS | Materials for creating paintings | Acrylic Paint |
@@ -92,9 +94,9 @@ If you want raw results based on just one list of prompts then you can skip usin
 
 ```python
 # Type probabilities(image: "PIL.Image", prompts: List[str], batch_size: int) -> List[Tuple[str, float]]
-probabilities(image, cip_gaze.ARTISTS, 10)
+clip_gaze.probabilities(image, cip_gaze.ARTISTS_BY_NAME, 10)
 
-# Returns the probability score for all 900 or so artists in the list
+# Returns the probability score for all 6000 or so artists in the list
 ```
 
 ## How does it work?
@@ -106,14 +108,15 @@ and that data will contain biases (intentional and unintentional).
 
 This tool works by downloading CLIP onto your computer and running it locally.
 This is not an easy task for all computers, especially older ones.
+See the "Arguments for `gaze`" section above for a way to change memory load.
 
 ## Biases
 
-As mentioned above this software is a machine learning system, and the biases in this tool comes in two parts:
+This software is built on a machine learning system, and the biases in this tool come in two parts:
 
 1. CLIP itself comes with its own biases, and we refer the user to OpenAI's own work on explaining and mitigating that bias
 2. The lists of chosen phrases
 
 The lists used in this software are primarily from Wikipedia and from the training data that CLIP used.
 Neither of these sources are perfect, and care should be taken when using this software to account for these biases where possible.
-Although the lists are long (e.g. the list of 5000 artists) there are no claims of completeness or relative importance made.
+Although the lists are long (e.g. the list of 6000 artists) there are no claims of completeness or relative importance made.
