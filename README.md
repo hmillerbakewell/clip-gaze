@@ -77,7 +77,7 @@ clip_gaze.MOVEMENTS # A list of the prompts describing art history movements
 | Argument | Description | Default |
 |----|----|----|
 | image | The image to inspect | *Required* |
-| prompt_categories | A dictionary of (categories) -> (prompts in that category) | *Required* |
+| prompts | A list of prompts, see earlier table for examples | *Required* |
 | batch_size | How many prompts to inspect at once. This is set intentionally low; increase it to trade memory resources for speed | `10` |
 | only_show_best | Show only this many results in each category, set it to `None` for no limit | `3` |
 | format_output | Turn the output into something easier for people to read (e.g. percentage in brackets) | `True` |
