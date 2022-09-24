@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "clip-gaze"
+version="0.1.0"
+description = "Inspect images using CLIP"
+keywords = ["clip", "art", "art analysis"]
+license = {text = "MIT"}
+dynamic = ["readme"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "transformers",
+    "torch",
+    ]
+
+[tool.setuptools.dynamic]
+readme = {file = "README.md"}
