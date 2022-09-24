@@ -2,6 +2,14 @@
 
 An art analysis tool powered by CLIP.
 
+## Motivation
+
+Diffusion models (such as [Stable Diffusion](https://stability.ai/blog/stable-diffusion-public-release)) used [OpenAI's CLIP](https://openai.com/blog/clip/) in order to perform textual analysis of their training data.
+Precisely what these machine learning systems actually learned from their training data is
+opaque.
+This tool helps us understand how CLIP, and therefore the models that use CLIP,
+see images.
+
 ## What does it do?
 
 Given an image and a series of (text) phrases it calculates the *relative* likelihood of each phrase to be a good description of the image.
@@ -18,9 +26,7 @@ from clip_gaze import gaze, EXAMPLE_CATEGORIES
 gaze(image, EXAMPLE_CATEGORIES)
 ```
 
-The expected output is below.
-If you downloaded a different resolution version of the file you will get slightly different results,
-and I also tidied up the output using `pprint`.
+The expected output is below, and has been tidied up using `pprint`.
 
 ```python
 {'artist': ['by paul cézanne (82%)',
