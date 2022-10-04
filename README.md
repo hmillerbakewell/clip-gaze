@@ -81,6 +81,7 @@ clip_gaze.MOVEMENTS # A list of the prompts describing art history movements
 | batch_size | How many prompts to inspect at once. This is set intentionally low; increase it to trade memory resources for speed | `10` |
 | only_show_best | Show only this many results in each category, set it to `None` for no limit | `3` |
 | format_output | Turn the output into something easier for people to read (e.g. percentage in brackets) | `True` |
+| device | Defaults to `"cuda"` (which will run on the gpu) and falls back to `"cpu"` if `cuda` is not available. | `"cuda"` | 
 
 ### Finer control
 
@@ -88,10 +89,9 @@ The `clip_gaze.gaze` command wraps multiple calls to `clip_gaze.probabilities`, 
 If you want raw results based then skip `gaze` and instead use:
 
 ```python
-# Type probabilities(image: "PIL.Image", prompts: List[str], batch_size: int) -> List[Tuple[str, float]]
-clip_gaze.probabilities(image, cip_gaze.ARTISTS_BY_NAME, 10)
+clip_gaze.probabilities(image, clip_gaze.ARTISTS_BY_NAME)
 
-# Returns the probability score for all 6000 or so artists in the list
+# Returns the probability scores for all 6000 or so artists in the list
 ```
 
 ## How does it work?
