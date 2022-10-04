@@ -4,7 +4,6 @@ Collated by the user "pharmapsychotic",
 found at https://github.com/pharmapsychotic/clip-interrogator/.
 The licence at the bottom of this file is the licence under which this list was published.
 Minor modifications to the list include formatting and cleaning.
-The data processing etc. is shared under the same MIT licence as the main repository.
 """
 
 ARTISTS_BY_NAME = ["a. b. jackson",
