@@ -7,6153 +7,5876 @@ Minor modifications to the list include formatting and cleaning.
 The data processing etc. is shared under the same MIT licence as the main repository.
 """
 
-from .lists import multiline_text_to_list
-from .artists_by_prevalence import ARTISTS_BY_TRAINING_PREVALENCE
+ARTISTS_BY_NAME = ["a. b. jackson",
+                   "a. j. casson",
+                   "a. r. middleton todd",
+                   "a.b. frost",
+                   "a.d.m. cooper",
+                   "aaron bohrod",
+                   "aaron douglas",
+                   "aaron jasinski",
+                   "aaron miller",
+                   "aaron nagel,",
+                   "abbott handerson thayer",
+                   "abdullah gerguri",
+                   "abdullah gërguri",
+                   "abdur rahman chughtai",
+                   "abidin dino",
+                   "abraham begeyn",
+                   "abraham bloemaert",
+                   "abraham bosschaert",
+                   "abraham de vries",
+                   "abraham hondius",
+                   "abraham mignon",
+                   "abraham storck",
+                   "abraham van beijeren",
+                   "abraham van calraet",
+                   "abraham van den tempel",
+                   "abraham willaerts",
+                   "abram arkhipov",
+                   "achille leonardi",
+                   "ada gladys killins",
+                   "ada hill walker",
+                   "adam bruce thomson",
+                   "adam chmielowski",
+                   "adam dario keel",
+                   "adam elsheimer",
+                   "adam manyoki",
+                   "adam marczynski",
+                   "adam marczyński",
+                   "adam martinakis",
+                   "adam paquette",
+                   "adam pijnacker",
+                   "adam rex",
+                   "adam saks",
+                   "adam szentpetery",
+                   "adam szentpétery",
+                   "adam willaerts",
+                   "adelaide labille-guiard",
+                   "adelaide victoire hall",
+                   "adolf bierbrauer",
+                   "adolf born",
+                   "adolf dietrich",
+                   "adolf fenyes",
+                   "adolf fényes",
+                   "adolf hiremy-hirschl",
+                   "adolf hirémy-hirschl",
+                   "adolf holzel",
+                   "adolf hölzel",
+                   "adolf schrodter",
+                   "adolf schrödter",
+                   "adolf ulric wertmuller",
+                   "adolf ulric wertmüller",
+                   "adolf wolfli",
+                   "adolf wölfli",
+                   "adolfo muller-ury",
+                   "adolfo müller-ury",
+                   "adolph frederick reinhardt",
+                   "adolph gottlieb",
+                   "adolph menzel",
+                   "adolphe willette",
+                   "adriaen brouwer",
+                   "adriaen coorte",
+                   "adriaen hanneman",
+                   "adriaen isenbrant",
+                   "adriaen van de velde",
+                   "adriaen van de venne",
+                   "adriaen van der werff",
+                   "adriaen van ostade",
+                   "adrian zingg",
+                   "adrienn henczne deak",
+                   "adrienn henczné deák",
+                   "adélaïde labille-guiard",
+                   "adélaïde victoire hall",
+                   "aelbert cuyp",
+                   "aelita andre",
+                   "aert de gelder",
+                   "aert van der neer",
+                   "aertgen van leyden",
+                   "afewerk tekle",
+                   "affandi",
+                   "agnes bernice martin",
+                   "agnes lawrence pelton",
+                   "agnes martin",
+                   "agnolo bronzino",
+                   "agnolo gaddi",
+                   "agostino carracci",
+                   "aguri uchida",
+                   "agustin fernandez",
+                   "agustín fernández",
+                   "ahmed karahisari",
+                   "ahmed yacoubi",
+                   "ai weiwei",
+                   "ai xuan",
+                   "ai-mitsu",
+                   "aileen eagleton",
+                   "aime barraud",
+                   "aimé barraud",
+                   "akihiko yoshida",
+                   "akira toriyama",
+                   "akseli gallen-kallela",
+                   "al feldstein",
+                   "al williamson",
+                   "aladar korosfoi-kriesch",
+                   "aladár körösfői-kriesch",
+                   "alain tasso",
+                   "alan bean",
+                   "alan davis",
+                   "alan lee",
+                   "alan pollack",
+                   "alan sutherland",
+                   "alasdair grant taylor",
+                   "alasdair gray",
+                   "albert anker",
+                   "albert bertelsen",
+                   "albert bierstadt",
+                   "albert dorne",
+                   "albert dubois-pillet",
+                   "albert edelfelt",
+                   "albert gleizes",
+                   "albert guillaume",
+                   "albert henry krehbiel",
+                   "albert irvin",
+                   "albert j. welti",
+                   "albert joseph moore",
+                   "albert joseph penot",
+                   "albert joseph pénot",
+                   "albert keller",
+                   "albert kotin",
+                   "albert marquet",
+                   "albert namatjira",
+                   "albert nemethy",
+                   "albert paris gutersloh",
+                   "albert paris gütersloh",
+                   "albert swinden",
+                   "albert welti",
+                   "alberto burri",
+                   "alberto giacometti",
+                   "alberto morrocco",
+                   "alberto seveso",
+                   "alberto sughi",
+                   "alberto vargas",
+                   "albin egger-lienz",
+                   "albrecht altdorfer",
+                   "albrecht durer",
+                   "albrecht dürer",
+                   "aldus manutius",
+                   "alejandro burdisio",
+                   "alejandro obregon",
+                   "alejandro obregón",
+                   "aleksander gierymski",
+                   "aleksander gine",
+                   "aleksander kobzdej",
+                   "aleksander kotsis",
+                   "aleksander orlowski",
+                   "aleksander orłowski",
+                   "aleksandr gerasimov",
+                   "aleksandr ivanovich laktionov",
+                   "aleksi briclot",
+                   "alen divis",
+                   "alena aenami",
+                   "alessandro allori",
+                   "alessandro galli bibiena",
+                   "alessio albi",
+                   "alesso baldovinetti",
+                   "alex alice",
+                   "alex grey",
+                   "alex horley",
+                   "alex horley-orlandelli",
+                   "alex katz",
+                   "alex petruk ape",
+                   "alex ross",
+                   "alex toth",
+                   "alexander archipenko",
+                   "alexander bogen",
+                   "alexander brook",
+                   "alexander calder",
+                   "alexander carse",
+                   "alexander deyneka",
+                   "alexander fedosav",
+                   "alexander ivanov",
+                   "alexander jansson",
+                   "alexander johnston",
+                   "alexander kanoldt",
+                   "alexander kucharsky",
+                   "alexander litovchenko",
+                   "alexander mann",
+                   "alexander mcqueen",
+                   "alexander milne calder",
+                   "alexander nasmyth",
+                   "alexander robertson",
+                   "alexander rodchenko",
+                   "alexander roslin",
+                   "alexander runciman",
+                   "alexander scott",
+                   "alexander sharpe ross",
+                   "alexander stirling calder",
+                   "alexander v. kuprin",
+                   "alexandre benois",
+                   "alexandre cabanel",
+                   "alexandre falguiere",
+                   "alexandre falguière",
+                   "alexandre-evariste fragonard",
+                   "alexandre-évariste fragonard",
+                   "alexei kondratyevich savrasov",
+                   "alexej von jawlensky",
+                   "alexey merinov",
+                   "alexey venetsianov",
+                   "alexis grimou",
+                   "alexis simon belle",
+                   "alfons karpinski",
+                   "alfons karpiński",
+                   "alfons von czibulka",
+                   "alfons walde",
+                   "alfonse mucha",
+                   "alfonso angel yangco ossorio",
+                   "alfred charles parker",
+                   "alfred east",
+                   "alfred edward chalon",
+                   "alfred eisenstaedt",
+                   "alfred freddy krupa",
+                   "alfred janes",
+                   "alfred jensen",
+                   "alfred krupa",
+                   "alfred kubin",
+                   "alfred leslie",
+                   "alfred leyman",
+                   "alfred manessier",
+                   "alfred richard gurrey",
+                   "alfred sisley",
+                   "alfred thompson bricher",
+                   "alfred wallis",
+                   "alfredo volpi",
+                   "algernon talmage",
+                   "alice bailly",
+                   "alice mason",
+                   "alice neel",
+                   "alice prin",
+                   "alice rahon",
+                   "alison debenham",
+                   "alison geissler",
+                   "alison kinnaird",
+                   "alison watt",
+                   "allaert van everdingen",
+                   "allan brooks",
+                   "allan linder",
+                   "allan ramsay",
+                   "allen butler talcott",
+                   "allen jones",
+                   "allen tupper true",
+                   "alma thomas",
+                   "almada negreiros",
+                   "almeida junior",
+                   "almeida júnior",
+                   "alonso vazquez",
+                   "alonso vázquez",
+                   "aloysius o'kelly",
+                   "alphonse legros",
+                   "alphonse mucha",
+                   "alson s. clark",
+                   "altichiero",
+                   "alton tobey",
+                   "altoon sultan",
+                   "alvan fisher",
+                   "alén diviš",
+                   "amadeo de souza cardoso",
+                   "amalia lindegren",
+                   "amanda sage",
+                   "ambreen butt",
+                   "ambrose mccarthy patterson",
+                   "ambrosius benson",
+                   "ambrosius bosschaert",
+                   "ambrosius bosschaert ii",
+                   "ambrosius holbein",
+                   "amedee ozenfant",
+                   "amedeo modigliani",
+                   "amelia pelaez",
+                   "amelia peláez",
+                   "amelia robertson hill",
+                   "americo makk",
+                   "amir zand",
+                   "ammi phillips",
+                   "amos ferguson",
+                   "amos sewell",
+                   "amy weber",
+                   "amédée ozenfant",
+                   "an gyeon",
+                   "an zhengwen",
+                   "anato finnstark",
+                   "ancell stronach",
+                   "anders zorn",
+                   "andor basch",
+                   "andre bauchant",
+                   "andre beauneveu",
+                   "andre castro",
+                   "andre charles bieler",
+                   "andre de krayewski",
+                   "andre derain",
+                   "andre francois",
+                   "andre kertesz",
+                   "andre lhote",
+                   "andre masson",
+                   "andre pijet",
+                   "andre thomkins",
+                   "andrea del sarto",
+                   "andrea del verrocchio",
+                   "andrea kowch",
+                   "andrea mantegna",
+                   "andrea orcagna",
+                   "andrea pozzo",
+                   "andreas achenbach",
+                   "andreas gursky",
+                   "andreas rocha",
+                   "andree ruellan",
+                   "andrei kolkoutine",
+                   "andrei riabovitchev",
+                   "andrei rublev",
+                   "andrei ryabushkin",
+                   "andrew allan",
+                   "andrew bell",
+                   "andrew boog faithfull",
+                   "andrew domachowski",
+                   "andrew ferez",
+                   "andrew geddes",
+                   "andrew henderson",
+                   "andrew law",
+                   "andrew loomis",
+                   "andrew robertson",
+                   "andrew robinson",
+                   "andrew stevovich",
+                   "andrew wyeth",
+                   "andrey esionov",
+                   "andrey yefimovich martynov",
+                   "andries both",
+                   "andries stock, dutch baroque painter",
+                   "android jones",
+                   "andrzej pronaszko",
+                   "andrzej wroblewski",
+                   "andrzej wróblewski",
+                   "andré bauchant",
+                   "andré beauneveu",
+                   "andré castro",
+                   "andré charles biéler",
+                   "andré derain",
+                   "andré françois",
+                   "andré kertész",
+                   "andré lhote",
+                   "andré masson",
+                   "andré pijet",
+                   "andré thomkins",
+                   "andrée ruellan",
+                   "andy goldsworthy",
+                   "andy warhol",
+                   "aneurin jones",
+                   "angel botello",
+                   "angelica kauffman",
+                   "angus mckie",
+                   "anibal villacis",
+                   "aniello falcone",
+                   "anish kapoor",
+                   "anita kunz",
+                   "anita malfatti",
+                   "anka zhuravleva",
+                   "ann thetis blacker",
+                   "anna ancher",
+                   "anna and elena balbusso",
+                   "anna boch",
+                   "anna dittmann",
+                   "anna findlay",
+                   "anna fussli",
+                   "anna füssli",
+                   "anna haifisch",
+                   "anna hotchkis",
+                   "anna katharina block",
+                   "anna maria barbara abesch",
+                   "anna mary robertson moses",
+                   "annabel eyres",
+                   "annabel kidston",
+                   "anne dunn",
+                   "anne geddes",
+                   "anne nasmyth",
+                   "anne redpath",
+                   "anne rigney",
+                   "anne ryan",
+                   "anne said",
+                   "anne savage",
+                   "anne stokes",
+                   "anni albers",
+                   "annibale carracci",
+                   "annie abernethie pirie quibell",
+                   "annie leibovitz",
+                   "annie rose laing",
+                   "ansel adams",
+                   "anselm kiefer",
+                   "anson maddocks",
+                   "antanas sutkus",
+                   "anthony angarola",
+                   "anthony devas",
+                   "anthony palumbo",
+                   "anthony s waters",
+                   "anthony van dyck",
+                   "antoine blanchard",
+                   "antoine ignace melling",
+                   "antoine le nain",
+                   "antoine verney-carron",
+                   "antoine wiertz",
+                   "anton azbe",
+                   "anton ažbe",
+                   "anton fadeev",
+                   "anton graff",
+                   "anton lehmden",
+                   "anton mauve",
+                   "anton moller",
+                   "anton möller",
+                   "anton otto fischer",
+                   "anton pieck",
+                   "anton raderscheidt",
+                   "anton räderscheidt",
+                   "anton solomoukha",
+                   "antonello da messina",
+                   "antoni brodowski",
+                   "antoni pitxot",
+                   "antoni tapies",
+                   "antoni tàpies",
+                   "antonie palamedesz",
+                   "antonin artaud",
+                   "antonin chittussi",
+                   "antonin slavicek",
+                   "antonio canova",
+                   "antonio cavallucci",
+                   "antonio ciseri",
+                   "antonio de la gandara",
+                   "antonio donghi",
+                   "antonio galli bibiena",
+                   "antonio mancini",
+                   "antonio parreiras",
+                   "antonio rotta",
+                   "antonio saura",
+                   "antonín chittussi",
+                   "antonín slavíček",
+                   "antônio parreiras",
+                   "aníbal villacís",
+                   "apelles",
+                   "apollinary vasnetsov",
+                   "apollonia saintclair",
+                   "april gornik",
+                   "aquirax uno",
+                   "arabella rankin",
+                   "araceli gilbert",
+                   "aramenta dianthe vail",
+                   "archibald motley",
+                   "archibald robertson",
+                   "archibald skirving",
+                   "archibald standish hartrick",
+                   "arcimboldo",
+                   "arent arentsz",
+                   "arie smit",
+                   "arik brauer",
+                   "aristide maillol",
+                   "arkhip kuindzhi",
+                   "arlington nelson lindenmuth",
+                   "armand guillaumin",
+                   "armin baumgarten",
+                   "armin hansen",
+                   "arnie swekel",
+                   "arnold blanch",
+                   "arnold bocklin",
+                   "arnold bronckhorst",
+                   "arnold brugger",
+                   "arnold brügger",
+                   "arnold böcklin",
+                   "arnold franz brasz",
+                   "arnold mesches",
+                   "arnold newman",
+                   "arshile gorky",
+                   "art & language",
+                   "art brenner",
+                   "art fitzpatrick",
+                   "art frahm",
+                   "art green",
+                   "art of brom",
+                   "art spiegelman",
+                   "artemisia gentileschi",
+                   "artgerm",
+                   "arthur adams",
+                   "arthur b. carles",
+                   "arthur boyd",
+                   "arthur burdett frost",
+                   "arthur dove",
+                   "arthur garfield dove",
+                   "arthur hughes",
+                   "arthur lismer",
+                   "arthur melville",
+                   "arthur merric boyd",
+                   "arthur pan",
+                   "arthur quartley",
+                   "arthur rackham",
+                   "arthur sarkissian",
+                   "arthur streeton",
+                   "arthur webster emerson",
+                   "artur grottger",
+                   "artur tarnowski",
+                   "arturo rivera",
+                   "arvid nyholm",
+                   "asaf hanuka",
+                   "asai chu",
+                   "asai chū",
+                   "asger jorn",
+                   "asgrimur jonsson",
+                   "asher brown durand",
+                   "atey ghailan",
+                   "attila meszlenyi",
+                   "aubrey beardsley",
+                   "audrey kawasaki",
+                   "august friedrich schenck",
+                   "august lemmer",
+                   "august macke",
+                   "august querfurt",
+                   "august sander",
+                   "auguste baud-bovy",
+                   "auguste herbin",
+                   "augustin meinrad bachtiger",
+                   "augustin meinrad bächtiger",
+                   "augustus dunbier",
+                   "augustus earle",
+                   "augustus edwin mulready",
+                   "augustus john",
+                   "augustus vincent tack",
+                   "augustyn mirys",
+                   "aurel bernath",
+                   "aurél bernáth",
+                   "auseklis ozols",
+                   "austin briggs",
+                   "austin english",
+                   "austin osman spare",
+                   "avgust cernigoj",
+                   "avgust černigoj",
+                   "avigdor arikha",
+                   "awataguchi takamitsu",
+                   "ay-o",
+                   "aya goda",
+                   "ayako rokkaku",
+                   "ayami kojima",
+                   "ayshia taskin",
+                   "ayshia taşkın",
+                   "baioken eishun",
+                   "baiōken eishun",
+                   "balazs dioszegi",
+                   "balcomb greene",
+                   "balint kiss",
+                   "balthasar van der ast",
+                   "balthus",
+                   "balázs diószegi",
+                   "banksy",
+                   "bapu",
+                   "barbara balmer",
+                   "barbara greg",
+                   "barbara kruger",
+                   "barbara longhi",
+                   "barbara nasmyth",
+                   "barbara nessim",
+                   "barclay shaw",
+                   "barent fabritius",
+                   "barkley hendricks",
+                   "barnett newman",
+                   "barron storey",
+                   "barry windsor smith",
+                   "barthel bruyn the elder",
+                   "barthel bruyn the younger",
+                   "barthelemy d'eyck",
+                   "barthelemy menn",
+                   "bartholomeus breenbergh",
+                   "bartholomeus strobel",
+                   "bartholomeus van bassen",
+                   "bartholomeus van der helst",
+                   "barthélemy d'eyck",
+                   "barthélemy menn",
+                   "bartolome esteban murillo",
+                   "bartolomeo cesi",
+                   "bartolomeo vivarini",
+                   "bartolomé esteban murillo",
+                   "bascove",
+                   "basil blackshaw",
+                   "bastien l. deharme",
+                   "bastien lecouffe-deharme",
+                   "basuki abdullah",
+                   "bauhaus",
+                   "bayard wu",
+                   "beatrice ethel lithiby",
+                   "beatrice huntington",
+                   "beatrix potter",
+                   "beauford delaney",
+                   "bedwyr williams",
+                   "beeple",
+                   "beksinski",
+                   "bela apati abkarovics",
+                   "bela cikos sesija",
+                   "bela czobel",
+                   "bela ivanyi-grunwald",
+                   "bela kondor",
+                   "bela nagy abodi",
+                   "bela pallik",
+                   "bela čikoš sesija",
+                   "ben enwonwu",
+                   "ben nicholson",
+                   "ben shahn",
+                   "ben stahl",
+                   "ben templesmith",
+                   "ben thompson",
+                   "ben zoeller",
+                   "bencho obreshkov",
+                   "beni ferenczy",
+                   "benito quinquela martin",
+                   "benito quinquela martín",
+                   "benjamin block",
+                   "benjamin franklin",
+                   "benjamin gerritsz cuyp",
+                   "benjamin marra",
+                   "benjamin west",
+                   "benjamin williams leader",
+                   "benoit b. mandelbrot",
+                   "bernard accama",
+                   "bernard buffet",
+                   "bernard d'andrea",
+                   "bernard d’andrea",
+                   "bernard fleetwood-walker",
+                   "bernard meninsky",
+                   "bernard van orley",
+                   "bernardino mei",
+                   "bernardo bellotto",
+                   "bernardo cavallino",
+                   "bernardo daddi",
+                   "bernardo strozzi",
+                   "bernat sanjuan",
+                   "bernd fasching",
+                   "bernie d'andrea",
+                   "bernie d’andrea",
+                   "bernie wrightson",
+                   "bernt tunold",
+                   "bert hardy",
+                   "bert stern",
+                   "bertalan karlovszky",
+                   "bertalan por",
+                   "bertalan pór",
+                   "bertalan szekely",
+                   "bertalan székely",
+                   "berthe morisot",
+                   "bertram brooker",
+                   "bessie wheeler",
+                   "beta vukanovic",
+                   "beta vukanović",
+                   "bettina heinen-ayech",
+                   "betty churcher",
+                   "betty merken",
+                   "betye saar",
+                   "bholekar srihari",
+                   "bhupen khakhar",
+                   "bian jingzhao",
+                   "bian shoumin",
+                   "bikash bhattacharjee",
+                   "bill henson",
+                   "bill lewis",
+                   "bill sienkiewicz",
+                   "bill traylor",
+                   "bill ward",
+                   "bill watterson",
+                   "billie waters",
+                   "billy childish",
+                   "bjorn wiinblad",
+                   "bjørn wiinblad",
+                   "blanche hoschede monet",
+                   "blanche hoschedé monet",
+                   "bob byerley",
+                   "bob eggleton",
+                   "bob ringwood",
+                   "bob ross",
+                   "bob singer",
+                   "bob thompson",
+                   "boetius adamsz bolswert",
+                   "bogi fabian",
+                   "bohumil kubista",
+                   "boleslaw cybis",
+                   "bonnard pierre",
+                   "boris kustodiev",
+                   "boris vallejo",
+                   "boris vladimirski",
+                   "bouchta el hayani",
+                   "bourgeois",
+                   "bozidar jakac",
+                   "božidar jakac",
+                   "bracha l. ettinger",
+                   "brad holland",
+                   "brad kunkle",
+                   "bradley walker tomlin",
+                   "brassai",
+                   "brassaï",
+                   "brenda chamberlain",
+                   "brett whiteley",
+                   "breyten breytenbach",
+                   "brian 'chippy' dugan",
+                   "brian alfred",
+                   "brian and wendy froud",
+                   "brian bolland",
+                   "brian despain",
+                   "brian dunlop",
+                   "brian fies",
+                   "brian froud",
+                   "brian snoddy",
+                   "brian snøddy",
+                   "brian stelfreeze",
+                   "brian thomas",
+                   "briana mora",
+                   "brice marden",
+                   "bridget bate tichenor",
+                   "bridget riley",
+                   "brigette barrager",
+                   "brigid derham",
+                   "brom",
+                   "brooke shaden",
+                   "brothers hildebrandt",
+                   "bruce davidson",
+                   "bruce gilden",
+                   "bruce mclean",
+                   "bruce munro",
+                   "bruce nauman",
+                   "bruce onobrakpeya",
+                   "bruce pennington",
+                   "bruce timm",
+                   "bruno liljefors",
+                   "bryan organ",
+                   "buckminster fuller",
+                   "bunny yeager",
+                   "byeon sang-byeok",
+                   "byron galvez",
+                   "bálint kiss",
+                   "béla apáti abkarovics",
+                   "béla czóbel",
+                   "béla iványi-grünwald",
+                   "béla kondor",
+                   "béla nagy abodi",
+                   "béla pállik",
+                   "béni ferenczy",
+                   "caesar andrade faini",
+                   "caesar van everdingen",
+                   "cafer bater",
+                   "cagnaccio di san pietro",
+                   "cam sykes",
+                   "camille bombois",
+                   "camille bouvagne",
+                   "camille corot",
+                   "camille pissarro",
+                   "camille souter",
+                   "camille-pierre pambu bodo",
+                   "camilo egas",
+                   "camilo mori",
+                   "canaletto",
+                   "candido bido",
+                   "candido lopez",
+                   "candido portinari",
+                   "cao buxing",
+                   "cao zhibai",
+                   "caravaggio",
+                   "carel fabritius",
+                   "carel weight",
+                   "carel willink",
+                   "carey morris",
+                   "carl arnold gonzenbach",
+                   "carl barks",
+                   "carl critchlow",
+                   "carl eugen keel",
+                   "carl eytel",
+                   "carl frederik von breda",
+                   "carl gustaf pilo",
+                   "carl heinrich bloch",
+                   "carl hoppe",
+                   "carl larsson",
+                   "carl morris",
+                   "carl rahl",
+                   "carl spitzweg",
+                   "carl walter liner",
+                   "carl-henning pedersen",
+                   "carla wyzgala",
+                   "carle hessay",
+                   "carles delclaux is",
+                   "carlo carlone",
+                   "carlo carra",
+                   "carlo carrà",
+                   "carlo crivelli",
+                   "carlo galli bibiena",
+                   "carlo maderna",
+                   "carlo martini",
+                   "carlo mense",
+                   "carlo randanini",
+                   "carlos berlanga",
+                   "carlos catasse",
+                   "carlos enriquez gomez",
+                   "carlos enríquez gómez",
+                   "carlos francisco chang marin",
+                   "carlos francisco chang marín",
+                   "carlos saenz de tejada",
+                   "carlos schwabe",
+                   "carlos trillo name",
+                   "carne griffiths",
+                   "caro niederer",
+                   "carol bove",
+                   "carol sutton",
+                   "caroline chariot-dayez",
+                   "caroline gotch",
+                   "caroline lucy scott",
+                   "caroline mytinger",
+                   "carpoforo tencalla",
+                   "carrie mae weems",
+                   "caspar david friedrich",
+                   "caspar netscher",
+                   "caspar van wittel",
+                   "caspar wolf",
+                   "cassandra austen",
+                   "cassius marcellus coolidge",
+                   "caterina tarabotti",
+                   "catrin g grosse",
+                   "catrin welz-stein",
+                   "cecil beaton",
+                   "cecile walton",
+                   "cecilia beaux",
+                   "cecily brown",
+                   "cedric peyravernay",
+                   "cedric seaut",
+                   "cedric seaut (keos masons)",
+                   "ceferi olive",
+                   "ceferí olivé",
+                   "celia fiennes",
+                   "celia frances bedford",
+                   "ceri richards",
+                   "cerith wyn evans",
+                   "cezanne",
+                   "chafik charobim",
+                   "chagall",
+                   "chaim soutine",
+                   "chang dai-chien",
+                   "chantal joffe",
+                   "charles addams",
+                   "charles alphonse du fresnoy",
+                   "charles alston",
+                   "charles angrand",
+                   "charles billich",
+                   "charles bird king",
+                   "charles blackman",
+                   "charles camoin",
+                   "charles codman",
+                   "charles conder",
+                   "charles crodel",
+                   "charles cundall",
+                   "charles dana gibson",
+                   "charles demuth",
+                   "charles e. burchfield",
+                   "charles ellison",
+                   "charles fremont conner",
+                   "charles furneaux",
+                   "charles ginner",
+                   "charles gleyre",
+                   "charles h. woodbury",
+                   "charles harold davis",
+                   "charles haslewood shannon",
+                   "charles hinman",
+                   "charles hopkinson",
+                   "charles joshua chaplin",
+                   "charles le brun",
+                   "charles le roux",
+                   "charles mahoney",
+                   "charles marion russell",
+                   "charles martin",
+                   "charles maurice detmold",
+                   "charles mcauley",
+                   "charles mozley",
+                   "charles ragland bunnell",
+                   "charles rennie mackintosh",
+                   "charles ricketts",
+                   "charles roka",
+                   "charles rollier",
+                   "charles s. kaelin",
+                   "charles schulz",
+                   "charles thomson",
+                   "charles uzzell-edwards",
+                   "charles vess",
+                   "charles w. bartlett",
+                   "charles williams",
+                   "charles willson peale",
+                   "charles-amedee-philippe van loo",
+                   "charles-amédée-philippe van loo",
+                   "charles-andre van loo",
+                   "charles-andré van loo",
+                   "charles-francois daubigny",
+                   "charles-françois daubigny",
+                   "charlie bowater",
+                   "charlotte harding",
+                   "charlotte nasmyth",
+                   "charly amani",
+                   "charmion von wiegand",
+                   "chase stone",
+                   "chaïm soutine",
+                   "chen chi",
+                   "chen chun",
+                   "chen daofu",
+                   "chen hong",
+                   "chen hongshou",
+                   "chen jiru",
+                   "chen lin",
+                   "chen lu",
+                   "chen rong",
+                   "chen yifei",
+                   "cheng jiasui",
+                   "cheng shifa",
+                   "cheng zhengkui",
+                   "cherryl fountain",
+                   "chesley bonestell",
+                   "chica macnab",
+                   "chiharu shiota",
+                   "chiho aoshima",
+                   "childe hassam",
+                   "chinwe chukwuogo-roy",
+                   "chip zdarsky",
+                   "chippy",
+                   "chizuko yoshida",
+                   "choi buk",
+                   "chris cold",
+                   "chris foss",
+                   "chris friel",
+                   "chris labrooy",
+                   "chris moore",
+                   "chris ofili",
+                   "chris rahn",
+                   "chris rallis",
+                   "chris spollen",
+                   "chris ware",
+                   "christabel dennison",
+                   "christen dalsgaard",
+                   "christen kobke",
+                   "christen købke",
+                   "christian august lorentzen",
+                   "christian hilfgott brand",
+                   "christian jane fergusson",
+                   "christian krohg",
+                   "christian rohlfs",
+                   "christian w. staudinger",
+                   "christo",
+                   "christoffel van den berghe",
+                   "christoffer wilhelm eckersberg",
+                   "christoph amberger",
+                   "christoph ludwig agricola",
+                   "christophe vacher",
+                   "christopher balaskas",
+                   "christopher moeller",
+                   "christopher perkins",
+                   "christopher rush",
+                   "christopher williams",
+                   "christopher wood",
+                   "christopher wren",
+                   "chuck close",
+                   "cicely hey",
+                   "cicely mary barker",
+                   "cimabue",
+                   "cindy sherman",
+                   "cindy wright",
+                   "claes corneliszoon moeyaert",
+                   "claes jansz. visscher",
+                   "claire dalby",
+                   "claire falkenstein",
+                   "claire hummel",
+                   "clara miller burd",
+                   "clara peeters",
+                   "clara weaver parrish",
+                   "clarence holbrook carter",
+                   "clarice beckett",
+                   "clark voorhees",
+                   "claude bonin-pissarro",
+                   "claude cahun",
+                   "claude lorrain",
+                   "claude monet",
+                   "claude rogers",
+                   "clement serveau",
+                   "cleon peterson",
+                   "cleve gray",
+                   "cliff childs",
+                   "clifford ellis",
+                   "clifford ross",
+                   "clint cearley",
+                   "clovis trouille",
+                   "clyde aspevig",
+                   "clyde caldwell",
+                   "clyfford still",
+                   "clément serveau",
+                   "coby whitmore",
+                   "coles phillips",
+                   "colijn de coter",
+                   "colin campbell cooper",
+                   "colin gill",
+                   "colin hayes",
+                   "colin mccahon",
+                   "colin middleton",
+                   "colin moss",
+                   "conrad marca-relli",
+                   "conrad roset",
+                   "conroy maddox",
+                   "constance copeman",
+                   "constance gordon-cumming",
+                   "constance-anne parker",
+                   "constant",
+                   "constant permeke",
+                   "constantin brancusi",
+                   "constantin hansen",
+                   "constantine andreou",
+                   "coppo di marcovaldo",
+                   "cor melchers",
+                   "corneille",
+                   "cornelia macintyre foley",
+                   "cornelia parker",
+                   "cornelis anthonisz",
+                   "cornelis bisschop",
+                   "cornelis claesz van wieringen",
+                   "cornelis de heem",
+                   "cornelis de man",
+                   "cornelis dusart",
+                   "cornelis engebrechtsz",
+                   "cornelis pietersz bega",
+                   "cornelis saftleven",
+                   "cornelis van haarlem",
+                   "cornelis van poelenburgh",
+                   "cornelis verbeeck",
+                   "cornelisz hendriksz vroom, the younger",
+                   "correggio",
+                   "cosmo alexander",
+                   "craig davison",
+                   "craig mullins",
+                   "craig thompson",
+                   "craola",
+                   "cricorps gregoire",
+                   "cricorps grégoire",
+                   "cristache gheorghiu",
+                   "cristofano allori",
+                   "csaba markus",
+                   "cui bai",
+                   "cui zizhong",
+                   "cuno amiet",
+                   "cy twombly",
+                   "cynthia sheppard",
+                   "cyril rolando",
+                   "cándido lópez",
+                   "cézanne",
+                   "d. alexander gregory",
+                   "d. howard hitchcock",
+                   "daarken",
+                   "dahlov ipcar",
+                   "dai jin",
+                   "dai xi",
+                   "dale chihuly",
+                   "dali",
+                   "dalí",
+                   "damien hirst",
+                   "dan christensen",
+                   "dan content",
+                   "dan frazier",
+                   "dan hillier",
+                   "dan luvisi",
+                   "dan mumford",
+                   "dan scott",
+                   "dan smith",
+                   "daniel chodowiecki",
+                   "daniel f gerhartz",
+                   "daniel f. gerhartz",
+                   "daniel garber",
+                   "daniel gelon",
+                   "daniel lieske",
+                   "daniel ljunggren",
+                   "daniel maclise",
+                   "daniel merriam",
+                   "daniel mijtens",
+                   "daniel schultz",
+                   "daniel seghers",
+                   "daniel taylor",
+                   "daniël mijtens",
+                   "dante gabriel rossetti",
+                   "daphne allen",
+                   "daphne fedarb",
+                   "daphne mcclure",
+                   "darek zabrocki",
+                   "daren bader",
+                   "dariusz zawadzki",
+                   "darrell k. sweet",
+                   "darrell riche",
+                   "daryush shokof",
+                   "dave allsop",
+                   "dave arredondo",
+                   "dave dorman",
+                   "dave gibbons",
+                   "dave kendall",
+                   "dave mckean",
+                   "dave melvin",
+                   "david a hardy",
+                   "david a. hardy",
+                   "david a. trampier",
+                   "david alfaro siqueiros",
+                   "david allan",
+                   "david annand",
+                   "david b. mattingly",
+                   "david bailly",
+                   "david begbie",
+                   "david bomberg",
+                   "david boyd",
+                   "david brewster",
+                   "david budd",
+                   "david burliuk",
+                   "david burton-richardson",
+                   "david c. sutherland iii",
+                   "david chipperfield",
+                   "david cooke gibson",
+                   "david diao",
+                   "david donaldson",
+                   "david dougal williams",
+                   "david eugene henry",
+                   "david firth",
+                   "david g. sorensen",
+                   "david garner",
+                   "david gilmour blythe",
+                   "david hockney",
+                   "david imms",
+                   "david inshaw",
+                   "david lachapelle",
+                   "david lazar",
+                   "david ligare",
+                   "david macaulay",
+                   "david macbeth sutherland",
+                   "david martin",
+                   "david michie",
+                   "david octavius hill",
+                   "david palumbo",
+                   "david park",
+                   "david paton",
+                   "david ramsay hay",
+                   "david roberts",
+                   "david simpson",
+                   "david small",
+                   "david teniers iii",
+                   "david teniers the elder",
+                   "david teniers the younger",
+                   "david watson stevenson",
+                   "david wilkie",
+                   "david wojnarowicz",
+                   "david young cameron",
+                   "davide sasselli",
+                   "de hirsh margules",
+                   "dean cornwell",
+                   "dean ellis",
+                   "dean roger",
+                   "dechko uzunov",
+                   "dee whitcomb",
+                   "delaunay",
+                   "delmer j. yoakum",
+                   "delphin enjolras",
+                   "demetrios farmakopoulos",
+                   "denis eden",
+                   "dennis ashbaugh",
+                   "dennis flanders",
+                   "dennis h. farber",
+                   "dennis miller bunker",
+                   "derek chittock",
+                   "derek gores",
+                   "derek hill",
+                   "derek jarman",
+                   "derf",
+                   "derold page",
+                   "desmond morris",
+                   "di-li feng",
+                   "diane arbus",
+                   "diane dillon",
+                   "dick bickenbach",
+                   "dicky doyle",
+                   "didier mouron",
+                   "diego giacometti",
+                   "diego gisbert llorens",
+                   "diego rivera",
+                   "diego velazquez",
+                   "diego velázquez",
+                   "dieric bouts",
+                   "dietmar damerau",
+                   "dimitre manassiev mehandjiysky",
+                   "ding guanpeng",
+                   "ding yunpeng",
+                   "dino valls",
+                   "dionisio baixeras verdaguer",
+                   "dionisius",
+                   "dirck de bray",
+                   "dirck de quade van ravesteyn",
+                   "dirck hals",
+                   "dirck van baburen",
+                   "dirck van delen",
+                   "dirck van der lisse",
+                   "dirk crabeth",
+                   "dirk helmbreker",
+                   "ditlev blunck",
+                   "dmitry levitzky",
+                   "doc hammer",
+                   "dod procter",
+                   "dom qwek",
+                   "domenichino",
+                   "domenico di pace beccafumi",
+                   "domenico ghirlandaio",
+                   "domenico induno",
+                   "domenico pozzi",
+                   "domenico quaglio the younger",
+                   "domenico zampieri",
+                   "domirinic fegallia",
+                   "don arday",
+                   "don bluth",
+                   "don eddy",
+                   "don maitz",
+                   "don reichert",
+                   "donald judd",
+                   "donald roller wilson",
+                   "donald sherwood",
+                   "donatello",
+                   "donato giancola",
+                   "dong kingman",
+                   "dong qichang",
+                   "dong yuan",
+                   "dora carrington",
+                   "dora keresztes",
+                   "dora maar",
+                   "doris blair",
+                   "doris boulton-maude",
+                   "dorning rasbotham",
+                   "dorothea braby",
+                   "dorothea lange",
+                   "dorothea tanning",
+                   "dorothea warren o'hara",
+                   "dorothy bradford",
+                   "dorothy burroughes",
+                   "dorothy coke",
+                   "dorothy elizabeth bradford",
+                   "dorothy hood",
+                   "dorothy johnstone",
+                   "dorothy king",
+                   "dorothy lockwood",
+                   "dosso dossi",
+                   "doug ohlson",
+                   "doug wildey",
+                   "douglas bourgeois",
+                   "douglas robertson bisset",
+                   "douglas shuler",
+                   "dr. atl",
+                   "dr. seuss",
+                   "drew struzan",
+                   "drew tucker",
+                   "du jin",
+                   "du qiong",
+                   "duccio",
+                   "dugald sutherland maccoll",
+                   "dulah marie evans",
+                   "duncan grant",
+                   "durer",
+                   "dustin nguyen",
+                   "dwight william tryon",
+                   "dóra keresztes",
+                   "dürer",
+                   "e. charlton fortune",
+                   "e. simms campbell",
+                   "e. t. a. hoffmann",
+                   "e. william gollings",
+                   "e.h. shepard",
+                   "eamon everall",
+                   "earl norem",
+                   "earle bergey",
+                   "earnst haeckel",
+                   "echo chernik",
+                   "ed benedict",
+                   "ed binkley",
+                   "ed emshwiller",
+                   "ed paschke",
+                   "ed roth",
+                   "eddie campbell",
+                   "eddie mendoza",
+                   "eden box",
+                   "edgar ainsworth",
+                   "edgar degas",
+                   "edgar schofield baum",
+                   "edi rama",
+                   "edith edmonds",
+                   "edith grace wheatley",
+                   "edith lawrence",
+                   "edmond aman-jean",
+                   "edmond bille",
+                   "edmond xavier kapp",
+                   "edmund blampied",
+                   "edmund charles tarbell",
+                   "edmund dulac",
+                   "edmund f. ward",
+                   "edmund greacen",
+                   "edmund leighton",
+                   "edna mann",
+                   "edo murtic",
+                   "edo murtić",
+                   "edouard debat-ponsan",
+                   "edouard detaille",
+                   "edouard manet",
+                   "edouard vuillard",
+                   "eduard von grutzner",
+                   "eduard von grützner",
+                   "eduard von steinle",
+                   "eduardo kingman",
+                   "eduardo lefebvre scovell",
+                   "eduardo paolozzi",
+                   "edvard munch",
+                   "edward armitage",
+                   "edward arthur walton",
+                   "edward atkinson hornel",
+                   "edward avedisian",
+                   "edward bailey",
+                   "edward baird",
+                   "edward ben avram",
+                   "edward burne-jones",
+                   "edward clark",
+                   "edward corbett",
+                   "edward dugmore",
+                   "edward george handel lucas",
+                   "edward gorey",
+                   "edward henry potthast",
+                   "edward hicks",
+                   "edward hopper",
+                   "edward kemble",
+                   "edward lamson henry",
+                   "edward lear",
+                   "edward marshall boehm",
+                   "edward mitchell bannister",
+                   "edward moran",
+                   "edward okun",
+                   "edward okuń",
+                   "edward otho cresap ord, ii",
+                   "edward p. beard jr.",
+                   "edward robert hughes",
+                   "edward ruscha",
+                   "edward simmons",
+                   "edward sorel",
+                   "edward wadsworth",
+                   "edward weston",
+                   "edward willis redfield",
+                   "edwin austin abbey",
+                   "edwin deakin",
+                   "edwin dickinson",
+                   "edwin g. lucas",
+                   "edwin georgi",
+                   "edwin henry landseer",
+                   "edwin landseer",
+                   "eero jarnefelt",
+                   "eero järnefelt",
+                   "eero snellman",
+                   "egbert van der poel",
+                   "egbert van heemskerck",
+                   "eglon van der neer",
+                   "egon schiele",
+                   "egon von vietinghoff",
+                   "ei-q",
+                   "eiichiro oda",
+                   "eileen aldridge",
+                   "einar hakonarson",
+                   "eishosai choki",
+                   "eishōsai chōki",
+                   "eizan kikukawa",
+                   "eizo kato",
+                   "eizō katō",
+                   "ejler bille",
+                   "ejnar nielsen",
+                   "el greco",
+                   "el lissitzky",
+                   "elaine de kooning",
+                   "elaine duillo",
+                   "elaine hamilton",
+                   "elbridge ayer burbank",
+                   "eleanor best",
+                   "eleanor fortescue-brickdale",
+                   "eleanor hughes",
+                   "eleanor layfield davis",
+                   "eleanor vere boyle",
+                   "elena guro",
+                   "elfriede lohse-wachtler",
+                   "elfriede lohse-wächtler",
+                   "elias goldberg",
+                   "elias ravanetti",
+                   "elina karimova",
+                   "elinor proby adams",
+                   "eliot hodgkin",
+                   "elisabeth collins",
+                   "elisabeth vigee le brun",
+                   "eliseu visconti",
+                   "elizabeth charleston",
+                   "elizabeth durack",
+                   "elizabeth forbes",
+                   "elizabeth jane lloyd",
+                   "elizabeth macnicol",
+                   "elizabeth murray",
+                   "elizabeth polunin",
+                   "elizabeth shippen green",
+                   "elizabeth york brunton",
+                   "elke vogelsang",
+                   "ella guru",
+                   "ellen gallagher",
+                   "elliott erwitt",
+                   "ellsworth kelly",
+                   "elmer bischoff",
+                   "elmyr de hory",
+                   "elsa beskow",
+                   "elsa bleda",
+                   "else alfelt",
+                   "elsie dalton hewland",
+                   "elsie few",
+                   "elsie henderson",
+                   "elsie vera cole",
+                   "elwood h. smith",
+                   "emanuel buchel",
+                   "emanuel büchel",
+                   "emanuel de witte",
+                   "emanuel leutze",
+                   "emanuel schongut",
+                   "emanuel witz",
+                   "emerson silva",
+                   "emil bisttram",
+                   "emil carlsen",
+                   "emil fuchs",
+                   "emil lindenfeld",
+                   "emil nolde",
+                   "emil orlik",
+                   "emile auguste carolus-duran",
+                   "emile bernard",
+                   "emile lahner",
+                   "emiliano di cavalcanti",
+                   "emiliano ponzi",
+                   "emilio grau sala",
+                   "emily carr",
+                   "emily mason",
+                   "emily murray paterson",
+                   "emily shanks",
+                   "emma andijewska",
+                   "emma geary",
+                   "emma lampert cooper",
+                   "emma rios",
+                   "emma ríos",
+                   "emmanuel shiu",
+                   "emory douglas",
+                   "emperor huizong of song",
+                   "endre balint",
+                   "endre bálint",
+                   "enguerrand quarton",
+                   "enki bilal",
+                   "enrico baj",
+                   "enrique grau",
+                   "enrique simonet",
+                   "enrique tabara",
+                   "enrique tábara",
+                   "enzhe zhao",
+                   "enzo cucchi",
+                   "enzo sciotti",
+                   "eppo doeve",
+                   "epsylon point",
+                   "eric auld",
+                   "eric de kolb",
+                   "eric deschamps",
+                   "eric dinyer",
+                   "eric lafforgue",
+                   "eric peterson",
+                   "eric taylor",
+                   "eric zener",
+                   "erich heckel",
+                   "erik ortvad",
+                   "erik pevernagie",
+                   "erin hanson",
+                   "erlund hudson",
+                   "ernest bieler",
+                   "ernest biéler",
+                   "ernest briggs",
+                   "ernest buckmaster",
+                   "ernest heber thompson",
+                   "ernest hebert",
+                   "ernest hébert",
+                   "ernest lawson",
+                   "ernest morgan",
+                   "ernest procter",
+                   "ernest william christmas",
+                   "ernest zobole",
+                   "ernie barnes",
+                   "erno bank",
+                   "erno grunbaum",
+                   "erno rubik",
+                   "erno tibor",
+                   "ernst",
+                   "ernst fuchs",
+                   "ernst haeckel",
+                   "ernst ludwig kirchner",
+                   "ernst thoms",
+                   "ernst wilhelm nay",
+                   "ernő bánk",
+                   "ernő grünbaum",
+                   "ernő rubik",
+                   "ernő tibor",
+                   "erol otus",
+                   "erwin bowien",
+                   "esaias boursse",
+                   "esaias van de velde",
+                   "esao",
+                   "esao andrews",
+                   "esteban vicente",
+                   "esther blaikie mackinnon",
+                   "estuardo maldonado",
+                   "eszter mattioni",
+                   "etel adnan",
+                   "ethan van sciver",
+                   "ethel schwabacher",
+                   "etienne aubry",
+                   "etienne delessert",
+                   "ettore ted degrazia",
+                   "ettore tito",
+                   "euan uglow",
+                   "eugeen van mieghem",
+                   "eugene boudin",
+                   "eugene brands",
+                   "eugene burnand",
+                   "eugene carriere",
+                   "eugene delacroix",
+                   "eugene grasset",
+                   "eugene isabey",
+                   "eugene j. martin",
+                   "eugene leroy",
+                   "eugene montgomery",
+                   "eugene tertychnyi",
+                   "eugene von guerard",
+                   "eugenio de arriba",
+                   "eugenio granell",
+                   "eugeniusz zak",
+                   "eugeniusz żak",
+                   "eugène boudin",
+                   "eugène brands",
+                   "eugène burnand",
+                   "eugène carrière",
+                   "eugène delacroix",
+                   "eugène grasset",
+                   "eugène isabey",
+                   "eva frankfurther",
+                   "eva gonzales",
+                   "eva gonzalès",
+                   "eva svankmajerova",
+                   "eva švankmajerová",
+                   "evaline ness",
+                   "evan charlton",
+                   "evariste vital luminais",
+                   "evaristo baschenis",
+                   "eve disher",
+                   "eve ryder",
+                   "evelyn abelson",
+                   "evelyn cheston",
+                   "evelyn de morgan",
+                   "everett raymond kinstler",
+                   "everett shinn",
+                   "everett warner",
+                   "evert collier",
+                   "evgeny lushpin",
+                   "exekias",
+                   "eyvind earle",
+                   "f scott hess",
+                   "f. scott hess",
+                   "fabien charuau",
+                   "fairfield porter",
+                   "fan kuan",
+                   "fan qi,",
+                   "fang congyi",
+                   "fanny mcian",
+                   "farel dalrymple",
+                   "farid mansour",
+                   "fathi hassan",
+                   "fay pomerance",
+                   "fede galizia",
+                   "federico barocci",
+                   "federico uribe",
+                   "federico zandomeneghi",
+                   "federico zuccari",
+                   "fedot sychkov",
+                   "fei danxu",
+                   "felice casorati",
+                   "felicity charlton",
+                   "felipe seade",
+                   "felix arauz",
+                   "felix bodog widder",
+                   "felix labisse",
+                   "felix octavius carr darley",
+                   "felix vallotton",
+                   "felix ziem",
+                   "felix-kelly",
+                   "feng zhu",
+                   "fenghua zhong",
+                   "ferdinand bol",
+                   "ferdinand hodler",
+                   "ferdynand ruszczyc",
+                   "ferenc joachim",
+                   "fern coppedge",
+                   "fernand leger",
+                   "fernand léger",
+                   "fernand pelez",
+                   "fernand toussaint",
+                   "fernand verhaegen",
+                   "fernando amorsolo",
+                   "fernando botero",
+                   "fernando gerassi",
+                   "fikret mualla saygi",
+                   "fikret muallâ saygı",
+                   "filip hodas",
+                   "filippino lippi",
+                   "fiona rae",
+                   "fiona stephenson",
+                   "fitz henry lane",
+                   "fitz hugh lane",
+                   "flavia blois",
+                   "fletcher martin",
+                   "flora macdonald reid",
+                   "florence engelbach",
+                   "florent lebrun",
+                   "florianne becker",
+                   "floris van dyck",
+                   "floris van schooten",
+                   "ford madox brown",
+                   "fra angelico",
+                   "fra bartolomeo",
+                   "fra filippo lippi",
+                   "frances c. fairman",
+                   "frances currey",
+                   "frances hodgkins",
+                   "frances jetter",
+                   "frances macdonald",
+                   "francesca woodman",
+                   "francesco albani",
+                   "francesco bartolozzi",
+                   "francesco bonsignori",
+                   "francesco clemente",
+                   "francesco cozza",
+                   "francesco del cossa",
+                   "francesco filippini",
+                   "francesco furini",
+                   "francesco guardi",
+                   "francesco hayez",
+                   "francesco raibolini",
+                   "francesco zuccarelli",
+                   "francis bacon",
+                   "francis bourgeois",
+                   "francis cadell",
+                   "francis coates jones",
+                   "francis davis millet",
+                   "francis ernest jackson",
+                   "francis focer brown",
+                   "francis helps",
+                   "francis picabia",
+                   "francis souza",
+                   "francisco de burgos mantilla",
+                   "francisco de holanda",
+                   "francisco de zurbaran",
+                   "francisco de zurbarán",
+                   "francisco goya",
+                   "francisco jose de goya",
+                   "francisco josè de goya",
+                   "francisco oller",
+                   "francisco zuniga",
+                   "francisco zúñiga",
+                   "franciszek kostrzewski",
+                   "franciszek smuglewicz",
+                   "franciszek starowieyski",
+                   "franciszek zmurko",
+                   "franciszek żmurko",
+                   "francois barraud",
+                   "francois bocion",
+                   "francois boquet",
+                   "francois boucher",
+                   "francois clouet",
+                   "francois girardon",
+                   "francois joseph heim",
+                   "francois louis thomas francia",
+                   "francois quesnel",
+                   "frank auerbach",
+                   "frank barrington craig",
+                   "frank buchser",
+                   "frank dumond",
+                   "frank frazetta",
+                   "frank j. girardin",
+                   "frank leonard brooks",
+                   "frank mason",
+                   "frank mckelvey",
+                   "frank miller",
+                   "frank montague moore",
+                   "frank o'meara",
+                   "frank philip stella",
+                   "frank schoonover",
+                   "frank stella",
+                   "frank weston benson",
+                   "frank xavier leyendecker",
+                   "franklin booth",
+                   "franklin carmichael",
+                   "frans hals",
+                   "frans koppelaar",
+                   "frans masereel",
+                   "frans van mieris the elder",
+                   "frans van mieris the younger",
+                   "frantisek jakub prokys",
+                   "frantisek kavan",
+                   "frantisek kupka",
+                   "františek jakub prokyš",
+                   "františek kaván",
+                   "františek kupka",
+                   "franz cizek",
+                   "franz cižek",
+                   "franz fedier",
+                   "franz hegi",
+                   "franz karl basler-kopp",
+                   "franz kline",
+                   "franz marc",
+                   "franz sedlacek",
+                   "franz stuck",
+                   "franz vohwinkel",
+                   "franz von lenbach",
+                   "franz xaver winterhalter",
+                   "françois barraud",
+                   "françois bocion",
+                   "françois boquet",
+                   "françois boucher",
+                   "françois clouet",
+                   "françois girardon",
+                   "françois joseph heim",
+                   "françois louis thomas francia",
+                   "françois quesnel",
+                   "fred a. precht",
+                   "fred cress",
+                   "fred ludekens",
+                   "fred marcellino",
+                   "fred mitchell,",
+                   "fred williams",
+                   "frederic bazille",
+                   "frederic church",
+                   "frederic edwin church",
+                   "frederic leighton",
+                   "frederic remington",
+                   "frederick carl frieseke",
+                   "frederick edwin church",
+                   "frederick goodall",
+                   "frederick hammersley",
+                   "frederick lord leighton",
+                   "frederick mccubbin",
+                   "frederik de moucheron",
+                   "frederik vermehren",
+                   "frida kahlo",
+                   "friedel dzubas",
+                   "friedensreich hundertwasser",
+                   "friedrich gauermann",
+                   "friedrich ritter von friedlander-malheim",
+                   "friedrich ritter von friedländer-malheim",
+                   "friedrich traffelet",
+                   "friedrich von amerling",
+                   "frieke janssens",
+                   "frits thaulow",
+                   "frits van den berghe",
+                   "fritz baumann",
+                   "fritz bultman",
+                   "fritz glarner",
+                   "fritz puempin",
+                   "fritz von dardel",
+                   "fritz von uhde",
+                   "frédéric bazille",
+                   "fu baoshi",
+                   "fujishima takeji",
+                   "fujiwara nobuzane",
+                   "fujiwara takanobu",
+                   "fuller potter",
+                   "fuyuko matsui",
+                   "fyodor alekseyev",
+                   "fyodor rokotov",
+                   "fyodor slavyansky",
+                   "fyodor vasilyev",
+                   "félix arauz",
+                   "félix bódog widder",
+                   "félix labisse",
+                   "félix vallotton",
+                   "félix ziem",
+                   "gabor breznay",
+                   "gabor szikszai",
+                   "gabriel ba",
+                   "gabriel dawe",
+                   "gabriel metsu",
+                   "gabriele munter",
+                   "gabriele münter",
+                   "gabrijel jurkic",
+                   "gabrijel jurkić",
+                   "gaetano previati",
+                   "gaetano sabatini",
+                   "gai qi",
+                   "galen dara",
+                   "gang hui-an",
+                   "gang se-hwang",
+                   "gao cen",
+                   "gao fenghan",
+                   "gao kegong",
+                   "gao qipei",
+                   "gao xiang",
+                   "garry winogrand",
+                   "gary panter",
+                   "gaston anglade",
+                   "gaston bussiere",
+                   "gaston bussière",
+                   "gatoken shunshi",
+                   "gatōken shunshi",
+                   "gaudi",
+                   "gaugin",
+                   "gavin hamilton",
+                   "gavin nolan",
+                   "gawen hamilton",
+                   "gediminas pranckevicius",
+                   "gee vaucher",
+                   "geertgen tot sint jans",
+                   "gen paul",
+                   "genco gulan",
+                   "gene davis",
+                   "genevieve springston lynch",
+                   "gentile bellini",
+                   "gentile tondino",
+                   "geof darrow",
+                   "geoffrey dyer",
+                   "geoffrey olsen",
+                   "georg arnold-grabone",
+                   "georg arnold-graboné",
+                   "georg baselitz",
+                   "georg friedrich kersting",
+                   "georg friedrich schmidt",
+                   "georg muche",
+                   "georg scholz",
+                   "georg schrimpf",
+                   "george abe",
+                   "george aleef",
+                   "george ault",
+                   "george b. bridgman",
+                   "george b. sutherland",
+                   "george bain",
+                   "george barbier",
+                   "george barker",
+                   "george barret, jr.",
+                   "george barret, sr.",
+                   "george baselitz",
+                   "george bell",
+                   "george bellows",
+                   "george benjamin luks",
+                   "george biddle",
+                   "george bogart",
+                   "george caleb bingham",
+                   "george catlin",
+                   "george claessen",
+                   "george cruikshank",
+                   "george earl ortman",
+                   "george fiddes watt",
+                   "george frederic watts",
+                   "george frederick harris",
+                   "george gardner symons",
+                   "george grosz",
+                   "george hendrik breitner",
+                   "george henry",
+                   "george herbert baker",
+                   "george hurrell",
+                   "george inness",
+                   "george jamesone",
+                   "george lambourn",
+                   "george lucas",
+                   "george luks",
+                   "george manson",
+                   "george morrison",
+                   "george papazov",
+                   "george passantino",
+                   "george paul chalmers",
+                   "george pirie",
+                   "george reid",
+                   "george romney",
+                   "george stubbs",
+                   "george tooker",
+                   "george wyllie",
+                   "georges braque",
+                   "georges de la tour",
+                   "georges emile lebacq",
+                   "georges lacombe",
+                   "georges lemmen",
+                   "georges rouault",
+                   "georges seurat",
+                   "georges stein",
+                   "georgia o'keeffe",
+                   "georgina hunt",
+                   "gerald brom",
+                   "gerald kelley",
+                   "gerald kelly",
+                   "gerald van honthorst",
+                   "gerard david",
+                   "gerard de lairesse",
+                   "gerard ernest schneider",
+                   "gerard houckgeest",
+                   "gerard seghers",
+                   "gerard sekoto",
+                   "gerard soest",
+                   "gerard ter borch",
+                   "gerbrand van den eeckhout",
+                   "gerda wegener",
+                   "gerhard richter",
+                   "germaine krull",
+                   "german londono",
+                   "germán londoño",
+                   "gerrit adriaenszoon berckheyde",
+                   "gerrit dou",
+                   "gertrude abercrombie",
+                   "gertrude greene",
+                   "gertrude harvey",
+                   "geza dosa",
+                   "geza meszoly",
+                   "geza udvary",
+                   "giacomo balla",
+                   "giambattista pittoni",
+                   "gian lorenzo bernini",
+                   "gianfredo camesi",
+                   "gigado ashiyuki",
+                   "gigadō ashiyuki",
+                   "giger",
+                   "gijsbert d'hondecoeter",
+                   "gil elvgren",
+                   "gilbert stuart",
+                   "gilberto soren zaragoza",
+                   "gilles beloeil",
+                   "gillis d'hondecoeter",
+                   "gillis rombouts",
+                   "gina pellon",
+                   "gina pellón",
+                   "gino severini",
+                   "giocondo albertolli",
+                   "giorgio cavallon",
+                   "giorgio de chirico",
+                   "giorgio de vincenzi",
+                   "giorgio giulio clovio",
+                   "giorgio morandi",
+                   "giorgione",
+                   "giotto",
+                   "giovanni antonio galli",
+                   "giovanni battista cipriani",
+                   "giovanni battista gaulli",
+                   "giovanni battista innocenzo colombo",
+                   "giovanni battista piazzetta",
+                   "giovanni battista piranesi",
+                   "giovanni battista tiepolo",
+                   "giovanni bellini",
+                   "giovanni bernardino asoleni",
+                   "giovanni bernardino azzolini",
+                   "giovanni bernardino mazzolini",
+                   "giovanni boldini",
+                   "giovanni fattori",
+                   "giovanni francesco barbieri",
+                   "giovanni giacometti",
+                   "giovanni lanfranco",
+                   "giovanni paolo cavagna",
+                   "giovanni paolo pannini",
+                   "giovanni pelliccioli",
+                   "girolamo muziano",
+                   "giuseppe abbati",
+                   "giuseppe antonio petrini",
+                   "giuseppe arcimboldo",
+                   "giuseppe avanzi",
+                   "giuseppe bernardino bison",
+                   "giuseppe camuncoli",
+                   "giuseppe de nittis",
+                   "giuseppe grisoni",
+                   "giuseppe tominz",
+                   "gladys dawson",
+                   "gladys kathleen bell",
+                   "glen angus",
+                   "glen keane",
+                   "glenn fabry",
+                   "glennray tutor",
+                   "glenys cour",
+                   "gloria munoz",
+                   "gloria stoll karn",
+                   "glòria muñoz",
+                   "godfrey blow",
+                   "godfried schalcken",
+                   "gong kai",
+                   "gong xian",
+                   "gonzalo endara crow",
+                   "gordon browne",
+                   "gordon parks",
+                   "goro fujita",
+                   "gottfried helnwein",
+                   "govert dircksz camphuysen",
+                   "govert flinck",
+                   "goyo hashiguchi",
+                   "goyō hashiguchi",
+                   "grace clements",
+                   "grace cossington smith",
+                   "grace english",
+                   "grace pailthorpe",
+                   "grace polit",
+                   "graham forsythe",
+                   "graham sutherland",
+                   "grandma moses",
+                   "grant wood",
+                   "grayson perry",
+                   "greg hildebrandt",
+                   "greg rutkowski",
+                   "greg spalenka",
+                   "greg staples",
+                   "gregorio lazzarini",
+                   "gregorio prestopino",
+                   "gregorius sickinger",
+                   "gregory crewdson",
+                   "gregory gillespie",
+                   "gregory manchess",
+                   "grete stern",
+                   "grethe jurgens",
+                   "grethe jürgens",
+                   "grigoriy myasoyedov",
+                   "grillo demo",
+                   "griselda allan",
+                   "gryte pintukaite",
+                   "grytė pintukaitė",
+                   "grzegorz domaradzki",
+                   "grzegorz rutkowski",
+                   "gu an",
+                   "gu hongzhong",
+                   "gu kaizhi",
+                   "gu zhengyi",
+                   "guan daosheng",
+                   "guido borelli da caluso",
+                   "guido crepax",
+                   "guido reni",
+                   "guillermo del toro",
+                   "guity novin",
+                   "guo chun",
+                   "guo xi",
+                   "gustaf munch-petersen",
+                   "gustaf tenggren",
+                   "gustav dore",
+                   "gustav doré",
+                   "gustav klimt",
+                   "gustave baumann",
+                   "gustave boulanger",
+                   "gustave caillebotte",
+                   "gustave courbet",
+                   "gustave dore",
+                   "gustave doré",
+                   "gustave moreau",
+                   "gustave van de woestijne",
+                   "gusukuma seiho",
+                   "gusukuma seihō",
+                   "gusztav kelety",
+                   "gusztáv kelety",
+                   "guy billout",
+                   "guy denning",
+                   "guy rose",
+                   "gwen barnard",
+                   "gwen john",
+                   "gwenny griffiths",
+                   "gwilym prichard",
+                   "gyorgy rozsahegyi",
+                   "gyorgy vastagh",
+                   "gyoshu hayami",
+                   "gyoshū hayami",
+                   "gyula agghazy",
+                   "gyula aggházy",
+                   "gyula basch",
+                   "gyula batthyany",
+                   "gyula batthyány",
+                   "gyula benczur",
+                   "gyula benczúr",
+                   "gyula derkovits",
+                   "györgy rózsahegyi",
+                   "györgy vastagh",
+                   "gérard ernest schneider",
+                   "géza dósa",
+                   "géza mészöly",
+                   "géza udvary",
+                   "h. r. (hans ruedi) giger",
+                   "h. r. giger",
+                   "h.p. lovecraft",
+                   "h.r. giger",
+                   "h.r. millar",
+                   "haddon sundblom",
+                   "hajime sorayama",
+                   "hal foster",
+                   "hallsteinn sigurdsson",
+                   "hallsteinn sigurðsson",
+                   "hamilton sloan",
+                   "hamish macdonald",
+                   "han gan",
+                   "hanabusa itcho",
+                   "hanabusa itcho ii",
+                   "hanabusa itchō",
+                   "hanabusa itchō ii",
+                   "hanna-barbera",
+                   "hannah frank",
+                   "hannah hoch",
+                   "hannah höch",
+                   "hannah tompkins",
+                   "hanns katz",
+                   "hans asper",
+                   "hans baldung",
+                   "hans baluschek",
+                   "hans beat wieland",
+                   "hans bellmer",
+                   "hans bol",
+                   "hans burgkmair",
+                   "hans eduard von berlepsch-valendas",
+                   "hans erni",
+                   "hans falk",
+                   "hans fischer",
+                   "hans fries",
+                   "hans gude",
+                   "hans gustav burkhardt",
+                   "hans hartung",
+                   "hans hinterreiter",
+                   "hans hofmann",
+                   "hans holbein the elder",
+                   "hans holbein the younger",
+                   "hans leu the elder",
+                   "hans makart",
+                   "hans memling",
+                   "hans mertens",
+                   "hans sandreuter",
+                   "hans schwarz",
+                   "hans von aachen",
+                   "hans von bartels",
+                   "hans werner schmidt",
+                   "hap grieshaber",
+                   "harald giersing",
+                   "hariton pushwagner",
+                   "harold elliott",
+                   "harold gilman",
+                   "harold harvey",
+                   "harold sandys williamson",
+                   "harold shapinsky",
+                   "harold von schmidt",
+                   "harriet backer",
+                   "harriet powers",
+                   "harriet zeitlin",
+                   "harrington mann",
+                   "harrison fisher",
+                   "harry beckhoff",
+                   "harry clarke",
+                   "harry haenigsen",
+                   "harry morley",
+                   "harry shoulberg",
+                   "harumi hironaka",
+                   "harvey dunn",
+                   "harvey kurtzman",
+                   "harvey pratt",
+                   "harvey quaytman",
+                   "hasegawa settan",
+                   "hasegawa tohaku",
+                   "hasegawa tōhaku",
+                   "hashimoto gaho",
+                   "hashimoto gahō",
+                   "hasui kawase",
+                   "haukur halldorsson",
+                   "haukur halldórsson",
+                   "hayao miyazaki",
+                   "hazel armour",
+                   "heather hudson",
+                   "hedda sterne",
+                   "hedi xandt",
+                   "heinrich bichler",
+                   "heinrich brocksieper",
+                   "heinrich danioth",
+                   "heinrich herzig",
+                   "heinrich hofmann",
+                   "heinrich kley",
+                   "heinrich lefler",
+                   "heinrich maria davringhausen",
+                   "heinz anger",
+                   "heinz edelman",
+                   "helen berman",
+                   "helen biggar",
+                   "helen binyon",
+                   "helen dahm",
+                   "helen edwards",
+                   "helen frankenthaler",
+                   "helen stevenson",
+                   "helen thomas dranga",
+                   "helene schjerfbeck",
+                   "helmut federle",
+                   "helmut newton",
+                   "hendrick avercamp",
+                   "hendrick bloemaert",
+                   "hendrick cornelisz vroom",
+                   "hendrick cornelisz. van vliet",
+                   "hendrick goltzius",
+                   "hendrick goudt",
+                   "hendrick terbrugghen",
+                   "hendrick van balen",
+                   "hendrick van streeck",
+                   "hendrik gerritsz pot",
+                   "hendrik goltzius",
+                   "hendrik martenszoon sorgh",
+                   "hendrik van steenwijk i",
+                   "hendrik van steenwijk ii",
+                   "hendrik willem mesdag",
+                   "henning jakob henrik lund",
+                   "henri alphonse barnoin",
+                   "henri bellechose",
+                   "henri biva",
+                   "henri cartier-bresson",
+                   "henri de toulouse-lautrec",
+                   "henri fantin-latour",
+                   "henri harpignies",
+                   "henri le sidaner",
+                   "henri matisse",
+                   "henri michaux",
+                   "henri rousseau",
+                   "henri-edmond cross",
+                   "henri-julien dumont",
+                   "henric trenk",
+                   "henricus hondius ii",
+                   "henriett seth f.",
+                   "henriette grindat",
+                   "henriette wyeth",
+                   "henrik weber",
+                   "henry b. christian",
+                   "henry bright",
+                   "henry carr",
+                   "henry fuseli",
+                   "henry heerup",
+                   "henry ives cobb, jr.",
+                   "henry justice ford",
+                   "henry lamb",
+                   "henry macbeth-raeburn",
+                   "henry moore",
+                   "henry moret",
+                   "henry o. tanner",
+                   "henry ossawa tanner",
+                   "henry otto wix",
+                   "henry raeburn",
+                   "henry raleigh",
+                   "henry scott tuke",
+                   "henry snell gamley",
+                   "henry tonks",
+                   "henry van de velde",
+                   "henry wallis",
+                   "henry woods",
+                   "henryk rodakowski",
+                   "henryk siemiradzki",
+                   "henryk stazewski",
+                   "henryk stażewski",
+                   "henryka beyer",
+                   "herb aach",
+                   "herb ritts",
+                   "herbert abrams",
+                   "herbert bayer",
+                   "herbert james gunn",
+                   "herbert macnair",
+                   "hercules seghers",
+                   "herman saftleven",
+                   "herman van swanevelt",
+                   "hermann feierabend",
+                   "hermann rudisuhli",
+                   "hermann rüdisühli",
+                   "hermenegildo anglada camarasa",
+                   "hermione hammond",
+                   "hew lorimer",
+                   "hidari jingoro",
+                   "hidari jingorō",
+                   "hideyuki kikuchi",
+                   "hieronim bosch",
+                   "hieronymous bosch",
+                   "hieronymus bosch",
+                   "hikari shimoda",
+                   "hilda annetta walker",
+                   "hilda may gordon",
+                   "hilde goldschmidt",
+                   "hilma af klint",
+                   "hinchel or",
+                   "hirohiko araki",
+                   "hiromitsu takahashi",
+                   "hiromu arakawa",
+                   "hirosada ii",
+                   "hiroshi honda",
+                   "hiroshi nagai",
+                   "hiroshi yoshida",
+                   "hiroshige",
+                   "hiroyuki tajima",
+                   "hishida shunso",
+                   "hishida shunsō",
+                   "hishikawa moronobu",
+                   "hisui sugiura",
+                   "hokusai",
+                   "holger roed",
+                   "hong ren",
+                   "honore daumier",
+                   "honoré daumier",
+                   "horace vernet",
+                   "horatio mcculloch",
+                   "horatio nelson poole",
+                   "horst antes",
+                   "hovsep pushman",
+                   "howard arkley",
+                   "howard butterworth",
+                   "howard chandler christy",
+                   "howard chaykin",
+                   "howard finster",
+                   "howard hodgkin",
+                   "howard kanovitz",
+                   "howard knotts",
+                   "howard lyon",
+                   "howard mehring",
+                   "howard pyle",
+                   "howardena pindell",
+                   "hristofor zefarovic",
+                   "hristofor zhefarovich",
+                   "hristofor žefarović",
+                   "hsiao-ron cheng",
+                   "hu jieqing",
+                   "hu zao",
+                   "hu zaobin",
+                   "hua yan",
+                   "huang binhong",
+                   "huang ding",
+                   "huang gongwang",
+                   "huang guangjian",
+                   "huang ji",
+                   "huang shen",
+                   "huang tingjian",
+                   "hubert robert",
+                   "hubert van eyck",
+                   "hubert van ravesteyn",
+                   "hubert von herkomer",
+                   "hugh adam crawford",
+                   "hugh ferriss",
+                   "hugh hughes",
+                   "hugh william williams",
+                   "hugo anton fisher",
+                   "hugo heyrman",
+                   "hugo karlis grotuss",
+                   "hugo kārlis grotuss",
+                   "hugo sanchez bonilla",
+                   "hugo scheiber",
+                   "hugo simberg",
+                   "hugo sánchez bonilla",
+                   "hugo van der goes",
+                   "humberto castro",
+                   "hundertwasser",
+                   "hyacinthe rigaud",
+                   "hyman bloom",
+                   "i ketut soki",
+                   "iain faulkner",
+                   "ian fairweather",
+                   "ian hamilton finlay",
+                   "ian mcque",
+                   "ian miller",
+                   "ian spriggs",
+                   "ib eisner",
+                   "ibrahim kodra",
+                   "ibram lassaw",
+                   "ida rentoul outhwaite",
+                   "ignacio bazan-lazcano",
+                   "ignacio zuloaga",
+                   "ignacy witkiewicz",
+                   "ignat bednarik",
+                   "igor grabar",
+                   "igor kieryluk",
+                   "igor kufayev",
+                   "igor morski",
+                   "igor zenin",
+                   "ihor podolchak",
+                   "ike no taiga",
+                   "ikuo hirayama",
+                   "ilka gedo",
+                   "ilka gedő",
+                   "illarion pryanishnikov",
+                   "ilya glazunov",
+                   "ilya kuvshinov",
+                   "ilya ostroukhov",
+                   "ilya repin",
+                   "ilya yefimovich repin",
+                   "ina wong",
+                   "ingrid baars",
+                   "ingrida kadaka",
+                   "ino",
+                   "inoue naohisa",
+                   "insho domoto",
+                   "inshō dōmoto",
+                   "ion andreescu",
+                   "irene and laurette patten",
+                   "irene bache",
+                   "irene lieblich",
+                   "irma stern",
+                   "irvin bomb",
+                   "isaac grunewald",
+                   "isaac grünewald",
+                   "isaac levitan",
+                   "isaac soyer",
+                   "isaac van ostade",
+                   "isabel codrington",
+                   "isabel naftel",
+                   "isamu noguchi",
+                   "isidor kaufman",
+                   "isidore bonheur",
+                   "ismael nery",
+                   "ismail acar",
+                   "ismail gulgee",
+                   "ismail inceoglu",
+                   "isobel heath",
+                   "isobelle ann dods-withers",
+                   "israel tsvaygenbaum",
+                   "istvan arkossy",
+                   "istvan banyai",
+                   "istvan csok",
+                   "istvan horkay",
+                   "istvan nagy",
+                   "istvan orosz",
+                   "istvan regos",
+                   "istvan reti",
+                   "istvan szonyi",
+                   "istván csók",
+                   "istván nagy",
+                   "istván orosz",
+                   "istván regős",
+                   "istván réti",
+                   "istván szőnyi",
+                   "istván árkossy",
+                   "itagaki yoshio",
+                   "italo mus",
+                   "ito jakuchu",
+                   "ito ogura yonesuke",
+                   "ito seiu",
+                   "ito shinsui",
+                   "itshak holtz",
+                   "itō jakuchū",
+                   "itō ogura yonesuke",
+                   "itō seiu",
+                   "itō shinsui",
+                   "ivan aivazovsky",
+                   "ivan albright",
+                   "ivan bilibin",
+                   "ivan generalic",
+                   "ivan generalić",
+                   "ivan grohar",
+                   "ivan kramskoi",
+                   "ivan lackovic croata",
+                   "ivan lacković croata",
+                   "ivan mestrovic",
+                   "ivan meštrović",
+                   "ivan mrkvicka",
+                   "ivan mrkvička",
+                   "ivan ranger",
+                   "ivan shishkin",
+                   "ivan trush",
+                   "ivan yakovlevich vishnyakov",
+                   "ivana kobilca",
+                   "ivor davies",
+                   "ivor williams",
+                   "iwao takamoto",
+                   "iwasa matabei",
+                   "izidor krsnjavi",
+                   "izidor kršnjavi",
+                   "izzy medrano",
+                   "j. alden weir",
+                   "j. c. leyendecker",
+                   "j. frederick smith",
+                   "j. j. grandville",
+                   "j. l. lund",
+                   "j. m. w. turner",
+                   "j. massey rhind",
+                   "j. ottis adams",
+                   "j. w. tristram",
+                   "j.c. leyendecker",
+                   "j.m.w. turner",
+                   "jaakko mattila",
+                   "jacek andrzej rossakiewicz",
+                   "jacek malczewski",
+                   "jacek sempolinski",
+                   "jacek sempoliński",
+                   "jacek yerka",
+                   "jack boul",
+                   "jack butler yeats",
+                   "jack c. mancino",
+                   "jack davis",
+                   "jack gaughan",
+                   "jack kirby",
+                   "jack levine",
+                   "jack m. ducker",
+                   "jack roth",
+                   "jack smith",
+                   "jackson pollock",
+                   "jacob adriaensz backer",
+                   "jacob burck",
+                   "jacob collins",
+                   "jacob de gheyn ii",
+                   "jacob de heusch",
+                   "jacob duck",
+                   "jacob esselens",
+                   "jacob gerritsz. cuyp",
+                   "jacob jordaens",
+                   "jacob kainen",
+                   "jacob koninck",
+                   "jacob lawrence",
+                   "jacob maris",
+                   "jacob marrel",
+                   "jacob more",
+                   "jacob ochtervelt",
+                   "jacob philipp hackert",
+                   "jacob pynas",
+                   "jacob savery",
+                   "jacob steinhardt",
+                   "jacob toorenvliet",
+                   "jacob van campen",
+                   "jacob van der ulft",
+                   "jacob van ruisdael",
+                   "jacob van utrecht",
+                   "jacob willemszoon de wet",
+                   "jacopo amigoni",
+                   "jacopo baccarini",
+                   "jacopo bassano",
+                   "jacopo bellini",
+                   "jacopo de' barbari",
+                   "jacopo pontormo",
+                   "jacques blanchard",
+                   "jacques callot",
+                   "jacques daret",
+                   "jacques herold",
+                   "jacques hérold",
+                   "jacques maroger",
+                   "jacques sablet",
+                   "jacques villon",
+                   "jacques-francois ochard",
+                   "jacques-françois ochard",
+                   "jacques-laurent agasse",
+                   "jacques-louis david",
+                   "jacqui morgan",
+                   "jaime colson",
+                   "jaime jones",
+                   "jakob emanuel handmann",
+                   "jakob gauermann",
+                   "jakob hane",
+                   "jakob häne",
+                   "jakub husnik",
+                   "jakub rebelka",
+                   "jakub rozalski",
+                   "jakub różalski",
+                   "jakub schikaneder",
+                   "james abbott mcneill whistler",
+                   "james ardern grant",
+                   "james ballantine",
+                   "james bard",
+                   "james barry",
+                   "james bateman",
+                   "james baynes",
+                   "james bolivar manson",
+                   "james brooks",
+                   "james c. christensen",
+                   "james cadenhead",
+                   "james campbell noble",
+                   "james cowie",
+                   "james cromar watt",
+                   "james dickson innes",
+                   "james e. brewton",
+                   "james ensor",
+                   "james giles",
+                   "james gilleard",
+                   "james gillick",
+                   "james gillray",
+                   "james gurney",
+                   "james guthrie",
+                   "james humbert craig",
+                   "james jarvaise",
+                   "james jean",
+                   "james jonathan jeffries",
+                   "james mcbey",
+                   "james mcintosh patrick",
+                   "james mcneill whistler",
+                   "james montgomery flagg",
+                   "james morris",
+                   "james morrison",
+                   "james paick",
+                   "james paterson",
+                   "james peale",
+                   "james pittendrigh macgillivray",
+                   "james rosenquist",
+                   "james ryman",
+                   "james sessions american painter",
+                   "james thomas watts",
+                   "james tissot",
+                   "james warhola",
+                   "james wood",
+                   "jamie baldridge",
+                   "jamie hewlett",
+                   "jamie wyeth",
+                   "jan antonisz van ravesteyn",
+                   "jan asselijn",
+                   "jan baptist weenix",
+                   "jan brett",
+                   "jan brueghel the elder",
+                   "jan brueghel the younger",
+                   "jan cornelisz vermeyen",
+                   "jan cox",
+                   "jan davidsz de hem",
+                   "jan davidsz. de heem",
+                   "jan de baen",
+                   "jan de bray",
+                   "jan dirksz both",
+                   "jan gossaert",
+                   "jan gregoor",
+                   "jan griffier",
+                   "jan hackaert",
+                   "jan henryk rosen",
+                   "jan jahn",
+                   "jan karpisek",
+                   "jan karpíšek",
+                   "jan kip",
+                   "jan konupek",
+                   "jan konůpek",
+                   "jan kupecky",
+                   "jan kupecký",
+                   "jan lievens",
+                   "jan matejko",
+                   "jan miel",
+                   "jan miense molenaer",
+                   "jan muller",
+                   "jan müller",
+                   "jan nieuwenhuys",
+                   "jan pynas",
+                   "jan rustem",
+                   "jan sawka",
+                   "jan stanislawski",
+                   "jan stanisławski",
+                   "jan steen",
+                   "jan tengnagel",
+                   "jan theuninck",
+                   "jan toorop",
+                   "jan van bijlert",
+                   "jan van de cappelle",
+                   "jan van der heyden",
+                   "jan van eyck",
+                   "jan van goyen",
+                   "jan van huysum",
+                   "jan van kessel the elder",
+                   "jan van kessel the younger",
+                   "jan van mieris",
+                   "jan verkolje",
+                   "jan victors",
+                   "jan wijnants",
+                   "jan wyck",
+                   "jan zrzavy",
+                   "jan zrzavý",
+                   "jane carpanini",
+                   "jane frank",
+                   "jane freeman",
+                   "jane freilicher",
+                   "jane graverol",
+                   "jane hawkins",
+                   "jane kelly",
+                   "jane nasmyth",
+                   "jane small",
+                   "janet archer",
+                   "janet dawson",
+                   "janet fish",
+                   "jang seung-eop",
+                   "jankel adler",
+                   "janos donat",
+                   "janos kass",
+                   "janos nagy balogh",
+                   "janos saxon-szasz",
+                   "janos tornyai",
+                   "janos valentiny",
+                   "janos vaszary",
+                   "january suchodolski",
+                   "jaroslav doubrava",
+                   "jaroslava korol",
+                   "jaroslaw jasnikowski",
+                   "jarosław jaśnikowski",
+                   "jasmine becket-griffith",
+                   "jason a. engle",
+                   "jason benjamin",
+                   "jason chan",
+                   "jason edmiston",
+                   "jason felix",
+                   "jason teraoka",
+                   "jasper francis cropsey",
+                   "jasper johns",
+                   "jay hambidge",
+                   "jay milder",
+                   "jc leyendecker",
+                   "jean antoine watteau",
+                   "jean arp",
+                   "jean auguste dominique ingres",
+                   "jean baptiste debret",
+                   "jean beraud",
+                   "jean béraud",
+                   "jean clark",
+                   "jean colombe",
+                   "jean crotti",
+                   "jean cunningham",
+                   "jean delville",
+                   "jean dubuffet",
+                   "jean dufy",
+                   "jean fautrier",
+                   "jean fouquet",
+                   "jean giraud",
+                   "jean helion",
+                   "jean hey",
+                   "jean huber voltaire",
+                   "jean hélion",
+                   "jean jouvenet",
+                   "jean louis petitot",
+                   "jean malouel",
+                   "jean messagier",
+                   "jean metzinger",
+                   "jean micheal basquiat",
+                   "jean petitot",
+                   "jean tabaud",
+                   "jean xceron",
+                   "jean-antoine watteau",
+                   "jean-auguste-dominique ingres",
+                   "jean-baptiste monge",
+                   "jean-baptiste pater",
+                   "jean-baptiste van loo",
+                   "jean-baptiste-camille corot",
+                   "jean-baptiste-simeon chardin",
+                   "jean-baptiste-siméon chardin",
+                   "jean-etienne liotard",
+                   "jean-francois de troy",
+                   "jean-francois millet",
+                   "jean-françois de troy",
+                   "jean-françois millet",
+                   "jean-honore fragonard",
+                   "jean-honoré fragonard",
+                   "jean-jacques henner",
+                   "jean-leon gerome",
+                   "jean-louis-ernest meissonier",
+                   "jean-léon gérôme",
+                   "jean-marc nattier",
+                   "jean-michel atlan",
+                   "jean-michel basquiat",
+                   "jean-paul laurens",
+                   "jean-paul riopelle",
+                   "jean-pierre norblin de la gourdaine",
+                   "jean-pierre saint-ours",
+                   "jean-yves couliou",
+                   "jean-étienne liotard",
+                   "jeanna bauck",
+                   "jeanne du maurier",
+                   "jeanne hebuterne",
+                   "jeanne hébuterne",
+                   "jeff a. menges",
+                   "jeff easley",
+                   "jeff koons",
+                   "jeff miracola",
+                   "jeffrey catherine jones",
+                   "jeffrey smith",
+                   "jeka kemp",
+                   "jemima blackburn",
+                   "jenaro de urrutia olaran",
+                   "jennifer bartlett",
+                   "jennifer janesko",
+                   "jenny eakin delony",
+                   "jenny saville",
+                   "jeno barcsay",
+                   "jeno gyarfas",
+                   "jens ferdinand willumsen",
+                   "jens jorgen thorsen",
+                   "jens juel",
+                   "jens jørgen thorsen",
+                   "jens sondergaard",
+                   "jens søndergaard",
+                   "jenő barcsay",
+                   "jenő gyárfás",
+                   "jeong seon",
+                   "jeremiah ketner",
+                   "jeremy chong",
+                   "jeremy geddes",
+                   "jeremy henderson",
+                   "jerry eisenberg",
+                   "jerry pinkney",
+                   "jerry schatzberg",
+                   "jerry weiss",
+                   "jerry wilkerson",
+                   "jerzy kossak",
+                   "jesper ejsing",
+                   "jesper knudsen",
+                   "jesper myrfors",
+                   "jesse richards",
+                   "jessie alexandra dick",
+                   "jessie algie",
+                   "jessie m. king",
+                   "jessie newbery",
+                   "jessie willcox smith",
+                   "jesus mari lazkano",
+                   "jesús mari lazkano",
+                   "ji sheng",
+                   "jiang tingxi",
+                   "jiao bingzhen",
+                   "jim burns",
+                   "jim dine",
+                   "jim lee",
+                   "jim manley",
+                   "jim murray",
+                   "jim nelson",
+                   "jim steranko",
+                   "jim warren",
+                   "jimmy boyle",
+                   "jimmy ernst",
+                   "jimmy nelson",
+                   "jin homura",
+                   "jin nong",
+                   "jiro yoshihara",
+                   "jitish kallat",
+                   "jo baer",
+                   "joachim beuckelaer",
+                   "joachim patinir",
+                   "joan ayling",
+                   "joan brown",
+                   "joan miro",
+                   "joan miró",
+                   "joan mitchell",
+                   "joan snyder",
+                   "joan tuset",
+                   "joan warburton",
+                   "joanna carrington",
+                   "joao artur da silva",
+                   "joaquin clausell",
+                   "joaquin sorolla",
+                   "joaquin torres garcia",
+                   "joaquín clausell",
+                   "joaquín sorolla",
+                   "joaquín torres garcía",
+                   "jodorowsky",
+                   "joe bowler",
+                   "joe de mers",
+                   "joe fenton",
+                   "joe jusko",
+                   "joe machine",
+                   "joe mangrum",
+                   "joe shuster",
+                   "joe sorren",
+                   "joe stefanelli",
+                   "joel santos",
+                   "joel shapiro",
+                   "johan christian dahl",
+                   "johan edvard mandelberg",
+                   "johan grenier",
+                   "johan jongkind",
+                   "johan lundbye",
+                   "johann balthasar bullinger",
+                   "johann berthelsen",
+                   "johann bodin",
+                   "johann caspar fussli",
+                   "johann caspar füssli",
+                   "johann christian brand",
+                   "johann friedrich overbeck",
+                   "johann george schmidt",
+                   "johann gottfried steffan",
+                   "johann heinrich bleuler",
+                   "johann heinrich meyer",
+                   "johann jakob biedermann",
+                   "johann kaspar fussli",
+                   "johann kaspar füssli",
+                   "johann kretzschmer",
+                   "johann liss",
+                   "johann ludwig aberli",
+                   "johann ludwig bleuler",
+                   "johann pucher",
+                   "johann rudolf byss",
+                   "johann zoffany",
+                   "johanna marie fosie",
+                   "johannes bosschaert",
+                   "johannes cornelisz verspronck",
+                   "johannes fabritius",
+                   "johannes geir jonsson",
+                   "johannes heisig",
+                   "johannes helgeson",
+                   "johannes itten",
+                   "johannes lingelbach",
+                   "johannes martini",
+                   "johannes mytens",
+                   "johannes sveinsson kjarval",
+                   "johannes van haensbergen",
+                   "johannes vermeer",
+                   "johannes voss",
+                   "johfra bosschart",
+                   "john alexander",
+                   "john altoon",
+                   "john alvin",
+                   "john anster fitzgerald",
+                   "john armleder",
+                   "john armstrong",
+                   "john atherton",
+                   "john atkinson grimshaw",
+                   "john avon",
+                   "john backderf",
+                   "john bauer",
+                   "john bellany",
+                   "john berkey",
+                   "john blair",
+                   "john blanche",
+                   "john bourne",
+                   "john brack",
+                   "john broadley",
+                   "john brown",
+                   "john brown abercromby",
+                   "john button",
+                   "john byrne",
+                   "john cale",
+                   "john carpenter",
+                   "john chamberlain",
+                   "john clayton",
+                   "john clayton adams",
+                   "john collier",
+                   "john constable",
+                   "john covert",
+                   "john crawford brown",
+                   "john currin",
+                   "john doman turner",
+                   "john duncan fergusson",
+                   "john e. berninger",
+                   "john ellsworth weis",
+                   "john elwood bundy",
+                   "john everett millais",
+                   "john eyre",
+                   "john f. francis",
+                   "john f. peto",
+                   "john fabian carlson",
+                   "john frederick herring, jr.",
+                   "john frederick herring, sr.",
+                   "john frederick kensett",
+                   "john french sloan",
+                   "john fulton folinsbee",
+                   "john george sowerby",
+                   "john gibson",
+                   "john haberle",
+                   "john harris",
+                   "john henderson",
+                   "john henry kingsley",
+                   "john henry lorimer",
+                   "john henry twachtman",
+                   "john howe",
+                   "john hoyland",
+                   "john hutchison",
+                   "john hutton",
+                   "john j park",
+                   "john james audubon",
+                   "john kay",
+                   "john keane",
+                   "john kelso hunter",
+                   "john kingsley",
+                   "john kingsley cook",
+                   "john la gatta",
+                   "john lavery",
+                   "john laviers wheatley",
+                   "john linnell",
+                   "john lowrie morrison",
+                   "john luke",
+                   "john macdonald aiken",
+                   "john maggs",
+                   "john marin",
+                   "john martin",
+                   "john matson",
+                   "john maxwell",
+                   "john mclaughlin",
+                   "john michael wright",
+                   "john moonan",
+                   "john mossman",
+                   "john murdoch",
+                   "john nelson battenberg",
+                   "john nicolson",
+                   "john noble barlow",
+                   "john opie",
+                   "john parker",
+                   "john perceval",
+                   "john pettie",
+                   "john philip falter",
+                   "john platt",
+                   "john plumb",
+                   "john quidor",
+                   "john quinton pringle",
+                   "john rhind",
+                   "john robertson reid",
+                   "john romita jr",
+                   "john runciman",
+                   "john russell fulton",
+                   "john salminen",
+                   "john singer sargent",
+                   "john singleton copley",
+                   "john skinner prout",
+                   "john sloan",
+                   "john souch",
+                   "john steell",
+                   "john steuart curry",
+                   "john stevenson rhind",
+                   "john stuart ingle",
+                   "john thomson of duddingston",
+                   "john trumbull",
+                   "john uzzell edwards",
+                   "john watson gordon",
+                   "john william godward",
+                   "john william waterhouse",
+                   "john wilson",
+                   "john wollaston",
+                   "john wonnacott",
+                   "john zephaniah bell",
+                   "jon coffelt",
+                   "jon foster",
+                   "jon whitcomb",
+                   "jonas de ro",
+                   "jonathan solter",
+                   "joong keun lee",
+                   "joop sanders",
+                   "joos de momper",
+                   "jordan grimmer",
+                   "jorg immendorff",
+                   "jorge jacinto",
+                   "jorge velarde",
+                   "jorgen nash",
+                   "jorgen roed",
+                   "joris van der haagen",
+                   "josan gonzalez",
+                   "jose clemente orozco",
+                   "jose comas quesada",
+                   "jose malhoa",
+                   "josef abel",
+                   "josef albers",
+                   "josef block",
+                   "josef capek",
+                   "josef dande",
+                   "josef jackerson",
+                   "josef manes",
+                   "josef mánes",
+                   "josef navratil",
+                   "josef navrátil",
+                   "josef sima",
+                   "josef čapek",
+                   "josef šíma",
+                   "josefina tanganelli plana",
+                   "josep rovira soler,",
+                   "joseph badger",
+                   "joseph beuys",
+                   "joseph bowler",
+                   "joseph clement coll",
+                   "joseph cornell",
+                   "joseph decamp",
+                   "joseph delaney",
+                   "joseph ducreux",
+                   "joseph dwight strong",
+                   "joseph heintz the elder",
+                   "joseph henderson",
+                   "joseph ignaz appiani",
+                   "joseph keppler",
+                   "joseph kleitsch",
+                   "joseph morgan henninger",
+                   "joseph noel paton",
+                   "joseph pickett",
+                   "joseph pisani",
+                   "joseph raphael",
+                   "joseph severn",
+                   "joseph stella",
+                   "joseph von fuhrich",
+                   "joseph von führich",
+                   "joseph werner",
+                   "joseph wright of derby",
+                   "joseph yoakum",
+                   "joseph-marie vien",
+                   "josephine wall",
+                   "josetsu",
+                   "josh bayer",
+                   "joshua reynolds",
+                   "josse lieferinxe",
+                   "josé clemente orozco",
+                   "josé comas quesada",
+                   "josé malhoa",
+                   "jowonder",
+                   "joy garnett",
+                   "joyce ballantyne brand",
+                   "joze ciuha",
+                   "jozef brandt",
+                   "jozef czapski",
+                   "jozef israels",
+                   "jozef israëls",
+                   "jozef mehoffer",
+                   "jozef pankiewicz",
+                   "jozef simmler",
+                   "jozef szermentowski",
+                   "jozsef borsos",
+                   "jozsef breznay",
+                   "jozsef egry",
+                   "jozsef koszta",
+                   "jozsef rippl-ronai",
+                   "joão artur da silva",
+                   "ju chao",
+                   "ju lian",
+                   "juan carlos stekelman",
+                   "juan de flandes",
+                   "juan de valdes leal",
+                   "juan de valdés leal",
+                   "juan fernando cobo",
+                   "juan gimenez",
+                   "juan giménez",
+                   "juan gris",
+                   "juan luna",
+                   "juan o'gorman",
+                   "juan pablo roldan",
+                   "juan villafuerte",
+                   "judith brown",
+                   "judith gutierrez",
+                   "judith leyster",
+                   "judy cassab",
+                   "judy chicago",
+                   "judy takacs",
+                   "judy takács",
+                   "juergen von huendeberg",
+                   "jules bastien-lepage",
+                   "jules breton",
+                   "jules cheret",
+                   "jules chéret",
+                   "jules joseph lefebvre",
+                   "jules olitski",
+                   "jules pascin",
+                   "jules robert auguste",
+                   "jules tavernier",
+                   "julia margaret cameron",
+                   "julia pishtar",
+                   "julian allen",
+                   "julian falat",
+                   "julian fałat",
+                   "julian hatton",
+                   "julian onderdonk",
+                   "julian schnabel",
+                   "juliana sveinsdottir",
+                   "julie bell",
+                   "juliette leong",
+                   "juliette wytsman",
+                   "julio gonzalez",
+                   "julio gonzález",
+                   "julio larraz",
+                   "julius edvard marak",
+                   "julius exner",
+                   "julius hatofsky",
+                   "julius jakoby",
+                   "julius klinger",
+                   "julius leblanc stewart",
+                   "juliusz kossak",
+                   "jung park",
+                   "junji ito",
+                   "junpei satoh",
+                   "junsaku koizumi",
+                   "juraj julije klovic",
+                   "juraj julije klović",
+                   "jurg kreienbuhl",
+                   "juriaen van streeck",
+                   "justin currie",
+                   "justin gerard",
+                   "justin sweet",
+                   "justus van gent",
+                   "jános donát",
+                   "jános kass",
+                   "jános nagy balogh",
+                   "jános saxon-szász",
+                   "jános tornyai",
+                   "jános valentiny",
+                   "jános vaszary",
+                   "jóhannes geir jónsson",
+                   "jóhannes sveinsson kjarval",
+                   "józef brandt",
+                   "józef mehoffer",
+                   "józef pankiewicz",
+                   "józef szermentowski",
+                   "józsef borsos",
+                   "józsef breznay",
+                   "józsef egry",
+                   "józsef koszta",
+                   "józsef rippl-rónai",
+                   "jörg immendorff",
+                   "jørgen nash",
+                   "jørgen roed",
+                   "július jakoby",
+                   "júlíana sveinsdóttir",
+                   "jürg kreienbühl",
+                   "kabbalah",
+                   "kaburagi kiyokata",
+                   "kadir nelson",
+                   "kaethe butcher",
+                   "kaff gerrard",
+                   "kagaku murakami",
+                   "kahlo",
+                   "kaigetsudo anchi",
+                   "kaigetsudo ando",
+                   "kaigetsudō anchi",
+                   "kaigetsudō ando",
+                   "kaii higashiyama",
+                   "kailash chandra meher",
+                   "kaja foglio",
+                   "kalervo palsa",
+                   "kamagurka",
+                   "kamal ud-din behzad",
+                   "kameda bosai",
+                   "kameda bōsai",
+                   "kamisaka sekka",
+                   "kamāl ud-dīn behzād",
+                   "kanbun master",
+                   "kandinsky",
+                   "kano eitoku",
+                   "kano hogai",
+                   "kano masanobu",
+                   "kano mitsunobu",
+                   "kano motonobu",
+                   "kano naizen",
+                   "kano sanraku",
+                   "kano sansetsu",
+                   "kano shosenin",
+                   "kano takanobu",
+                   "kano tan'yu",
+                   "kano tanshin",
+                   "kanzan shimomura",
+                   "kanō eitoku",
+                   "kanō hōgai",
+                   "kanō masanobu",
+                   "kanō mitsunobu",
+                   "kanō motonobu",
+                   "kanō naizen",
+                   "kanō sanraku",
+                   "kanō sansetsu",
+                   "kanō shōsenin",
+                   "kanō takanobu",
+                   "kanō tan'yū",
+                   "kanō tanshin",
+                   "karel appel",
+                   "karel dujardin",
+                   "karel havlicek",
+                   "karel havlíček",
+                   "karel klic",
+                   "karel klíč",
+                   "karel stech",
+                   "karel van mander",
+                   "karel štěch",
+                   "karl ballmer",
+                   "karl bodmer",
+                   "karl bryullov",
+                   "karl buesgen",
+                   "karl gerstner",
+                   "karl hagedopoorn",
+                   "karl hagedorn",
+                   "karl hofer",
+                   "karl jauslin",
+                   "karl kopinski",
+                   "karl matzek",
+                   "karl otto gotz",
+                   "karl otto götz",
+                   "karl pumpin",
+                   "karl pümpin",
+                   "karl schmidt-rottluff",
+                   "karl stauffer-bern",
+                   "karl thiart",
+                   "karl volker",
+                   "karl völker",
+                   "karl walser",
+                   "karl zerbe",
+                   "karol bak",
+                   "karoly brocky",
+                   "karoly ferenczy",
+                   "karoly kernstok",
+                   "karoly kisfaludy",
+                   "karoly lotz",
+                   "karoly marko the elder",
+                   "karoly patko",
+                   "kate beaton",
+                   "kate greenaway",
+                   "katerina wilczynski",
+                   "kathe kollwitz",
+                   "kathleen allen",
+                   "kathleen browne",
+                   "kathleen guthrie",
+                   "kathleen scott",
+                   "kathleen walne",
+                   "kati horna",
+                   "katia chausheva",
+                   "katsuchika hokusai",
+                   "katsukawa shun'ei",
+                   "katsukawa shuncho",
+                   "katsukawa shunchō",
+                   "katsukawa shunko i",
+                   "katsukawa shunkō i",
+                   "katsukawa shunsen",
+                   "katsukawa shunsho",
+                   "katsukawa shunshō",
+                   "katsushika hokusai",
+                   "katsushika oi",
+                   "katsushika ōi",
+                   "kawabata ryushi",
+                   "kawabata ryūshi",
+                   "kawai gyokudo",
+                   "kawai gyokudō",
+                   "kawanabe kyosai",
+                   "kawanabe kyōsai",
+                   "kawase hasui",
+                   "kay nielsen",
+                   "kay sage",
+                   "kazimierz alchimowicz",
+                   "kazimierz wojniakowski",
+                   "kazimir malevich",
+                   "kazuo nakamura",
+                   "kazys varnelis",
+                   "ke jiusi",
+                   "kees bol",
+                   "kees maks",
+                   "kees scherer",
+                   "kees van dongen",
+                   "keisai eisen",
+                   "keith haring",
+                   "keith henderson",
+                   "keith mallett",
+                   "keith parkinson",
+                   "kelly freas",
+                   "kelly mckernan",
+                   "kelly sueda",
+                   "ken danby",
+                   "ken elias",
+                   "ken howard",
+                   "ken messer",
+                   "ken sugimori",
+                   "kenneth noland",
+                   "kentaro miura",
+                   "keos masons",
+                   "ker-xavier roussel",
+                   "keraca visulceva",
+                   "keraca visulčeva",
+                   "kerembeyit",
+                   "keren katz",
+                   "kev walker",
+                   "kevin a. short",
+                   "kevin connor",
+                   "khalil gibran",
+                   "kieran yanner",
+                   "kikuchi yosai",
+                   "kikuchi yōsai",
+                   "kilian eng",
+                   "kim deuk-sin",
+                   "kim du-ryang",
+                   "kim eung-hwan",
+                   "kim hong-do",
+                   "kim hwan-gi",
+                   "kim jeong-hui,",
+                   "kim keever",
+                   "kim myeong-guk,",
+                   "kim tschang yeul",
+                   "kinichiro ishikawa",
+                   "kinuko craft",
+                   "kinuko y. craft",
+                   "kishi ganku",
+                   "kitagawa utamaro",
+                   "kitao shigemasa",
+                   "kiyohara tama",
+                   "kiyoshi yamashita",
+                   "klimt",
+                   "knox martin",
+                   "knud agger",
+                   "kobayashi kiyochika",
+                   "kogan gengei",
+                   "koloman sokol",
+                   "kono bairei",
+                   "kono michisei",
+                   "konrad grob",
+                   "konrad klapheck",
+                   "konrad krzyzanowski",
+                   "konrad krzyżanowski",
+                   "konrad witz",
+                   "konstantin korovin",
+                   "konstantin makovsky",
+                   "konstantin savitsky",
+                   "konstantin somov",
+                   "konstantin vasilyev",
+                   "konstantin westchilov",
+                   "konstantin yuon",
+                   "konstantinas ciurlionis",
+                   "koryusai isoda",
+                   "kose kanaoka",
+                   "koshiro onchi",
+                   "koson ohara",
+                   "koyoharu gotouge",
+                   "krenz cushart",
+                   "kristian krekovic",
+                   "kristian kreković",
+                   "kristian zahrtmann",
+                   "kristin nelson",
+                   "krzysztof boguszewski",
+                   "ksenia milicevic",
+                   "kubisi art",
+                   "kume keiichiro",
+                   "kun can",
+                   "kunio okawara",
+                   "kuno veeber",
+                   "kuroda seiki",
+                   "kurt roesch",
+                   "kurt schwitters",
+                   "kurt seligmann",
+                   "kurt trampedach",
+                   "kurt wenner",
+                   "kusama",
+                   "kusumi morikage",
+                   "kyffin williams",
+                   "kyle lambert",
+                   "károly brocky",
+                   "károly ferenczy",
+                   "károly kernstok",
+                   "károly kisfaludy",
+                   "károly lotz",
+                   "károly markó the elder",
+                   "károly patkó",
+                   "käthe kollwitz",
+                   "kōno bairei",
+                   "kōno michisei",
+                   "kōshirō onchi",
+                   "l. a. ring",
+                   "l. alcopley",
+                   "l. s. lowry",
+                   "l. vance phillips",
+                   "ladronn",
+                   "ladrönn",
+                   "lajos beran",
+                   "lajos berán",
+                   "lajos bruck",
+                   "lajos gulacsy",
+                   "lajos gulácsy",
+                   "lajos kassak",
+                   "lajos kassák",
+                   "lajos tihanyi",
+                   "lajos vajda",
+                   "lale westvind",
+                   "lam qua",
+                   "lambert doomer",
+                   "lambert jacobsz",
+                   "lan ying",
+                   "lari pittman",
+                   "larry d. alexander",
+                   "larry elmore",
+                   "larry fink",
+                   "larry rivers",
+                   "larry zox",
+                   "lars grant-west",
+                   "lars jonson haukaness",
+                   "lasar segall",
+                   "laszlo balogh",
+                   "laszlo beszedes",
+                   "laszlo dombrovszky",
+                   "laszlo mednyanszky",
+                   "laszlo moholy-nagy",
+                   "laszlo paal",
+                   "lattanzio gambara",
+                   "laura ford",
+                   "laura knight",
+                   "laura muntz lyall",
+                   "laura theresa alma-tadema",
+                   "laura wheeler waring",
+                   "laurel burch",
+                   "laurie greasley",
+                   "laurie lipton",
+                   "laurits tuxen",
+                   "lawren harris",
+                   "lawrence alma-tadema",
+                   "lawrence calcagno",
+                   "lawrence harris",
+                   "lawton s. parker",
+                   "leandro erlich",
+                   "leconte stewart",
+                   "lee gatch",
+                   "lee jeffries",
+                   "lee krasner",
+                   "lee loughridge",
+                   "lee madgwick",
+                   "lefevre james cranstone",
+                   "leiko ikemura",
+                   "leila faithfull",
+                   "leland bell",
+                   "lena alexander",
+                   "leng mei",
+                   "lennie lee",
+                   "leo and diane dillon",
+                   "leo goetz",
+                   "leo leuppi",
+                   "leo lionni",
+                   "leo michelson",
+                   "leo valledor",
+                   "leon bakst",
+                   "leon chwistek",
+                   "leon golub",
+                   "leon kaplinski",
+                   "leon kapliński",
+                   "leon kossoff",
+                   "leon kroll",
+                   "leon polk smith",
+                   "leon wyczolkowski",
+                   "leon wyczółkowski",
+                   "leona wood",
+                   "leonaert bramer",
+                   "leonard appelbee",
+                   "leonard bahr",
+                   "leonard daniels",
+                   "leonard long",
+                   "leonard ochtman",
+                   "leonardo da vinci",
+                   "leonid afremov",
+                   "leonid pasternak",
+                   "leonor fini",
+                   "leonora carrington",
+                   "leopold gottlieb",
+                   "leroy neiman",
+                   "les edwards",
+                   "lesser ury",
+                   "leticia gillett",
+                   "lev lvovich kamenev",
+                   "lewis henry meakin",
+                   "li cheng",
+                   "li chevalier",
+                   "li di",
+                   "li fangying",
+                   "li gonglin",
+                   "li kan",
+                   "li keran",
+                   "li mei-shu",
+                   "li rongjin",
+                   "li shan",
+                   "li shida",
+                   "li shixing",
+                   "li song",
+                   "li tang",
+                   "li tiefu",
+                   "li zai",
+                   "liam wong",
+                   "liang kai",
+                   "liao chi-chun",
+                   "lichtenstein",
+                   "lili arkayne sztehlo",
+                   "lili árkayné sztehló",
+                   "lilia alvarado",
+                   "lilla cabot perry",
+                   "lillian bassman",
+                   "lily delissa joseph",
+                   "limbourg brothers",
+                   "lin liang",
+                   "lin tinggui",
+                   "linda sutton",
+                   "lindsay bartholomew",
+                   "lionel lindsay",
+                   "lionel walden",
+                   "lisa frank",
+                   "lisa kristine",
+                   "lisa milroy",
+                   "lisa nankivil",
+                   "lisa yuskavage",
+                   "lise deharme",
+                   "liu haisu",
+                   "liu jue",
+                   "liu jun",
+                   "liubov popova",
+                   "liviusz gyulai",
+                   "liza donnelly",
+                   "lizzy ansingh",
+                   "lodewijk bruckman",
+                   "loic zimmerman",
+                   "lois dodd",
+                   "lois mailou jones",
+                   "lois van baarle",
+                   "lojze logar",
+                   "loren munk",
+                   "lorentz frolich",
+                   "lorentz frölich",
+                   "lorenzo agius",
+                   "lorenzo lotto",
+                   "lorraine fox",
+                   "lotte reiniger",
+                   "louis anquetin",
+                   "louis buvelot",
+                   "louis comfort tiffany",
+                   "louis de caullery",
+                   "louis eilshemius",
+                   "louis faurer",
+                   "louis glackens",
+                   "louis grell",
+                   "louis hersent",
+                   "louis janmot",
+                   "louis le brocquy",
+                   "louis le nain",
+                   "louis marcoussis",
+                   "louis mathieu verdilhan",
+                   "louis pohl",
+                   "louis rhead",
+                   "louis schanker",
+                   "louis stettner",
+                   "louis valtat",
+                   "louis wain",
+                   "louis-francois aubry",
+                   "louis-françois aubry",
+                   "louis-leopold boilly",
+                   "louis-léopold boilly",
+                   "louis-michel van loo",
+                   "louisa chase",
+                   "louisa matthiasdottir",
+                   "louisa matthíasdóttir",
+                   "louisa puller",
+                   "louise abbema",
+                   "louise abbéma",
+                   "louise bourgeois",
+                   "louise catherine breslau",
+                   "louise nevelson",
+                   "lovis corinth",
+                   "lu guang",
+                   "lu ji",
+                   "lu zhi",
+                   "lubin baugin",
+                   "lubna agha",
+                   "luc tuymans",
+                   "luc-olivier merson",
+                   "luca della robbia",
+                   "luca zontini",
+                   "lucas cranach the elder",
+                   "lucas cranach the younger",
+                   "lucas graciano",
+                   "lucas van leyden",
+                   "lucas vorsterman",
+                   "lucebert",
+                   "lucette barker",
+                   "lucia peka",
+                   "lucian freud",
+                   "lucien pissarro",
+                   "lucio fontana",
+                   "lucy angeline bacon",
+                   "lucy madox brown",
+                   "ludek marold",
+                   "ludolf bakhuizen",
+                   "ludolf leendertsz de jongh",
+                   "ludovico carracci",
+                   "ludovit fulla",
+                   "ludwig bemelmans",
+                   "ludwig knaus",
+                   "ludwig mestler",
+                   "ludwik konarzewski",
+                   "ludwik konarzewski jr",
+                   "luděk marold",
+                   "luigi kasimir",
+                   "luis enrique camej",
+                   "luis marsans",
+                   "luis miranda",
+                   "luis molinari",
+                   "luis paret y alcazar",
+                   "luis royo",
+                   "lujo bezeredi",
+                   "luma rouge",
+                   "luo mu",
+                   "luo ping",
+                   "luo zhichuan",
+                   "lydia field emmet",
+                   "lyle tuttle",
+                   "lynda benglis",
+                   "lynn pauley",
+                   "lyonel feininger",
+                   "lyubov popova",
+                   "lászló balogh",
+                   "lászló beszédes",
+                   "lászló dombrovszky",
+                   "lászló mednyánszky",
+                   "lászló moholy-nagy",
+                   "lászló paál",
+                   "léon bakst",
+                   "líviusz gyulai",
+                   "lü ji",
+                   "m. c. escher",
+                   "m. f. husain",
+                   "m.c. escher",
+                   "ma lin",
+                   "ma quan",
+                   "ma shi",
+                   "ma wan",
+                   "ma yuan",
+                   "ma yuanyu",
+                   "mab graves",
+                   "mabel rollins harris",
+                   "mac conner",
+                   "maciej kuciara",
+                   "madge oliver",
+                   "maeda masao",
+                   "maeda seison",
+                   "magali villeneuve",
+                   "magdalene barens",
+                   "magdalene bärens",
+                   "maggie hamilton",
+                   "maginel wright enright barney",
+                   "magnus colcord heurlin",
+                   "mahmoud farshchian",
+                   "maki haku",
+                   "makoto aida",
+                   "makoto shinkai",
+                   "maksimilijan vanka",
+                   "maksymilian gierymski",
+                   "makuzu kozan",
+                   "makuzu kōzan",
+                   "malcolm drummond",
+                   "malcolm morley",
+                   "malcom howie",
+                   "malczewski",
+                   "maler muller",
+                   "maler müller",
+                   "malevich",
+                   "malgorzata serwatka",
+                   "malvin gray johnson",
+                   "man ray",
+                   "manabu mabe",
+                   "mandy jurgens",
+                   "manfredi beninati",
+                   "manjit bawa",
+                   "manny librodo",
+                   "manolo millares",
+                   "manuel franquelo",
+                   "manuel ortiz de zarate",
+                   "manuel rendon seminario",
+                   "manuel rendón seminario",
+                   "marc bell",
+                   "marc chagall",
+                   "marc simonetti",
+                   "marc tetro",
+                   "marc-aurele de foy suzor-cote",
+                   "marc-aurèle de foy suzor-coté",
+                   "marcel chagall",
+                   "marcel duchamp",
+                   "marcell chagall",
+                   "marcelle bergerol",
+                   "marcello bacciarelli",
+                   "marcin zaleski",
+                   "marco mazzoni",
+                   "marcos restrepo",
+                   "mardi barrie",
+                   "marek okon",
+                   "marek ruzyk",
+                   "margaret backhouse",
+                   "margaret bingham",
+                   "margaret boden",
+                   "margaret bruce wells",
+                   "margaret brundage",
+                   "margaret garland",
+                   "margaret geddes",
+                   "margaret graeme niven",
+                   "margaret keane",
+                   "margaret leiteritz",
+                   "margaret macdonald mackintosh",
+                   "margareta alstromer",
+                   "margareta alströmer",
+                   "margareta sterian",
+                   "margit anna",
+                   "margo hoff",
+                   "marguerite zorach",
+                   "maria fortuny",
+                   "maria helena vieira da silva",
+                   "maria johanna gortz",
+                   "maria johanna görtz",
+                   "maria oriana galli bibiena",
+                   "maria sibylla merian",
+                   "maria van oosterwijk",
+                   "marianne north",
+                   "marianne von werefkin",
+                   "marie angel",
+                   "marie bashkirtseff",
+                   "marie bracquemond",
+                   "marie courtois",
+                   "marie kroyer",
+                   "marie krøyer",
+                   "marie laurencin",
+                   "marie vassilieff",
+                   "marie-gabrielle capet",
+                   "marie-suzanne giroust",
+                   "marilyn bendell",
+                   "marina abramovic",
+                   "marina abramović",
+                   "mario bardi",
+                   "mario comensoli",
+                   "mario cooper",
+                   "mario dubsky",
+                   "mario sanchez nevado",
+                   "mario sironi",
+                   "mario testino",
+                   "marion ancrum",
+                   "marion wachtel",
+                   "mariotto albertinelli",
+                   "marius borgeaud",
+                   "marià fortuny",
+                   "marjorie frances bruford",
+                   "marjorie may bacon",
+                   "mark a. brennan",
+                   "mark arian",
+                   "mark boyle",
+                   "mark brooks",
+                   "mark english",
+                   "mark gertler",
+                   "mark mann",
+                   "mark poole",
+                   "mark rothko",
+                   "mark ryden",
+                   "mark tedin",
+                   "mark tobey",
+                   "mark zug",
+                   "marsden hartley",
+                   "marshall arisman",
+                   "marta lacza",
+                   "marten post",
+                   "martin benka",
+                   "martin deschambault",
+                   "martin desjardins",
+                   "martin johnson heade",
+                   "martin kober",
+                   "martin schoeller",
+                   "martin schongauer",
+                   "martina krupickova",
+                   "martina krupičková",
+                   "martine johanna",
+                   "martins krumins",
+                   "martinus rorbye",
+                   "martinus rørbye",
+                   "martiros saryan",
+                   "maruja mallo",
+                   "maruyama okyo",
+                   "maruyama ōkyo",
+                   "mary abbott",
+                   "mary adshead",
+                   "mary agnes yerkes",
+                   "mary anne ansley",
+                   "mary audsley",
+                   "mary beale",
+                   "mary black",
+                   "mary blair",
+                   "mary byfield",
+                   "mary c. davidson",
+                   "mary callery",
+                   "mary cameron",
+                   "mary cassatt",
+                   "mary corkling",
+                   "mary curtis richardson",
+                   "mary davis, lady davis",
+                   "mary dignam",
+                   "mary elizabeth groom",
+                   "mary elizabeth price",
+                   "mary grant",
+                   "mary hallock foote",
+                   "mary jane begin",
+                   "mary mccrossan",
+                   "mary mcevoy",
+                   "mary moser",
+                   "mary syme boyd",
+                   "maryam hashemi",
+                   "masamitsu ota",
+                   "masamitsu ōta",
+                   "masamune shirow",
+                   "masolino",
+                   "master ms",
+                   "master of affligem",
+                   "master of saint giles",
+                   "master of the bambino vispo",
+                   "master of the embroidered foliage",
+                   "master of the legend of saint lucy",
+                   "matej sternen",
+                   "mathias kollros",
+                   "mathieu le nain",
+                   "mati klarwein",
+                   "maties palau ferre",
+                   "maties palau ferré",
+                   "matija jama",
+                   "matsui fuyoko",
+                   "matsumura goshun",
+                   "matsuno chikanobu",
+                   "matt bors",
+                   "matt cavotta",
+                   "matt groening",
+                   "matt stewart",
+                   "matt stone and trey parker",
+                   "matteo perez",
+                   "matteo pérez",
+                   "matthew d. wilson",
+                   "matthew smith",
+                   "matthias grunewald",
+                   "matthias grünewald",
+                   "matthias jung",
+                   "matthias stom",
+                   "matthias weischer",
+                   "matthijs maris",
+                   "matthijs naiveu,",
+                   "mattias adolfsson",
+                   "mattise",
+                   "maud naftel",
+                   "maude kaufman eggemeyer",
+                   "maurice boitel",
+                   "maurice braun",
+                   "maurice de vlaminck",
+                   "maurice denis",
+                   "maurice esteve",
+                   "maurice prendergast",
+                   "maurice reymond",
+                   "maurice sendak",
+                   "maurice utrillo",
+                   "mauro belfiore",
+                   "maurycy gottlieb",
+                   "max beckmann",
+                   "max buri",
+                   "max dauthendey",
+                   "max dupain",
+                   "max ernst",
+                   "max gubler",
+                   "max klinger",
+                   "max liebermann",
+                   "max magnus norman",
+                   "max pechstein",
+                   "max slevogt",
+                   "max svabinsky",
+                   "max walter svanberg",
+                   "max weber",
+                   "max švabinský",
+                   "maxfield parrish",
+                   "maximilian cercha",
+                   "maximilien luce",
+                   "maxwell bates",
+                   "maxwell gordon lightfoot",
+                   "may de montravel edwardes",
+                   "may louise greville cooksey",
+                   "małgorzata serwatka",
+                   "mc escher",
+                   "mckadesinsanity",
+                   "mckendree long",
+                   "mead schaeffer",
+                   "mei qing",
+                   "meindert hobbema",
+                   "melchior broederlam",
+                   "melchior d'hondecoeter",
+                   "melchior lorck",
+                   "melissa a. benson",
+                   "melissa benson",
+                   "melozzo da forli",
+                   "melozzo da forlì",
+                   "menez",
+                   "meredith dillman",
+                   "meredith garniss",
+                   "meret oppenheim",
+                   "meryl mcmaster",
+                   "mi fu",
+                   "mia brownell",
+                   "miao fu",
+                   "micha klein",
+                   "michael aloysius sarisky",
+                   "michael ancher",
+                   "michael andrews",
+                   "michael cheval",
+                   "michael dahl",
+                   "michael deforge",
+                   "michael flohr",
+                   "michael ford",
+                   "michael garmash",
+                   "michael goldberg",
+                   "michael gustavius payne",
+                   "michael james smith",
+                   "michael komarck",
+                   "michael leunig",
+                   "michael malm",
+                   "michael parkes",
+                   "michael ray charles",
+                   "michael sittow",
+                   "michael sutfin",
+                   "michael whelan",
+                   "michaelangelo",
+                   "michal karcz",
+                   "michalis oikonomou",
+                   "michał karcz",
+                   "michel de caso",
+                   "michel delacroix",
+                   "michel kikoine",
+                   "michel tapie",
+                   "michel tapié",
+                   "michelangelo",
+                   "michelangelo buonarotti",
+                   "michelangelo buonarroti",
+                   "michelangelo merisi da caravaggio",
+                   "michelangelo unterberger",
+                   "michiel jansz. van mierevelt",
+                   "michiel van musscher",
+                   "mihaly munkacsy",
+                   "mihaly zichy",
+                   "miho hirano",
+                   "mihály munkácsy",
+                   "mihály zichy",
+                   "mikalojus konstantinas ciurlionis",
+                   "mikalojus konstantinas čiurlionis",
+                   "mike beeple winkelmann",
+                   "mike bierek",
+                   "mike deodato",
+                   "mike mignola",
+                   "mike winkelmann",
+                   "mikhail evstafiev",
+                   "mikhail larionov",
+                   "mikhail lebedev",
+                   "mikhail nesterov",
+                   "mikhail vrubel",
+                   "mikhail yuryevich lermontov",
+                   "miklos barabas",
+                   "miklos borsos",
+                   "miklós barabás",
+                   "miklós borsos",
+                   "mikolas ales",
+                   "mikoláš aleš",
+                   "mildred anne butler",
+                   "mildred eldridge",
+                   "millard sheets",
+                   "milton avery",
+                   "milton caniff",
+                   "milton ernest robert rauschenberg",
+                   "milton glaser",
+                   "milton menasco",
+                   "milton resnick",
+                   "miltos manetas",
+                   "mimmo rotella",
+                   "min zhen",
+                   "minerva j. chapman",
+                   "mirabello cavalori",
+                   "mirko racki",
+                   "mirko rački",
+                   "miroslava sviridova",
+                   "mitchell johnson",
+                   "miwa komatsu",
+                   "miyagawa choshun",
+                   "miyagawa chōshun",
+                   "miyagawa issho",
+                   "miyagawa isshō",
+                   "miyagawa shunsui",
+                   "miyamoto",
+                   "miyazaki",
+                   "modest urgell",
+                   "moebius",
+                   "moise kisling",
+                   "mollie forestier-walker",
+                   "mona moore",
+                   "mondrian",
+                   "monet",
+                   "mor adler",
+                   "mor than",
+                   "mordecai ardon",
+                   "morgan russell",
+                   "mori sosen",
+                   "morris kestelman",
+                   "morris louis",
+                   "morris louis bernstein",
+                   "mort kunstler",
+                   "mort künstler",
+                   "moses soyer",
+                   "moses van uyttenbroeck",
+                   "moïse kisling",
+                   "mstislav dobuzhinsky",
+                   "muggur",
+                   "muirhead bone",
+                   "munakata shiko",
+                   "munakata shikō",
+                   "munch",
+                   "muqi",
+                   "murakami",
+                   "muriel brandt",
+                   "murray tinkelman",
+                   "mustafa rakim",
+                   "mykola burachek",
+                   "myles birket foster",
+                   "mym tuma",
+                   "myra landau",
+                   "márta lacza",
+                   "méret oppenheim",
+                   "mór adler",
+                   "mór than",
+                   "mārtiņš krūmiņš",
+                   "mœbius",
+                   "n. c. wyeth",
+                   "n.c. wyeth",
+                   "nabil kanso",
+                   "nadim karam",
+                   "nadir afonso",
+                   "nadya rusheva",
+                   "nagasawa rosetsu",
+                   "naka bokunen",
+                   "nakahara nantenbo",
+                   "nakahara nantenbō",
+                   "nam gye-u",
+                   "nan goldin",
+                   "nancy carline",
+                   "nancy graves",
+                   "nancy spero",
+                   "nancy stahl",
+                   "nandor katona",
+                   "naoko takeuchi",
+                   "naomi okubo",
+                   "naondo nakamura",
+                   "nara yoshitomo",
+                   "narashige koide",
+                   "narayan shridhar bendre",
+                   "nassos daphnis",
+                   "natalia goncharova",
+                   "natasha tan",
+                   "nathalie rattner",
+                   "nathan oliveira",
+                   "nathan wyburn",
+                   "nathaniel hone",
+                   "nathaniel pousette-dart",
+                   "naza",
+                   "nazmi ziya guran",
+                   "nazmi ziya güran",
+                   "ndoc martini",
+                   "neal adams",
+                   "ned m. seidler",
+                   "neil blevins",
+                   "neil boyle",
+                   "neil welliver",
+                   "neil williams",
+                   "nele zirnite",
+                   "nell dorr",
+                   "nelson alexander ross",
+                   "nene thomas",
+                   "nevercrew",
+                   "nevin cokay",
+                   "nevin çokay",
+                   "neysa mcmein",
+                   "ni duan",
+                   "ni tian",
+                   "ni yuanlu",
+                   "ni zan",
+                   "niccolo dell' abbate",
+                   "niccolò dell' abbate",
+                   "nicholas hilliard",
+                   "nicholas marsicano",
+                   "nicholas roerich",
+                   "nick fudge",
+                   "nick gentry",
+                   "nicola samori",
+                   "nicolaes eliaszoon pickenoy",
+                   "nicolaes maes",
+                   "nicolaes pieterszoon berchem",
+                   "nicolas carone",
+                   "nicolas de stael",
+                   "nicolas de staël",
+                   "nicolas froment",
+                   "nicolas lancret",
+                   "nicolas poussin",
+                   "nicolas toussaint charlet",
+                   "nicolette macnamara",
+                   "nicomachus of thebes",
+                   "niels lergaard",
+                   "nikita veprikov",
+                   "niklaus manuel",
+                   "niko henrichon",
+                   "nikola avramov",
+                   "nikolai alekseyevich kasatkin",
+                   "nikolai astrup",
+                   "nikolai ge",
+                   "nikolai yaroshenko",
+                   "nikolaj abraham abildgaard",
+                   "nikolay makovsky",
+                   "nikolay nikanorovich dubovskoy",
+                   "nil gleyen",
+                   "nils hamm",
+                   "nils von dardel",
+                   "nina hamnett",
+                   "nina masic",
+                   "nina petrovna valetova",
+                   "nina tryggvadottir",
+                   "nishida shun'ei",
+                   "nishikawa sukenobu",
+                   "niyazi selimoglu",
+                   "noah bradley",
+                   "noami",
+                   "noe canjura",
+                   "noel counihan",
+                   "noemi ferenczy",
+                   "nora cundell",
+                   "norah neilson gray",
+                   "noriyoshi ohrai",
+                   "norma bull",
+                   "norman garstin",
+                   "norman hepple",
+                   "norman lewis",
+                   "norman rockwell",
+                   "norman saunders",
+                   "normand baker",
+                   "noémi ferenczy",
+                   "nuno goncalves",
+                   "nuno gonçalves",
+                   "nyuju stumpy brown",
+                   "nándor katona",
+                   "nína tryggvadóttir",
+                   "nōami",
+                   "o'keeffe",
+                   "odd nerdrum",
+                   "odhise paskali",
+                   "odilon redon",
+                   "odon marffy",
+                   "ogata gekko",
+                   "ogata gekkō",
+                   "ogata kenzan",
+                   "ogata korin",
+                   "ogata kōrin",
+                   "ohara koson",
+                   "oka yasutomo",
+                   "okada beisanjin",
+                   "okada hanko",
+                   "okamoto taro",
+                   "okamoto tarō",
+                   "okuda genso",
+                   "okuda gensō",
+                   "okumura masanobu",
+                   "okumura togyu",
+                   "olaf gulbransson",
+                   "olaf rude",
+                   "oleg lipchenko",
+                   "oleg oprisco",
+                   "olga boznanska",
+                   "olga boznańska",
+                   "olga rozanova",
+                   "olha darchuk",
+                   "olive mudie-cooke",
+                   "oliver sin",
+                   "olivia de berardinis",
+                   "olivia peguero",
+                   "olivier bonhomme",
+                   "oluf host",
+                   "oluf høst",
+                   "orazio gentileschi",
+                   "orovida camille pissarro",
+                   "orshi drozdik",
+                   "osamu tezuka",
+                   "oscar dominguez",
+                   "oscar rodriguez naranjo",
+                   "oscar rodríguez naranjo",
+                   "oskar kokoschka",
+                   "oskar luthy",
+                   "oskar lüthy",
+                   "oskar schlemmer",
+                   "osman hamdi bey",
+                   "ossip zadkine",
+                   "osvaldo romberg",
+                   "oswald achenbach",
+                   "oswald birley",
+                   "oswaldo guayasamin",
+                   "oswaldo guayasamín",
+                   "oswaldo viteri",
+                   "oszkar tordai schilling",
+                   "ota bubenicek",
+                   "ota bubeníček",
+                   "otakar kubin",
+                   "otakar kubín",
+                   "otakar sedlon",
+                   "otakar sedloň",
+                   "otake chikuha",
+                   "otis kaye",
+                   "otomo katsuhiro",
+                   "oton gliha",
+                   "oton ivekovic",
+                   "oton iveković",
+                   "ottilie maclaren wallace",
+                   "otto abt",
+                   "otto baditz",
+                   "otto dix",
+                   "otto eckmann",
+                   "otto frolicher",
+                   "otto frölicher",
+                   "otto lange",
+                   "otto marseus van schrieck",
+                   "otto meyer-amden",
+                   "otto morach",
+                   "otto piene",
+                   "otto pilny",
+                   "otto placht",
+                   "otto stark",
+                   "ottó baditz",
+                   "p.c. skovgaard",
+                   "pablo carpio",
+                   "pablo munoz gomez",
+                   "pablo picasso",
+                   "pablo rey",
+                   "pacita abad",
+                   "pal balkay",
+                   "pal bohm",
+                   "pal szinyei merse",
+                   "pamela ascherson",
+                   "pamela coleman smith",
+                   "pamela drew",
+                   "pamphilus",
+                   "pan tianshou",
+                   "pan yuliang",
+                   "paolo parente",
+                   "paolo uccello",
+                   "paolo veronese",
+                   "parmigianino",
+                   "pascal blanche",
+                   "pascal blanché",
+                   "pascal dagnan-bouveret",
+                   "pascale campion",
+                   "pat adams",
+                   "pat oliphant",
+                   "pat presley",
+                   "patrick adam",
+                   "patrick brown",
+                   "patrick caulfield",
+                   "patrick ching",
+                   "patrick dougherty",
+                   "patrick hall",
+                   "patrick henry bruce",
+                   "patrick heron",
+                   "patrick nagel,",
+                   "patrick nasmyth",
+                   "patrick pietropoli",
+                   "patrick pye",
+                   "patrick woodroffe",
+                   "paul bird",
+                   "paul bodmer",
+                   "paul bril",
+                   "paul cadmus",
+                   "paul cezanne",
+                   "paul cornoyer",
+                   "paul cézanne",
+                   "paul davis",
+                   "paul delvaux",
+                   "paul dirmeikis",
+                   "paul emile chabas",
+                   "paul emmert",
+                   "paul feeley",
+                   "paul gauguin",
+                   "paul georges",
+                   "paul guigou",
+                   "paul gustav fischer",
+                   "paul gustave fischer",
+                   "paul harvey",
+                   "paul henry",
+                   "paul howard manship",
+                   "paul jacob naftel",
+                   "paul kane",
+                   "paul kelpe",
+                   "paul klee",
+                   "paul laffoley",
+                   "paul lehr",
+                   "paul lohse",
+                   "paul lucien dessau",
+                   "paul mavrides",
+                   "paul monnier",
+                   "paul nash",
+                   "paul pelletier",
+                   "paul pepera",
+                   "paul ranson",
+                   "paul resika",
+                   "paul signac",
+                   "paul wunderlich",
+                   "paul émile chabas",
+                   "paul-albert besnard",
+                   "paul-emile borduas",
+                   "paul-émile borduas",
+                   "paula modersohn-becker",
+                   "paula rego",
+                   "paulus decker",
+                   "paulus moreelse",
+                   "paulus potter",
+                   "pavel fedotov",
+                   "pavel filonov",
+                   "pawel kluza",
+                   "paweł kluza",
+                   "pearl frush",
+                   "peder severin kroyer",
+                   "peder severin krøyer",
+                   "pedro alvarez castello",
+                   "pedro figari",
+                   "pedro pedraja",
+                   "pedro álvarez castelló",
+                   "peggy angus",
+                   "peggy bacon",
+                   "penelope beaton",
+                   "penleigh boyd",
+                   "penny patricia poppycock",
+                   "penny rimbaud",
+                   "penry williams",
+                   "per kirkeby",
+                   "per krohg",
+                   "perin del vaga",
+                   "perle fine",
+                   "persis goodale thurston taylor",
+                   "pete morhbacher",
+                   "pete venters",
+                   "peter alexander hay",
+                   "peter bagge",
+                   "peter basch",
+                   "peter benjamin graham",
+                   "peter birmann",
+                   "peter blume",
+                   "peter brandes",
+                   "peter brook",
+                   "peter churcher",
+                   "peter de seve",
+                   "peter de sève",
+                   "peter doig",
+                   "peter elson",
+                   "peter fiore",
+                   "peter gric",
+                   "peter helck",
+                   "peter lanyon",
+                   "peter lely",
+                   "peter lindbergh",
+                   "peter madsen",
+                   "peter max",
+                   "peter maxwell ewart",
+                   "peter mcardle",
+                   "peter michael",
+                   "peter mohrbacher",
+                   "peter paul rubens",
+                   "peter prendergast",
+                   "peter rockwell",
+                   "peter s. pezzati",
+                   "peter scott",
+                   "peter snow",
+                   "peter wells",
+                   "peter wtewael",
+                   "peter zumthor",
+                   "petr brandl",
+                   "petros afshar",
+                   "petrus christus",
+                   "petrus van der velden",
+                   "phil borges",
+                   "phil foglio",
+                   "phil koch",
+                   "philip absolon",
+                   "philip de koninck",
+                   "philip de laszlo",
+                   "philip de lászló",
+                   "philip evergood",
+                   "philip guston",
+                   "philip wilson steer",
+                   "philipp veit",
+                   "philippe druillet",
+                   "philips wouwerman",
+                   "phillip otto runge",
+                   "phillip peter price",
+                   "phyllis bone",
+                   "phyllis bray",
+                   "phyllis ginger",
+                   "pia fries",
+                   "picasso",
+                   "piero della francesca",
+                   "piero di cosimo",
+                   "pierre adolphe valette",
+                   "pierre alechinsky",
+                   "pierre auguste cot",
+                   "pierre bonnard",
+                   "pierre brissaud",
+                   "pierre laffille",
+                   "pierre laffillé",
+                   "pierre mion",
+                   "pierre pellegrini",
+                   "pierre puvis de chavannes",
+                   "pierre roland renoir",
+                   "pierre roy",
+                   "pierre soulages",
+                   "pierre toutain-dorbec",
+                   "pierre-auguste renoir",
+                   "pierre-joseph redoute",
+                   "pierre-joseph redouté",
+                   "piet mondrian",
+                   "pieter aertsen",
+                   "pieter anthonisz. van groenewegen",
+                   "pieter bruegel",
+                   "pieter bruegel the elder",
+                   "pieter brueghel the younger",
+                   "pieter claesz",
+                   "pieter codde",
+                   "pieter cornelisz van slingelandt",
+                   "pieter de bloot",
+                   "pieter de grebber",
+                   "pieter de hooch",
+                   "pieter de ring",
+                   "pieter franciscus dierckx",
+                   "pieter huys",
+                   "pieter janssens elinga",
+                   "pieter jansz quast",
+                   "pieter jansz saenredam",
+                   "pieter jansz van asch",
+                   "pieter lastman",
+                   "pieter mulier ii",
+                   "pieter mulier the elder",
+                   "pieter van anraedt",
+                   "pieter van der werff",
+                   "pieter van laer",
+                   "pietro da cortona",
+                   "pietro faccini",
+                   "pietro longhi",
+                   "pietro lorenzetti",
+                   "pietro perugino",
+                   "pietro testa",
+                   "pinchus kremegne",
+                   "pinturicchio",
+                   "piotr michalowski",
+                   "piotr michałowski",
+                   "piranesi",
+                   "pisanello",
+                   "pixar",
+                   "pogus caesar",
+                   "pollock",
+                   "pompeo batoni",
+                   "porfirio didonna",
+                   "primrose pitman",
+                   "prince hoare",
+                   "prudence heward",
+                   "pruett carter",
+                   "pu hua",
+                   "puru",
+                   "pál balkay",
+                   "pál böhm",
+                   "pál szinyei merse",
+                   "qi baishi",
+                   "qian du",
+                   "qian gu",
+                   "qian xuan",
+                   "qiu ying",
+                   "qu leilei",
+                   "quentin blake",
+                   "quentin matsys",
+                   "quint buchholz",
+                   "quinton hoover",
+                   "quirijn van brekelenkam",
+                   "quirizio di giovanni da murano",
+                   "r. b. kitaj",
+                   "r. r. mcian",
+                   "r.o. blechman",
+                   "rachel reckitt",
+                   "rachel ruysch",
+                   "rachel whiteread",
+                   "rackstraw downes",
+                   "radi nedelchev",
+                   "rafael ritz",
+                   "rafail levitsky",
+                   "rafal olbinski",
+                   "raffeaello ossola",
+                   "rainer maria latzke",
+                   "raja ravi varma",
+                   "rajesh soni",
+                   "rajmund kanelba",
+                   "ralph albert blakelock",
+                   "ralph burke tyree",
+                   "ralph earl",
+                   "ralph horsley",
+                   "ralph mcquarrie",
+                   "ram chandra shukla",
+                   "ramon casas i carbo",
+                   "ramon casas i carbó",
+                   "ramon piaguaje",
+                   "ramon pichot",
+                   "ramon silva",
+                   "ramón piaguaje",
+                   "ramón silva",
+                   "randall schmit",
+                   "randolph caldecott",
+                   "randolph schwabe",
+                   "randy gallegos",
+                   "randy post",
+                   "randy vargas",
+                   "raoul de keyser",
+                   "raoul dufy",
+                   "raoul ubac",
+                   "raphael",
+                   "raphael collin",
+                   "raphael kirchner",
+                   "raphael lacoste",
+                   "raphael soyer",
+                   "raphaelle peale",
+                   "raphaël collin",
+                   "ras akyem",
+                   "rashed alakroka",
+                   "raul martinez",
+                   "ravi zupa",
+                   "ray caesar",
+                   "ray crooke",
+                   "ray howard-jones",
+                   "ray parker",
+                   "raymond briggs",
+                   "raymond coxon",
+                   "raymond duchamp-villon",
+                   "raymond han",
+                   "raymond leech",
+                   "raymond normand",
+                   "raymond saunders",
+                   "raymond swanland",
+                   "raymond teague cowern",
+                   "raúl martínez",
+                   "rebecca guay",
+                   "rebecca horn",
+                   "reginald richard redford",
+                   "rei kamoi",
+                   "reinier nooms",
+                   "relja penezic",
+                   "rembrandt",
+                   "rembrandt peale",
+                   "rembrandt van rijn",
+                   "remedios varo",
+                   "ren bonian",
+                   "ren hang",
+                   "ren renfa",
+                   "ren xiong",
+                   "ren xun",
+                   "rene auberjonois",
+                   "rene burri",
+                   "rene magritte",
+                   "renoir",
+                   "rené auberjonois",
+                   "rené burri",
+                   "rené magritte",
+                   "reuben nakian",
+                   "reuben tam",
+                   "reylia slaby",
+                   "reynolds beal",
+                   "rezso balint",
+                   "rezső bálint",
+                   "rhads",
+                   "rhea carmi",
+                   "riad beyrouti",
+                   "ric estrada",
+                   "ric nagualero",
+                   "ricardo bofill",
+                   "richard anuszkiewicz",
+                   "richard artschwager",
+                   "richard avedon",
+                   "richard benning",
+                   "richard carline",
+                   "richard corben",
+                   "richard dadd",
+                   "richard demarco",
+                   "richard diebenkorn",
+                   "richard doyle",
+                   "richard estes",
+                   "richard gerstl",
+                   "richard gordon kendall",
+                   "richard gruelle",
+                   "richard hamilton",
+                   "richard hess",
+                   "richard kane ferguson",
+                   "richard mayhew",
+                   "richard mortensen",
+                   "richard parkes bonington",
+                   "richard pionk",
+                   "richard pousette-dart",
+                   "richard randolph rubenstein",
+                   "richard rockwell",
+                   "richard schmid",
+                   "richard sedlon",
+                   "richard t. scott",
+                   "richard warren pousette-dart",
+                   "richard wilson",
+                   "richard wright",
+                   "richmond barthe",
+                   "richmond barthé",
+                   "richter",
+                   "rick amor",
+                   "rick griffin",
+                   "ridolfo ghirlandaio",
+                   "rihard jakopic",
+                   "rihard jakopič",
+                   "rinaldo cuneo",
+                   "rita angus",
+                   "riusuke fukahori",
+                   "riza abbasi",
+                   "roar kjernstad",
+                   "rob alexander",
+                   "rob gonsalves",
+                   "rob liefeld",
+                   "robbie trevino",
+                   "robert adamson",
+                   "robert alwyn hughes",
+                   "robert antoine pinchon",
+                   "robert bain",
+                   "robert ballagh",
+                   "robert bateman",
+                   "robert beatty",
+                   "robert beauchamp",
+                   "robert bechtle",
+                   "robert bereny",
+                   "robert bery",
+                   "robert bevan",
+                   "robert brackman",
+                   "robert brough",
+                   "robert bryden",
+                   "robert c. barnfield",
+                   "robert campin",
+                   "robert childress",
+                   "robert colescott",
+                   "robert colquhoun",
+                   "robert combas",
+                   "robert crozier",
+                   "robert crumb",
+                   "robert delaunay",
+                   "robert dickerson",
+                   "robert edmonstone",
+                   "robert falk",
+                   "robert fawcett",
+                   "robert feke",
+                   "robert freebairn",
+                   "robert gavin",
+                   "robert goodnough",
+                   "robert griffier",
+                   "robert henderson blyth",
+                   "robert henri",
+                   "robert j. brawley",
+                   "robert jacobsen",
+                   "robert koehler",
+                   "robert lee eskridge",
+                   "robert lenkiewicz",
+                   "robert m. cunningham",
+                   "robert macaulay stevenson",
+                   "robert macbryde",
+                   "robert maguire",
+                   "robert mapplethorpe",
+                   "robert mccall",
+                   "robert mcginnis",
+                   "robert medley",
+                   "robert motherwell",
+                   "robert noble",
+                   "robert peak",
+                   "robert rauschenberg",
+                   "robert reid",
+                   "robert richenburg",
+                   "robert s. duncanson",
+                   "robert scott lauder",
+                   "robert sivell",
+                   "robert storm petersen",
+                   "robert thomas",
+                   "robert walker macbeth",
+                   "robert weaver",
+                   "robert weir allan",
+                   "robert william vonnoh",
+                   "robert zund",
+                   "robert zünd",
+                   "roberto da matta",
+                   "roberto ferri",
+                   "roberto matta",
+                   "roberto parada",
+                   "robin guthrie",
+                   "robt l. williams",
+                   "robt. l. williams",
+                   "rockwell kent",
+                   "rodel gonzalez",
+                   "rodney joseph burn",
+                   "rodney matthews",
+                   "rodolfo amoedo",
+                   "rodolfo escalera",
+                   "rodolfo morales",
+                   "rodolphe topffer",
+                   "rodolphe töpffer",
+                   "rodolphe wytsman",
+                   "roelant savery",
+                   "roelof van vries",
+                   "roger ballen",
+                   "roger cecil",
+                   "roger dean",
+                   "roger swainston",
+                   "roger wilson dennis",
+                   "rogier van der weyden",
+                   "rolf armstrong",
+                   "rolf iseli",
+                   "romain brook",
+                   "romaine brooks",
+                   "roman bezpalkiv",
+                   "romano vio",
+                   "romare bearden",
+                   "romero britto",
+                   "ron english",
+                   "ron spears",
+                   "ron spencer",
+                   "ron walotsky",
+                   "ronald davis",
+                   "ronald rae",
+                   "ronnie landfield",
+                   "rory mcewen",
+                   "rosa bonheur",
+                   "rosalie emslie",
+                   "rose henriques",
+                   "rose maynard barton",
+                   "rose o'neill",
+                   "rose o’neill",
+                   "rosemary allan",
+                   "ross bleckner",
+                   "ross tran",
+                   "rossdraws",
+                   "rowena meeks abdy",
+                   "roy dalgarno",
+                   "roy de maistre",
+                   "roy decarava",
+                   "roy lichtenstein",
+                   "roy newell",
+                   "roy petley",
+                   "roz chast",
+                   "ruan jia",
+                   "rube goldberg",
+                   "rubens peale",
+                   "rudolf ernst",
+                   "rudolf freund",
+                   "rudolf hausner",
+                   "rudolf koller",
+                   "rudolf schlichter",
+                   "rudolf von alt",
+                   "rudolph belarski",
+                   "rudolph f. ingerle",
+                   "rudy siswanto",
+                   "rufino tamayo",
+                   "rumiko takahashi",
+                   "rupert bunny",
+                   "rupert shephard",
+                   "russell chatham",
+                   "russell dongjun lu",
+                   "russell drysdale",
+                   "russell patterson",
+                   "ruth abrahams",
+                   "ruth abrams",
+                   "ruth bernhard",
+                   "ruth brandt",
+                   "ruth collet",
+                   "ruth deckard",
+                   "ruth hollingsworth",
+                   "ruth jen",
+                   "ruth jên",
+                   "ruth orkin",
+                   "ruth sanderson",
+                   "ruth simpson",
+                   "ruud janssen",
+                   "ryan barger",
+                   "ryan pancoast",
+                   "ryan stegman",
+                   "ryan yee",
+                   "ryohei hase",
+                   "ryohei koiso",
+                   "ryoji ikeda",
+                   "ryukosai jokei",
+                   "ryusei kishida,",
+                   "ryuzaburo umehara",
+                   "ryōhei koiso",
+                   "ryūkōsai jokei",
+                   "ryūsei kishida,",
+                   "róbert berény",
+                   "s j lamorna birch",
+                   "sadamichi hirasawa",
+                   "sadao watanabe",
+                   "sailor moon",
+                   "saito kiyoshi",
+                   "saitō kiyoshi",
+                   "sakai hoitsu",
+                   "sakai hōitsu",
+                   "sakimichan",
+                   "sally haley",
+                   "salomon de bray",
+                   "salomon koninck",
+                   "salomon van abbe",
+                   "salomon van abbé",
+                   "salomon van ruysdael",
+                   "salvador dali",
+                   "salvador dalí",
+                   "sam black",
+                   "sam bosma",
+                   "sam charles",
+                   "sam dillemans",
+                   "sam francis",
+                   "sam havadtoy",
+                   "sam spratt",
+                   "samu bortsok",
+                   "samu börtsök",
+                   "samuel birmann",
+                   "samuel colman",
+                   "samuel dirksz van hoogstraten",
+                   "samuel f. b. morse",
+                   "samuel hieronymus grimm",
+                   "samuel peploe",
+                   "samuel prout",
+                   "samuel scott",
+                   "samuel shelley",
+                   "samuel silva",
+                   "samuel washington weis",
+                   "sandor bihari",
+                   "sandor bortnyik",
+                   "sandor brodszky",
+                   "sandor liezen-mayer",
+                   "sandra chevrier",
+                   "sandro botticelli",
+                   "saneatsu mushanokoji",
+                   "saneatsu mushanokōji",
+                   "sanford robinson gifford",
+                   "santiago caruso",
+                   "santiago martinez delgado",
+                   "santiago martínez delgado",
+                   "santiago rusinol",
+                   "santiago rusiñol",
+                   "sara saftleven",
+                   "sarah gough adamson",
+                   "sarah louisa kilpack",
+                   "sarah lucas",
+                   "sarah morris",
+                   "sardar sobha singh",
+                   "sargent johnson",
+                   "sarper baran",
+                   "sasha putrya",
+                   "satake yoshiatsu",
+                   "satoshi kon",
+                   "saul steinberg",
+                   "saul tepper",
+                   "saul yaffie",
+                   "saurabh jethani",
+                   "sava sumanovic",
+                   "sava šumanović",
+                   "sawa sekkyo",
+                   "sawa sekkyō",
+                   "scarlett hooft graafland",
+                   "schelte a bolswert",
+                   "scott gustafson",
+                   "scott listfield",
+                   "scott m. fischer",
+                   "scott naismith",
+                   "scott samuel summers",
+                   "sean scully",
+                   "seb mckinnon",
+                   "sebastian spreng",
+                   "sebastian vrancx",
+                   "sebastiano ricci",
+                   "sengai",
+                   "serafino de tivoli",
+                   "serge poliakoff",
+                   "serge sudeikin",
+                   "sergei sviatchenko",
+                   "sergio burzi",
+                   "sergio larrain",
+                   "sergio larraín",
+                   "serhii vasylkivsky",
+                   "sesshu toyo",
+                   "sesshū tōyō",
+                   "seuss dr",
+                   "shaddy safadi",
+                   "shang xi",
+                   "shani rhys james",
+                   "shao mi",
+                   "sheikh hamdullah",
+                   "sheila mcclean",
+                   "sheila mullen",
+                   "sheilah beckett",
+                   "shekhar gurera",
+                   "shen che-tsai",
+                   "shen quan",
+                   "shen shichong",
+                   "shen zhou",
+                   "sheng mao",
+                   "sheng maoye",
+                   "sherree valentine daines",
+                   "shi rui",
+                   "shi zhonggui",
+                   "shiba kokan",
+                   "shiba kōkan",
+                   "shibata zeshin",
+                   "shigenori soejima",
+                   "shigeru aoki",
+                   "shin saimdang",
+                   "shin yun-bok",
+                   "shingei",
+                   "shinji aramaki",
+                   "shinoda toko",
+                   "shintaro kago",
+                   "shirley teed",
+                   "shitao",
+                   "shog janit",
+                   "shozaburo watanabe",
+                   "shozo shimamoto",
+                   "shubun tensho",
+                   "shukei sesson",
+                   "shunbaisai hokuei",
+                   "shunkosai hokushu",
+                   "shunkōsai hokushū",
+                   "shōzaburō watanabe",
+                   "shōzō shimamoto",
+                   "shūbun tenshō",
+                   "sidney nolan",
+                   "sidney richard percy",
+                   "sidney simon",
+                   "siegfried haas",
+                   "sigmar polke",
+                   "sigmund freudenberger",
+                   "sigrid hjerten",
+                   "sigrid hjertén",
+                   "sigurd swane",
+                   "silvestro lega",
+                   "silvia dimitrova",
+                   "silvia pelissero",
+                   "sim sa-jeong",
+                   "simon bisley",
+                   "simon de vlieger",
+                   "simon gaon",
+                   "simon marmion",
+                   "simon stalenhag",
+                   "simon stålenhag",
+                   "simon ushakov",
+                   "simon vouet",
+                   "simone martini",
+                   "sin wi",
+                   "siona shimshi",
+                   "sir alfred munnings",
+                   "sir jacob epstein",
+                   "sir john tenniel",
+                   "sir william orpen",
+                   "sir william russell flint",
+                   "slava raskaj",
+                   "slava raškaj",
+                   "slawomir maniak",
+                   "slobodan pejic",
+                   "slobodan pejić",
+                   "so shiseki",
+                   "soami",
+                   "sofonisba anguissola",
+                   "sohrab sepehri",
+                   "solomon gessner",
+                   "soma orlai petrich",
+                   "song maojin",
+                   "song xu",
+                   "sonia delaunay",
+                   "sonia delaunay-terk",
+                   "sophia beale",
+                   "sophie anderson",
+                   "sophie gengembre anderson",
+                   "sophie pemberton",
+                   "sophie taeuber-arp",
+                   "sotaro yasui",
+                   "sparth",
+                   "spencer gore",
+                   "stan and jan berenstain",
+                   "stan galli",
+                   "stan stokes",
+                   "stanhope forbes",
+                   "stanislas lepine",
+                   "stanislas lépine",
+                   "stanislav zhukovsky",
+                   "stanislaw ignacy witkiewicz",
+                   "stanislaw maslowski",
+                   "stanislaw samostrzelnik",
+                   "stanislaw tondos",
+                   "stanislaw witkiewicz",
+                   "stanislaw wyspianski",
+                   "stanisław ignacy witkiewicz",
+                   "stanisław masłowski",
+                   "stanisław tondos",
+                   "stanisław witkiewicz",
+                   "stanisław wyspiański",
+                   "stanley artgerm lau",
+                   "stanley bahe",
+                   "stanley matthew mitruk",
+                   "stanley spencer",
+                   "stanley twardowicz",
+                   "stanton macdonald-wright",
+                   "stefan gierowski",
+                   "stefan lochner",
+                   "stefan luchian",
+                   "stella schmolle",
+                   "stephan martiniere",
+                   "stephan martinière",
+                   "stephen bone",
+                   "stephen gammell",
+                   "stephen gilbert",
+                   "stephen greene",
+                   "stephen little",
+                   "stephen pace",
+                   "stevan dohanos",
+                   "steve argyle",
+                   "steve brodner",
+                   "steve dillon",
+                   "steve ditko",
+                   "steve hanks",
+                   "steve mccurry",
+                   "steve prescott",
+                   "steven belledin",
+                   "steven campbell",
+                   "steven daluz",
+                   "steven james petruccio",
+                   "stokely webster",
+                   "storm thorgerson",
+                   "stuart davis",
+                   "studio ghibli",
+                   "sudip roy",
+                   "sugimura jihei",
+                   "sun junze",
+                   "sun kehong",
+                   "sun long",
+                   "sunil das",
+                   "susan crile",
+                   "susan heidi",
+                   "susan weil",
+                   "susy pilgrim waters",
+                   "suzanne duchamp-crotti",
+                   "suzanne valadon",
+                   "suzuki harunobu",
+                   "suzy rice",
+                   "sven erixson",
+                   "sven nordqvist",
+                   "svend rasmussen svendsen",
+                   "svetlin velinov",
+                   "svetoslav roerich",
+                   "syd barrett",
+                   "syd mead",
+                   "sydney carline",
+                   "sydney prior hall",
+                   "sylvester shchedrin",
+                   "sylvia molloy",
+                   "sylvia sleigh",
+                   "sylvia snowden",
+                   "sylvia wishart",
+                   "szymon czechowicz",
+                   "sándor bihari",
+                   "sándor bortnyik",
+                   "sándor brodszky",
+                   "sándor liezen-mayer",
+                   "sō shiseki",
+                   "sōami",
+                   "sōtarō yasui",
+                   "t. c. steele",
+                   "t. k. padmini",
+                   "t. s. sullivant",
+                   "tadanori yokoo",
+                   "tadao ando",
+                   "tadashi nakayama",
+                   "tadashige ono",
+                   "taddeo gaddi",
+                   "tadeusz ajdukiewicz",
+                   "tadeusz brzozowski",
+                   "tadeusz dominik",
+                   "tadeusz kantor",
+                   "tadeusz makowski",
+                   "tadeusz pruszkowski",
+                   "tadeusz pruszkówski",
+                   "tahir salahov",
+                   "taiyo matsumoto",
+                   "taiyō matsumoto",
+                   "takahashi yuichi",
+                   "takashi murakami",
+                   "takato yamamoto",
+                   "takehiko inoue",
+                   "takehisa yumeji",
+                   "takeshi obata",
+                   "takeuchi seiho",
+                   "takeuchi seihō",
+                   "tamara de lempicka",
+                   "tamara lempicka",
+                   "tamas galambos",
+                   "tan ting-pho",
+                   "tanaka isson",
+                   "tang di",
+                   "tang sin yun sandara",
+                   "tang yifen",
+                   "tang yin",
+                   "tani buncho",
+                   "tani bunchō",
+                   "tanomura chikuden",
+                   "taravat jalali farahani",
+                   "taro okamoto",
+                   "taro yamamoto",
+                   "tarsila do amaral",
+                   "tatiana hordiienko",
+                   "tatsuyuki tanaka",
+                   "tawaraya sotatsu",
+                   "tawaraya sōtatsu",
+                   "ted degrazia",
+                   "ted nasmith",
+                   "telemaco signorini",
+                   "teobaldo nina mamani",
+                   "teresa copnall",
+                   "teresa fasolino",
+                   "terese nielsen",
+                   "terrell james",
+                   "terry marks",
+                   "terry morris",
+                   "terry oakes",
+                   "terry redlin",
+                   "tetsugoro yorozu",
+                   "tex avery",
+                   "the brothers hildebrandt",
+                   "the family circus",
+                   "the mazeking",
+                   "thechamba",
+                   "theo constante",
+                   "theo constanté",
+                   "theo van doesburg",
+                   "theodor philipsen",
+                   "theodore chasseriau",
+                   "theodore earl butler",
+                   "theodore gericault",
+                   "theodore major",
+                   "theodore robinson",
+                   "theodore rousseau",
+                   "theodule ribot",
+                   "theophanes the greek",
+                   "theophile steinlen",
+                   "thierry bisch",
+                   "thomas aquinas daly",
+                   "thomas baines",
+                   "thomas barker",
+                   "thomas blackshear",
+                   "thomas bock",
+                   "thomas campbell",
+                   "thomas cantrell dugdale",
+                   "thomas carr",
+                   "thomas cole",
+                   "thomas cornell",
+                   "thomas corsan morton",
+                   "thomas couture",
+                   "thomas crane",
+                   "thomas dalziel",
+                   "thomas de keyser",
+                   "thomas dewing",
+                   "thomas doughty",
+                   "thomas eakins",
+                   "thomas fogarty",
+                   "thomas frederick worrall",
+                   "thomas furlong",
+                   "thomas gainsborough",
+                   "thomas gambier parry",
+                   "thomas hafner",
+                   "thomas hart benton",
+                   "thomas hill",
+                   "thomas häfner",
+                   "thomas kinkade",
+                   "thomas kluge",
+                   "thomas lawrence",
+                   "thomas m. baxa",
+                   "thomas mann baynes",
+                   "thomas millie dow",
+                   "thomas moran",
+                   "thomas nast",
+                   "thomas rowlandson",
+                   "thomas scholes",
+                   "thomas stothard",
+                   "thomas struth",
+                   "thomas stuart burnett",
+                   "thomas symington halliday",
+                   "thomas tudor",
+                   "thomas wijck",
+                   "thorarinn b. thorlaksson",
+                   "thornton oakley",
+                   "thornton willis",
+                   "thota vaikuntham",
+                   "thyrza anne leyshon",
+                   "théodore chassériau",
+                   "théodore géricault",
+                   "théodore rousseau",
+                   "théodule ribot",
+                   "théophile steinlen",
+                   "tibor czorba",
+                   "tibor renyi",
+                   "tibor rényi",
+                   "tilo baumgartel",
+                   "tilo baumgärtel",
+                   "tim and greg hildebrandt",
+                   "tim biskup",
+                   "tim bradstreet",
+                   "tim doyle",
+                   "tim hildebrandt",
+                   "tim okamura",
+                   "tim white",
+                   "tina blondell",
+                   "tina modotti",
+                   "tintoretto",
+                   "titian",
+                   "titian peale",
+                   "titus lunter",
+                   "tivadar alconiere",
+                   "tivadar csontvary kosztka",
+                   "tivadar csontváry kosztka",
+                   "tobias stimmer",
+                   "todd lockwood",
+                   "toichi kato",
+                   "tom bagshaw",
+                   "tom bonson",
+                   "tom carapic",
+                   "tom chambers",
+                   "tom gourdie",
+                   "tom hammick",
+                   "tom la padula",
+                   "tom lovell",
+                   "tom palin",
+                   "tom phillips",
+                   "tom roberts",
+                   "tom scott rsa",
+                   "tom thomson",
+                   "tom wanerstrand",
+                   "tom wesselmann",
+                   "tom whalen",
+                   "tom wänerstrand",
+                   "tomas barcelo",
+                   "tomasz jedruszek",
+                   "tomek setowski",
+                   "tomer hanuka",
+                   "tomi ungerer",
+                   "tomioka tessai",
+                   "tommaso dolabella",
+                   "tommaso masaccio",
+                   "tommaso redi",
+                   "tomokazu matsuyama",
+                   "tomàs barceló",
+                   "tony diterlizzi",
+                   "tony sart",
+                   "tony szczudlo",
+                   "tony tuckson",
+                   "tooth wu",
+                   "torii kiyomasu",
+                   "torii kiyomasu ii",
+                   "torii kiyomitsu",
+                   "torii kiyomoto",
+                   "torii kiyonaga",
+                   "torii kiyonobu i",
+                   "toriyama sekien",
+                   "toros roslin",
+                   "tosa mitsunobu",
+                   "tosa mitsuoki",
+                   "toshi yoshida",
+                   "toshiko okanoue",
+                   "toshusai sharaku",
+                   "toss woollaston",
+                   "totte mannes",
+                   "tove jansson",
+                   "toyen",
+                   "toyohara chikanobu",
+                   "toyohara kunichika",
+                   "tracey emin",
+                   "tracey moberly",
+                   "tracy harris",
+                   "tran nguyen",
+                   "troels worsel",
+                   "troels wörsel",
+                   "tsubasa nakai",
+                   "tsuchida bakusen",
+                   "tsuchiya koitsu",
+                   "tsuguharu foujita",
+                   "tsuji kako",
+                   "tsuji kakō",
+                   "tsukioka yoshitoshi",
+                   "tsuruko yamazaki",
+                   "tuomas korpi",
+                   "tuvia beeri",
+                   "tyler edlin",
+                   "tyler jacobson",
+                   "tytus czyzewski",
+                   "tytus czyżewski",
+                   "tōichi katō",
+                   "tōshi yoshida",
+                   "tōshūsai sharaku",
+                   "ueda fumito",
+                   "uemura shoen",
+                   "uemura shōen",
+                   "ugo nespolo",
+                   "ulrich leman",
+                   "ulrika pasch",
+                   "umberto boccioni",
+                   "un'ichi hiratsuka",
+                   "unkoku togan",
+                   "uragami gyokudo",
+                   "uragami gyokudō",
+                   "urakusai nagahide",
+                   "ursula edgcumbe",
+                   "ursula wood",
+                   "utagawa hirokage",
+                   "utagawa hiroshige ii",
+                   "utagawa kunimasa",
+                   "utagawa kunimasu",
+                   "utagawa kunisada",
+                   "utagawa kunisada ii",
+                   "utagawa kunisada iii",
+                   "utagawa kuniyoshi",
+                   "utagawa toyoharu",
+                   "utagawa toyokuni",
+                   "utagawa yoshiiku",
+                   "utagawa yoshitaki",
+                   "utagawa yoshitora",
+                   "utagawa yoshitsuya",
+                   "uwe wittwer",
+                   "vaclav brozik",
+                   "vadym meller",
+                   "valentin aleksandrovich serov",
+                   "valentine hugo",
+                   "valeria denes",
+                   "valerie petts",
+                   "valéria dénes",
+                   "van gogh",
+                   "vanessa beecroft",
+                   "vanessa bell",
+                   "vasile hutopila",
+                   "vasily andreevich tropinin",
+                   "vasily perov",
+                   "vasily polenov",
+                   "vasily surikov",
+                   "vasily vereshchagin",
+                   "vassily maximov",
+                   "veikko tormanen",
+                   "veikko törmänen",
+                   "veno pilon",
+                   "vermeer",
+                   "veronica ruiz de velasco,",
+                   "verónica ruiz de velasco,",
+                   "vicente juan masip",
+                   "victo ngai",
+                   "victor adame minguez",
+                   "victor brauner",
+                   "victor enrich",
+                   "victor manuel garcia valdes",
+                   "victor meirelles",
+                   "victor moscoso",
+                   "victor mosquera",
+                   "victor nizovtsev",
+                   "victor noble rainbird",
+                   "victor surbek",
+                   "victor vasarely",
+                   "victor wang",
+                   "victoria frances",
+                   "victoria francés",
+                   "victorine foot",
+                   "vija celmins",
+                   "viktor de jeney",
+                   "viktor madarasz",
+                   "viktor madarász",
+                   "viktor oliva",
+                   "viktor vasnetsov",
+                   "viktoria gavrilenko",
+                   "vilhelm bissen",
+                   "vilhelm kyhn",
+                   "vilhelm lundstrom",
+                   "vilhelm lundstrøm",
+                   "villard de honnecourt",
+                   "vilmos aba-novak",
+                   "vilmos aba-novák",
+                   "vincent di fate",
+                   "vincent evans",
+                   "vincent lefevre",
+                   "vincent pepi",
+                   "vincent proce",
+                   "vincent van gogh",
+                   "vincenzo cabianca",
+                   "vincenzo irolli",
+                   "vint lawrence",
+                   "viola paterson",
+                   "violet fuller",
+                   "violet oakley",
+                   "virgil finlay",
+                   "virginia lee burton",
+                   "vito d'ancona",
+                   "vittore carpaccio",
+                   "vivian maier",
+                   "viviane sassen",
+                   "vivien blackett",
+                   "vladimir baranov-rossine",
+                   "vladimir borovikovsky",
+                   "vladimir kush",
+                   "vladimir makovsky",
+                   "vladimir novak",
+                   "vladimir tatlin",
+                   "vladimir tretchikoff",
+                   "vladimir vasicek",
+                   "vladimír vašíček",
+                   "vlady kibalchich russakov",
+                   "vlaho bukovac",
+                   "volkan baga",
+                   "vytautas kasiulis",
+                   "václav brožík",
+                   "víctor manuel garcía valdés",
+                   "w. heath robinson",
+                   "w. lindsay cable",
+                   "wadim kashin",
+                   "walasse ting",
+                   "waldo peirce",
+                   "walenty wankowicz",
+                   "walenty wańkowicz",
+                   "wally wood",
+                   "walt disney",
+                   "walt reed",
+                   "walter bayes",
+                   "walter beach humphrey",
+                   "walter crane",
+                   "walter emerson baum",
+                   "walter haskell hinton",
+                   "walter humphrey",
+                   "walter langley",
+                   "walter leighton clark",
+                   "walter osborne",
+                   "walter percy day",
+                   "walter sickert",
+                   "walter stuempfig",
+                   "walther jervolino",
+                   "wang duo",
+                   "wang e",
+                   "wang fu",
+                   "wang guxiang",
+                   "wang hui",
+                   "wang jian",
+                   "wang lu",
+                   "wang lü",
+                   "wang meng",
+                   "wang mian",
+                   "wang shimin",
+                   "wang shishen",
+                   "wang wei",
+                   "wang wu",
+                   "wang ximeng",
+                   "wang yi",
+                   "wang yuan",
+                   "wang yuanqi",
+                   "wang zhenpeng",
+                   "wang zhongyu",
+                   "warhol",
+                   "warren eugene brandon",
+                   "warren mahy",
+                   "warwick goble",
+                   "washington allston",
+                   "wassily kandinsky",
+                   "watanabe kazan",
+                   "watanabe shotei",
+                   "watanabe shōtei",
+                   "wayne barlowe",
+                   "wayne england",
+                   "wayne reynolds",
+                   "wayne thiebaud",
+                   "weiwei",
+                   "wen boren",
+                   "wen jia",
+                   "wen tong",
+                   "wen zhengming",
+                   "wen zhenheng",
+                   "wenceslas hollar",
+                   "wendell minor",
+                   "wendy froud",
+                   "wenzel lorenz reiner",
+                   "werner andermatt",
+                   "werner gutzeit",
+                   "werner tubke",
+                   "werner tübke",
+                   "wes anderson",
+                   "wes wilson",
+                   "wesley burt",
+                   "whitney darrow",
+                   "whitney sherman",
+                   "wifredo lam",
+                   "wilfredo lam",
+                   "wilhelm bendz",
+                   "wilhelm freddie",
+                   "wilhelm hammershoi",
+                   "wilhelm hammershøi",
+                   "wilhelm heise",
+                   "wilhelm leibl",
+                   "wilhelm marstrand",
+                   "wilhelm sasnal",
+                   "wilhelm schnarrenberger",
+                   "wilhelm trubner",
+                   "wilhelm trübner",
+                   "wilhelmina weber furlong",
+                   "will barnet",
+                   "will eisner",
+                   "will ellis",
+                   "willard metcalf",
+                   "willard mullin",
+                   "willem claeszoon heda",
+                   "willem cornelisz duyster",
+                   "willem de kooning",
+                   "willem de poorter",
+                   "willem drost",
+                   "willem hondius",
+                   "willem jacobsz delff",
+                   "willem kalf",
+                   "willem labeij",
+                   "willem maris",
+                   "willem pieterszoon buytewech",
+                   "willem van aelst",
+                   "willem van de velde the elder",
+                   "willem van de velde the younger",
+                   "willem van der vliet",
+                   "willem van haecht",
+                   "willem van mieris",
+                   "william berra",
+                   "william birnie rhind",
+                   "william blake",
+                   "william blake richmond",
+                   "william bliss baker",
+                   "william bonnar",
+                   "william brodie",
+                   "william coldstream",
+                   "william congdon",
+                   "william conor",
+                   "william crosbie",
+                   "william crozier",
+                   "william dargie",
+                   "william didier-pouget",
+                   "william dobell",
+                   "william dobson",
+                   "william dring",
+                   "william edouard scott",
+                   "william edward west",
+                   "william etty",
+                   "william fettes douglas",
+                   "william forsyth",
+                   "william gear",
+                   "william geissler",
+                   "william george gillies",
+                   "william glackens",
+                   "william gouw ferguson",
+                   "william grant stevenson",
+                   "william gropper",
+                   "william h. mosby",
+                   "william harnett",
+                   "william hoare",
+                   "william hogarth",
+                   "william holman hunt",
+                   "william holmes sullivan",
+                   "william home lizars",
+                   "william jacob baer",
+                   "william jennys",
+                   "william john thomson",
+                   "william kentridge",
+                   "william langson lathrop",
+                   "william mactaggart",
+                   "william mcgregor paxton",
+                   "william mctaggart",
+                   "william merritt chase",
+                   "william michael harnett",
+                   "william miller",
+                   "william morris",
+                   "william mossman",
+                   "william mustart lockhart",
+                   "william nicholson",
+                   "william powhida",
+                   "william quiller orchardson",
+                   "william simpson",
+                   "william steig",
+                   "william stott",
+                   "william stout",
+                   "william thon",
+                   "william trost richards",
+                   "william turner",
+                   "william turner of oxford",
+                   "william twigg-smith",
+                   "william woodward",
+                   "william yellowlees",
+                   "william york macgregor",
+                   "william zorach",
+                   "william-adolphe bouguereau",
+                   "willian murai",
+                   "willie ito",
+                   "willy bo richardson",
+                   "willy finch",
+                   "wilson irvine",
+                   "winona nelson",
+                   "winslow homer",
+                   "winsor mccay",
+                   "winston churchill",
+                   "witold pruszkowski",
+                   "witold pruszkówski",
+                   "witold wojtkiewicz",
+                   "wladyslaw czachorski",
+                   "wladyslaw malecki",
+                   "wladyslaw podkowinski",
+                   "wladyslaw slewinski",
+                   "wladyslaw strzeminski",
+                   "wlastimil hofman",
+                   "wlodzimierz tetmajer",
+                   "wlop",
+                   "wojciech gerson",
+                   "wojciech korneli stattler",
+                   "wojciech kossak",
+                   "wojciech siudmak",
+                   "wojciech weiss",
+                   "wolf huber",
+                   "wolf kahn",
+                   "wolf vostell",
+                   "wolfgang letti",
+                   "wolfgang zelmer",
+                   "wouter pietersz crabeth",
+                   "wu bin",
+                   "wu changshuo",
+                   "wu daozi",
+                   "wu guanzhong",
+                   "wu hong",
+                   "wu li",
+                   "wu shixian",
+                   "wu wei",
+                   "wu zhen",
+                   "wu zuoren",
+                   "wuzhun shifan",
+                   "wyke bayliss",
+                   "wylie beckert",
+                   "wyndham lewis",
+                   "władysław czachórski",
+                   "władysław malecki",
+                   "władysław podkowiński",
+                   "władysław ślewiński",
+                   "xanthus russell smith",
+                   "xavier blum pinto",
+                   "xi gang",
+                   "xia chang",
+                   "xia gui",
+                   "xia shuwen",
+                   "xia yong",
+                   "xiang shengmo",
+                   "xiao yuncong",
+                   "xie he",
+                   "xie huan",
+                   "xie shichen",
+                   "xie sun",
+                   "xu beihong",
+                   "xu wei",
+                   "xu xi",
+                   "xuande emperor",
+                   "xul solar",
+                   "yaacov agam",
+                   "yahoo kusama",
+                   "yamagata hiro",
+                   "yamaguchi kayo",
+                   "yamamoto shoun",
+                   "yamamoto shōun",
+                   "yan hui",
+                   "yan liben",
+                   "yanagawa nobusada",
+                   "yanagawa shigenobu",
+                   "yang borun",
+                   "yang buzhi",
+                   "yang j",
+                   "yang jin",
+                   "yang weizhen",
+                   "yanjun cheng",
+                   "yao tingmei",
+                   "yasar vurdem",
+                   "yasuo kuniyoshi",
+                   "yasushi sugiyama",
+                   "yasutomo oka",
+                   "yayoi kusama",
+                   "yayou kusama",
+                   "ye xin",
+                   "yehia dessouki",
+                   "yeong-hao han",
+                   "yerkaland",
+                   "yi inmun",
+                   "yi insang",
+                   "yi jaegwan",
+                   "yi yuanji",
+                   "yiannis moralis",
+                   "yoann lossel",
+                   "yokoyama taikan",
+                   "yosa buson",
+                   "yoshida hanbei",
+                   "yoshihiko wada",
+                   "yoshio markino",
+                   "yoshitaka amano",
+                   "yoshitoshi abe",
+                   "yoshitoshi mori",
+                   "yoshiyuki tomino",
+                   "youri messen-jaschin",
+                   "youssef howayek",
+                   "yousuf karsh",
+                   "yu zhiding",
+                   "yuan jiang",
+                   "yuan yao",
+                   "yue minjun",
+                   "yuki ogura",
+                   "yukihiko yasuda",
+                   "yukimasa ida",
+                   "yuko shimizu",
+                   "yuko tatsushima",
+                   "yumihiko amano",
+                   "yun du-seo",
+                   "yun shouping",
+                   "yun-fei ji",
+                   "yuri ivanovich pimenov",
+                   "yuumei",
+                   "yves klein",
+                   "yves tanguay",
+                   "yves tanguy",
+                   "yvonne jacquette",
+                   "zacharias martin aagaard",
+                   "zack snyder",
+                   "zack stella",
+                   "zaha hadid",
+                   "zahari zograf",
+                   "zao wou-ki",
+                   "zbigniew nowosadzki",
+                   "zdenek burian",
+                   "zdeněk burian",
+                   "zdzislaw beksinski",
+                   "zdzisław beksiński",
+                   "zeen chin",
+                   "zelma blakely",
+                   "zeng jing",
+                   "zha shibiao",
+                   "zhan ziqian",
+                   "zhang han",
+                   "zhang jingna",
+                   "zhang kechun",
+                   "zhang lu",
+                   "zhang sengyao",
+                   "zhang shengwen",
+                   "zhang shunzi",
+                   "zhang shuqi",
+                   "zhang wo",
+                   "zhang xiaogang",
+                   "zhang xuan",
+                   "zhang yan",
+                   "zhang yin",
+                   "zhang zeduan",
+                   "zhang zongcang",
+                   "zhao mengfu",
+                   "zhao yong",
+                   "zhao yuan",
+                   "zhao zhiqian",
+                   "zhao zuo",
+                   "zheng xie",
+                   "zhichao cai",
+                   "zhou chen",
+                   "zhou fang",
+                   "zhou jichang",
+                   "zhou shuxi",
+                   "zhou wenjing",
+                   "zhu da",
+                   "zhu derun",
+                   "zinaida serebriakova",
+                   "zlatyu boyadzhiev",
+                   "zoe mozert",
+                   "zofia stryjenska",
+                   "zoltan boros",
+                   "zoltan joo",
+                   "zoltan nuridsany",
+                   "zoltán joó",
+                   "zoltán nuridsány",
+                   "zoran music",
+                   "zoran mušič",
+                   "zou yigui",
+                   "zou zhe",
+                   "zoë mozert",
+                   "zsolt bodoni",
+                   "zsuzsa mathe",
+                   "zsuzsa máthé",
+                   "zvest apollonio",
+                   "zygmunt vogel",
+                   "zygmunt waliszewski",
+                   "ángel botello",
+                   "ásgrímur jónsson",
+                   "édouard debat-ponsan",
+                   "édouard detaille",
+                   "édouard manet",
+                   "édouard vuillard",
+                   "élisabeth vigée le brun",
+                   "émile bernard",
+                   "étienne aubry",
+                   "évariste vital luminais",
+                   "óscar domínguez",
+                   "ödön márffy",
+                   "þórarinn b. þorláksson",
+                   "ștefan luchian"]
+"""List of over 5000 artists, ordered by name.
 
-ARTISTS_BY_NAME = multiline_text_to_list("""
-A. B. Jackson
-A. J. Casson
-A. R. Middleton Todd
-A.B. Frost
-A.D.M. Cooper
-Aaron Bohrod
-Aaron Douglas
-Aaron Jasinski
-Aaron Miller
-Aaron Nagel,
-Abbott Handerson Thayer
-Abdullah Gërguri
-Abdur Rahman Chughtai
-Abidin Dino
-Abraham Begeyn
-Abraham Bloemaert
-Abraham Bosschaert
-Abraham Hondius
-Abraham Mignon
-Abraham Storck
-Abraham Willaerts
-Abraham de Vries
-Abraham van Beijeren
-Abraham van Calraet
-Abraham van den Tempel
-Abram Arkhipov
-Achille Leonardi
-Ada Gladys Killins
-Ada Hill Walker
-Adam Bruce Thomson
-Adam Chmielowski
-Adam Dario Keel
-Adam Elsheimer
-Adam Manyoki
-Adam Marczyński
-Adam Paquette
-Adam Pijnacker
-Adam Rex
-Adam Saks
-Adam Szentpétery
-Adam Willaerts
-Adolf Bierbrauer
-Adolf Born
-Adolf Dietrich
-Adolf Fényes
-Adolf Hirémy-Hirschl
-Adolf Hölzel
-Adolf Schrödter
-Adolf Ulric Wertmüller
-Adolf Wölfli
-Adolfo Müller-Ury
-Adolph Gottlieb
-Adolph Menzel
-Adolphe Willette
-Adriaen Brouwer
-Adriaen Coorte
-Adriaen Hanneman
-Adriaen Isenbrant
-Adriaen van Ostade
-Adriaen van de Velde
-Adriaen van de Venne
-Adriaen van der Werff
-Adrian Zingg
-Adrienn Henczné Deák
-Adélaïde Labille-Guiard
-Adélaïde Victoire Hall
-Aelbert Cuyp
-Aert de Gelder
-Aert van der Neer
-Aertgen van Leyden
-Afewerk Tekle
-Affandi
-Agnes Lawrence Pelton
-Agnes Martin
-Agnolo Bronzino
-Agnolo Gaddi
-Agostino Carracci
-Aguri Uchida
-Agustín Fernández
-Ahmed Karahisari
-Ahmed Yacoubi
-Ai Weiwei
-Ai Xuan
-Ai-Mitsu
-Aileen Eagleton
-Aimé Barraud
-Akihiko Yoshida
-Akira Toriyama
-Akseli Gallen-Kallela
-Al Feldstein
-Al Williamson
-Aladár Körösfői-Kriesch
-Alain Tasso
-Alan Bean
-Alan Davis
-Alan Lee
-Alan Pollack
-Alan Sutherland
-Alasdair Grant Taylor
-Alasdair Gray
-Albert Anker
-Albert Bertelsen
-Albert Bierstadt
-Albert Dorne
-Albert Dubois-Pillet
-Albert Edelfelt
-Albert Gleizes
-Albert Guillaume
-Albert Henry Krehbiel
-Albert Irvin
-Albert J. Welti
-Albert Joseph Moore
-Albert Joseph Pénot
-Albert Keller
-Albert Kotin
-Albert Marquet
-Albert Namatjira
-Albert Nemethy
-Albert Paris Gütersloh
-Albert Swinden
-Albert Welti
-Alberto Burri
-Alberto Giacometti
-Alberto Morrocco
-Alberto Seveso
-Alberto Sughi
-Alberto Vargas
-Albin Egger-Lienz
-Albrecht Altdorfer
-Albrecht Dürer
-Aldus Manutius
-Alejandro Burdisio
-Alejandro Obregón
-Aleksander Gierymski
-Aleksander Gine
-Aleksander Kobzdej
-Aleksander Kotsis
-Aleksander Orłowski
-Aleksandr Gerasimov
-Aleksandr Ivanovich Laktionov
-Aleksi Briclot
-Alena Aenami
-Alessandro Allori
-Alessandro Galli Bibiena
-Alesso Baldovinetti
-Alex Grey
-Alex Horley
-Alex Horley-Orlandelli
-Alex Katz
-Alex Petruk APe
-Alex Ross
-Alex Toth
-Alexander Archipenko
-Alexander Bogen
-Alexander Brook
-Alexander Calder
-Alexander Carse
-Alexander Deyneka
-Alexander Fedosav
-Alexander Ivanov
-Alexander Jansson
-Alexander Johnston
-Alexander Kanoldt
-Alexander Kucharsky
-Alexander Litovchenko
-Alexander Mann
-Alexander McQueen
-Alexander Milne Calder
-Alexander Nasmyth
-Alexander Robertson
-Alexander Rodchenko
-Alexander Roslin
-Alexander Runciman
-Alexander Scott
-Alexander Sharpe Ross
-Alexander Stirling Calder
-Alexander V. Kuprin
-Alexandre Benois
-Alexandre Cabanel
-Alexandre Falguière
-Alexandre-Évariste Fragonard
-Alexei Kondratyevich Savrasov
-Alexej von Jawlensky
-Alexey Merinov
-Alexey Venetsianov
-Alexis Grimou
-Alexis Simon Belle
-Alfons Karpiński
-Alfons Walde
-Alfons von Czibulka
-Alfonse Mucha
-Alfred Charles Parker
-Alfred East
-Alfred Edward Chalon
-Alfred Eisenstaedt
-Alfred Freddy Krupa
-Alfred Janes
-Alfred Jensen
-Alfred Krupa
-Alfred Kubin
-Alfred Leslie
-Alfred Leyman
-Alfred Manessier
-Alfred Richard Gurrey
-Alfred Sisley
-Alfred Thompson Bricher
-Alfred Wallis
-Alfredo Volpi
-Algernon Talmage
-Alice Bailly
-Alice Mason
-Alice Neel
-Alice Prin
-Alice Rahon
-Alison Debenham
-Alison Geissler
-Alison Kinnaird
-Alison Watt
-Allaert van Everdingen
-Allan Brooks
-Allan Linder
-Allan Ramsay
-Allen Butler Talcott
-Allen Jones
-Allen Tupper True
-Alma Thomas
-Almada Negreiros
-Almeida Júnior
-Alonso Vázquez
-Aloysius O'Kelly
-Alphonse Legros
-Alphonse Mucha
-Alson S. Clark
-Altichiero
-Alton Tobey
-Altoon Sultan
-Alvan Fisher
-Alén Diviš
-Amadeo de Souza Cardoso
-Amalia Lindegren
-Amanda Sage
-Ambreen Butt
-Ambrose McCarthy Patterson
-Ambrosius Benson
-Ambrosius Bosschaert
-Ambrosius Bosschaert II
-Ambrosius Holbein
-Amedeo Modigliani
-Amelia Peláez
-Amelia Robertson Hill
-Americo Makk
-Amir Zand
-Ammi Phillips
-Amos Ferguson
-Amos Sewell
-Amy Weber
-Amédée Ozenfant
-An Gyeon
-An Zhengwen
-Anato Finnstark
-Ancell Stronach
-Anders Zorn
-Andor Basch
-Andre Derain
-Andre de Krayewski
-Andrea Kowch
-Andrea Mantegna
-Andrea Orcagna
-Andrea Pozzo
-Andrea del Sarto
-Andrea del Verrocchio
-Andreas Achenbach
-Andreas Gursky
-Andreas Rocha
-Andrei Kolkoutine
-Andrei Rublev
-Andrei Ryabushkin
-Andrew Allan
-Andrew Bell
-Andrew Boog Faithfull
-Andrew Domachowski
-Andrew Ferez
-Andrew Geddes
-Andrew Henderson
-Andrew Law
-Andrew Loomis
-Andrew Robertson
-Andrew Robinson
-Andrew Stevovich
-Andrew Wyeth
-Andrey Esionov
-Andrey Yefimovich Martynov
-Andries Both
-Andries Stock, Dutch Baroque painter
-Android Jones
-Andrzej Pronaszko
-Andrzej Wróblewski
-André Bauchant
-André Beauneveu
-André Castro
-André Charles Biéler
-André Derain
-André François
-André Kertész
-André Lhote
-André Masson
-André Pijet
-André Thomkins
-Andrée Ruellan
-Andy Goldsworthy
-Andy Warhol
-Aneurin Jones
-Angelica Kauffman
-Aniello Falcone
-Anish Kapoor
-Anita Kunz
-Anita Malfatti
-Anka Zhuravleva
-Ann Thetis Blacker
-Anna Ancher
-Anna Boch
-Anna Dittmann
-Anna Findlay
-Anna Füssli
-Anna Haifisch
-Anna Hotchkis
-Anna Katharina Block
-Anna Maria Barbara Abesch
-Anna Mary Robertson Moses
-Anna and Elena Balbusso
-Annabel Eyres
-Annabel Kidston
-Anne Dunn
-Anne Geddes
-Anne Nasmyth
-Anne Redpath
-Anne Rigney
-Anne Ryan
-Anne Said
-Anne Savage
-Anne Stokes
-Anni Albers
-Annibale Carracci
-Annie Abernethie Pirie Quibell
-Annie Leibovitz
-Annie Rose Laing
-Ansel Adams
-Anselm Kiefer
-Anson Maddocks
-Antanas Sutkus
-Anthony Angarola
-Anthony Devas
-Anthony Palumbo
-Anthony S Waters
-Anthony van Dyck
-Antoine Blanchard
-Antoine Ignace Melling
-Antoine Le Nain
-Antoine Verney-Carron
-Antoine Wiertz
-Anton Ažbe
-Anton Fadeev
-Anton Graff
-Anton Lehmden
-Anton Mauve
-Anton Möller
-Anton Otto Fischer
-Anton Pieck
-Anton Räderscheidt
-Anton Solomoukha
-Antonello da Messina
-Antoni Brodowski
-Antoni Pitxot
-Antoni Tàpies
-Antonie Palamedesz
-Antonin Artaud
-Antonio Canova
-Antonio Cavallucci
-Antonio Ciseri
-Antonio Donghi
-Antonio Galli Bibiena
-Antonio Mancini
-Antonio Rotta
-Antonio Saura
-Antonio de la Gandara
-Antonín Chittussi
-Antonín Slavíček
-Antônio Parreiras
-Aníbal Villacís
-Apelles
-Apollinary Vasnetsov
-Apollonia Saintclair
-Aquirax Uno
-Arabella Rankin
-Araceli Gilbert
-Aramenta Dianthe Vail
-Archibald Motley
-Archibald Robertson
-Archibald Skirving
-Archibald Standish Hartrick
-Arcimboldo
-Arent Arentsz
-Arie Smit
-Arik Brauer
-Aristide Maillol
-Arkhip Kuindzhi
-Arlington Nelson Lindenmuth
-Armand Guillaumin
-Armin Baumgarten
-Armin Hansen
-Arnie Swekel
-Arnold Blanch
-Arnold Bronckhorst
-Arnold Brügger
-Arnold Böcklin
-Arnold Franz Brasz
-Arnold Mesches
-Arnold Newman
-Arshile Gorky
-Art & Language
-Art Brenner
-Art Fitzpatrick
-Art Frahm
-Art Green
-Art Spiegelman
-Art of Brom
-Artemisia Gentileschi
-Artgerm
-Arthur Adams
-Arthur B. Carles
-Arthur Boyd
-Arthur Burdett Frost
-Arthur Dove
-Arthur Garfield Dove
-Arthur Hughes
-Arthur Lismer
-Arthur Melville
-Arthur Merric Boyd
-Arthur Pan
-Arthur Quartley
-Arthur Rackham
-Arthur Sarkissian
-Arthur Streeton
-Arthur Webster Emerson
-Artur Grottger
-Artur Tarnowski
-Arturo Rivera
-Arvid Nyholm
-Asaf Hanuka
-Asai Chū
-Asger Jorn
-Asher Brown Durand
-Atey Ghailan
-Attila Meszlenyi
-Aubrey Beardsley
-Audrey Kawasaki
-August Friedrich Schenck
-August Lemmer
-August Macke
-August Querfurt
-August Sander
-Auguste Baud-Bovy
-Auguste Herbin
-Augustin Meinrad Bächtiger
-Augustus Dunbier
-Augustus Earle
-Augustus John
-Augustus Vincent Tack
-Augustyn Mirys
-Aurél Bernáth
-Auseklis Ozols
-Austin Briggs
-Austin English
-Austin Osman Spare
-Avgust Černigoj
-Avigdor Arikha
-Awataguchi Takamitsu
-Ay-O
-Aya Goda
-Ayako Rokkaku
-Ayami Kojima
-Ayshia Taşkın
-Baiōken Eishun
-Balcomb Greene
-Balthasar van der Ast
-Balthus
-Balázs Diószegi
-Banksy
-Bapu
-Barbara Balmer
-Barbara Greg
-Barbara Longhi
-Barbara Nasmyth
-Barbara Nessim
-Barclay Shaw
-Barent Fabritius
-Barkley Hendricks
-Barnett Newman
-Barron Storey
-Barthel Bruyn the Elder
-Barthel Bruyn the Younger
-Bartholomeus Breenbergh
-Bartholomeus Strobel
-Bartholomeus van Bassen
-Bartholomeus van der Helst
-Barthélemy Menn
-Barthélemy d'Eyck
-Bartolomeo Cesi
-Bartolomeo Vivarini
-Bartolomé Esteban Murillo
-Bascove
-Basil Blackshaw
-Bastien L. Deharme
-Bastien Lecouffe-Deharme
-Basuki Abdullah
-Bauhaus
-Bayard Wu
-Beatrice Ethel Lithiby
-Beatrice Huntington
-Beatrix Potter
-Beauford Delaney
-Bedwyr Williams
-Beeple
-Beksinski
-Bela Čikoš Sesija
-Ben Enwonwu
-Ben Nicholson
-Ben Shahn
-Ben Stahl
-Ben Templesmith
-Ben Thompson
-Ben Zoeller
-Bencho Obreshkov
-Benito Quinquela Martín
-Benjamin Block
-Benjamin Franklin
-Benjamin Gerritsz Cuyp
-Benjamin Marra
-Benjamin West
-Benjamin Williams Leader
-Benoit B. Mandelbrot
-Bernard Accama
-Bernard Buffet
-Bernard D’Andrea
-Bernard Fleetwood-Walker
-Bernard Meninsky
-Bernard van Orley
-Bernardino Mei
-Bernardo Bellotto
-Bernardo Cavallino
-Bernardo Daddi
-Bernardo Strozzi
-Bernat Sanjuan
-Bernd Fasching
-Bernie D’Andrea
-Bernie Wrightson
-Bernt Tunold
-Bert Hardy
-Bert Stern
-Bertalan Karlovszky
-Bertalan Pór
-Bertalan Székely
-Berthe Morisot
-Bertram Brooker
-Bessie Wheeler
-Beta Vukanović
-Bettina Heinen-Ayech
-Betty Churcher
-Betty Merken
-Betye Saar
-Bholekar Srihari
-Bhupen Khakhar
-Bian Jingzhao
-Bian Shoumin
-Bikash Bhattacharjee
-Bill Lewis
-Bill Sienkiewicz
-Bill Traylor
-Bill Ward
-Bill Watterson
-Billie Waters
-Billy Childish
-Bjørn Wiinblad
-Blanche Hoschedé Monet
-Bob Byerley
-Bob Eggleton
-Bob Ringwood
-Bob Ross
-Bob Singer
-Bob Thompson
-Boetius Adamsz Bolswert
-Bogi Fabian
-Bohumil Kubista
-Boleslaw Cybis
-Bonnard Pierre
-Boris Kustodiev
-Boris Vallejo
-Boris Vladimirski
-Bouchta El Hayani
-Bourgeois
-Božidar Jakac
-Bracha L. Ettinger
-Brad Holland
-Brad Kunkle
-Bradley Walker Tomlin
-Brassaï
-Brenda Chamberlain
-Brett Whiteley
-Breyten Breytenbach
-Brian 'Chippy' Dugan
-Brian Alfred
-Brian Bolland
-Brian Despain
-Brian Dunlop
-Brian Fies
-Brian Froud
-Brian Snøddy
-Brian Thomas
-Brian and Wendy Froud
-Briana Mora
-Brice Marden
-Bridget Bate Tichenor
-Bridget Riley
-Brigette Barrager
-Brigid Derham
-Brom
-Brooke Shaden
-Brothers Hildebrandt
-Bruce Davidson
-Bruce Gilden
-Bruce McLean
-Bruce Munro
-Bruce Nauman
-Bruce Onobrakpeya
-Bruce Pennington
-Bruce Timm
-Bruno Liljefors
-Bryan Organ
-Buckminster Fuller
-Bunny Yeager
-Byeon Sang-byeok
-Byron Galvez
-Bálint Kiss
-Béla Apáti Abkarovics
-Béla Czóbel
-Béla Iványi-Grünwald
-Béla Kondor
-Béla Nagy Abodi
-Béla Pállik
-Béni Ferenczy
-Caesar Andrade Faini
-Caesar van Everdingen
-Cafer Bater
-Cagnaccio di San Pietro
-Cam Sykes
-Camille Bombois
-Camille Bouvagne
-Camille Corot
-Camille Pissarro
-Camille Souter
-Camille-Pierre Pambu Bodo
-Camilo Egas
-Camilo Mori
-Canaletto
-Candido Bido
-Candido Portinari
-Cao Buxing
-Cao Zhibai
-Caravaggio
-Carel Fabritius
-Carel Weight
-Carel Willink
-Carey Morris
-Carl Arnold Gonzenbach
-Carl Barks
-Carl Critchlow
-Carl Eugen Keel
-Carl Eytel
-Carl Frederik von Breda
-Carl Gustaf Pilo
-Carl Heinrich Bloch
-Carl Hoppe
-Carl Larsson
-Carl Morris
-Carl Rahl
-Carl Spitzweg
-Carl Walter Liner
-Carl-Henning Pedersen
-Carla Wyzgala
-Carle Hessay
-Carles Delclaux Is
-Carlo Carlone
-Carlo Carrà
-Carlo Crivelli
-Carlo Galli Bibiena
-Carlo Maderna
-Carlo Martini
-Carlo Mense
-Carlo Randanini
-Carlos Berlanga
-Carlos Catasse
-Carlos Enríquez Gómez
-Carlos Francisco Chang Marín
-Carlos Saenz de Tejada
-Carlos Schwabe
-Carlos Trillo Name
-Carne Griffiths
-Caro Niederer
-Carol Bove
-Carol Sutton
-Caroline Chariot-Dayez
-Caroline Gotch
-Caroline Lucy Scott
-Caroline Mytinger
-Carpoforo Tencalla
-Carrie Mae Weems
-Caspar David Friedrich
-Caspar Netscher
-Caspar Wolf
-Caspar van Wittel
-Cassandra Austen
-Cassius Marcellus Coolidge
-Caterina Tarabotti
-Catrin G Grosse
-Catrin Welz-Stein
-Cecil Beaton
-Cecile Walton
-Cecilia Beaux
-Cecily Brown
-Cedric Peyravernay
-Cedric Seaut
-Cedric Seaut (Keos Masons)
-Ceferí Olivé
-Celia Fiennes
-Celia Frances Bedford
-Ceri Richards
-Cerith Wyn Evans
-Chafik Charobim
-Chagall
-Chaim Soutine
-Chang Dai-chien
-Chantal Joffe
-Charles Addams
-Charles Alphonse du Fresnoy
-Charles Alston
-Charles Angrand
-Charles Billich
-Charles Bird King
-Charles Blackman
-Charles Codman
-Charles Conder
-Charles Crodel
-Charles Cundall
-Charles Dana Gibson
-Charles Demuth
-Charles E. Burchfield
-Charles Ellison
-Charles Fremont Conner
-Charles Furneaux
-Charles Ginner
-Charles Gleyre
-Charles H. Woodbury
-Charles Harold Davis
-Charles Haslewood Shannon
-Charles Hinman
-Charles Hopkinson
-Charles Joshua Chaplin
-Charles Le Brun
-Charles Le Roux
-Charles Mahoney
-Charles Marion Russell
-Charles Martin
-Charles Maurice Detmold
-Charles McAuley
-Charles Mozley
-Charles Ragland Bunnell
-Charles Rennie Mackintosh
-Charles Ricketts
-Charles Roka
-Charles Rollier
-Charles S. Kaelin
-Charles Schulz
-Charles Thomson
-Charles Uzzell-Edwards
-Charles W. Bartlett
-Charles Williams
-Charles Willson Peale
-Charles-Amédée-Philippe van Loo
-Charles-André van Loo
-Charles-François Daubigny
-Charlie Bowater
-Charlotte Harding
-Charlotte Nasmyth
-Charly Amani
-Charmion von Wiegand
-Chase Stone
-Chaïm Soutine
-Chen Chi
-Chen Chun
-Chen Daofu
-Chen Hong
-Chen Hongshou
-Chen Jiru
-Chen Lin
-Chen Lu
-Chen Rong
-Chen Yifei
-Cheng Jiasui
-Cheng Shifa
-Cheng Zhengkui
-Cherryl Fountain
-Chesley Bonestell
-Chica Macnab
-Chiharu Shiota
-Chiho Aoshima
-Childe Hassam
-Chinwe Chukwuogo-Roy
-Chip Zdarsky
-Chippy
-Chizuko Yoshida
-Choi Buk
-Chris Cold
-Chris Foss
-Chris Friel
-Chris LaBrooy
-Chris Moore
-Chris Rahn
-Chris Rallis
-Chris Spollen
-Chris Ware
-Christabel Dennison
-Christen Dalsgaard
-Christen Købke
-Christian August Lorentzen
-Christian Hilfgott Brand
-Christian Jane Fergusson
-Christian Krohg
-Christian Rohlfs
-Christian W. Staudinger
-Christo
-Christoffel van den Berghe
-Christoffer Wilhelm Eckersberg
-Christoph Amberger
-Christoph Ludwig Agricola
-Christophe Vacher
-Christopher Balaskas
-Christopher Moeller
-Christopher Perkins
-Christopher Rush
-Christopher Williams
-Christopher Wood
-Christopher Wren
-Chuck Close
-Cicely Hey
-Cicely Mary Barker
-Cimabue
-Cindy Sherman
-Cindy Wright
-Claes Corneliszoon Moeyaert
-Claes Jansz. Visscher
-Claire Dalby
-Claire Falkenstein
-Claire Hummel
-Clara Miller Burd
-Clara Peeters
-Clara Weaver Parrish
-Clarence Holbrook Carter
-Clarice Beckett
-Clark Voorhees
-Claude Bonin-Pissarro
-Claude Cahun
-Claude Lorrain
-Claude Monet
-Claude Rogers
-Cleon Peterson
-Cleve Gray
-Cliff Childs
-Clifford Ellis
-Clifford Ross
-Clint Cearley
-Clovis Trouille
-Clyde Caldwell
-Clyfford Still
-Clément Serveau
-Coby Whitmore
-Coles Phillips
-Colijn de Coter
-Colin Campbell Cooper
-Colin Gill
-Colin Hayes
-Colin McCahon
-Colin Middleton
-Colin Moss
-Conrad Marca-Relli
-Conrad Roset
-Conroy Maddox
-Constance Copeman
-Constance Gordon-Cumming
-Constance-Anne Parker
-Constant
-Constant Permeke
-Constantin Hansen
-Constantine Andreou
-Coppo di Marcovaldo
-Cor Melchers
-Corneille
-Cornelia MacIntyre Foley
-Cornelia Parker
-Cornelis Anthonisz
-Cornelis Bisschop
-Cornelis Claesz van Wieringen
-Cornelis Dusart
-Cornelis Engebrechtsz
-Cornelis Pietersz Bega
-Cornelis Saftleven
-Cornelis Verbeeck
-Cornelis de Heem
-Cornelis de Man
-Cornelis van Haarlem
-Cornelis van Poelenburgh
-Cornelisz Hendriksz Vroom, the Younger
-Correggio
-Cosmo Alexander
-Craig Davison
-Craig Mullins
-Craig Thompson
-Craola
-Cricorps Grégoire
-Cristache Gheorghiu
-Cristofano Allori
-Csaba Markus
-Cui Bai
-Cui Zizhong
-Cuno Amiet
-Cy Twombly
-Cynthia Sheppard
-Cyril Rolando
-Cándido López
-Cézanne
-D. Alexander Gregory
-D. Howard Hitchcock
-Daarken
-Dahlov Ipcar
-Dai Jin
-Dai Xi
-Dali
-Dalí
-Damien Hirst
-Dan Christensen
-Dan Content
-Dan Frazier
-Dan Hillier
-Dan Luvisi
-Dan Mumford
-Dan Scott
-Dan Smith
-Daniel Chodowiecki
-Daniel F. Gerhartz
-Daniel Garber
-Daniel Gelon
-Daniel Lieske
-Daniel Ljunggren
-Daniel Maclise
-Daniel Merriam
-Daniel Schultz
-Daniel Seghers
-Daniel Taylor
-Daniël Mijtens
-Dante Gabriel Rossetti
-Daphne Allen
-Daphne Fedarb
-Daphne McClure
-Darek Zabrocki
-Daren Bader
-Dariusz Zawadzki
-Darrell Riche
-Daryush Shokof
-Dave Allsop
-Dave Arredondo
-Dave Dorman
-Dave Gibbons
-Dave Kendall
-Dave McKean
-Dave Melvin
-David A Hardy
-David A. Hardy
-David Alfaro Siqueiros
-David Allan
-David Annand
-David B. Mattingly
-David Bailly
-David Begbie
-David Bomberg
-David Boyd
-David Brewster
-David Budd
-David Burliuk
-David Burton-Richardson
-David Chipperfield
-David Cooke Gibson
-David Diao
-David Donaldson
-David Dougal Williams
-David Eugene Henry
-David Firth
-David G. Sorensen
-David Garner
-David Gilmour Blythe
-David Hockney
-David Imms
-David Inshaw
-David LaChapelle
-David Ligare
-David Macaulay
-David Macbeth Sutherland
-David Martin
-David Michie
-David Octavius Hill
-David Palumbo
-David Park
-David Paton
-David Ramsay Hay
-David Roberts
-David Simpson
-David Small
-David Teniers III
-David Teniers the Elder
-David Teniers the Younger
-David Watson Stevenson
-David Wilkie
-David Wojnarowicz
-David Young Cameron
-Davide Sasselli
-De Hirsh Margules
-Dean Cornwell
-Dean Ellis
-Dean Roger
-Dechko Uzunov
-Dee Whitcomb
-Delaunay
-Delmer J. Yoakum
-Delphin Enjolras
-Demetrios Farmakopoulos
-Denis Eden
-Dennis Ashbaugh
-Dennis Flanders
-Dennis H. Farber
-Dennis Miller Bunker
-Derek Chittock
-Derek Gores
-Derek Hill
-Derek Jarman
-Derf
-Derold Page
-Desmond Morris
-Diane Arbus
-Diane Dillon
-Dick Bickenbach
-Dicky Doyle
-Didier Mouron
-Diego Giacometti
-Diego Gisbert Llorens
-Diego Rivera
-Diego Velázquez
-Dieric Bouts
-Dietmar Damerau
-Dimitre Manassiev Mehandjiysky
-Ding Guanpeng
-Ding Yunpeng
-Dino Valls
-Dionisio Baixeras Verdaguer
-Dionisius
-Dirck Hals
-Dirck de Bray
-Dirck de Quade van Ravesteyn
-Dirck van Baburen
-Dirck van Delen
-Dirck van der Lisse
-Dirk Crabeth
-Dirk Helmbreker
-Ditlev Blunck
-Dmitry Levitzky
-Doc Hammer
-Dod Procter
-Dom Qwek
-Domenichino
-Domenico Ghirlandaio
-Domenico Induno
-Domenico Pozzi
-Domenico Quaglio the Younger
-Domenico Zampieri
-Domenico di Pace Beccafumi
-Domirinic Fegallia
-Don Arday
-Don Bluth
-Don Eddy
-Don Maitz
-Don Reichert
-Donald Judd
-Donald Roller Wilson
-Donald Sherwood
-Donato Giancola
-Dong Kingman
-Dong Qichang
-Dong Yuan
-Dora Carrington
-Dora Maar
-Doris Blair
-Doris Boulton-Maude
-Dorning Rasbotham
-Dorothea Braby
-Dorothea Lange
-Dorothea Tanning
-Dorothea Warren O'Hara
-Dorothy Bradford
-Dorothy Burroughes
-Dorothy Coke
-Dorothy Elizabeth Bradford
-Dorothy Hood
-Dorothy Johnstone
-Dorothy King
-Dorothy Lockwood
-Dosso Dossi
-Doug Ohlson
-Doug Wildey
-Douglas Bourgeois
-Douglas Robertson Bisset
-Douglas Shuler
-Dr. Atl
-Dr. Seuss
-Drew Struzan
-Drew Tucker
-Du Jin
-Du Qiong
-Duccio
-Dugald Sutherland MacColl
-Dulah Marie Evans
-Duncan Grant
-Dustin Nguyen
-Dwight William Tryon
-Dóra Keresztes
-Dürer
-E. Charlton Fortune
-E. Simms Campbell
-E. T. A. Hoffmann
-E. William Gollings
-E.H. Shepard
-ESAO
-Eamon Everall
-Earl Norem
-Earle Bergey
-Earnst Haeckel
-Echo Chernik
-Ed Benedict
-Ed Binkley
-Ed Emshwiller
-Ed Paschke
-Ed Roth
-Eddie Campbell
-Eddie Mendoza
-Eden Box
-Edgar Ainsworth
-Edgar Degas
-Edgar Schofield Baum
-Edi Rama
-Edith Edmonds
-Edith Grace Wheatley
-Edith Lawrence
-Edmond Aman-Jean
-Edmond Bille
-Edmond Xavier Kapp
-Edmund Blampied
-Edmund Charles Tarbell
-Edmund Dulac
-Edmund F. Ward
-Edmund Greacen
-Edmund Leighton
-Edna Mann
-Edo Murtić
-Eduard von Grützner
-Eduard von Steinle
-Eduardo Kingman
-Eduardo Lefebvre Scovell
-Eduardo Paolozzi
-Edvard Munch
-Edward Armitage
-Edward Arthur Walton
-Edward Atkinson Hornel
-Edward Avedisian
-Edward Bailey
-Edward Baird
-Edward Ben Avram
-Edward Burne-Jones
-Edward Clark
-Edward Corbett
-Edward Dugmore
-Edward George Handel Lucas
-Edward Gorey
-Edward Henry Potthast
-Edward Hicks
-Edward Hopper
-Edward Kemble
-Edward Lamson Henry
-Edward Lear
-Edward Marshall Boehm
-Edward Mitchell Bannister
-Edward Okuń
-Edward Otho Cresap Ord, II
-Edward P. Beard Jr.
-Edward Robert Hughes
-Edward Ruscha
-Edward Simmons
-Edward Sorel
-Edward Wadsworth
-Edward Weston
-Edward Willis Redfield
-Edwin Austin Abbey
-Edwin Deakin
-Edwin Dickinson
-Edwin G. Lucas
-Edwin Georgi
-Edwin Landseer
-Eero Järnefelt
-Eero Snellman
-Egbert van Heemskerck
-Egbert van der Poel
-Eglon van der Neer
-Egon Schiele
-Egon von Vietinghoff
-Ei-Q
-Eiichiro Oda
-Eileen Aldridge
-Einar Hakonarson
-Eishōsai Chōki
-Eizan Kikukawa
-Eizō Katō
-Ejler Bille
-Ejnar Nielsen
-El Greco
-El Lissitzky
-Elaine Duillo
-Elaine Hamilton
-Elaine de Kooning
-Elbridge Ayer Burbank
-Eleanor Best
-Eleanor Fortescue-Brickdale
-Eleanor Hughes
-Eleanor Layfield Davis
-Eleanor Vere Boyle
-Elena Guro
-Elfriede Lohse-Wächtler
-Elias Goldberg
-Elias Ravanetti
-Elina Karimova
-Elinor Proby Adams
-Eliot Hodgkin
-Elisabeth Collins
-Eliseu Visconti
-Elizabeth Charleston
-Elizabeth Durack
-Elizabeth Forbes
-Elizabeth Jane Lloyd
-Elizabeth MacNicol
-Elizabeth Murray
-Elizabeth Polunin
-Elizabeth Shippen Green
-Elizabeth York Brunton
-Elke Vogelsang
-Ella Guru
-Ellen Gallagher
-Elliott Erwitt
-Ellsworth Kelly
-Elmer Bischoff
-Elmyr de Hory
-Elsa Beskow
-Elsa Bleda
-Else Alfelt
-Elsie Dalton Hewland
-Elsie Few
-Elsie Henderson
-Elsie Vera Cole
-Elwood H. Smith
-Emanuel Büchel
-Emanuel Leutze
-Emanuel Schongut
-Emanuel Witz
-Emanuel de Witte
-Emerson Silva
-Emil Bisttram
-Emil Carlsen
-Emil Fuchs
-Emil Lindenfeld
-Emil Nolde
-Emil Orlik
-Emile Auguste Carolus-Duran
-Emile Lahner
-Emiliano Di Cavalcanti
-Emiliano Ponzi
-Emilio Grau Sala
-Emily Carr
-Emily Mason
-Emily Murray Paterson
-Emily Shanks
-Emma Andijewska
-Emma Geary
-Emma Lampert Cooper
-Emma Ríos
-Emory Douglas
-Emperor Huizong of Song
-Endre Bálint
-Enguerrand Quarton
-Enki Bilal
-Enrico Baj
-Enrique Grau
-Enrique Simonet
-Enrique Tábara
-Enzo Cucchi
-Eppo Doeve
-Epsylon Point
-Eric Auld
-Eric Deschamps
-Eric Dinyer
-Eric Peterson
-Eric Taylor
-Eric Zener
-Eric de Kolb
-Erich Heckel
-Erik Ortvad
-Erik Pevernagie
-Erin Hanson
-Erlund Hudson
-Ernest Biéler
-Ernest Briggs
-Ernest Buckmaster
-Ernest Heber Thompson
-Ernest Hébert
-Ernest Lawson
-Ernest Morgan
-Ernest Procter
-Ernest William Christmas
-Ernest Zobole
-Ernie Barnes
-Ernst
-Ernst Fuchs
-Ernst Haeckel
-Ernst Ludwig Kirchner
-Ernst Thoms
-Ernst Wilhelm Nay
-Ernő Bánk
-Ernő Grünbaum
-Ernő Rubik
-Ernő Tibor
-Erwin Bowien
-Esaias Boursse
-Esaias van de Velde
-Esao Andrews
-Esteban Vicente
-Esther Blaikie MacKinnon
-Estuardo Maldonado
-Eszter Mattioni
-Etel Adnan
-Ethel Schwabacher
-Etienne Delessert
-Ettore "Ted" DeGrazia
-Ettore Tito
-Euan Uglow
-Eugeen Van Mieghem
-Eugene Delacroix
-Eugene J. Martin
-Eugene Leroy
-Eugene Montgomery
-Eugene Tertychnyi
-Eugene von Guerard
-Eugenio Granell
-Eugenio de Arriba
-Eugeniusz Zak
-Eugeniusz Żak
-Eugène Boudin
-Eugène Brands
-Eugène Burnand
-Eugène Carrière
-Eugène Delacroix
-Eugène Grasset
-Eugène Isabey
-Eva Frankfurther
-Eva Gonzalès
-Eva Švankmajerová
-Evaline Ness
-Evan Charlton
-Evaristo Baschenis
-Eve Disher
-Eve Ryder
-Evelyn Abelson
-Evelyn Cheston
-Evelyn De Morgan
-Everett Raymond Kinstler
-Everett Shinn
-Everett Warner
-Evert Collier
-Evgeny Lushpin
-Exekias
-Eyvind Earle
-F Scott Hess
-F. Scott Hess
-Fabien Charuau
-Fairfield Porter
-Fan Kuan
-Fan Qi,
-Fang Congyi
-Fanny McIan
-Farel Dalrymple
-Farid Mansour
-Fathi Hassan
-Fay Pomerance
-Fede Galizia
-Federico Barocci
-Federico Uribe
-Federico Zandomeneghi
-Federico Zuccari
-Fedot Sychkov
-Fei Danxu
-Felice Casorati
-Felicity Charlton
-Felipe Seade
-Felix Octavius Carr Darley
-Felix-Kelly
-Feng Zhu
-Fenghua Zhong
-Ferdinand Bol
-Ferdinand Hodler
-Ferdynand Ruszczyc
-Ferenc Joachim
-Fern Coppedge
-Fernand Léger
-Fernand Pelez
-Fernand Toussaint
-Fernand Verhaegen
-Fernando Amorsolo
-Fernando Botero
-Fernando Gerassi
-Fikret Muallâ Saygı
-Filip Hodas
-Filippino Lippi
-Fiona Rae
-Fiona Stephenson
-Fitz Henry Lane
-Fitz Hugh Lane
-Flavia Blois
-Fletcher Martin
-Flora Macdonald Reid
-Florence Engelbach
-Florianne Becker
-Floris van Dyck
-Floris van Schooten
-Ford Madox Brown
-Fra Angelico
-Fra Bartolomeo
-Fra Filippo Lippi
-Frances C. Fairman
-Frances Currey
-Frances Hodgkins
-Frances Jetter
-Frances MacDonald
-Frances Macdonald
-Francesco Albani
-Francesco Bartolozzi
-Francesco Bonsignori
-Francesco Clemente
-Francesco Cozza
-Francesco Filippini
-Francesco Furini
-Francesco Guardi
-Francesco Hayez
-Francesco Raibolini
-Francesco Zuccarelli
-Francesco del Cossa
-Francis Bacon
-Francis Bourgeois
-Francis Cadell
-Francis Davis Millet
-Francis Ernest Jackson
-Francis Focer Brown
-Francis Helps
-Francis Picabia
-Francis Souza
-Francisco Goya
-Francisco Josè de Goya
-Francisco Oller
-Francisco Zúñiga
-Francisco de Burgos Mantilla
-Francisco de Holanda
-Francisco de Zurbarán
-Franciszek Kostrzewski
-Franciszek Smuglewicz
-Franciszek Starowieyski
-Franciszek Żmurko
-Frank Auerbach
-Frank Barrington Craig
-Frank Buchser
-Frank DuMond
-Frank Frazetta
-Frank J. Girardin
-Frank Leonard Brooks
-Frank Mason
-Frank McKelvey
-Frank Miller
-Frank Montague Moore
-Frank O'Meara
-Frank Schoonover
-Frank Stella
-Frank Weston Benson
-Frank Xavier Leyendecker
-Franklin Booth
-Franklin Carmichael
-Frans Hals
-Frans Koppelaar
-Frans Masereel
-Frans van Mieris the Elder
-Frans van Mieris the Younger
-František Jakub Prokyš
-František Kaván
-František Kupka
-Franz Cižek
-Franz Fedier
-Franz Hegi
-Franz Karl Basler-Kopp
-Franz Kline
-Franz Marc
-Franz Sedlacek
-Franz Stuck
-Franz Vohwinkel
-Franz Xaver Winterhalter
-Franz von Lenbach
-François Barraud
-François Bocion
-François Boquet
-François Boucher
-François Clouet
-François Girardon
-François Joseph Heim
-François Louis Thomas Francia
-François Quesnel
-Fred A. Precht
-Fred Cress
-Fred Ludekens
-Fred Marcellino
-Fred Mitchell,
-Fred Williams
-Frederic Church
-Frederic Edwin Church
-Frederic Leighton
-Frederic Remington
-Frederick Carl Frieseke
-Frederick Edwin Church
-Frederick Goodall
-Frederick Hammersley
-Frederick Lord Leighton
-Frederick McCubbin
-Frederik Vermehren
-Frederik de Moucheron
-Frida Kahlo
-Friedel Dzubas
-Friedensreich Hundertwasser
-Friedrich Gauermann
-Friedrich Ritter von Friedländer-Malheim
-Friedrich Traffelet
-Friedrich von Amerling
-Frieke Janssens
-Frits Thaulow
-Frits Van den Berghe
-Fritz Baumann
-Fritz Bultman
-Fritz Glarner
-Fritz Puempin
-Fritz von Dardel
-Fritz von Uhde
-Frédéric Bazille
-Fu Baoshi
-Fujishima Takeji
-Fujiwara Nobuzane
-Fujiwara Takanobu
-Fuller Potter
-Fuyuko Matsui
-Fyodor Alekseyev
-Fyodor Rokotov
-Fyodor Slavyansky
-Fyodor Vasilyev
-Félix Arauz
-Félix Bódog Widder
-Félix Labisse
-Félix Vallotton
-Félix Ziem
-Gabor Breznay
-Gabor Szikszai
-Gabriel Ba
-Gabriel Dawe
-Gabriel Metsu
-Gabriele Münter
-Gabrijel Jurkić
-Gaetano Previati
-Gaetano Sabatini
-Gai Qi
-Galen Dara
-Gang Hui-an
-Gang Se-hwang
-Gao Cen
-Gao Fenghan
-Gao Kegong
-Gao Qipei
-Gao Xiang
-Garry Winogrand
-Gary Panter
-Gaston Anglade
-Gaston Bussière
-Gatōken Shunshi
-Gaudi
-Gaugin
-Gavin Hamilton
-Gavin Nolan
-Gawen Hamilton
-Gediminas Pranckevicius
-Gee Vaucher
-Geertgen tot Sint Jans
-Gen Paul
-Genco Gulan
-Gene Davis
-Genevieve Springston Lynch
-Gentile Bellini
-Gentile Tondino
-Geof Darrow
-Geoffrey Dyer
-Geoffrey Olsen
-Georg Arnold-Graboné
-Georg Baselitz
-Georg Friedrich Kersting
-Georg Friedrich Schmidt
-Georg Muche
-Georg Scholz
-Georg Schrimpf
-George Abe
-George Aleef
-George Ault
-George B. Bridgman
-George B. Sutherland
-George Bain
-George Barker
-George Barret, Jr.
-George Barret, Sr.
-George Baselitz
-George Bell
-George Bellows
-George Benjamin Luks
-George Biddle
-George Bogart
-George Caleb Bingham
-George Catlin
-George Claessen
-George Cruikshank
-George Earl Ortman
-George Fiddes Watt
-George Frederic Watts
-George Frederick Harris
-George Gardner Symons
-George Grosz
-George Hendrik Breitner
-George Henry
-George Herbert Baker
-George Hurrell
-George Inness
-George Jamesone
-George Lambourn
-George Lucas
-George Luks
-George Manson
-George Morrison
-George Papazov
-George Passantino
-George Paul Chalmers
-George Pirie
-George Reid
-George Romney
-George Stubbs
-George Tooker
-George Wyllie
-George barbier
-Georges Braque
-Georges Emile Lebacq
-Georges Lacombe
-Georges Lemmen
-Georges Rouault
-Georges Seurat
-Georges Stein
-Georges de La Tour
-Georgia O'Keeffe
-Georgina Hunt
-Gerald Brom
-Gerald Kelley
-Gerald Kelly
-Gerald van Honthorst
-Gerard David
-Gerard Houckgeest
-Gerard Seghers
-Gerard Sekoto
-Gerard Soest
-Gerard de Lairesse
-Gerard ter Borch
-Gerbrand van den Eeckhout
-Gerda Wegener
-Gerhard Richter
-Germaine Krull
-Germán Londoño
-Gerrit Adriaenszoon Berckheyde
-Gerrit Dou
-Gertrude Abercrombie
-Gertrude Greene
-Gertrude Harvey
-Giacomo Balla
-Giambattista Pittoni
-Gian Lorenzo Bernini
-Gianfredo Camesi
-Gigadō Ashiyuki
-Giger
-Gijsbert d'Hondecoeter
-Gil Elvgren
-Gilbert Stuart
-Gilberto Soren Zaragoza
-Gilles Beloeil
-Gillis Rombouts
-Gillis d'Hondecoeter
-Gina Pellón
-Gino Severini
-Giocondo Albertolli
-Giorgio Cavallon
-Giorgio De Vincenzi
-Giorgio Giulio Clovio
-Giorgio Morandi
-Giorgio de Chirico
-Giorgione
-Giotto
-Giovanni Antonio Galli
-Giovanni Battista Cipriani
-Giovanni Battista Gaulli
-Giovanni Battista Innocenzo Colombo
-Giovanni Battista Piazzetta
-Giovanni Battista Piranesi
-Giovanni Battista Tiepolo
-Giovanni Bellini
-Giovanni Bernardino Asoleni
-Giovanni Bernardino Azzolini
-Giovanni Bernardino Mazzolini
-Giovanni Boldini
-Giovanni Fattori
-Giovanni Francesco Barbieri
-Giovanni Giacometti
-Giovanni Lanfranco
-Giovanni Paolo Cavagna
-Giovanni Paolo Pannini
-Giovanni Pelliccioli
-Girolamo Muziano
-Giuseppe Abbati
-Giuseppe Antonio Petrini
-Giuseppe Arcimboldo
-Giuseppe Avanzi
-Giuseppe Bernardino Bison
-Giuseppe Camuncoli
-Giuseppe De Nittis
-Giuseppe Grisoni
-Giuseppe Tominz
-Gladys Dawson
-Gladys Kathleen Bell
-Glen Angus
-Glen Keane
-Glenn Fabry
-Glennray Tutor
-Glenys Cour
-Gloria Stoll Karn
-Glòria Muñoz
-Godfrey Blow
-Godfried Schalcken
-Gong Kai
-Gong Xian
-Gonzalo Endara Crow
-Gordon Browne
-Gordon Parks
-Goro Fujita
-Gottfried Helnwein
-Govert Dircksz Camphuysen
-Govert Flinck
-Goyō Hashiguchi
-Grace Clements
-Grace Cossington Smith
-Grace English
-Grace Pailthorpe
-Grace Polit
-Graham Forsythe
-Graham Sutherland
-Grandma Moses
-Grant Wood
-Grayson Perry
-Greg Hildebrandt
-Greg Rutkowski
-Greg Spalenka
-Greg Staples
-Gregorio Lazzarini
-Gregorio Prestopino
-Gregorius Sickinger
-Gregory Crewdson
-Gregory Gillespie
-Gregory Manchess
-Grete Stern
-Grethe Jürgens
-Grigoriy Myasoyedov
-Grillo Demo
-Griselda Allan
-Grytė Pintukaitė
-Grzegorz Domaradzki
-Grzegorz Rutkowski
-Gu An
-Gu Hongzhong
-Gu Kaizhi
-Gu Zhengyi
-Guan Daosheng
-Guido Borelli da Caluso
-Guido Reni
-Guillermo del Toro
-Guity Novin
-Guo Chun
-Guo Xi
-Gustaf Munch-Petersen
-Gustaf Tenggren
-Gustav Doré
-Gustav Klimt
-Gustave Baumann
-Gustave Boulanger
-Gustave Caillebotte
-Gustave Courbet
-Gustave Dore
-Gustave Doré
-Gustave Moreau
-Gustave Van de Woestijne
-Gusukuma Seihō
-Gusztáv Kelety
-Guy Denning
-Guy Rose
-Gwen Barnard
-Gwen John
-Gwenny Griffiths
-Gwilym Prichard
-Gyoshū Hayami
-Gyula Aggházy
-Gyula Basch
-Gyula Batthyány
-Gyula Benczúr
-Gyula Derkovits
-György Rózsahegyi
-György Vastagh
-Gérard Ernest Schneider
-Géza Dósa
-Géza Mészöly
-Géza Udvary
-H. R. (Hans Ruedi) Giger
-H. R. Giger
-H.P. Lovecraft
-H.R. Giger
-H.R. Millar
-HAP Grieshaber
-Haddon Sundblom
-Hal Foster
-Hallsteinn Sigurðsson
-Hamilton Sloan
-Hamish MacDonald
-Han Gan
-Hanabusa Itchō
-Hanabusa Itchō II
-Hanna-Barbera
-Hannah Frank
-Hannah Höch
-Hannah Tompkins
-Hanns Katz
-Hans Asper
-Hans Baldung
-Hans Baluschek
-Hans Beat Wieland
-Hans Bellmer
-Hans Bol
-Hans Burgkmair
-Hans Eduard von Berlepsch-Valendas
-Hans Erni
-Hans Falk
-Hans Fischer
-Hans Fries
-Hans Gude
-Hans Hartung
-Hans Hinterreiter
-Hans Hofmann
-Hans Holbein the Elder
-Hans Holbein the Younger
-Hans Leu the Elder
-Hans Makart
-Hans Memling
-Hans Mertens
-Hans Sandreuter
-Hans Schwarz
-Hans Werner Schmidt
-Hans von Aachen
-Hans von Bartels
-Harald Giersing
-Hariton Pushwagner
-Harold Elliott
-Harold Gilman
-Harold Harvey
-Harold Sandys Williamson
-Harold Shapinsky
-Harold von Schmidt
-Harriet Backer
-Harriet Powers
-Harriet Zeitlin
-Harrington Mann
-Harrison Fisher
-Harry Beckhoff
-Harry Clarke
-Harry Haenigsen
-Harry Morley
-Harry Shoulberg
-Harumi Hironaka
-Harvey Dunn
-Harvey Kurtzman
-Harvey Pratt
-Harvey Quaytman
-Hasegawa Settan
-Hasegawa Tōhaku
-Hashimoto Gahō
-Hasui Kawase
-Haukur Halldórsson
-Hayao Miyazaki
-Hazel Armour
-Heather Hudson
-Hedda Sterne
-Hedi Xandt
-Heinrich Bichler
-Heinrich Brocksieper
-Heinrich Danioth
-Heinrich Herzig
-Heinrich Hofmann
-Heinrich Kley
-Heinrich Lefler
-Heinrich Maria Davringhausen
-Heinz Anger
-Heinz Edelman
-Helen Berman
-Helen Biggar
-Helen Binyon
-Helen Dahm
-Helen Edwards
-Helen Frankenthaler
-Helen Stevenson
-Helen Thomas Dranga
-Helene Schjerfbeck
-Helmut Federle
-Helmut Newton
-Hendrick Avercamp
-Hendrick Bloemaert
-Hendrick Cornelisz Vroom
-Hendrick Cornelisz. van Vliet
-Hendrick Goudt
-Hendrick Terbrugghen
-Hendrick van Balen
-Hendrick van Streeck
-Hendrik Gerritsz Pot
-Hendrik Goltzius
-Hendrik Martenszoon Sorgh
-Hendrik Willem Mesdag
-Hendrik van Steenwijk I
-Hendrik van Steenwijk II
-Henning Jakob Henrik Lund
-Henri Alphonse Barnoin
-Henri Bellechose
-Henri Biva
-Henri Cartier-Bresson
-Henri Fantin-Latour
-Henri Harpignies
-Henri Le Sidaner
-Henri Matisse
-Henri Michaux
-Henri Rousseau
-Henri de Toulouse-Lautrec
-Henri-Edmond Cross
-Henri-Julien Dumont
-Henric Trenk
-Henricus Hondius II
-Henriett Seth F.
-Henriette Grindat
-Henriette Wyeth
-Henrik Weber
-Henry B. Christian
-Henry Bright
-Henry Carr
-Henry Fuseli
-Henry Heerup
-Henry Ives Cobb, Jr.
-Henry Justice Ford
-Henry Lamb
-Henry Macbeth-Raeburn
-Henry Moore
-Henry O. Tanner
-Henry Ossawa Tanner
-Henry Otto Wix
-Henry Raeburn
-Henry Raleigh
-Henry Scott Tuke
-Henry Snell Gamley
-Henry Tonks
-Henry Wallis
-Henry Woods
-Henry van de Velde
-Henryk Rodakowski
-Henryk Siemiradzki
-Henryk Stażewski
-Henryka Beyer
-Herb Aach
-Herb Ritts
-Herbert Abrams
-Herbert Bayer
-Herbert James Gunn
-Herbert MacNair
-Hercules Seghers
-Herman Saftleven
-Herman van Swanevelt
-Hermann Feierabend
-Hermann Rüdisühli
-Hermenegildo Anglada Camarasa
-Hermione Hammond
-Hew Lorimer
-Hidari Jingorō
-Hideyuki Kikuchi
-Hieronim Bosch
-Hieronymous Bosch
-Hieronymus Bosch
-Hikari Shimoda
-Hilda Annetta Walker
-Hilda May Gordon
-Hilde Goldschmidt
-Hilma af Klint
-Hinchel Or
-Hirohiko Araki
-Hiromitsu Takahashi
-Hiromu Arakawa
-Hirosada II
-Hiroshi Honda
-Hiroshi Nagai
-Hiroshi Yoshida
-Hiroshige
-Hiroyuki Tajima
-Hishida Shunsō
-Hishikawa Moronobu
-Hisui Sugiura
-Hokusai
-Holger Roed
-Hong Ren
-Honoré Daumier
-Horace Vernet
-Horatio McCulloch
-Horatio Nelson Poole
-Horst Antes
-Hovsep Pushman
-Howard Arkley
-Howard Butterworth
-Howard Chandler Christy
-Howard Chaykin
-Howard Finster
-Howard Hodgkin
-Howard Kanovitz
-Howard Knotts
-Howard Lyon
-Howard Mehring
-Howard Pyle
-Howardena Pindell
-Hristofor Zhefarovich
-Hristofor Žefarović
-Hsiao-Ron Cheng
-Hu Jieqing
-Hu Zao
-Hu Zaobin
-Hua Yan
-Huang Binhong
-Huang Ding
-Huang Gongwang
-Huang Guangjian
-Huang Ji
-Huang Shen
-Huang Tingjian
-Hubert Robert
-Hubert van Eyck
-Hubert van Ravesteyn
-Hubert von Herkomer
-Hugh Adam Crawford
-Hugh Ferriss
-Hugh Hughes
-Hugh William Williams
-Hugo Anton Fisher
-Hugo Heyrman
-Hugo Kārlis Grotuss
-Hugo Scheiber
-Hugo Simberg
-Hugo Sánchez Bonilla
-Hugo van der Goes
-Humberto Castro
-Hundertwasser
-Hyacinthe Rigaud
-Hyman Bloom
-I Ketut Soki
-IAN SPRIGGS
-INO
-Ian Fairweather
-Ian Hamilton Finlay
-Ian McQue
-Ian Miller
-Ib Eisner
-Ibrahim Kodra
-Ibram Lassaw
-Ida Rentoul Outhwaite
-Ignacio Bazan-Lazcano
-Ignacio Zuloaga
-Ignacy Witkiewicz
-Ignat Bednarik
-Igor Grabar
-Igor Kieryluk
-Igor Kufayev
-Igor Morski
-Igor Zenin
-Ihor Podolchak
-Ike no Taiga
-Ikuo Hirayama
-Ilka Gedő
-Illarion Pryanishnikov
-Ilya Glazunov
-Ilya Kuvshinov
-Ilya Ostroukhov
-Ilya Repin
-Ilya Yefimovich Repin
-Ina Wong
-Ingrida Kadaka
-Inoue Naohisa
-Inshō Dōmoto
-Ion Andreescu
-Irene Bache
-Irene Lieblich
-Irene and Laurette Patten
-Irma Stern
-Irvin Bomb
-Isaac Grünewald
-Isaac Levitan
-Isaac Soyer
-Isaac van Ostade
-Isabel Codrington
-Isabel Naftel
-Isamu Noguchi
-Isidor Kaufman
-Isidore Bonheur
-Ismael Nery
-Ismail Acar
-Ismail Gulgee
-Ismail Inceoglu
-Isobel Heath
-Isobelle Ann Dods-Withers
-Israel Tsvaygenbaum
-Istvan Banyai
-Istvan Horkay
-István Csók
-István Nagy
-István Orosz
-István Regős
-István Réti
-István Szőnyi
-István Árkossy
-Itagaki Yoshio
-Italo Mus
-Itshak Holtz
-Itō Jakuchū
-Itō Ogura Yonesuke
-Itō Seiu
-Itō Shinsui
-Ivan Aivazovsky
-Ivan Albright
-Ivan Bilibin
-Ivan Generalić
-Ivan Grohar
-Ivan Kramskoi
-Ivan Lacković Croata
-Ivan Meštrović
-Ivan Mrkvička
-Ivan Ranger
-Ivan Shishkin
-Ivan Trush
-Ivan Yakovlevich Vishnyakov
-Ivana Kobilca
-Ivor Davies
-Ivor Williams
-Iwao Takamoto
-Iwasa Matabei
-Izidor Kršnjavi
-Izzy Medrano
-J. Alden Weir
-J. C. Leyendecker
-J. Frederick Smith
-J. J. Grandville
-J. L. Lund
-J. M. W. Turner
-J. Massey Rhind
-J. Ottis Adams
-J. W. Tristram
-J.C. Leyendecker
-J.M.W. Turner
-Jaakko Mattila
-Jacek Andrzej Rossakiewicz
-Jacek Malczewski
-Jacek Sempoliński
-Jacek Yerka
-Jack Boul
-Jack Butler Yeats
-Jack C. Mancino
-Jack Davis
-Jack Gaughan
-Jack Kirby
-Jack Levine
-Jack M. Ducker
-Jack Roth
-Jack Smith
-Jackson Pollock
-Jacob Adriaensz Backer
-Jacob Burck
-Jacob Collins
-Jacob Duck
-Jacob Esselens
-Jacob Gerritsz. Cuyp
-Jacob Jordaens
-Jacob Kainen
-Jacob Koninck
-Jacob Lawrence
-Jacob Maris
-Jacob Marrel
-Jacob More
-Jacob Ochtervelt
-Jacob Philipp Hackert
-Jacob Pynas
-Jacob Savery
-Jacob Steinhardt
-Jacob Toorenvliet
-Jacob Willemszoon de Wet
-Jacob de Gheyn II
-Jacob de Heusch
-Jacob van Campen
-Jacob van Ruisdael
-Jacob van Utrecht
-Jacob van der Ulft
-Jacopo Amigoni
-Jacopo Baccarini
-Jacopo Bassano
-Jacopo Bellini
-Jacopo Pontormo
-Jacopo de' Barbari
-Jacques Blanchard
-Jacques Callot
-Jacques Daret
-Jacques Hérold
-Jacques Maroger
-Jacques Sablet
-Jacques Villon
-Jacques-François Ochard
-Jacques-Laurent Agasse
-Jacques-Louis David
-Jacqui Morgan
-Jaime Colson
-Jaime Jones
-Jakob Emanuel Handmann
-Jakob Gauermann
-Jakob Häne
-Jakub Husnik
-Jakub Rozalski
-Jakub Różalski
-Jakub Schikaneder
-James Abbott McNeill Whistler
-James Ardern Grant
-James Ballantine
-James Bard
-James Barry
-James Bateman
-James Baynes
-James Bolivar Manson
-James Brooks
-James C. Christensen
-James Cadenhead
-James Campbell Noble
-James Cowie
-James Cromar Watt
-James Dickson Innes
-James E. Brewton
-James Ensor
-James Giles
-James Gilleard
-James Gillick
-James Gillray
-James Gurney
-James Guthrie
-James Humbert Craig
-James Jarvaise
-James Jean
-James Jonathan Jeffries
-James McBey
-James McIntosh Patrick
-James McNeill Whistler
-James Montgomery Flagg
-James Morris
-James Morrison
-James Paick
-James Paterson
-James Peale
-James Pittendrigh MacGillivray
-James Rosenquist
-James Ryman
-James Sessions American painter
-James Thomas Watts
-James Tissot
-James Warhola
-James Wood
-Jamie Hewlett
-Jamie Wyeth
-Jan Antonisz van Ravesteyn
-Jan Asselijn
-Jan Baptist Weenix
-Jan Brett
-Jan Brueghel the Elder
-Jan Brueghel the Younger
-Jan Cornelisz Vermeyen
-Jan Cox
-Jan Davidsz de Hem
-Jan Davidsz. de Heem
-Jan Dirksz Both
-Jan Gossaert
-Jan Gregoor
-Jan Griffier
-Jan Hackaert
-Jan Henryk Rosen
-Jan Jahn
-Jan Karpíšek
-Jan Kip
-Jan Konůpek
-Jan Kupecký
-Jan Lievens
-Jan Matejko
-Jan Miel
-Jan Miense Molenaer
-Jan Müller
-Jan Nieuwenhuys
-Jan Pynas
-Jan Rustem
-Jan Sawka
-Jan Stanisławski
-Jan Steen
-Jan Tengnagel
-Jan Theuninck
-Jan Toorop
-Jan Verkolje
-Jan Victors
-Jan Wijnants
-Jan Wyck
-Jan Zrzavý
-Jan de Baen
-Jan de Bray
-Jan van Bijlert
-Jan van Eyck
-Jan van Goyen
-Jan van Huysum
-Jan van Kessel the Elder
-Jan van Kessel the Younger
-Jan van Mieris
-Jan van de Cappelle
-Jan van der Heyden
-Jane Carpanini
-Jane Frank
-Jane Freeman
-Jane Freilicher
-Jane Graverol
-Jane Hawkins
-Jane Kelly
-Jane Nasmyth
-Jane Small
-Janet Archer
-Janet Dawson
-Janet Fish
-Jang Seung-eop
-Jankel Adler
-January Suchodolski
-Jaroslav Doubrava
-Jaroslava Korol
-Jarosław Jaśnikowski
-Jasmine Becket-Griffith
-Jason A. Engle
-Jason Benjamin
-Jason Chan
-Jason Edmiston
-Jason Felix
-Jason Teraoka
-Jasper Francis Cropsey
-Jasper Johns
-Jay Hambidge
-Jay Milder
-Jean Antoine Watteau
-Jean Arp
-Jean Auguste Dominique Ingres
-Jean Baptiste Debret
-Jean Béraud
-Jean Clark
-Jean Colombe
-Jean Crotti
-Jean Cunningham
-Jean Delville
-Jean Dubuffet
-Jean Dufy
-Jean Fautrier
-Jean Fouquet
-Jean Giraud
-Jean Hey
-Jean Huber Voltaire
-Jean Hélion
-Jean Jouvenet
-Jean Louis Petitot
-Jean Malouel
-Jean Messagier
-Jean Metzinger
-Jean Micheal Basquiat
-Jean Petitot
-Jean Tabaud
-Jean Xceron
-Jean-Antoine Watteau
-Jean-Auguste-Dominique Ingres
-Jean-Baptiste Monge
-Jean-Baptiste Pater
-Jean-Baptiste van Loo
-Jean-Baptiste-Camille Corot
-Jean-Baptiste-Siméon Chardin
-Jean-François Millet
-Jean-François de Troy
-Jean-Honoré Fragonard
-Jean-Jacques Henner
-Jean-Louis-Ernest Meissonier
-Jean-Léon Gérôme
-Jean-Marc Nattier
-Jean-Michel Atlan
-Jean-Michel Basquiat
-Jean-Paul Laurens
-Jean-Paul Riopelle
-Jean-Pierre Norblin de La Gourdaine
-Jean-Pierre Saint-Ours
-Jean-Yves Couliou
-Jean-Étienne Liotard
-Jeanna bauck
-Jeanne Hébuterne
-Jeanne du Maurier
-Jeff A. Menges
-Jeff Easley
-Jeff Koons
-Jeff Miracola
-Jeffrey Catherine Jones
-Jeffrey Smith
-Jeka Kemp
-Jemima Blackburn
-Jenaro de Urrutia Olaran
-Jennifer Bartlett
-Jennifer Janesko
-Jenny Eakin Delony
-Jenny Saville
-Jens Ferdinand Willumsen
-Jens Juel
-Jens Jørgen Thorsen
-Jens Søndergaard
-Jenő Barcsay
-Jenő Gyárfás
-Jeong Seon
-Jeremiah Ketner
-Jeremy Chong
-Jeremy Geddes
-Jeremy Henderson
-Jerry Eisenberg
-Jerry Pinkney
-Jerry Schatzberg
-Jerry Weiss
-Jerry Wilkerson
-Jerzy Kossak
-Jesper Ejsing
-Jesper Knudsen
-Jesper Myrfors
-Jesse Richards
-Jessie Alexandra Dick
-Jessie Algie
-Jessie M. King
-Jessie Newbery
-Jessie Willcox Smith
-Jesús Mari Lazkano
-Ji Sheng
-Jiang Tingxi
-Jiao Bingzhen
-Jim Burns
-Jim Dine
-Jim Lee
-Jim Manley
-Jim Murray
-Jim Nelson
-Jim Steranko
-Jimmy Boyle
-Jimmy Ernst
-Jin Homura
-Jin Nong
-Jiro Yoshihara
-Jitish Kallat
-Jo Baer
-JoWOnder
-Joachim Patinir
-Joan Ayling
-Joan Brown
-Joan Miro
-Joan Miró
-Joan Snyder
-Joan Tuset
-Joan Warburton
-Joanna Carrington
-Joaquín Clausell
-Joaquín Sorolla
-Joaquín Torres García
-Jodorowsky
-Joe Bowler
-Joe Fenton
-Joe Jusko
-Joe Machine
-Joe Mangrum
-Joe Shuster
-Joe Sorren
-Joe Stefanelli
-Joe de Mers
-Joel Shapiro
-Johan Christian Dahl
-Johan Edvard Mandelberg
-Johan Grenier
-Johan Jongkind
-Johan Lundbye
-Johann Balthasar Bullinger
-Johann Berthelsen
-Johann Bodin
-Johann Caspar Füssli
-Johann Christian Brand
-Johann Friedrich Overbeck
-Johann George Schmidt
-Johann Gottfried Steffan
-Johann Heinrich Bleuler
-Johann Heinrich Meyer
-Johann Jakob Biedermann
-Johann Kaspar Füssli
-Johann Kretzschmer
-Johann Liss
-Johann Ludwig Aberli
-Johann Ludwig Bleuler
-Johann Pucher
-Johann Rudolf Byss
-Johann Zoffany
-Johanna Marie Fosie
-Johannes Bosschaert
-Johannes Cornelisz Verspronck
-Johannes Fabritius
-Johannes Heisig
-Johannes Helgeson
-Johannes Itten
-Johannes Lingelbach
-Johannes Martini
-Johannes Mytens
-Johannes Vermeer
-Johannes Voss
-Johannes van Haensbergen
-Johfra Bosschart
-John Alexander
-John Altoon
-John Anster Fitzgerald
-John Armleder
-John Armstrong
-John Atherton
-John Atkinson Grimshaw
-John Avon
-John Backderf
-John Bauer
-John Bellany
-John Berkey
-John Blair
-John Blanche
-John Bourne
-John Brack
-John Broadley
-John Brown
-John Brown Abercromby
-John Button
-John Byrne
-John Cale
-John Carpenter
-John Chamberlain
-John Clayton
-John Clayton Adams
-John Collier
-John Constable
-John Covert
-John Crawford Brown
-John Doman Turner
-John Duncan Fergusson
-John E. Berninger
-John Ellsworth Weis
-John Elwood Bundy
-John Everett Millais
-John Eyre
-John F. Francis
-John F. Peto
-John Fabian Carlson
-John Frederick Herring, Jr.
-John Frederick Herring, Sr.
-John Frederick Kensett
-John French Sloan
-John Fulton Folinsbee
-John George Sowerby
-John Gibson
-John Haberle
-John Harris
-John Henderson
-John Henry Kingsley
-John Henry Lorimer
-John Henry Twachtman
-John Howe
-John Hoyland
-John Hutchison
-John Hutton
-John J Park
-John James Audubon
-John Kay
-John Keane
-John Kelso Hunter
-John Kingsley Cook
-John La Gatta
-John Lavery
-John Laviers Wheatley
-John Linnell
-John Lowrie Morrison
-John Luke
-John Macdonald Aiken
-John Maggs
-John Marin
-John Martin
-John Matson
-John Maxwell
-John McLaughlin
-John Michael Wright
-John Moonan
-John Mossman
-John Murdoch
-John Nelson Battenberg
-John Nicolson
-John Noble Barlow
-John Opie
-John Parker
-John Perceval
-John Pettie
-John Philip Falter
-John Platt
-John Plumb
-John Quidor
-John Quinton Pringle
-John Rhind
-John Robertson Reid
-John Romita Jr
-John Runciman
-John Russell Fulton
-John Salminen
-John Singer Sargent
-John Singleton Copley
-John Skinner Prout
-John Sloan
-John Souch
-John Steell
-John Steuart Curry
-John Stevenson Rhind
-John Stuart Ingle
-John Thomson of Duddingston
-John Trumbull
-John Uzzell Edwards
-John Watson Gordon
-John William Godward
-John William Waterhouse
-John Wilson
-John Wollaston
-John Wonnacott
-John Zephaniah Bell
-Jon Coffelt
-Jon Foster
-Jon Whitcomb
-Jonas De Ro
-Jonathan Solter
-Joong Keun Lee
-Joop Sanders
-Joos de Momper
-Jordan Grimmer
-Jorge Jacinto
-Jorge Velarde
-Joris van der Haagen
-Josan Gonzalez
-Josef Abel
-Josef Albers
-Josef Block
-Josef Dande
-Josef Jackerson
-Josef Mánes
-Josef Navrátil
-Josef Čapek
-Josef Šíma
-Josefina Tanganelli Plana
-Josep Rovira Soler,
-Joseph Badger
-Joseph Beuys
-Joseph Bowler
-Joseph Clement Coll
-Joseph Cornell
-Joseph DeCamp
-Joseph Delaney
-Joseph Ducreux
-Joseph Dwight Strong
-Joseph Heintz the Elder
-Joseph Henderson
-Joseph Ignaz Appiani
-Joseph Keppler
-Joseph Kleitsch
-Joseph Morgan Henninger
-Joseph Noel Paton
-Joseph Pickett
-Joseph Pisani
-Joseph Raphael
-Joseph Severn
-Joseph Stella
-Joseph Werner
-Joseph Wright of Derby
-Joseph Yoakum
-Joseph von Führich
-Joseph-Marie Vien
-Josephine Wall
-Josetsu
-Josh Bayer
-Joshua Reynolds
-Josse Lieferinxe
-José Clemente Orozco
-José Comas Quesada
-José Malhoa
-Joy Garnett
-Joyce Ballantyne Brand
-Joze Ciuha
-Jozef Czapski
-Jozef Israëls
-Jozef Simmler
-João Artur da Silva
-Ju Chao
-Ju Lian
-Juan Carlos Stekelman
-Juan Fernando Cobo
-Juan Giménez
-Juan Gris
-Juan Luna
-Juan O'Gorman
-Juan Villafuerte
-Juan de Flandes
-Juan de Valdés Leal
-Judith Brown
-Judith Gutierrez
-Judith Leyster
-Judy Cassab
-Judy Takács
-Juergen von Huendeberg
-Jules Bastien-Lepage
-Jules Breton
-Jules Chéret
-Jules Joseph Lefebvre
-Jules Olitski
-Jules Pascin
-Jules Robert Auguste
-Jules Tavernier
-Julia Margaret Cameron
-Julia Pishtar
-Julian Allen
-Julian Fałat
-Julian Hatton
-Julian Onderdonk
-Julian Schnabel
-Julie Bell
-Juliette Leong
-Juliette Wytsman
-Julio González
-Julio Larraz
-Julius Edvard Marak
-Julius Exner
-Julius Hatofsky
-Julius Klinger
-Julius LeBlanc Stewart
-Juliusz Kossak
-Jung Park
-Junji Ito
-Junpei Satoh
-Junsaku Koizumi
-Juraj Julije Klović
-Juriaen van Streeck
-Justin Currie
-Justin Gerard
-Justin Sweet
-Justus van Gent
-János Donát
-János Kass
-János Nagy Balogh
-János Saxon-Szász
-János Tornyai
-János Valentiny
-János Vaszary
-Jóhannes Geir Jónsson
-Jóhannes Sveinsson Kjarval
-Józef Brandt
-Józef Mehoffer
-Józef Pankiewicz
-Józef Szermentowski
-József Borsos
-József Breznay
-József Egry
-József Koszta
-József Rippl-Rónai
-Jörg Immendorff
-Jørgen Nash
-Jørgen Roed
-Július Jakoby
-Júlíana Sveinsdóttir
-Jürg Kreienbühl
-Kaburagi Kiyokata
-Kadir Nelson
-Kaff Gerrard
-Kagaku Murakami
-Kahlo
-Kaigetsudō Anchi
-Kaigetsudō Ando
-Kaii Higashiyama
-Kailash Chandra Meher
-Kaja Foglio
-Kalervo Palsa
-Kamagurka
-Kameda Bōsai
-Kamisaka Sekka
-Kamāl ud-Dīn Behzād
-Kanbun Master
-Kandinsky
-Kanzan Shimomura
-Kanō Eitoku
-Kanō Hōgai
-Kanō Masanobu
-Kanō Mitsunobu
-Kanō Motonobu
-Kanō Naizen
-Kanō Sanraku
-Kanō Sansetsu
-Kanō Shōsenin
-Kanō Takanobu
-Kanō Tan'yū
-Kanō Tanshin
-Karel Appel
-Karel Dujardin
-Karel Havlíček
-Karel Klíč
-Karel van Mander
-Karel Štěch
-Karl Ballmer
-Karl Bodmer
-Karl Bryullov
-Karl Buesgen
-Karl Gerstner
-Karl Hagedopoorn
-Karl Hagedorn
-Karl Hofer
-Karl Jauslin
-Karl Kopinski
-Karl Matzek
-Karl Otto Götz
-Karl Pümpin
-Karl Schmidt-Rottluff
-Karl Stauffer-Bern
-Karl Thiart
-Karl Völker
-Karl Walser
-Karl Zerbe
-Karol Bak
-Kate Beaton
-Kate Greenaway
-Katerina Wilczynski
-Kathleen Allen
-Kathleen Browne
-Kathleen Guthrie
-Kathleen Scott
-Kathleen Walne
-Kati Horna
-Katia Chausheva
-Katsuchika Hokusai
-Katsukawa Shun'ei
-Katsukawa Shunchō
-Katsukawa Shunkō I
-Katsukawa Shunsen
-Katsukawa Shunshō
-Katsushika Hokusai
-Katsushika Ōi
-Kawabata Ryūshi
-Kawai Gyokudō
-Kawanabe Kyōsai
-Kawase Hasui
-Kay Nielsen
-Kay Sage
-Kazimierz Alchimowicz
-Kazimierz Wojniakowski
-Kazimir Malevich
-Kazys Varnelis
-Ke Jiusi
-Kees Bol
-Kees Maks
-Kees Scherer
-Kees van Dongen
-Keisai Eisen
-Keith Haring
-Keith Henderson
-Keith Mallett
-Keith Parkinson
-Kelly Freas
-Kelly McKernan
-Kelly Mckernan
-Kelly Sueda
-Ken Danby
-Ken Elias
-Ken Howard
-Ken Messer
-Ken Sugimori
-Kenneth Noland
-Kentaro Miura
-Keos Masons
-Ker-Xavier Roussel
-Keraca Visulčeva
-Kerembeyit
-Keren Katz
-Kev Walker
-Kevin A. Short
-Kevin Connor
-Khalil Gibran
-Kieran Yanner
-Kikuchi Yōsai
-Kilian Eng
-Kim Deuk-sin
-Kim Du-ryang
-Kim Eung-hwan
-Kim Hong-do
-Kim Hwan-gi
-Kim Jeong-hui,
-Kim Keever
-Kim Myeong-guk,
-Kim Tschang Yeul
-Kinichiro Ishikawa
-Kinuko Craft
-Kinuko Y. Craft
-Kishi Ganku
-Kitagawa Utamaro
-Kitao Shigemasa
-Kiyohara Tama
-Kiyoshi Yamashita
-Klimt
-Knox Martin
-Knud Agger
-Kobayashi Kiyochika
-Kogan Gengei
-Koloman Sokol
-Konrad Grob
-Konrad Klapheck
-Konrad Krzyżanowski
-Konrad Witz
-Konstantin Korovin
-Konstantin Makovsky
-Konstantin Savitsky
-Konstantin Somov
-Konstantin Vasilyev
-Konstantin Westchilov
-Konstantin Yuon
-Konstantinas Ciurlionis
-Koryusai Isoda
-Kose Kanaoka
-Koson Ohara
-Krenz Cushart
-Kristian Kreković
-Kristian Zahrtmann
-Kristin Nelson
-Krzysztof Boguszewski
-Ksenia Milicevic
-Kubisi art
-Kume Keiichiro
-Kun Can
-Kuno Veeber
-Kuroda Seiki
-Kurt Roesch
-Kurt Schwitters
-Kurt Seligmann
-Kurt Trampedach
-Kurt Wenner
-Kusama
-Kusumi Morikage
-Kyffin Williams
-Kyle Lambert
-Károly Brocky
-Károly Ferenczy
-Károly Kernstok
-Károly Kisfaludy
-Károly Lotz
-Károly Markó the Elder
-Károly Patkó
-Käthe Kollwitz
-Kōno Bairei
-Kōno Michisei
-Kōshirō Onchi
-L. A. Ring
-L. Alcopley
-L. S. Lowry
-L. Vance Phillips
-Ladrönn
-Lajos Berán
-Lajos Bruck
-Lajos Gulácsy
-Lajos Kassák
-Lajos Tihanyi
-Lajos Vajda
-Lale Westvind
-Lam Qua
-Lambert Doomer
-Lambert Jacobsz
-Lan Ying
-Lari Pittman
-Larry D. Alexander
-Larry Elmore
-Larry Fink
-Larry Rivers
-Larry Zox
-Lars Grant-West
-Lars Jonson Haukaness
-Lasar Segall
-Lattanzio Gambara
-Laura Ford
-Laura Knight
-Laura Muntz Lyall
-Laura Theresa Alma-Tadema
-Laura Wheeler Waring
-Laurel Burch
-Laurie Lipton
-Laurits Tuxen
-Lawren Harris
-Lawrence Alma-Tadema
-Lawrence Calcagno
-Lawrence Harris
-Lawton S. Parker
-LeConte Stewart
-LeRoy Neiman
-Leandro Erlich
-Lee Gatch
-Lee Jeffries
-Lee Loughridge
-Lee Madgwick
-Lefevre James Cranstone
-Leiko Ikemura
-Leila Faithfull
-Leland Bell
-Lena Alexander
-Leng Mei
-Lennie Lee
-Leo Goetz
-Leo Leuppi
-Leo Lionni
-Leo Michelson
-Leo Valledor
-Leo and Diane Dillon
-Leon Chwistek
-Leon Golub
-Leon Kapliński
-Leon Kossoff
-Leon Kroll
-Leon Polk Smith
-Leon Wyczółkowski
-Leona Wood
-Leonaert Bramer
-Leonard Appelbee
-Leonard Bahr
-Leonard Daniels
-Leonard Long
-Leonard Ochtman
-Leonardo da Vinci
-Leonid Afremov
-Leonid Pasternak
-Leonor Fini
-Leonora Carrington
-Leopold Gottlieb
-Les Edwards
-Lesser Ury
-Leticia Gillett
-Lev Lvovich Kamenev
-Lewis Henry Meakin
-Li Cheng
-Li Chevalier
-Li Di
-Li Fangying
-Li Gonglin
-Li Kan
-Li Keran
-Li Mei-shu
-Li Rongjin
-Li Shan
-Li Shida
-Li Shixing
-Li Song
-Li Tang
-Li Tiefu
-Li Zai
-Liam Wong
-Liang Kai
-Liao Chi-chun
-Lichtenstein
-Lili Árkayné Sztehló
-Lilia Alvarado
-Lilla Cabot Perry
-Lillian Bassman
-Lily Delissa Joseph
-Limbourg brothers
-Lin Liang
-Lin Tinggui
-Linda Sutton
-Lindsay Bartholomew
-Lionel Lindsay
-Lionel Walden
-Lisa Frank
-Lisa Milroy
-Lisa Nankivil
-Lisa Yuskavage
-Lise Deharme
-Liu Haisu
-Liu Jue
-Liu Jun
-Liubov Popova
-Liza Donnelly
-Lizzy Ansingh
-Lodewijk Bruckman
-Loic Zimmerman
-Lois Dodd
-Lois Mailou Jones
-Lois van Baarle
-Lojze Logar
-Loren Munk
-Lorentz Frölich
-Lorenzo Lotto
-Lorraine Fox
-Lotte Reiniger
-Louis Anquetin
-Louis Buvelot
-Louis Comfort Tiffany
-Louis Eilshemius
-Louis Faurer
-Louis Glackens
-Louis Grell
-Louis Hersent
-Louis Janmot
-Louis Le Nain
-Louis Marcoussis
-Louis Mathieu Verdilhan
-Louis Pohl
-Louis Schanker
-Louis Stettner
-Louis Valtat
-Louis Wain
-Louis de Caullery
-Louis le Brocquy
-Louis-François Aubry
-Louis-Léopold Boilly
-Louis-Michel van Loo
-Louisa Chase
-Louisa Matthíasdóttir
-Louisa Puller
-Louise Abbéma
-Louise Bourgeois
-Louise Catherine Breslau
-Louise Nevelson
-Lovis Corinth
-Lu Guang
-Lu Zhi
-Lubin Baugin
-Lubna Agha
-Luc Tuymans
-Luc-Olivier Merson
-Luca Zontini
-Luca della Robbia
-Lucas Cranach the Elder
-Lucas Cranach the Younger
-Lucas Graciano
-Lucas Vorsterman
-Lucas van Leyden
-Lucebert
-Lucette Barker
-Lucia Peka
-Lucian Freud
-Lucien Pissarro
-Lucio Fontana
-Lucy Angeline Bacon
-Lucy Madox Brown
-Ludolf Bakhuizen
-Ludolf Leendertsz de Jongh
-Ludovico Carracci
-Ludovit Fulla
-Ludwig Bemelmans
-Ludwig Knaus
-Ludwig Mestler
-Ludwik Konarzewski
-Ludwik Konarzewski Jr
-Luděk Marold
-Luigi Kasimir
-Luis Enrique Camej
-Luis Marsans
-Luis Miranda
-Luis Molinari
-Luis Paret y Alcazar
-Luis Royo
-Lujo Bezeredi
-Luma Rouge
-Luo Mu
-Luo Ping
-Luo Zhichuan
-Lydia Field Emmet
-Lyle Tuttle
-Lynda Benglis
-Lynn Pauley
-Lyonel Feininger
-Lyubov Popova
-László Balogh
-László Beszédes
-László Dombrovszky
-László Mednyánszky
-László Moholy-Nagy
-László Paál
-Léon Bakst
-Líviusz Gyulai
-Lü Ji
-M. C. Escher
-M. F. Husain
-M.C. Escher
-MC Escher
-Ma Lin
-Ma Quan
-Ma Shi
-Ma Wan
-Ma Yuan
-Ma Yuanyu
-Mab Graves
-Mabel Rollins Harris
-Mac Conner
-Maciej Kuciara
-Madge Oliver
-Maeda Masao
-Maeda Seison
-Magali Villeneuve
-Magdalene Bärens
-Maggie Hamilton
-Maginel Wright Enright Barney
-Magnus Colcord Heurlin
-Mahmoud Farshchian
-Maki Haku
-Makoto Aida
-Makoto Shinkai
-Maksimilijan Vanka
-Maksymilian Gierymski
-Makuzu Kōzan
-Malcolm Drummond
-Malcolm Morley
-Malcom Howie
-Malczewski
-Maler Müller
-Malevich
-Malvin Gray Johnson
-Man Ray
-Manabu Mabe
-Mandy Jurgens
-Manfredi Beninati
-Manjit Bawa
-Manolo Millares
-Manuel Franquelo
-Manuel Ortiz de Zarate
-Manuel Rendón Seminario
-Marc Bell
-Marc Chagall
-Marc Simonetti
-Marc Tetro
-Marc-Aurèle de Foy Suzor-Coté
-Marcel Chagall
-Marcel Duchamp
-Marcell Chagall
-Marcelle Bergerol
-Marcello Bacciarelli
-Marcin Zaleski
-Marco Mazzoni
-Marcos Restrepo
-Mardi Barrie
-Marek Okon
-Margaret Backhouse
-Margaret Bingham
-Margaret Boden
-Margaret Bruce Wells
-Margaret Brundage
-Margaret Garland
-Margaret Geddes
-Margaret Graeme Niven
-Margaret Keane
-Margaret Leiteritz
-Margaret Macdonald Mackintosh
-Margareta Alströmer
-Margareta Sterian
-Margit Anna
-Margo Hoff
-Marguerite Zorach
-Maria Helena Vieira da Silva
-Maria Johanna Görtz
-Maria Oriana Galli Bibiena
-Maria Sibylla Merian
-Maria van Oosterwijk
-Marianne North
-Marianne von Werefkin
-Marie Angel
-Marie Bashkirtseff
-Marie Bracquemond
-Marie Courtois
-Marie Krøyer
-Marie Laurencin
-Marie Vassilieff
-Marie-Gabrielle Capet
-Marie-Suzanne Giroust
-Marilyn Bendell
-Marina Abramović
-Mario Bardi
-Mario Comensoli
-Mario Cooper
-Mario Dubsky
-Mario Sironi
-Marion Ancrum
-Marion Wachtel
-Mariotto Albertinelli
-Marius Borgeaud
-Marià Fortuny
-Marjorie Frances Bruford
-Marjorie May Bacon
-Mark A. Brennan
-Mark Arian
-Mark Boyle
-Mark Brooks
-Mark English
-Mark Gertler
-Mark Poole
-Mark Rothko
-Mark Ryden
-Mark Tedin
-Mark Tobey
-Mark Zug
-Marsden Hartley
-Marshall Arisman
-Marten Post
-Martin Benka
-Martin Deschambault
-Martin Desjardins
-Martin Johnson Heade
-Martin Kober
-Martin Schoeller
-Martin Schongauer
-Martina Krupičková
-Martine Johanna
-Martinus Rørbye
-Martiros Saryan
-Maruja Mallo
-Maruyama Ōkyo
-Mary Abbott
-Mary Adshead
-Mary Agnes Yerkes
-Mary Anne Ansley
-Mary Audsley
-Mary Beale
-Mary Black
-Mary Blair
-Mary Byfield
-Mary C. Davidson
-Mary Callery
-Mary Cameron
-Mary Cassatt
-Mary Corkling
-Mary Curtis Richardson
-Mary Davis, Lady Davis
-Mary Dignam
-Mary Elizabeth Groom
-Mary Elizabeth Price
-Mary Grant
-Mary Hallock Foote
-Mary Jane Begin
-Mary McCrossan
-Mary McEvoy
-Mary Moser
-Mary Syme Boyd
-Maryam Hashemi
-Masamitsu Ōta
-Masamune Shirow
-Masolino
-Master MS
-Master of Affligem
-Master of Saint Giles
-Master of the Bambino Vispo
-Master of the Embroidered Foliage
-Master of the Legend of Saint Lucy
-Matej Sternen
-Mathias Kollros
-Mathieu Le Nain
-Mati Klarwein
-Maties Palau Ferré
-Matija Jama
-Matsui Fuyoko
-Matsumura Goshun
-Matsuno Chikanobu
-Matt Bors
-Matt Cavotta
-Matt Groening
-Matt Stewart
-Matteo Pérez
-Matthew D. Wilson
-Matthew Smith
-Matthias Grünewald
-Matthias Jung
-Matthias Stom
-Matthias Weischer
-Matthijs Maris
-Matthijs Naiveu,
-Mattias Adolfsson
-Mattise
-Maud Naftel
-Maude Kaufman Eggemeyer
-Maurice Boitel
-Maurice Braun
-Maurice Denis
-Maurice Esteve
-Maurice Prendergast
-Maurice Reymond
-Maurice Sendak
-Maurice Utrillo
-Maurice de Vlaminck
-Maurycy Gottlieb
-Max Beckmann
-Max Buri
-Max Dauthendey
-Max Dupain
-Max Ernst
-Max Gubler
-Max Klinger
-Max Liebermann
-Max Magnus Norman
-Max Pechstein
-Max Slevogt
-Max Walter Svanberg
-Max Weber
-Max Švabinský
-Maxfield Parrish
-Maximilian Cercha
-Maximilien Luce
-Maxwell Bates
-Maxwell Gordon Lightfoot
-May Louise Greville Cooksey
-May de Montravel Edwardes
-Małgorzata Serwatka
-McKendree Long
-Mead Schaeffer
-Mei Qing
-Meindert Hobbema
-Melchior Broederlam
-Melchior Lorck
-Melchior d'Hondecoeter
-Melissa A. Benson
-Melissa Benson
-Melozzo da Forlì
-Menez
-Meredith Dillman
-Meredith Garniss
-Mi Fu
-Mia Brownell
-Miao Fu
-Micha Klein
-Michael Aloysius Sarisky
-Michael Ancher
-Michael Andrews
-Michael Cheval
-Michael Dahl
-Michael DeForge
-Michael Deforge
-Michael Flohr
-Michael Ford
-Michael Garmash
-Michael Goldberg
-Michael Gustavius Payne
-Michael James Smith
-Michael Komarck
-Michael Leunig
-Michael Malm
-Michael Ray Charles
-Michael Sittow
-Michael Sutfin
-Michael Whelan
-Michaelangelo
-Michal Karcz
-Michalis Oikonomou
-Michał Karcz
-Michel De Caso
-Michel Delacroix
-Michel Kikoine
-Michel Tapié
-Michelangelo
-Michelangelo Buonarotti
-Michelangelo Buonarroti
-Michelangelo Merisi da Caravaggio
-Michelangelo Unterberger
-Michiel Jansz. van Mierevelt
-Michiel van Musscher
-Miho Hirano
-Mihály Munkácsy
-Mihály Zichy
-Mikalojus Konstantinas Ciurlionis
-Mikalojus Konstantinas Čiurlionis
-Mike "Beeple" Winkelmann
-Mike Bierek
-Mike Deodato
-Mike Mignola
-Mike Winkelmann
-Mikhail Evstafiev
-Mikhail Larionov
-Mikhail Lebedev
-Mikhail Nesterov
-Mikhail Vrubel
-Mikhail Yuryevich Lermontov
-Miklós Barabás
-Miklós Borsos
-Mikoláš Aleš
-Mildred Anne Butler
-Mildred Eldridge
-Millard Sheets
-Milton Avery
-Milton Caniff
-Milton Glaser
-Milton Menasco
-Miltos Manetas
-Mimmo Rotella
-Min Zhen
-Minerva J. Chapman
-Mirabello Cavalori
-Mirko Rački
-Miroslava Sviridova
-Mitchell Johnson
-Miwa Komatsu
-Miyagawa Chōshun
-Miyagawa Isshō
-Miyagawa Shunsui
-Miyamoto
-Miyazaki
-Modest Urgell
-Moebius
-Mollie Forestier-Walker
-Mona Moore
-Mondrian
-Monet
-Mordecai Ardon
-Morgan Russell
-Mori Sosen
-Morris Kestelman
-Morris Louis
-Morris Louis Bernstein
-Mort Künstler
-Moses Soyer
-Moses van Uyttenbroeck
-Moïse Kisling
-Mstislav Dobuzhinsky
-Muggur
-Muirhead Bone
-Munakata Shikō
-Munch
-Muqi
-Murakami
-Muriel Brandt
-Murray Tinkelman
-Mustafa Rakim
-Mykola Burachek
-Myles Birket Foster
-Mym Tuma
-Myra Landau
-Márta Lacza
-Méret Oppenheim
-Mór Adler
-Mór Than
-Mārtiņš Krūmiņš
-Mœbius
-N. C. Wyeth
-N.C. Wyeth
-NEVERCREW
-Nabil Kanso
-Nadim Karam
-Nadir Afonso
-Nadya Rusheva
-Nagasawa Rosetsu
-Naka Bokunen
-Nakahara Nantenbō
-Nam Gye-u
-Nan Goldin
-Nancy Carline
-Nancy Graves
-Nancy Spero
-Nancy Stahl
-Naoko Takeuchi
-Naomi Okubo
-Naondo Nakamura
-Nara Yoshitomo
-Narashige Koide
-Narayan Shridhar Bendre
-Nassos Daphnis
-Natalia Goncharova
-Natasha Tan
-Nathalie Rattner
-Nathan Oliveira
-Nathan Wyburn
-Nathaniel Hone
-Nathaniel Pousette-Dart
-Naza
-Nazmi Ziya Güran
-Ndoc Martini
-Neal Adams
-Ned M. Seidler
-Neil Blevins
-Neil Boyle
-Neil Welliver
-Neil Williams
-Nele Zirnite
-Nell Dorr
-Nelson Alexander Ross
-Nene Thomas
-Nevin Çokay
-Neysa McMein
-Ni Duan
-Ni Tian
-Ni Yuanlu
-Ni Zan
-Niccolò dell' Abbate
-Nicholas Hilliard
-Nicholas Marsicano
-Nicholas Roerich
-Nick Fudge
-Nick Gentry
-Nicola Samori
-Nicolaes Eliaszoon Pickenoy
-Nicolaes Maes
-Nicolaes Pieterszoon Berchem
-Nicolas Carone
-Nicolas Froment
-Nicolas Lancret
-Nicolas Poussin
-Nicolas Toussaint Charlet
-Nicolas de Staël
-Nicolette Macnamara
-Nicomachus of Thebes
-Niels Lergaard
-Nikita Veprikov
-Niklaus Manuel
-Niko Henrichon
-Nikola Avramov
-Nikolai Alekseyevich Kasatkin
-Nikolai Astrup
-Nikolai Ge
-Nikolai Yaroshenko
-Nikolaj Abraham Abildgaard
-Nikolay Makovsky
-Nikolay Nikanorovich Dubovskoy
-Nil Gleyen
-Nils Hamm
-Nils von Dardel
-Nina Hamnett
-Nina Petrovna Valetova
-Nishida Shun'ei
-Nishikawa Sukenobu
-Niyazi Selimoglu
-Noah Bradley
-Noe Canjura
-Noel Counihan
-Nora Cundell
-Norah Neilson Gray
-Noriyoshi Ohrai
-Norma Bull
-Norman Garstin
-Norman Hepple
-Norman Lewis
-Norman Rockwell
-Norman Saunders
-Normand Baker
-Noémi Ferenczy
-Nuno Gonçalves
-Nyuju Stumpy Brown
-Nándor Katona
-Nína Tryggvadóttir
-Nōami
-O'Keeffe
-Odd Nerdrum
-Odhise Paskali
-Odilon Redon
-Ogata Gekkō
-Ogata Kenzan
-Ogata Kōrin
-Ohara Koson
-Oka Yasutomo
-Okada Beisanjin
-Okada Hanko
-Okamoto Tarō
-Okuda Gensō
-Okumura Masanobu
-Okumura Togyu
-Olaf Gulbransson
-Olaf Rude
-Oleg Lipchenko
-Oleg Oprisco
-Olga Boznańska
-Olga Rozanova
-Olha Darchuk
-Olive Mudie-Cooke
-Oliver Sin
-Olivia Peguero
-Olivia de Berardinis
-Oluf Høst
-Orazio Gentileschi
-Orovida Camille Pissarro
-Orshi Drozdik
-Osamu Tezuka
-Oscar Rodríguez Naranjo
-Oskar Kokoschka
-Oskar Lüthy
-Oskar Schlemmer
-Osman Hamdi Bey
-Ossip Zadkine
-Osvaldo Romberg
-Oswald Achenbach
-Oswald Birley
-Oswaldo Guayasamín
-Oswaldo Viteri
-Oszkar Tordai Schilling
-Ota Bubeníček
-Otakar Kubín
-Otakar Sedloň
-Otake Chikuha
-Otis Kaye
-Otomo Katsuhiro
-Oton Gliha
-Oton Iveković
-Ottilie Maclaren Wallace
-Otto Abt
-Otto Dix
-Otto Eckmann
-Otto Frölicher
-Otto Lange
-Otto Marseus van Schrieck
-Otto Meyer-Amden
-Otto Morach
-Otto Piene
-Otto Pilny
-Otto Placht
-Otto Stark
-Ottó Baditz
-P.C. Skovgaard
-Pablo Carpio
-Pablo Munoz Gomez
-Pablo Picasso
-Pablo Rey
-Pacita Abad
-Pamela Ascherson
-Pamela Coleman Smith
-Pamela Drew
-Pamphilus
-Pan Tianshou
-Pan Yuliang
-Paolo Parente
-Paolo Uccello
-Paolo Veronese
-Parmigianino
-Pascal Blanché
-Pascal Dagnan-Bouveret
-Pascale Campion
-Pat Adams
-Pat Oliphant
-Patrick Adam
-Patrick Brown
-Patrick Caulfield
-Patrick Ching
-Patrick Dougherty
-Patrick Hall
-Patrick Henry Bruce
-Patrick Heron
-Patrick Nagel,
-Patrick Nasmyth
-Patrick Pietropoli
-Patrick Pye
-Patrick Woodroffe
-Paul Bird
-Paul Bodmer
-Paul Bril
-Paul Cadmus
-Paul Cezanne
-Paul Cornoyer
-Paul Cézanne
-Paul Davis
-Paul Delvaux
-Paul Dirmeikis
-Paul Emmert
-Paul Feeley
-Paul Gauguin
-Paul Georges
-Paul Guigou
-Paul Gustav Fischer
-Paul Gustave Fischer
-Paul Harvey
-Paul Henry
-Paul Howard Manship
-Paul Jacob Naftel
-Paul Kane
-Paul Kelpe
-Paul Klee
-Paul Lehr
-Paul Lohse
-Paul Lucien Dessau
-Paul Mavrides
-Paul Monnier
-Paul Nash
-Paul Pelletier
-Paul Ranson
-Paul Resika
-Paul Signac
-Paul Wunderlich
-Paul Émile Chabas
-Paul-Albert Besnard
-Paul-Émile Borduas
-Paula Modersohn-Becker
-Paula Rego
-Paulus Decker
-Paulus Moreelse
-Paulus Potter
-Pavel Fedotov
-Pavel Filonov
-Paweł Kluza
-Pearl Frush
-Peder Severin Krøyer
-Pedro Figari
-Pedro Pedraja
-Pedro Álvarez Castelló
-Peggy Angus
-Peggy Bacon
-Penelope Beaton
-Penleigh Boyd
-Penny Patricia Poppycock
-Penny Rimbaud
-Penry Williams
-Per Kirkeby
-Per Krohg
-Perin del Vaga
-Perle Fine
-Persis Goodale Thurston Taylor
-Pete Morhbacher
-Pete Venters
-Peter Alexander Hay
-Peter Bagge
-Peter Basch
-Peter Benjamin Graham
-Peter Birmann
-Peter Blume
-Peter Brandes
-Peter Brook
-Peter Churcher
-Peter Doig
-Peter Elson
-Peter Fiore
-Peter Gric
-Peter Helck
-Peter Lanyon
-Peter Lely
-Peter Lindbergh
-Peter Madsen
-Peter Max
-Peter Maxwell Ewart
-Peter McArdle
-Peter Michael
-Peter Mohrbacher
-Peter Paul Rubens
-Peter Prendergast
-Peter Rockwell
-Peter S. Pezzati
-Peter Scott
-Peter Snow
-Peter Wells
-Peter Wtewael
-Peter Zumthor
-Peter de Seve
-Peter de Sève
-Petr Brandl
-Petros Afshar
-Petrus Christus
-Petrus Van der Velden
-Phil Foglio
-Phil Koch
-Philip Absolon
-Philip Evergood
-Philip Guston
-Philip Wilson Steer
-Philip de Koninck
-Philip de László
-Philipp Veit
-Philippe Druillet
-Philips Wouwerman
-Phillip Otto Runge
-Phillip Peter Price
-Phyllis Bone
-Phyllis Bray
-Phyllis Ginger
-Pia Fries
-Picasso
-Piero della Francesca
-Piero di Cosimo
-Pierre Adolphe Valette
-Pierre Alechinsky
-Pierre Auguste Cot
-Pierre Bonnard
-Pierre Brissaud
-Pierre Laffillé
-Pierre Mion
-Pierre Pellegrini
-Pierre Puvis de Chavannes
-Pierre Roland Renoir
-Pierre Roy
-Pierre Soulages
-Pierre Toutain-Dorbec
-Pierre-Auguste Renoir
-Pierre-Joseph Redouté
-Piet Mondrian
-Pieter Aertsen
-Pieter Anthonisz. van Groenewegen
-Pieter Bruegel
-Pieter Bruegel the Elder
-Pieter Brueghel the Younger
-Pieter Claesz
-Pieter Codde
-Pieter Cornelisz van Slingelandt
-Pieter Franciscus Dierckx
-Pieter Huys
-Pieter Janssens Elinga
-Pieter Jansz Quast
-Pieter Jansz Saenredam
-Pieter Jansz van Asch
-Pieter Lastman
-Pieter Mulier II
-Pieter Mulier the Elder
-Pieter de Bloot
-Pieter de Grebber
-Pieter de Hooch
-Pieter de Ring
-Pieter van Anraedt
-Pieter van Laer
-Pieter van der Werff
-Pietro Faccini
-Pietro Longhi
-Pietro Lorenzetti
-Pietro Perugino
-Pietro Testa
-Pietro da Cortona
-Pinchus Kremegne
-Pinturicchio
-Piotr Michałowski
-Piranesi
-Pisanello
-Pixar
-Pogus Caesar
-Pollock
-Pompeo Batoni
-Porfirio DiDonna
-Primrose Pitman
-Prince Hoare
-Prudence Heward
-Pruett Carter
-Pu Hua
-Puru
-Pál Balkay
-Pál Böhm
-Pál Szinyei Merse
-Qi Baishi
-Qian Du
-Qian Gu
-Qian Xuan
-Qiu Ying
-Qu Leilei
-Quentin Blake
-Quentin Matsys
-Quint Buchholz
-Quinton Hoover
-Quirijn van Brekelenkam
-Quirizio di Giovanni da Murano
-R. B. Kitaj
-R. R. McIan
-R.O. Blechman
-RHADS
-Rachel Reckitt
-Rachel Ruysch
-Rachel Whiteread
-Rackstraw Downes
-Radi Nedelchev
-Rafael Ritz
-Rafail Levitsky
-Rafal Olbinski
-Raffeaello Ossola
-Rainer Maria Latzke
-Raja Ravi Varma
-Rajesh Soni
-Rajmund Kanelba
-Ralph Albert Blakelock
-Ralph Burke Tyree
-Ralph Earl
-Ralph Horsley
-Ralph McQuarrie
-Ram Chandra Shukla
-Ramon Casas i Carbó
-Ramon Pichot
-Ramón Piaguaje
-Ramón Silva
-Randall Schmit
-Randolph Caldecott
-Randolph Schwabe
-Randy Gallegos
-Randy Post
-Randy Vargas
-Raoul De Keyser
-Raoul Dufy
-Raoul Ubac
-Raphael
-Raphael Kirchner
-Raphael Lacoste
-Raphael Soyer
-Raphaelle Peale
-Raphaël Collin
-Ras Akyem
-Ravi Zupa
-Ray Caesar
-Ray Crooke
-Ray Howard-Jones
-Ray Parker
-Raymond Briggs
-Raymond Coxon
-Raymond Duchamp-Villon
-Raymond Han
-Raymond Leech
-Raymond Normand
-Raymond Saunders
-Raymond Swanland
-Raymond Teague Cowern
-Raúl Martínez
-Rebecca Guay
-Rebecca Horn
-Reginald Richard Redford
-Rei Kamoi
-Reinier Nooms
-Relja Penezic
-Rembrandt
-Rembrandt Peale
-Rembrandt van Rijn
-Remedios Varo
-Ren Bonian
-Ren Hang
-Ren Renfa
-Ren Xiong
-Ren Xun
-Rene Magritte
-Renoir
-René Auberjonois
-René Burri
-René Magritte
-Reuben Nakian
-Reuben Tam
-Reynolds Beal
-Rezső Bálint
-Rhea Carmi
-Riad Beyrouti
-Ric Estrada
-Ric Nagualero
-Ricardo Bofill
-Richard Anuszkiewicz
-Richard Artschwager
-Richard Avedon
-Richard Benning
-Richard Carline
-Richard Corben
-Richard Dadd
-Richard Demarco
-Richard Diebenkorn
-Richard Doyle
-Richard Estes
-Richard Gerstl
-Richard Gordon Kendall
-Richard Gruelle
-Richard Hamilton
-Richard Hess
-Richard Kane Ferguson
-Richard Mayhew
-Richard Mortensen
-Richard Parkes Bonington
-Richard Pionk
-Richard Pousette-Dart
-Richard Randolph Rubenstein
-Richard Rockwell
-Richard Schmid
-Richard Sedlon
-Richard T. Scott
-Richard Wilson
-Richard Wright
-Richmond Barthé
-Richter
-Rick Amor
-Rick Griffin
-Ridolfo Ghirlandaio
-Rihard Jakopič
-Rinaldo Cuneo
-Rita Angus
-Riusuke Fukahori
-Riza Abbasi
-Roar Kjernstad
-Rob Alexander
-Rob Gonsalves
-Rob Liefeld
-Robbie Trevino
-Robert Adamson
-Robert Alwyn Hughes
-Robert Antoine Pinchon
-Robert Bain
-Robert Ballagh
-Robert Bateman
-Robert Beatty
-Robert Beauchamp
-Robert Bechtle
-Robert Bery
-Robert Bevan
-Robert Brackman
-Robert Brough
-Robert Bryden
-Robert C. Barnfield
-Robert Campin
-Robert Childress
-Robert Colescott
-Robert Colquhoun
-Robert Combas
-Robert Crozier
-Robert Crumb
-Robert Delaunay
-Robert Dickerson
-Robert Edmonstone
-Robert Falk
-Robert Fawcett
-Robert Feke
-Robert Freebairn
-Robert Gavin
-Robert Goodnough
-Robert Griffier
-Robert Henderson Blyth
-Robert Henri
-Robert J. Brawley
-Robert Jacobsen
-Robert Koehler
-Robert Lee Eskridge
-Robert Lenkiewicz
-Robert M. Cunningham
-Robert MacBryde
-Robert Macaulay Stevenson
-Robert Maguire
-Robert Mapplethorpe
-Robert McCall
-Robert McGinnis
-Robert Medley
-Robert Motherwell
-Robert Noble
-Robert Peak
-Robert Rauschenberg
-Robert Reid
-Robert Richenburg
-Robert S. Duncanson
-Robert Scott Lauder
-Robert Sivell
-Robert Storm Petersen
-Robert Thomas
-Robert Walker Macbeth
-Robert Weaver
-Robert Weir Allan
-Robert William Vonnoh
-Robert Zünd
-Roberto Ferri
-Roberto Matta
-Roberto Parada
-Roberto da Matta
-Robin Guthrie
-Robt L. Williams
-Robt. L. Williams
-Rockwell Kent
-Rodel Gonzalez
-Rodney Joseph Burn
-Rodney Matthews
-Rodolfo Amoedo
-Rodolfo Escalera
-Rodolfo Morales
-Rodolphe Töpffer
-Rodolphe Wytsman
-Roelant Savery
-Roelof van Vries
-Roger Ballen
-Roger Cecil
-Roger Dean
-Roger Swainston
-Roger Wilson Dennis
-Rogier van der Weyden
-Rolf Armstrong
-Rolf Iseli
-Romain brook
-Romaine Brooks
-Roman Bezpalkiv
-Romano Vio
-Romare Bearden
-Romero Britto
-Ron English
-Ron Spears
-Ron Spencer
-Ron Walotsky
-Ronald Davis
-Ronald Rae
-Ronnie Landfield
-Rory McEwen
-Rosa Bonheur
-Rosalie Emslie
-Rose Henriques
-Rose Maynard Barton
-Rose O’Neill
-Rosemary Allan
-Ross Bleckner
-Ross Tran
-Rowena Meeks Abdy
-Roy Dalgarno
-Roy De Maistre
-Roy DeCarava
-Roy Lichtenstein
-Roy Newell
-Roy Petley
-Roz Chast
-Ruan Jia
-Rube Goldberg
-Rubens Peale
-Rudolf Ernst
-Rudolf Freund
-Rudolf Hausner
-Rudolf Koller
-Rudolf Schlichter
-Rudolf von Alt
-Rudolph Belarski
-Rudolph F. Ingerle
-Rudy Siswanto
-Rufino Tamayo
-Rumiko Takahashi
-Rupert Bunny
-Rupert Shephard
-Russell Chatham
-Russell Dongjun Lu
-Russell Drysdale
-Russell Patterson
-Ruth Abrahams
-Ruth Abrams
-Ruth Brandt
-Ruth Collet
-Ruth Deckard
-Ruth Hollingsworth
-Ruth Jên
-Ruth Orkin
-Ruth Sanderson
-Ruth Simpson
-Ruud Janssen
-Ryan Barger
-Ryan Pancoast
-Ryan Stegman
-Ryan Yee
-Ryohei Hase
-Ryoji Ikeda
-Ryuzaburo Umehara
-Ryōhei Koiso
-Ryūkōsai Jokei
-Ryūsei Kishida,
-Róbert Berény
-S J "Lamorna" Birch
-Sadamichi Hirasawa
-Sadao Watanabe
-Sailor Moon
-Saitō Kiyoshi
-Sakai Hōitsu
-Sally Haley
-Salomon Koninck
-Salomon de Bray
-Salomon van Abbé
-Salomon van Ruysdael
-Salvador Dali
-Salvador Dalí
-Sam Black
-Sam Bosma
-Sam Charles
-Sam Dillemans
-Sam Francis
-Sam Havadtoy
-Sam Spratt
-Samu Börtsök
-Samuel Birmann
-Samuel Colman
-Samuel Dirksz van Hoogstraten
-Samuel F. B. Morse
-Samuel Hieronymus Grimm
-Samuel Peploe
-Samuel Prout
-Samuel Scott
-Samuel Shelley
-Samuel Silva
-Samuel Washington Weis
-Sandra Chevrier
-Sandro Botticelli
-Saneatsu Mushanokōji
-Sanford Robinson Gifford
-Santiago Caruso
-Santiago Martínez Delgado
-Santiago Rusiñol
-Sara Saftleven
-Sarah Gough Adamson
-Sarah Louisa Kilpack
-Sarah Lucas
-Sarah Morris
-Sardar Sobha Singh
-Sargent Johnson
-Sarper Baran
-Sasha Putrya
-Satake Yoshiatsu
-Satoshi Kon
-Saul Steinberg
-Saul Tepper
-Saul Yaffie
-Saurabh Jethani
-Sava Šumanović
-Sawa Sekkyō
-Scarlett Hooft Graafland
-Schelte a Bolswert
-Scott Gustafson
-Scott Listfield
-Scott M. Fischer
-Scott Naismith
-Scott Samuel Summers
-Sean Scully
-Seb McKinnon
-Sebastian Spreng
-Sebastian Vrancx
-Sebastiano Ricci
-Sengai
-Serafino De Tivoli
-Serge Poliakoff
-Serge Sudeikin
-Sergei Sviatchenko
-Sergio Burzi
-Sergio Larraín
-Serhii Vasylkivsky
-Sesshū Tōyō
-Seuss Dr
-Shaddy Safadi
-Shang Xi
-Shani Rhys James
-Shao Mi
-Sheikh Hamdullah
-Sheila McClean
-Sheila Mullen
-Sheilah Beckett
-Shekhar Gurera
-Shen Che-Tsai
-Shen Quan
-Shen Shichong
-Shen Zhou
-Sheng Mao
-Sheng Maoye
-Shi Rui
-Shi Zhonggui
-Shiba Kōkan
-Shibata Zeshin
-Shigeru Aoki
-Shin Saimdang
-Shin Yun-bok
-Shingei
-Shinji Aramaki
-Shinoda Toko
-Shirley Teed
-Shitao
-Shog Janit
-Shukei Sesson
-Shunbaisai Hokuei
-Shunkōsai Hokushū
-Shōzaburō Watanabe
-Shōzō Shimamoto
-Shūbun Tenshō
-Sidney Nolan
-Sidney Richard Percy
-Sidney Simon
-Siegfried Haas
-Sigmar Polke
-Sigmund Freudenberger
-Sigrid Hjertén
-Sigurd Swane
-Silvestro Lega
-Silvia Dimitrova
-Silvia Pelissero
-Sim Sa-jeong
-Simon Bisley
-Simon Gaon
-Simon Marmion
-Simon Stalenhag
-Simon Stålenhag
-Simon Ushakov
-Simon Vouet
-Simon de Vlieger
-Simone Martini
-Sin Wi
-Siona Shimshi
-Sir Alfred Munnings
-Sir Jacob Epstein
-Sir John Tenniel
-Sir William Orpen
-Sir William Russell Flint
-Slava Raškaj
-Slawomir Maniak
-Slobodan Pejić
-Sofonisba Anguissola
-Sohrab Sepehri
-Solomon Gessner
-Soma Orlai Petrich
-Song Maojin
-Song Xu
-Sonia Delaunay
-Sonia Delaunay-Terk
-Sophia Beale
-Sophie Anderson
-Sophie Gengembre Anderson
-Sophie Pemberton
-Sophie Taeuber-Arp
-Spencer Gore
-Stan Galli
-Stan Stokes
-Stan and Jan Berenstain
-Stanhope Forbes
-Stanislas Lépine
-Stanislav Zhukovsky
-Stanislaw Samostrzelnik
-Stanisław Ignacy Witkiewicz
-Stanisław Masłowski
-Stanisław Tondos
-Stanisław Witkiewicz
-Stanisław Wyspiański
-Stanley Bahe
-Stanley Matthew Mitruk
-Stanley Spencer
-Stanley Twardowicz
-Stanton Macdonald-Wright
-Stefan Gierowski
-Stefan Lochner
-Stella Schmolle
-Stephan Martiniere
-Stephan Martinière
-Stephen Bone
-Stephen Gammell
-Stephen Gilbert
-Stephen Greene
-Stephen Little
-Stephen Pace
-Stevan Dohanos
-Steve Argyle
-Steve Brodner
-Steve Dillon
-Steve Ditko
-Steve Hanks
-Steve McCurry
-Steve Prescott
-Steven Belledin
-Steven Campbell
-Steven James Petruccio
-Stokely Webster
-Storm Thorgerson
-Stuart Davis
-Studio Ghibli
-Sudip Roy
-Sugimura Jihei
-Sun Junze
-Sun Kehong
-Sun Long
-Sunil Das
-Susan Crile
-Susan Heidi
-Susan Weil
-Susy Pilgrim Waters
-Suzanne Duchamp-Crotti
-Suzanne Valadon
-Suzuki Harunobu
-Suzy Rice
-Sven Erixson
-Sven Nordqvist
-Svend Rasmussen Svendsen
-Svetlin Velinov
-Svetoslav Roerich
-Syd Barrett
-Syd Mead
-Sydney Carline
-Sydney Prior Hall
-Sylvester Shchedrin
-Sylvia Molloy
-Sylvia Sleigh
-Sylvia Snowden
-Sylvia Wishart
-Szymon Czechowicz
-Sándor Bihari
-Sándor Bortnyik
-Sándor Brodszky
-Sándor Liezen-Mayer
-Sō Shiseki
-Sōami
-Sōtarō Yasui
-T. C. Steele
-T. K. Padmini
-T. S. Sullivant
-THOMAS COLE
-Tadanori Yokoo
-Tadao Ando
-Tadashi Nakayama
-Tadashige Ono
-Taddeo Gaddi
-Tadeusz Ajdukiewicz
-Tadeusz Brzozowski
-Tadeusz Dominik
-Tadeusz Kantor
-Tadeusz Makowski
-Tadeusz Pruszkówski
-Tahir Salahov
-Taiyō Matsumoto
-Takahashi Yuichi
-Takashi Murakami
-Takato Yamamoto
-Takehisa Yumeji
-Takeshi Obata
-Takeuchi Seihō
-Tamara Lempicka
-Tamara de Lempicka
-Tamas Galambos
-Tan Ting-pho
-Tanaka Isson
-Tang Di
-Tang Sin Yun Sandara
-Tang Yifen
-Tang Yin
-Tani Bunchō
-Tanomura Chikuden
-Taravat Jalali Farahani
-Taro Okamoto
-Taro Yamamoto
-Tarsila do Amaral
-Tatiana Hordiienko
-Tatsuyuki Tanaka
-Tawaraya Sōtatsu
-Ted DeGrazia
-Ted Nasmith
-Telemaco Signorini
-Teobaldo Nina Mamani
-Teresa Copnall
-Teresa Fasolino
-Terese Nielsen
-Terrell James
-Terry Marks
-Terry Morris
-Terry Oakes
-Terry Redlin
-Tetsugoro Yorozu
-Tex Avery
-The Family Circus
-The Mazeking
-Theo Constanté
-Theo van Doesburg
-Theodor Philipsen
-Theodore Earl Butler
-Theodore Major
-Theodore Robinson
-Theophanes the Greek
-Thierry Bisch
-Thomas Aquinas Daly
-Thomas Baines
-Thomas Barker
-Thomas Blackshear
-Thomas Bock
-Thomas Campbell
-Thomas Cantrell Dugdale
-Thomas Carr
-Thomas Cole
-Thomas Cornell
-Thomas Corsan Morton
-Thomas Couture
-Thomas Crane
-Thomas Dalziel
-Thomas Dewing
-Thomas Doughty
-Thomas Eakins
-Thomas Fogarty
-Thomas Frederick Worrall
-Thomas Furlong
-Thomas Gainsborough
-Thomas Gambier Parry
-Thomas Hart Benton
-Thomas Hill
-Thomas Häfner
-Thomas Kinkade
-Thomas Kluge
-Thomas Lawrence
-Thomas M. Baxa
-Thomas Mann Baynes
-Thomas Millie Dow
-Thomas Moran
-Thomas Nast
-Thomas Rowlandson
-Thomas Scholes
-Thomas Stothard
-Thomas Struth
-Thomas Stuart Burnett
-Thomas Symington Halliday
-Thomas Tudor
-Thomas Wijck
-Thomas de Keyser
-Thornton Oakley
-Thornton Willis
-Thota Vaikuntham
-Thyrza Anne Leyshon
-Théodore Chassériau
-Théodore Géricault
-Théodore Rousseau
-Théodule Ribot
-Théophile Steinlen
-Tibor Czorba
-Tibor Rényi
-Tilo Baumgärtel
-Tim Biskup
-Tim Doyle
-Tim Hildebrandt
-Tim Okamura
-Tim White
-Tim and Greg Hildebrandt
-Tina Blondell
-Tina Modotti
-Tintoretto
-Titian
-Titian Peale
-Titus Lunter
-Tivadar Alconiere
-Tivadar Csontváry Kosztka
-Tobias Stimmer
-Todd Lockwood
-Tom Bagshaw
-Tom Bonson
-Tom Carapic
-Tom Chambers
-Tom Gourdie
-Tom La Padula
-Tom Lovell
-Tom Palin
-Tom Phillips
-Tom Roberts
-Tom Scott RSA
-Tom Thomson
-Tom Wesselmann
-Tom Whalen
-Tom Wänerstrand
-Tomasz Jedruszek
-Tomek Setowski
-Tomer Hanuka
-Tomi Ungerer
-Tomioka Tessai
-Tommaso Dolabella
-Tommaso Masaccio
-Tommaso Redi
-Tomokazu Matsuyama
-Tomàs Barceló
-Tony DiTerlizzi
-Tony Sart
-Tony Szczudlo
-Tony Tuckson
-Tooth Wu
-Torii Kiyomasu
-Torii Kiyomasu II
-Torii Kiyomitsu
-Torii Kiyomoto
-Torii Kiyonaga
-Torii Kiyonobu I
-Toriyama Sekien
-Toros Roslin
-Tosa Mitsunobu
-Tosa Mitsuoki
-Toshiko Okanoue
-Toss Woollaston
-Totte Mannes
-Tove Jansson
-Toyen
-Toyohara Chikanobu
-Toyohara Kunichika
-Tracey Emin
-Tracey Moberly
-Tracy Harris
-Tran Nguyen
-Troels Wörsel
-Tsubasa Nakai
-Tsuchida Bakusen
-Tsuchiya Koitsu
-Tsuguharu Foujita
-Tsuji Kakō
-Tsukioka Yoshitoshi
-Tsuruko Yamazaki
-Tuomas Korpi
-Tuvia Beeri
-Tyler Edlin
-Tyler Jacobson
-Tytus Czyżewski
-Tōichi Katō
-Tōshi Yoshida
-Tōshūsai Sharaku
-Ueda Fumito
-Uemura Shōen
-Ugo Nespolo
-Ulrich Leman
-Ulrika Pasch
-Umberto Boccioni
-Un'ichi Hiratsuka
-Unkoku Togan
-Uragami Gyokudō
-Urakusai Nagahide
-Ursula Edgcumbe
-Ursula Wood
-Utagawa Hirokage
-Utagawa Hiroshige II
-Utagawa Kunimasa
-Utagawa Kunimasu
-Utagawa Kunisada
-Utagawa Kunisada II
-Utagawa Kunisada III
-Utagawa Kuniyoshi
-Utagawa Toyoharu
-Utagawa Toyokuni
-Utagawa Yoshiiku
-Utagawa Yoshitaki
-Utagawa Yoshitora
-Utagawa Yoshitsuya
-Uwe Wittwer
-Vadym Meller
-Valentin Aleksandrovich Serov
-Valentine Hugo
-Valerie Petts
-Valéria Dénes
-Van Gogh
-Vanessa Beecroft
-Vanessa Bell
-Vasile Hutopila
-Vasily Andreevich Tropinin
-Vasily Perov
-Vasily Polenov
-Vasily Surikov
-Vasily Vereshchagin
-Vassily Maximov
-Veikko Törmänen
-Veno Pilon
-Vermeer
-Verónica Ruiz de Velasco,
-Vicente Juan Masip
-Victo Ngai
-Victor Adame Minguez
-Victor Brauner
-Victor Enrich
-Victor Meirelles
-Victor Moscoso
-Victor Mosquera
-Victor Nizovtsev
-Victor Noble Rainbird
-Victor Surbek
-Victor Vasarely
-Victor Wang
-Victoria Francés
-Victorine Foot
-Vija Celmins
-Viktor Madarász
-Viktor Oliva
-Viktor Vasnetsov
-Viktor de Jeney
-Vilhelm Bissen
-Vilhelm Kyhn
-Vilhelm Lundstrøm
-Villard de Honnecourt
-Vilmos Aba-Novák
-Vincent Di Fate
-Vincent Evans
-Vincent Lefevre
-Vincent Pepi
-Vincent Proce
-Vincent Van Gogh
-Vincent van Gogh
-Vincenzo Cabianca
-Vincenzo Irolli
-Vint Lawrence
-Viola Paterson
-Violet Fuller
-Violet Oakley
-Virgil Finlay
-Virginia Lee Burton
-Vito D'Ancona
-Vittore Carpaccio
-Vivian Maier
-Vivien Blackett
-Vladimir Baranov-Rossine
-Vladimir Borovikovsky
-Vladimir Kush
-Vladimir Makovsky
-Vladimir Novak
-Vladimir Tatlin
-Vladimir Tretchikoff
-Vladimír Vašíček
-Vlady Kibalchich Russakov
-Vlaho Bukovac
-Volkan Baga
-Vytautas Kasiulis
-Václav Brožík
-Víctor Manuel García Valdés
-W. Lindsay Cable
-WLOP
-Wadim Kashin
-Walasse Ting
-Waldo Peirce
-Walenty Wańkowicz
-Wally Wood
-Walt Disney
-Walt Reed
-Walter Bayes
-Walter Beach Humphrey
-Walter Crane
-Walter Emerson Baum
-Walter Haskell Hinton
-Walter Humphrey
-Walter Leighton Clark
-Walter Osborne
-Walter Percy Day
-Walter Sickert
-Walter Stuempfig
-Walther Jervolino
-Wang Duo
-Wang E
-Wang Fu
-Wang Guxiang
-Wang Hui
-Wang Jian
-Wang Lü
-Wang Meng
-Wang Mian
-Wang Shimin
-Wang Shishen
-Wang Wei
-Wang Wu
-Wang Ximeng
-Wang Yi
-Wang Yuan
-Wang Yuanqi
-Wang Zhenpeng
-Wang Zhongyu
-Warhol
-Warren Eugene Brandon
-Warren Mahy
-Warwick Goble
-Washington Allston
-Wassily Kandinsky
-Watanabe Kazan
-Watanabe Shōtei
-Wayne Barlowe
-Wayne England
-Wayne Reynolds
-Wayne Thiebaud
-Weiwei
-Wen Boren
-Wen Jia
-Wen Tong
-Wen Zhengming
-Wen Zhenheng
-Wenceslas Hollar
-Wendell Minor
-Wendy Froud
-Wenzel Lorenz Reiner
-Werner Andermatt
-Werner Gutzeit
-Werner Tübke
-Wes Anderson
-Wes Wilson
-Wesley Burt
-Whitney Darrow
-Whitney Sherman
-Wifredo Lam
-Wilfredo Lam
-Wilhelm Bendz
-Wilhelm Freddie
-Wilhelm Hammershøi
-Wilhelm Heise
-Wilhelm Leibl
-Wilhelm Marstrand
-Wilhelm Sasnal
-Wilhelm Schnarrenberger
-Wilhelm Trübner
-Wilhelmina Weber Furlong
-Will Barnet
-Will Eisner
-Will Ellis
-Willard Metcalf
-Willard Mullin
-Willem Claeszoon Heda
-Willem Cornelisz Duyster
-Willem Drost
-Willem Hondius
-Willem Jacobsz Delff
-Willem Kalf
-Willem Labeij
-Willem Maris
-Willem Pieterszoon Buytewech
-Willem de Kooning
-Willem de Poorter
-Willem van Aelst
-Willem van Haecht
-Willem van Mieris
-Willem van de Velde the Elder
-Willem van de Velde the Younger
-Willem van der Vliet
-William Berra
-William Birnie Rhind
-William Blake
-William Blake Richmond
-William Bliss Baker
-William Bonnar
-William Brodie
-William Coldstream
-William Congdon
-William Conor
-William Crosbie
-William Crozier
-William Dargie
-William Didier-Pouget
-William Dobell
-William Dobson
-William Dring
-William Edouard Scott
-William Edward West
-William Etty
-William Fettes Douglas
-William Forsyth
-William Gear
-William Geissler
-William George Gillies
-William Glackens
-William Gouw Ferguson
-William Grant Stevenson
-William Gropper
-William H. Mosby
-William Harnett
-William Hoare
-William Hogarth
-William Holman Hunt
-William Holmes Sullivan
-William Home Lizars
-William Jacob Baer
-William Jennys
-William John Thomson
-William Kentridge
-William Langson Lathrop
-William MacTaggart
-William McGregor Paxton
-William McTaggart
-William Merritt Chase
-William Michael Harnett
-William Miller
-William Morris
-William Mossman
-William Mustart Lockhart
-William Nicholson
-William Powhida
-William Quiller Orchardson
-William Simpson
-William Steig
-William Stott
-William Stout
-William Thon
-William Trost Richards
-William Turner
-William Turner of Oxford
-William Twigg-Smith
-William Woodward
-William Yellowlees
-William York Macgregor
-William Zorach
-William-Adolphe Bouguereau
-Willian Murai
-Willie Ito
-Willy Bo Richardson
-Willy Finch
-Wilson Irvine
-Winona Nelson
-Winslow Homer
-Winsor McCay
-Winston Churchill
-Witold Pruszkówski
-Witold Wojtkiewicz
-Wladyslaw Strzeminski
-Wlastimil Hofman
-Wlodzimierz Tetmajer
-Wojciech Gerson
-Wojciech Korneli Stattler
-Wojciech Kossak
-Wojciech Siudmak
-Wojciech Weiss
-Wolf Huber
-Wolf Kahn
-Wolf Vostell
-Wolfgang Letti
-Wolfgang Zelmer
-Wouter Pietersz Crabeth
-Wu Bin
-Wu Changshuo
-Wu Daozi
-Wu Guanzhong
-Wu Hong
-Wu Li
-Wu Shixian
-Wu Wei
-Wu Zhen
-Wu Zuoren
-Wuzhun Shifan
-Wyke Bayliss
-Wylie Beckert
-Wyndham Lewis
-Władysław Czachórski
-Władysław Malecki
-Władysław Podkowiński
-Władysław Ślewiński
-Xanthus Russell Smith
-Xavier Blum Pinto
-Xi Gang
-Xia Chang
-Xia Gui
-Xia Shuwen
-Xia Yong
-Xiang Shengmo
-Xiao Yuncong
-Xie He
-Xie Huan
-Xie Shichen
-Xie Sun
-Xu Beihong
-Xu Wei
-Xu Xi
-Xuande Emperor
-Xul Solar
-Yaacov Agam
-Yahoo Kusama
-Yamagata Hiro
-Yamaguchi Kayo
-Yamamoto Shōun
-Yan Hui
-Yan Liben
-Yanagawa Nobusada
-Yanagawa Shigenobu
-Yang Borun
-Yang Buzhi
-Yang J
-Yang Jin
-Yang Weizhen
-Yanjun Cheng
-Yao Tingmei
-Yasar Vurdem
-Yasuo Kuniyoshi
-Yasushi Sugiyama
-Yasutomo Oka
-Yayoi Kusama
-Yayou Kusama
-Ye Xin
-Yehia Dessouki
-Yeong-Hao Han
-Yerkaland
-Yi Inmun
-Yi Insang
-Yi Jaegwan
-Yi Yuanji
-Yoann Lossel
-Yokoyama Taikan
-Yosa Buson
-Yoshida Hanbei
-Yoshihiko Wada
-Yoshio Markino
-Yoshitaka Amano
-Yoshitoshi ABe
-Yoshitoshi Mori
-Yoshiyuki Tomino
-Youri Messen-Jaschin
-Youssef Howayek
-Yousuf Karsh
-Yu Zhiding
-Yuan Jiang
-Yuan Yao
-Yue Minjun
-Yuki Ogura
-Yukihiko Yasuda
-Yukimasa Ida
-Yuko Shimizu
-Yuko Tatsushima
-Yumihiko Amano
-Yun Du-seo
-Yun Shouping
-Yun-Fei Ji
-Yuri Ivanovich Pimenov
-Yuumei
-Yves Klein
-Yves Tanguay
-Yves Tanguy
-Yvonne Jacquette
-Zacharias Martin Aagaard
-Zack Snyder
-Zack Stella
-Zaha Hadid
-Zahari Zograf
-Zao Wou-Ki
-Zbigniew Nowosadzki
-Zdeněk Burian
-Zdzislaw Beksinski
-Zdzisław Beksiński
-Zeen Chin
-Zelma Blakely
-Zeng Jing
-Zha Shibiao
-Zhan Ziqian
-Zhang Han
-Zhang Kechun
-Zhang Lu
-Zhang Sengyao
-Zhang Shengwen
-Zhang Shunzi
-Zhang Shuqi
-Zhang Wo
-Zhang Xiaogang
-Zhang Xuan
-Zhang Yan
-Zhang Yin
-Zhang Zeduan
-Zhang Zongcang
-Zhao Mengfu
-Zhao Yong
-Zhao Yuan
-Zhao Zhiqian
-Zhao Zuo
-Zheng Xie
-Zhichao Cai
-Zhou Chen
-Zhou Fang
-Zhou Jichang
-Zhou Shuxi
-Zhou Wenjing
-Zhu Da
-Zhu Derun
-Zinaida Serebriakova
-Zlatyu Boyadzhiev
-Zofia Stryjenska
-Zoltan Boros
-Zoltán Joó
-Zoltán Nuridsány
-Zoran Mušič
-Zou Yigui
-Zou Zhe
-Zoë Mozert
-Zsolt Bodoni
-Zsuzsa Máthé
-Zvest Apollonio
-Zygmunt Vogel
-Zygmunt Waliszewski
-a.b. frost
-aaron douglas
-aaron miller
-adam martinakis
-adam paquette
-adolph frederick reinhardt
-adolph gottlieb
-aelita andre
-agnes bernice martin
-agnes lawrence pelton
-ahmed karahisari
-akihiko yoshida
-albert bierstadt
-albert dorne
-albert joseph pénot
-alberto giacometti
-alberto vargas
-albrecht dürer
-aldus manutius
-aleksi briclot
-alessio albi
-alex alice
-alex grey
-alex horley-orlandelli
-alex katz
-alex ross
-alex toth
-alexander bogen
-alexander jansson
-alexander sharpe ross
-alfonso angel yangco ossorio
-alfred charles parker
-alfred freddy krupa
-alfred kubin
-alice neel
-alphonse mucha
-amir zand
-amos sewell
-amy weber
-andreas rocha
-andrei riabovitchev
-andrew wyeth
-andré françois
-andré masson
-andy warhol
-angus mckie
-anish kapoor
-anita kunz
-anna dittmann
-anna haifisch
-anna mary robertson moses
-anni albers
-ansel adams
-anthony palumbo
-anthony s waters
-anthony van dyck
-anton otto fischer
-antonio mancini
-april gornik
-arik brauer
-arnie swekel
-arnold böcklin
-art fitzpatrick
-art spiegelman
-artemisia gentileschi
-arthur adams
-arthur burdett frost
-arthur garfield dove
-arthur rackham
-asher brown durand
-atey ghailan
-aubrey beardsley
-augustus edwin mulready
-aurél bernáth
-austin briggs
-ayako rokkaku
-ayami kojima
-ayshia taşkın
-banksy
-barbara kruger
-barbara nessim
-barclay shaw
-barnett newman
-barron storey
-barry windsor smith
-bastien lecouffe-deharme
-bauhaus
-bayard wu
-beatrix potter
-beeple
-ben thompson
-bernie d’andrea
-bernie wrightson
-bikash bhattacharjee
-bill henson
-bill sienkiewicz
-bill ward
-bill watterson
-bob eggleton
-bob ringwood
-bob ross
-boris vallejo
-brad holland
-brad kunkle
-brenda chamberlain
-brian bolland
-brian froud
-brian snøddy
-brian stelfreeze
-brooke shaden
-bruce pennington
-bunny yeager
-camille corot
-camille pissarro
-camille-pierre pambu bodo
-canaletto
-caravaggio
-carl barks
-carl critchlow
-carl larsson
-carla wyzgala
-caspar david friedrich
-cedric peyravernay
-chantal joffe
-charles addams
-charles camoin
-charles dana gibson
-charles schulz
-charles vess
-charlotte harding
-chase stone
-chesley bonestell
-chip zdarsky
-chris cold
-chris foss
-chris moore
-chris ofili
-chris rallis
-chris spollen
-christian august lorentzen
-christophe vacher
-christopher moeller
-christopher williams
-christopher wren
-cindy sherman
-claire hummel
-clara miller burd
-clara peeters
-claude monet
-cliff childs
-clint cearley
-clovis trouille
-clyde aspevig
-clyde caldwell
-clyfford still
-coby whitmore
-coles phillips
-constantin brancusi
-cornelis bisschop
-craig mullins
-cricorps grégoire
-cuno amiet
-cynthia sheppard
-dai jin
-dale chihuly
-damien hirst
-dan christensen
-dan frazier
-dan mumford
-daniel f gerhartz
-daniel ljunggren
-daniel merriam
-darek zabrocki
-daren bader
-darrell k. sweet
-darrell riche
-dave allsop
-dave arredondo
-dave dorman
-dave gibbons
-dave kendall
-dave mckean
-dave melvin
-david a. trampier
-david b. mattingly
-david burliuk
-david c. sutherland iii
-david firth
-david lazar
-david martin
-dean cornwell
-delaunay
-di-li feng
-diane dillon
-dick bickenbach
-diego gisbert llorens
-diego velázquez
-don maitz
-donald judd
-donatello
-donato giancola
-dorothea tanning
-dorothy hood
-doug wildey
-douglas shuler
-dr. seuss
-drew tucker
-e. simms campbell
-e.h. shepard
-earl norem
-earle bergey
-earnst haeckel
-ed binkley
-ed emshwiller
-edgar degas
-edmund dulac
-edmund f. ward
-edmund leighton
-edvard munch
-edward burne-jones
-edward gorey
-edward hopper
-edward kemble
-edward lear
-edward moran
-edward sorel
-edwin austin abbey
-edwin deakin
-edwin henry landseer
-egon schiele
-el greco
-elaine de kooning
-eleanor vere boyle
-elizabeth murray
-elizabeth shippen green
-elwood h. smith
-emma geary
-emmanuel shiu
-emory douglas
-enzhe zhao
-enzo sciotti
-eric auld
-eric lafforgue
-eric peterson
-erol otus
-esao andrews
-ethan van sciver
-etienne delessert
-eugene delacroix
-eugene leroy
-eugeniusz zak
-eugène delacroix
-evaline ness
-evelyn de morgan
-everett raymond kinstler
-exekias
-f scott hess
-fairfield porter
-felix octavius carr darley
-feng zhu
-filip hodas
-filippino lippi
-fiona stephenson
-fitz henry lane
-florent lebrun
-ford madox brown
-frances jetter
-francesca woodman
-francesco furini
-francis bacon
-francis coates jones
-francis souza
-francisco goya
-franciszek starowieyski
-frank frazetta
-frank miller
-frank philip stella
-frank stella
-frank xavier leyendecker
-franklin booth
-franz kline
-franz sedlacek
-franz vohwinkel
-franz xaver winterhalter
-fred ludekens
-fred williams
-frederick mccubbin
-frida kahlo
-gabor szikszai
-gaston bussière
-gediminas pranckevicius
-geof darrow
-george b. bridgman
-george cruikshank
-george frederic watts
-george inness
-george luks
-gerald brom
-gerhard richter
-giacomo balla
-gil elvgren
-gilles beloeil
-gillis rombouts
-giorgio de chirico
-giorgione
-giovanni battista gaulli
-giovanni battista piranesi
-giuseppe camuncoli
-glen angus
-gloria stoll karn
-greg hildebrandt
-greg rutkowski
-greg staples
-gregory manchess
-gu hongzhong
-guido borelli da caluso
-guido crepax
-guo xi
-gustaf tenggren
-gustav klimt
-gustave courbet
-gustave doré
-gustave moreau
-guy billout
-guy denning
-gwen john
-h.p. lovecraft
-h.r. giger
-h.r. millar
-haddon sundblom
-hajime sorayama
-hanna-barbera
-hannah höch
-hans baldung
-hans bellmer
-hans gustav burkhardt
-hans hinterreiter
-hans hofmann
-harold elliott
-harold von schmidt
-harriet powers
-harrison fisher
-harry clarke
-harry haenigsen
-harvey dunn
-harvey kurtzman
-hasui kawase
-hayao miyazaki
-heather hudson
-helen frankenthaler
-hendrick goltzius
-henri de toulouse-lautrec
-henri matisse
-henri rousseau
-henriette grindat
-henry fuseli
-henry justice ford
-henry moret
-henry ossawa tanner
-henry raleigh
-hideyuki kikuchi
-hieronymus bosch
-hiromu arakawa
-hisui sugiura
-hokusai
-howard chandler christy
-howard hodgkin
-howard knotts
-howard lyon
-howard pyle
-hubert robert
-hugh ferriss
-iain faulkner
-ida rentoul outhwaite
-ignacy witkiewicz
-igor kieryluk
-igor morski
-ilya kuvshinov
-ilya repin
-ingrid baars
-isaac levitan
-israel tsvaygenbaum
-istvan banyai
-itō jakuchū
-ivan aivazovsky
-ivan albright
-ivan bilibin
-ivan shishkin
-iwao takamoto
-j. frederick smith
-j.m.w. turner
-jacek yerka
-jack kirby
-jackson pollock
-jacqui morgan
-jaime jones
-jakub rebelka
-jakub rozalski
-jakub różalski
-james abbott mcneill whistler
-james c. christensen
-james ensor
-james gillray
-james gurney
-james jean
-james jonathan jeffries
-james montgomery flagg
-james paick
-james ryman
-james warhola
-jamie baldridge
-jamie hewlett
-jan brett
-jan kip
-jan miense molenaer
-jan van eyck
-jane graverol
-janet fish
-jarosław jaśnikowski
-jason a. engle
-jason chan
-jasper johns
-jc leyendecker
-jean cunningham
-jean delville
-jean metzinger
-jean-honoré fragonard
-jean-michel basquiat
-jeff easley
-jeff koons
-jeffrey smith
-jennifer janesko
-jerry pinkney
-jesper ejsing
-jesper myrfors
-jessie willcox smith
-jim burns
-jim lee
-jim steranko
-jim warren
-jimmy ernst
-jimmy nelson
-joachim beuckelaer
-joan mitchell
-joan tuset
-joaquín sorolla
-jodorowsky
-joe bowler
-joe jusko
-joe shuster
-joel santos
-johann bodin
-johann kretzschmer
-johannes voss
-johfra bosschart
-john alvin
-john atherton
-john atkinson grimshaw
-john backderf
-john bauer
-john berkey
-john carpenter
-john constable
-john currin
-john frederick kensett
-john french sloan
-john george sowerby
-john harris
-john howe
-john james audubon
-john kingsley
-john martin
-john matson
-john philip falter
-john romita jr
-john william waterhouse
-jon foster
-jon whitcomb
-jonathan solter
-jordan grimmer
-jorge jacinto
-josan gonzalez
-joseph bowler
-joseph cornell
-joseph keppler
-joyce ballantyne brand
-juan giménez
-juan gris
-juan pablo roldan
-judy chicago
-jules bastien-lepage
-julian allen
-julie bell
-jung park
-junji ito
-justin gerard
-justin sweet
-józef mehoffer
-kabbalah
-kadir nelson
-kaethe butcher
-kaja foglio
-kandinsky
-kanzan shimomura
-karl thiart
-karol bak
-kate greenaway
-katsushika ōi
-kawanabe kyōsai
-kawase hasui
-kay nielsen
-kazuo nakamura
-keith haring
-keith parkinson
-kelly freas
-kelly mckernan
-keren katz
-kev walker
-kilian eng
-kinuko craft
-kogan gengei
-konstantin vasilyev
-konstantinas ciurlionis
-koyoharu gotouge
-krenz cushart
-kunio okawara
-kyle lambert
-lale westvind
-larry elmore
-lars grant-west
-laura muntz lyall
-laurel burch
-laurie greasley
-laurie lipton
-lawren harris
-lee jeffries
-lee krasner
-lee loughridge
-lee madgwick
-lena alexander
-leo and diane dillon
-leonardo da vinci
-leonora carrington
-li tang
-li tiefu
-liam wong
-lichtenstein
-lin tinggui
-lisa frank
-lisa kristine
-liza donnelly
-loic zimmerman
-lorenzo agius
-louis glackens
-louis janmot
-louis rhead
-louise bourgeois
-louise nevelson
-luca zontini
-lucas graciano
-lucian freud
-luis royo
-lyle tuttle
-lynda benglis
-lynn pauley
-lyubov popova
-m.c. escher
-maciej kuciara
-maginel wright enright barney
-makoto aida
-makoto shinkai
-malevich
-malvin gray johnson
-manjit bawa
-manny librodo
-marc bell
-marc simonetti
-marek ruzyk
-margaret brundage
-margaret macdonald mackintosh
-margareta sterian
-maria sibylla merian
-marianne north
-marie-gabrielle capet
-mario sanchez nevado
-mario testino
-mark english
-mark mann
-mark poole
-mark rothko
-mark ryden
-mark tedin
-mark zug
-marsden hartley
-marshall arisman
-martin johnson heade
-martin schoeller
-maruyama ōkyo
-mary cassatt
-mary hallock foote
-mary jane begin
-masamune shirow
-mathias kollros
-mati klarwein
-matt stone and trey parker
-matthias grünewald
-matthias weischer
-maurice esteve
-mauro belfiore
-maxfield parrish
-małgorzata serwatka
-mckadesinsanity
-mead schaeffer
-melissa a. benson
-meryl mcmaster
-micha klein
-michael parkes
-michael sutfin
-michael whelan
-michelangelo
-michelangelo buonarotti
-mikalojus konstantinas čiurlionis
-mike mignola
-mike winkelmann
-milton avery
-milton caniff
-milton ernest robert rauschenberg
-milton glaser
-milton resnick
-miyamoto
-mondrian
-monet
-morris louis bernstein
-murakami
-mœbius
-n.c. wyeth
-nancy stahl
-narayan shridhar bendre
-natasha tan
-ned m. seidler
-neil blevins
-neil boyle
-nele zirnite
-nicolas de stael
-nils hamm
-nina masic
-noah bradley
-noriyoshi ohrai
-norman lewis
-norman rockwell
-norman saunders
-odd nerdrum
-odilon redon
-ohara koson
-olga rozanova
-olha darchuk
-olivia de berardinis
-olivier bonhomme
-osamu tezuka
-pablo carpio
-pascal blanché
-pat oliphant
-pat presley
-paul bril
-paul cézanne
-paul delvaux
-paul gauguin
-paul klee
-paul laffoley
-paul lehr
-paul pepera
-paulus decker
-penny patricia poppycock
-peter elson
-peter fiore
-peter gric
-peter helck
-peter lindbergh
-peter madsen
-peter max
-peter mohrbacher
-peter paul rubens
-peter rockwell
-peter zumthor
-phil borges
-phil foglio
-philip guston
-philippe druillet
-pia fries
-pierre bonnard
-pierre mion
-pierre puvis de chavannes
-pierre-auguste renoir
-pieter bruegel
-pieter claesz
-pieter de hooch
-pixar
-qian xuan
-qu leilei
-quentin blake
-r.o. blechman
-rafal olbinski
-raffeaello ossola
-ralph horsley
-ralph mcquarrie
-randolph caldecott
-randy vargas
-raphael
-raphael lacoste
-rashed alakroka
-ray caesar
-raymond swanland
-rebecca guay
-reginald richard redford
-rembrandt
-ren xun
-rene magritte
-reuben nakian
-reylia slaby
-rhads
-ric estrada
-richard dadd
-richard diebenkorn
-richard hess
-richard kane ferguson
-richard rockwell
-richard warren pousette-dart
-rick griffin
-riusuke fukahori
-rob alexander
-rob gonsalves
-rob liefeld
-robert beatty
-robert crumb
-robert fawcett
-robert m. cunningham
-robert maguire
-robert mccall
-robert mcginnis
-robert motherwell
-robert peak
-robert rauschenberg
-robert weaver
-roberto da matta
-rockwell kent
-rodney matthews
-roger ballen
-roger dean
-ron spears
-ron walotsky
-ross tran
-rossdraws
-roy lichtenstein
-roz chast
-rudolf hausner
-rudolph belarski
-russell patterson
-ruth bernhard
-ruth deckard
-ruth sanderson
-ryan pancoast
-ryan yee
-sakimichan
-salvador dalí
-sam spratt
-sandra chevrier
-sandro botticelli
-sarah gough adamson
-sarah morris
-saul steinberg
-saul tepper
-seb mckinnon
-shaddy safadi
-sheikh hamdullah
-sheilah beckett
-shekhar gurera
-sherree valentine daines
-shigenori soejima
-shintaro kago
-simon bisley
-simon stalenhag
-sir john tenniel
-slawomir maniak
-sonia delaunay
-sparth
-stan and jan berenstain
-stan galli
-stanisław wyspiański
-stanley artgerm lau
-stephan martiniere
-stevan dohanos
-steve argyle
-steve brodner
-steve dillon
-steve mccurry
-steve prescott
-steven belledin
-steven daluz
-steven james petruccio
-studio ghibli
-sunil das
-susan heidi
-svetlin velinov
-syd mead
-takashi murakami
-takato yamamoto
-takehiko inoue
-takeshi obata
-tamara lempicka
-taravat jalali farahani
-taro okamoto
-tatsuyuki tanaka
-ted degrazia
-ted nasmith
-teresa fasolino
-terese nielsen
-terry oakes
-terry redlin
-the Brothers Hildebrandt
-theCHAMBA
-thomas cole
-thomas crane
-thomas eakins
-thomas häfner
-thomas kinkade
-thomas m. baxa
-thomas nast
-thornton oakley
-thota vaikuntham
-tim and greg hildebrandt
-tim bradstreet
-tim white
-tintoretto
-titian
-titus lunter
-tivadar csontváry kosztka
-tom hammick
-tom lovell
-tom thomson
-tom wänerstrand
-tomasz jedruszek
-tomek setowski
-tomer hanuka
-tomi ungerer
-tomokazu matsuyama
-tony diterlizzi
-tony sart
-tuomas korpi
-tyler edlin
-tyler jacobson
-utagawa kuniyoshi
-valentine hugo
-victo ngai
-victor adame minguez
-victor moscoso
-victor mosquera
-victoria francés
-viktoria gavrilenko
-vincent di fate
-vincent proce
-vincent van gogh
-vint lawrence
-violet oakley
-virginia lee burton
-viviane sassen
-vladimir kush
-volkan baga
-w. heath robinson
-wally wood
-walter beach humphrey
-walter crane
-walter langley
-warren mahy
-warwick goble
-wassily kandinsky
-wayne barlowe
-wayne england
-weiwei
-wendell minor
-wendy froud
-wes anderson
-wes wilson
-wifredo lam
-will eisner
-willard mullin
-willem de kooning
-william blake
-william hogarth
-william holman hunt
-william michael harnett
-william steig
-william stout
-william turner
-william-adolphe bouguereau
-willian murai
-winona nelson
-winslow homer
-winsor mccay
-wlop
-wojciech siudmak
-wylie beckert
-yasar vurdem
-yasutomo oka
-yayoi kusama
-yeong-hao han
-yiannis moralis
-yoshitaka amano
-yoshitoshi abe
-yoshiyuki tomino
-yue minjun
-yuko tatsushima
-yumihiko amano
-yuumei
-yves tanguy
-zacharias martin aagaard
-zack snyder
-zdzisław beksiński
-zhang jingna
-zhang zeduan
-zoltan boros
-Ángel Botello
-Ásgrímur Jónsson
-Édouard Debat-Ponsan
-Édouard Detaille
-Édouard Manet
-Édouard Vuillard
-Élisabeth Vigée Le Brun
-Émile Bernard
-Étienne Aubry
-Évariste Vital Luminais
-Óscar Domínguez
-Ödön Márffy
-Þórarinn B. Þorláksson
-édouard manet
-óscar domínguez
-Ștefan Luchian
-""")
+A simplified-roman version of the name has also been included,
+because art captions often use roman characters that approximate
+the actual script.
+"""
 
 """
 MIT License
 
-Copyright (c) 2022 pharmapsychotic
+Copyright(c) 2022 pharmapsychotic
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
+of this software and associated documentation files(the "Software"), to deal
 in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+to use, copy, modify, merge, publish, distribute, sublicense, and / or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 

@@ -1,172 +1,146 @@
 r"""Lists of Art Media from Wikipedia, under the Creative Commons Attribution-ShareAlike License 3.0."""
 
-from .lists import multiline_text_to_list
+PAINTING_MATERIALS = ["acrylic paint medium",
+                      "blacklight paint medium",
+                      "chalk medium",
+                      "charcoal medium",
+                      "conte medium",
+                      "conté medium",
+                      "crayon medium",
+                      "encaustic paint medium",
+                      "fresco medium",
+                      "gesso medium",
+                      "glass paint medium",
+                      "glaze medium",
+                      "glitter medium",
+                      "gouache medium",
+                      "graphite medium",
+                      "ink medium",
+                      "ink wash (sumi-e) medium",
+                      "latex paint medium",
+                      "oil paint medium",
+                      "pastel medium",
+                      "pixel medium",
+                      "primer medium",
+                      "sketch medium",
+                      "tempera medium",
+                      "watercolor medium"]
+"""List of artistic mediums (e.g. "watercolor") from Wikipedia."""
 
-PAINTING_MATERIALS = multiline_text_to_list("""
-Acrylic paint
-Chalk
-Charcoal
-Conté
-Crayon
-Gouache
-Graphite
-Ink
-Oil paint
-Glass paint
-Pastel
-Pixel
-Sketch
-Tempera
-Watercolor
-Glitter
-Acrylic paint
-Blacklight paint
-Encaustic paint
-Fresco
-Gesso
-Glaze
-Gouache
-Ink
-Latex paint
-Oil paint
-Primer
-Ink wash (sumi-e)
-""", lambda medium: f"{medium} medium")
+SURFACES = ["on architectural structures",
+            "on canvas",
+            "on card stock",
+            "on ceramics",
+            "on cloth",
+            "on concrete",
+            "on fabric",
+            "on glass",
+            "on human body",
+            "on metal",
+            "on paper",
+            "on paperboard",
+            "on plaster",
+            "on scratchboard",
+            "on stone",
+            "on tattoo",
+            "on vellum",
+            "on wall",
+            "on wood"]
+"""List of artistic surfaces (e.g. "canvas") from Wikipedia."""
 
+TOOLS = ["using action painting",
+         "using aerosol paint",
+         "using airbrush",
+         "using ballpoint pen",
+         "using batik",
+         "using brush",
+         "using cloth",
+         "using digital painting",
+         "using finger",
+         "using fountain pen",
+         "using fresco",
+         "using gel pen",
+         "using image projector",
+         "using marker",
+         "using mechanical pencil",
+         "using mosaic",
+         "using paint pad",
+         "using paint roller",
+         "using palette knife",
+         "using pen",
+         "using pencil",
+         "using pouncing",
+         "using sponge",
+         "using technical pen"]
+"""List of artistic tools (e.g. "pencil") from Wikipedia."""
 
-SURFACES = multiline_text_to_list("""
-Canvas
-Card stock
-Concrete
-Fabric
-Glass
-Human body
-Metal
-Paper
-Plaster
-Scratchboard
-Stone
-Vellum
-Wood
-Architectural structures
-Canvas
-Ceramics
-Cloth
-Glass
-Tattoo
-Metal
-Paper
-Paperboard
-Vellum
-Wall
-Wood
-""", lambda surface: f"On {surface}")
+PRINTING_TECHNIQUES = ["aquatint printing technique",
+                       "collotype printing technique",
+                       "computer printing technique",
+                       "dye-sublimation printing technique",
+                       "embossing printing technique",
+                       "engraving printing technique",
+                       "etching printing technique",
+                       "inkjet printing technique",
+                       "intaglio printing technique",
+                       "laser printing technique",
+                       "letterpress printing technique",
+                       "linocut printing technique",
+                       "lithography printing technique",
+                       "metalcut printing technique",
+                       "mezzotint printing technique",
+                       "moku hanga printing technique",
+                       "monotype printing technique",
+                       "offset printing technique",
+                       "photographic printing technique",
+                       "planographic printing technique",
+                       "printing press printing technique",
+                       "relief etching printing technique",
+                       "relief printing technique",
+                       "screen-printing printing technique",
+                       "solid ink printing technique",
+                       "thermal printing technique",
+                       "wood engraving printing technique",
+                       "woodblock printing technique",
+                       "woodcut printing technique"]
+"""List of printing techniques (e.g. "woodcut") from Wikipedia."""
 
-TOOLS = multiline_text_to_list("""
-Brush
-Finger
-Pen
-Ballpoint pen
-Fountain pen
-Gel pen
-Technical pen
-Marker
-Pencil
-Mechanical pencil
-Action painting
-Aerosol paint
-Airbrush
-Batik
-Brush
-Cloth
-Paint roller
-Paint pad
-Palette knife
-Sponge
-Pencil
-Finger
-Aerosol paint
-Digital painting
-Fresco
-Image projector
-Mosaic
-Pouncing
-""", lambda tool: f"Using {tool}")
-
-PRINTING_TECHNIQUES = multiline_text_to_list("""
-Aquatint
-Collotype
-Computer
-Dye-sublimation
-Inkjet
-Laser
-Solid ink
-Thermal
-Embossing
-Engraving
-Etching
-Intaglio
-Letterpress
-Linocut
-Lithography
-Mezzotint
-Moku hanga
-Monotype
-Offset
-Photographic
-Planographic
-Printing press
-Relief
-Linocut
-Metalcut
-Relief etching
-Wood engraving
-Woodcut
-Screen-printing
-Woodblock
-""", lambda technique: f"{technique} printing technique")
-
-SCULTPURE_MATERIALS = multiline_text_to_list("""
-Bone
-Bronze
-Gemstones
-Glass
-Granite
-Ice
-Ivory
-Marble
-Plaster
-Stone
-Wax
-Wood
-Cement
-Ceramics
-Metal
-Plaster
-Plastic
-Synthetic resin
-Wax
-Clay
-Papier-mâché
-Plaster
-polystyrene
-Sand
-Styrofoam
-Beads
-Corrugated fiberboard
-Cardboard
-Edible material
-Foil
-Found objects
-Glue
-Adhesives
-Paperboard
-Textile
-Wire
-Wood
-Acids
-Corrosion
-Glaze
-Polychrome
-Wax
-""", lambda material: f"Sculpted from {material}")
+SCULTPURE_MATERIALS = ["sculpted from acids",
+                       "sculpted from adhesives",
+                       "sculpted from beads",
+                       "sculpted from bone",
+                       "sculpted from bronze",
+                       "sculpted from cardboard",
+                       "sculpted from cement",
+                       "sculpted from ceramics",
+                       "sculpted from clay",
+                       "sculpted from corrosion",
+                       "sculpted from corrugated fiberboard",
+                       "sculpted from edible material",
+                       "sculpted from foil",
+                       "sculpted from found objects",
+                       "sculpted from gemstones",
+                       "sculpted from glass",
+                       "sculpted from glaze",
+                       "sculpted from glue",
+                       "sculpted from granite",
+                       "sculpted from ice",
+                       "sculpted from ivory",
+                       "sculpted from marble",
+                       "sculpted from metal",
+                       "sculpted from paperboard",
+                       "sculpted from papier-mache",
+                       "sculpted from papier-mâché",
+                       "sculpted from plaster",
+                       "sculpted from plastic",
+                       "sculpted from polychrome",
+                       "sculpted from polystyrene",
+                       "sculpted from sand",
+                       "sculpted from stone",
+                       "sculpted from styrofoam",
+                       "sculpted from synthetic resin",
+                       "sculpted from textile",
+                       "sculpted from wax",
+                       "sculpted from wire",
+                       "sculpted from wood"]
+"""List of sculpture materials (e.g. "marble") from Wikipedia."""

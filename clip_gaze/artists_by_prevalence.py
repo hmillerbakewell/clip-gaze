@@ -4,926 +4,961 @@ Kindly provided by Discord user LowFuel#6148 who hosts an exploratory website wi
 https://f000.backblazeb2.com/file/clip-artists/index.html
 """
 
-from .lists import multiline_text_to_list
-
-ARTISTS_BY_TRAINING_PREVALENCE = multiline_text_to_list("""
-sandra chevrier
-john atkinson grimshaw
-margaret macdonald mackintosh
-guy denning
-chantal joffe
-paul delvaux
-martin johnson heade
-yves tanguy
-sherree valentine daines
-peter gric
-alice neel
-milton avery
-hajime sorayama
-tamara lempicka
-joan mitchell
-francesca woodman
-helen frankenthaler
-lawren harris
-sonia delaunay
-henri rousseau
-gustave moreau
-odd nerdrum
-ted degrazia
-frederick mccubbin
-ida rentoul outhwaite
-mark ryden
-carl larsson
-dorothea tanning
-alex katz
-chesley bonestell
-hugh ferriss
-judy chicago
-henry moret
-constantin brancusi
-rafal olbinski
-michael parkes
-brooke shaden
-juan gris
-syd mead
-louise nevelson
-william-adolphe bouguereau
-fairfield porter
-ivan aivazovsky
-pierre puvis de chavannes
-jules bastien-lepage
-egon schiele
-wifredo lam
-coles phillips
-tomi ungerer
-leonora carrington
-arthur rackham
-louise bourgeois
-kawase hasui
-maxfield parrish
-lucian freud
-reylia slaby
-adam martinakis
-aaron douglas
-john william waterhouse
-elizabeth shippen green
-edmund dulac
-charles dana gibson
-jasper johns
-pieter de hooch
-edward burne-jones
-charles addams
-richard dadd
-daniel f gerhartz
-robert motherwell
-luis royo
-rodney matthews
-lee madgwick
-chris ofili
-kaethe butcher
-peter mohrbacher
-simon stalenhag
-philip guston
-franz kline
-joseph cornell
-bastien lecouffe-deharme
-edward gorey
-stephan martiniere
-victo ngai
-emory douglas
-paul klee
-tomokazu matsuyama
-kadir nelson
-rebecca guay
-aubrey beardsley
-jessie willcox smith
-james ensor
-milton caniff
-isaac levitan
-john french sloan
-kay nielsen
-alphonse mucha
-giorgio de chirico
-evelyn de morgan
-christophe vacher
-peter zumthor
-rob gonsalves
-guido borelli da caluso
-vladimir kush
-viviane sassen
-dale chihuly
-mœbius
-karol bak
-roger dean
-peter max
-tomer hanuka
-ivan shishkin
-paul laffoley
-edmund leighton
-marianne north
-nicolas de stael
-paul cézanne
-dan mumford
-larry elmore
-anni albers
-gil elvgren
-cindy sherman
-roger ballen
-giovanni battista piranesi
-edgar degas
-arnold böcklin
-brian froud
-krenz cushart
-john harris
-takato yamamoto
-geof darrow
-donato giancola
-howard hodgkin
-maria sibylla merian
-francis bacon
-richard diebenkorn
-ohara koson
-wayne barlowe
-ivan bilibin
-barnett newman
-mark rothko
-albert bierstadt
-james jean
-laurie lipton
-zhang jingna
-hans bellmer
-hubert robert
-rene magritte
-keith haring
-john currin
-clara peeters
-willem de kooning
-tom thomson
-pierre bonnard
-george frederic watts
-robert mccall
-alex ross
-anish kapoor
-frank stella
-jacek yerka
-harry clarke
-barbara kruger
-w. heath robinson
-yayoi kusama
-thomas kinkade
-james gillray
-laurie greasley
-rockwell kent
-john bauer
-edwin austin abbey
-gustav klimt
-alfred kubin
-edward hopper
-clyfford still
-joaquín sorolla
-el greco
-louis janmot
-adolph gottlieb
-jean metzinger
-marsden hartley
-jc leyendecker
-n.c. wyeth
-paul lehr
-john berkey
-wendy froud
-igor morski
-boris vallejo
-ingrid baars
-hasui kawase
-giacomo balla
-alex grey
-ayami kojima
-edwin henry landseer
-lee krasner
-quentin blake
-takehiko inoue
-elaine de kooning
-zdzisław beksiński
-pieter claesz
-jan van eyck
-agnes lawrence pelton
-ilya kuvshinov
-giorgione
-walter langley
-jean delville
-bob eggleton
-robert crumb
-saul tepper
-roz chast
-canaletto
-winslow homer
-saul steinberg
-charles vess
-martin schoeller
-gediminas pranckevicius
-john james audubon
-roy lichtenstein
-m.c. escher
-bruce pennington
-william hogarth
-pieter bruegel
-wassily kandinsky
-alberto vargas
-gerhard richter
-winsor mccay
-mati klarwein
-alexander jansson
-shigenori soejima
-jeff easley
-camille corot
-jean-michel basquiat
-jean-honoré fragonard
-gerald brom
-mondrian
-peter elson
-malevich
-sir john tenniel
-chris foss
-warwick goble
-frank frazetta
-lynda benglis
-alberto giacometti
-arthur garfield dove
-mike mignola
-jakub rozalski
-donald judd
-agnes bernice martin
-odilon redon
-tim white
-mary cassatt
-caspar david friedrich
-jamie baldridge
-thomas cole
-daniel merriam
-andrew wyeth
-h.r. giger
-stanley artgerm lau
-james c. christensen
-brian bolland
-norman rockwell
-kandinsky
-bill henson
-mikalojus konstantinas čiurlionis
-henri matisse
-walter crane
-beatrix potter
-henry fuseli
-art spiegelman
-anthony van dyck
-coby whitmore
-terry redlin
-george inness
-cuno amiet
-john frederick kensett
-ted nasmith
-ralph mcquarrie
-hieronymus bosch
-james abbott mcneill whistler
-yiannis moralis
-robert mcginnis
-edvard munch
-dave mckean
-artemisia gentileschi
-augustus edwin mulready
-john constable
-utagawa kuniyoshi
-ansel adams
-peter lindbergh
-lee jeffries
-paul gauguin
-henri de toulouse-lautrec
-franz xaver winterhalter
-barry windsor smith
-asher brown durand
-dean cornwell
-henry ossawa tanner
-antonio mancini
-gaston bussière
-david firth
-jack kirby
-filippino lippi
-hannah höch
-mike winkelmann
-tim and greg hildebrandt
-thomas eakins
-joe jusko
-barclay shaw
-laurel burch
-mead schaeffer
-francis coates jones
-william holman hunt
-shintaro kago
-camille pissarro
-carl barks
-f scott hess
-damien hirst
-milton glaser
-andré masson
-simon bisley
-gustaf tenggren
-hans hofmann
-ilya repin
-gustave courbet
-jackson pollock
-guido crepax
-roberto da matta
-ford madox brown
-bernie wrightson
-ruth bernhard
-george b. bridgman
-greg hildebrandt
-peter paul rubens
-esao andrews
-angus mckie
-meryl mcmaster
-robert rauschenberg
-junji ito
-jon foster
-mario sanchez nevado
-brad kunkle
-rembrandt
-filip hodas
-albrecht dürer
-kelly mckernan
-anna dittmann
-francisco goya
-frank xavier leyendecker
-william michael harnett
-tom lovell
-jeff koons
-marc simonetti
-jim burns
-jon whitcomb
-richard warren pousette-dart
-henry raleigh
-hendrick goltzius
-michael whelan
-j.m.w. turner
-john philip falter
-pierre-auguste renoir
-ray caesar
-ivan albright
-howard pyle
-gwen john
-atey ghailan
-caravaggio
-édouard manet
-louis glackens
-ed emshwiller
-alex horley-orlandelli
-earl norem
-justin gerard
-hokusai
-hiromu arakawa
-franz sedlacek
-kate greenaway
-edward lear
-frank philip stella
-eugène delacroix
-charles camoin
-darrell k. sweet
-william steig
-edward moran
-milton ernest robert rauschenberg
-terry oakes
-craig mullins
-diane dillon
-takeshi obata
-raphael lacoste
-alessio albi
-eugene delacroix
-john howe
-emmanuel shiu
-philippe druillet
-jimmy nelson
-iain faulkner
-george luks
-dave dorman
-rhads
-peter helck
-yue minjun
-jeffrey smith
-edwin deakin
-bill sienkiewicz
-george cruikshank
-frida kahlo
-ron walotsky
-jamie hewlett
-kilian eng
-ed binkley
-beeple
-harvey kurtzman
-jesper ejsing
-guy billout
-charles schulz
-steve mccurry
-lyubov popova
-salvador dalí
-olivier bonhomme
-bill watterson
-tintoretto
-louis rhead
-aleksi briclot
-brian stelfreeze
-akihiko yoshida
-howard chandler christy
-kelly freas
-austin briggs
-earnst haeckel
-will eisner
-william stout
-jim steranko
-sam spratt
-andreas rocha
-anna mary robertson moses
-banksy
-e.h. shepard
-dr. seuss
-john romita jr
-gustave doré
-claude monet
-kawanabe kyōsai
-hans baldung
-ethan van sciver
-vincent van gogh
-joachim beuckelaer
-cynthia sheppard
-don maitz
-wally wood
-gillis rombouts
-johfra bosschart
-william blake
-andy warhol
-joe shuster
-rossdraws
-konstantin vasilyev
-fitz henry lane
-kinuko craft
-lichtenstein
-maciej kuciara
-konstantinas ciurlionis
-greg rutkowski
-sandro botticelli
-titian
-morris louis bernstein
-liam wong
-lisa frank
-wes anderson
-chris moore
-delaunay
-harrison fisher
-masamune shirow
-raymond swanland
-david burliuk
-arthur adams
-takashi murakami
-tim bradstreet
-bill ward
-chris rallis
-jakub rebelka
-alex toth
-leo and diane dillon
-franklin booth
-jerry pinkney
-james gurney
-steven daluz
-seb mckinnon
-noah bradley
-monet
-victor moscoso
-jim warren
-lale westvind
-noriyoshi ohrai
-thomas nast
-earle bergey
-h.p. lovecraft
-laura muntz lyall
-harvey dunn
-phil foglio
-steve dillon
-sparth
-bunny yeager
-taro okamoto
-john martin
-gregory manchess
-april gornik
-cornelis bisschop
-ross tran
-henry justice ford
-slawomir maniak
-ralph horsley
-randolph caldecott
-thornton oakley
-tony sart
-dave gibbons
-keith parkinson
-anton otto fischer
-rob liefeld
-frank miller
-diego velázquez
-yoshiyuki tomino
-darek zabrocki
-christopher wren
-studio ghibli
-william turner
-tomek setowski
-vincent di fate
-makoto shinkai
-tyler edlin
-eric lafforgue
-osamu tezuka
-mario testino
-bayard wu
-stevan dohanos
-janet fish
-james montgomery flagg
-leonardo da vinci
-di-li feng
-cedric peyravernay
-amir zand
-rudolf hausner
-steve brodner
-walter beach humphrey
-clyde caldwell
-jim lee
-steve argyle
-igor kieryluk
-greg staples
-tuomas korpi
-stanisław wyspiański
-marie-gabrielle capet
-jorge jacinto
-hayao miyazaki
-aldus manutius
-ruth sanderson
-pat presley
-arthur burdett frost
-wojciech siudmak
-albert joseph pénot
-joyce ballantyne brand
-pixar
-giovanni battista gaulli
-wlop
-tom hammick
-franciszek starowieyski
-svetlin velinov
-ignacy witkiewicz
-yoshitaka amano
-bauhaus
-clint cearley
-anthony palumbo
-kaja foglio
-jodorowsky
-steve prescott
-jason a. engle
-haddon sundblom
-jan miense molenaer
-maruyama ōkyo
-terese nielsen
-josan gonzalez
-adolph frederick reinhardt
-sunil das
-tony diterlizzi
-jarosław jaśnikowski
-lucas graciano
-michelangelo buonarotti
-mauro belfiore
-jimmy ernst
-koyoharu gotouge
-sarah morris
-lin tinggui
-matthias grünewald
-itō jakuchū
-feng zhu
-kabbalah
-fred williams
-hans gustav burkhardt
-katsushika ōi
-michelangelo
-chip zdarsky
-zhang zeduan
-kanzan shimomura
-juan pablo roldan
-doug wildey
-art fitzpatrick
-david b. mattingly
-yumihiko amano
-felix octavius carr darley
-harold von schmidt
-barbara nessim
-johannes voss
-jordan grimmer
-chris cold
-e. simms campbell
-rudolph belarski
-gilles beloeil
-hanna-barbera
-gu hongzhong
-julie bell
-weiwei
-qian xuan
-joseph keppler
-henriette grindat
-edward sorel
-volkan baga
-neil blevins
-kunio okawara
-kazuo nakamura
-guo xi
-victor mosquera
-maurice esteve
-enzhe zhao
-makoto aida
-victor adame minguez
-alfonso angel yangco ossorio
-viktoria gavrilenko
-li tiefu
-erol otus
-bob ross
-albert dorne
-norman lewis
-john george sowerby
-pablo carpio
-jakub różalski
-robert fawcett
-aelita andre
-h.r. millar
-wayne england
-paulus decker
-iwao takamoto
-małgorzata serwatka
-jane graverol
-andrei riabovitchev
-yeong-hao han
-yoshitoshi abe
-ryan pancoast
-christopher williams
-peter madsen
-tomasz jedruszek
-wylie beckert
-rick griffin
-cliff childs
-joel santos
-john carpenter
-maginel wright enright barney
-shekhar gurera
-john matson
-mary hallock foote
-exekias
-bikash bhattacharjee
-ryan yee
-titus lunter
-reginald richard redford
-alexander sharpe ross
-robert maguire
-lorenzo agius
-clara miller burd
-milton resnick
-mathias kollros
-jan brett
-lyle tuttle
-ned m. seidler
-johann kretzschmer
-alfred charles parker
-tatsuyuki tanaka
-peter fiore
-wendell minor
-vincent proce
-hideyuki kikuchi
-clovis trouille
-james paick
-evaline ness
-peter rockwell
-thota vaikuntham
-clyde aspevig
-richard rockwell
-riusuke fukahori
-yasar vurdem
-violet oakley
-thomas m. baxa
-yuko tatsushima
-david lazar
-anita kunz
-marek ruzyk
-jan kip
-frances jetter
-willian murai
-penny patricia poppycock
-zoltan boros
-brenda chamberlain
-donatello
-james warhola
-stan and jan berenstain
-florent lebrun
-tivadar csontváry kosztka
-fiona stephenson
-dan christensen
-malvin gray johnson
-arik brauer
-james ryman
-margareta sterian
-ayako rokkaku
-hisui sugiura
-li tang
-jennifer janesko
-dan frazier
-olha darchuk
-eleanor vere boyle
-zack snyder
-ren xun
-russell patterson
-chase stone
-barron storey
-elizabeth murray
-margaret brundage
-howard lyon
-yasutomo oka
-j. frederick smith
-eugeniusz zak
-jonathan solter
-olga rozanova
-dai jin
-virginia lee burton
-willard mullin
-dick bickenbach
-camille-pierre pambu bodo
-liza donnelly
-qu leilei
-natasha tan
-david martin
-steven belledin
-jung park
-jaime jones
-daniel ljunggren
-zacharias martin aagaard
-carla wyzgala
-luca zontini
-bob ringwood
-aaron miller
-amos sewell
-amy weber
-harold elliott
-narayan shridhar bendre
-arnie swekel
-pascal blanché
-loic zimmerman
-mark english
-yuumei
-alfred freddy krupa
-sheilah beckett
-józef mehoffer
-karl thiart
-marc bell
-lars grant-west
-francesco furini
-sakimichan
-ahmed karahisari
-ayshia taşkın
-juan giménez
-lynn pauley
-gabor szikszai
-winona nelson
-diego gisbert llorens
-norman saunders
-robert peak
-dave melvin
-richard kane ferguson
-justin sweet
-thomas häfner
-johann bodin
-everett raymond kinstler
-nils hamm
-tyler jacobson
-christian august lorentzen
-mark mann
-elwood h. smith
-paul bril
-nina masic
-daren bader
-alexander bogen
-paul pepera
-anthony s waters
-hans hinterreiter
-claire hummel
-charlotte harding
-edmund f. ward
-aurél bernáth
-dave allsop
-edward kemble
-sheikh hamdullah
-manjit bawa
-franz vohwinkel
-rashed alakroka
-melissa a. benson
-joe bowler
-gloria stoll karn
-ben thompson
-marshall arisman
-dorothy hood
-jesper myrfors
-sarah gough adamson
-murakami
-stan galli
-robert weaver
-joan tuset
-taravat jalali farahani
-james jonathan jeffries
-eugene leroy
-richard hess
-susan heidi
-shaddy safadi
-carl critchlow
-istvan banyai
-francis souza
-ron spears
-keren katz
-jean cunningham
-jason chan
-jacqui morgan
-tom wänerstrand
-ruth deckard
-john atherton
-mark poole
-cricorps grégoire
-vint lawrence
-raffeaello ossola
-randy vargas
-andré françois
-bernie d’andrea
-lena alexander
-óscar domínguez
-warren mahy
-teresa fasolino
-matt stone and trey parker
-rob alexander
-dave kendall
-pierre mion
-reuben nakian
-israel tsvaygenbaum
-r.o. blechman
-darrell riche
-glen angus
-brad holland
-wes wilson
-lee loughridge
-pia fries
-kev walker
-giuseppe camuncoli
-fred ludekens
-adam paquette
-heather hudson
-raphael
-john kingsley
-mark zug
-julian allen
-phil borges
-etienne delessert
-victoria francés
-nancy stahl
-brian snøddy
-nele zirnite
-douglas shuler
-emma geary
-robert m. cunningham
-anna haifisch
-mary jane begin
-matthias weischer
-valentine hugo
-john backderf
-michael sutfin
-alex alice
-pat oliphant
-micha klein
-manny librodo
-lisa kristine
-neil boyle
-dave arredondo
-howard knotts
-thomas crane
-christopher moeller
-kogan gengei
-harriet powers
-mark tedin
-ric estrada
-eric peterson
-robert beatty
-steven james petruccio
-drew tucker
-a.b. frost
-enzo sciotti
-eric auld
-joseph bowler
-david a. trampier
-harry haenigsen
-chris spollen
-john alvin
-miyamoto
-kyle lambert
-olivia de berardinis
-david c. sutherland iii
-""", lambda artist: f"By {artist}")
+ARTISTS_BY_TRAINING_PREVALENCE = ["by sandra chevrier",
+                                  "by john atkinson grimshaw",
+                                  "by margaret macdonald mackintosh",
+                                  "by guy denning",
+                                  "by chantal joffe",
+                                  "by paul delvaux",
+                                  "by martin johnson heade",
+                                  "by yves tanguy",
+                                  "by sherree valentine daines",
+                                  "by peter gric",
+                                  "by alice neel",
+                                  "by milton avery",
+                                  "by hajime sorayama",
+                                  "by tamara lempicka",
+                                  "by joan mitchell",
+                                  "by francesca woodman",
+                                  "by helen frankenthaler",
+                                  "by lawren harris",
+                                  "by sonia delaunay",
+                                  "by henri rousseau",
+                                  "by gustave moreau",
+                                  "by odd nerdrum",
+                                  "by ted degrazia",
+                                  "by frederick mccubbin",
+                                  "by ida rentoul outhwaite",
+                                  "by mark ryden",
+                                  "by carl larsson",
+                                  "by dorothea tanning",
+                                  "by alex katz",
+                                  "by chesley bonestell",
+                                  "by hugh ferriss",
+                                  "by judy chicago",
+                                  "by henry moret",
+                                  "by constantin brancusi",
+                                  "by rafal olbinski",
+                                  "by michael parkes",
+                                  "by brooke shaden",
+                                  "by juan gris",
+                                  "by syd mead",
+                                  "by louise nevelson",
+                                  "by william-adolphe bouguereau",
+                                  "by fairfield porter",
+                                  "by ivan aivazovsky",
+                                  "by pierre puvis de chavannes",
+                                  "by jules bastien-lepage",
+                                  "by egon schiele",
+                                  "by wifredo lam",
+                                  "by coles phillips",
+                                  "by tomi ungerer",
+                                  "by leonora carrington",
+                                  "by arthur rackham",
+                                  "by louise bourgeois",
+                                  "by kawase hasui",
+                                  "by maxfield parrish",
+                                  "by lucian freud",
+                                  "by reylia slaby",
+                                  "by adam martinakis",
+                                  "by aaron douglas",
+                                  "by john william waterhouse",
+                                  "by elizabeth shippen green",
+                                  "by edmund dulac",
+                                  "by charles dana gibson",
+                                  "by jasper johns",
+                                  "by pieter de hooch",
+                                  "by edward burne-jones",
+                                  "by charles addams",
+                                  "by richard dadd",
+                                  "by daniel f gerhartz",
+                                  "by robert motherwell",
+                                  "by luis royo",
+                                  "by rodney matthews",
+                                  "by lee madgwick",
+                                  "by chris ofili",
+                                  "by kaethe butcher",
+                                  "by peter mohrbacher",
+                                  "by simon stalenhag",
+                                  "by philip guston",
+                                  "by franz kline",
+                                  "by joseph cornell",
+                                  "by bastien lecouffe-deharme",
+                                  "by edward gorey",
+                                  "by stephan martiniere",
+                                  "by victo ngai",
+                                  "by emory douglas",
+                                  "by paul klee",
+                                  "by tomokazu matsuyama",
+                                  "by kadir nelson",
+                                  "by rebecca guay",
+                                  "by aubrey beardsley",
+                                  "by jessie willcox smith",
+                                  "by james ensor",
+                                  "by milton caniff",
+                                  "by isaac levitan",
+                                  "by john french sloan",
+                                  "by kay nielsen",
+                                  "by alphonse mucha",
+                                  "by giorgio de chirico",
+                                  "by evelyn de morgan",
+                                  "by christophe vacher",
+                                  "by peter zumthor",
+                                  "by rob gonsalves",
+                                  "by guido borelli da caluso",
+                                  "by vladimir kush",
+                                  "by viviane sassen",
+                                  "by dale chihuly",
+                                  "by mœbius",
+                                  "by moebius",
+                                  "by karol bak",
+                                  "by roger dean",
+                                  "by peter max",
+                                  "by tomer hanuka",
+                                  "by ivan shishkin",
+                                  "by paul laffoley",
+                                  "by edmund leighton",
+                                  "by marianne north",
+                                  "by nicolas de stael",
+                                  "by paul cézanne",
+                                  "by paul cezanne",
+                                  "by dan mumford",
+                                  "by larry elmore",
+                                  "by anni albers",
+                                  "by gil elvgren",
+                                  "by cindy sherman",
+                                  "by roger ballen",
+                                  "by giovanni battista piranesi",
+                                  "by edgar degas",
+                                  "by arnold böcklin",
+                                  "by arnold bocklin",
+                                  "by brian froud",
+                                  "by krenz cushart",
+                                  "by john harris",
+                                  "by takato yamamoto",
+                                  "by geof darrow",
+                                  "by donato giancola",
+                                  "by howard hodgkin",
+                                  "by maria sibylla merian",
+                                  "by francis bacon",
+                                  "by richard diebenkorn",
+                                  "by ohara koson",
+                                  "by wayne barlowe",
+                                  "by ivan bilibin",
+                                  "by barnett newman",
+                                  "by mark rothko",
+                                  "by albert bierstadt",
+                                  "by james jean",
+                                  "by laurie lipton",
+                                  "by zhang jingna",
+                                  "by hans bellmer",
+                                  "by hubert robert",
+                                  "by rene magritte",
+                                  "by keith haring",
+                                  "by john currin",
+                                  "by clara peeters",
+                                  "by willem de kooning",
+                                  "by tom thomson",
+                                  "by pierre bonnard",
+                                  "by george frederic watts",
+                                  "by robert mccall",
+                                  "by alex ross",
+                                  "by anish kapoor",
+                                  "by frank stella",
+                                  "by jacek yerka",
+                                  "by harry clarke",
+                                  "by barbara kruger",
+                                  "by w. heath robinson",
+                                  "by yayoi kusama",
+                                  "by thomas kinkade",
+                                  "by james gillray",
+                                  "by laurie greasley",
+                                  "by rockwell kent",
+                                  "by john bauer",
+                                  "by edwin austin abbey",
+                                  "by gustav klimt",
+                                  "by alfred kubin",
+                                  "by edward hopper",
+                                  "by clyfford still",
+                                  "by joaquín sorolla",
+                                  "by joaquin sorolla",
+                                  "by el greco",
+                                  "by louis janmot",
+                                  "by adolph gottlieb",
+                                  "by jean metzinger",
+                                  "by marsden hartley",
+                                  "by jc leyendecker",
+                                  "by n.c. wyeth",
+                                  "by paul lehr",
+                                  "by john berkey",
+                                  "by wendy froud",
+                                  "by igor morski",
+                                  "by boris vallejo",
+                                  "by ingrid baars",
+                                  "by hasui kawase",
+                                  "by giacomo balla",
+                                  "by alex grey",
+                                  "by ayami kojima",
+                                  "by edwin henry landseer",
+                                  "by lee krasner",
+                                  "by quentin blake",
+                                  "by takehiko inoue",
+                                  "by elaine de kooning",
+                                  "by zdzisław beksiński",
+                                  "by zdzislaw beksinski",
+                                  "by pieter claesz",
+                                  "by jan van eyck",
+                                  "by agnes lawrence pelton",
+                                  "by ilya kuvshinov",
+                                  "by giorgione",
+                                  "by walter langley",
+                                  "by jean delville",
+                                  "by bob eggleton",
+                                  "by robert crumb",
+                                  "by saul tepper",
+                                  "by roz chast",
+                                  "by canaletto",
+                                  "by winslow homer",
+                                  "by saul steinberg",
+                                  "by charles vess",
+                                  "by martin schoeller",
+                                  "by gediminas pranckevicius",
+                                  "by john james audubon",
+                                  "by roy lichtenstein",
+                                  "by m.c. escher",
+                                  "by bruce pennington",
+                                  "by william hogarth",
+                                  "by pieter bruegel",
+                                  "by wassily kandinsky",
+                                  "by alberto vargas",
+                                  "by gerhard richter",
+                                  "by winsor mccay",
+                                  "by mati klarwein",
+                                  "by alexander jansson",
+                                  "by shigenori soejima",
+                                  "by jeff easley",
+                                  "by camille corot",
+                                  "by jean-michel basquiat",
+                                  "by jean-honoré fragonard",
+                                  "by jean-honore fragonard",
+                                  "by gerald brom",
+                                  "by mondrian",
+                                  "by peter elson",
+                                  "by malevich",
+                                  "by sir john tenniel",
+                                  "by chris foss",
+                                  "by warwick goble",
+                                  "by frank frazetta",
+                                  "by lynda benglis",
+                                  "by alberto giacometti",
+                                  "by arthur garfield dove",
+                                  "by mike mignola",
+                                  "by jakub rozalski",
+                                  "by donald judd",
+                                  "by agnes bernice martin",
+                                  "by odilon redon",
+                                  "by tim white",
+                                  "by mary cassatt",
+                                  "by caspar david friedrich",
+                                  "by jamie baldridge",
+                                  "by thomas cole",
+                                  "by daniel merriam",
+                                  "by andrew wyeth",
+                                  "by h.r. giger",
+                                  "by stanley artgerm lau",
+                                  "by james c. christensen",
+                                  "by brian bolland",
+                                  "by norman rockwell",
+                                  "by kandinsky",
+                                  "by bill henson",
+                                  "by mikalojus konstantinas čiurlionis",
+                                  "by mikalojus konstantinas ciurlionis",
+                                  "by henri matisse",
+                                  "by walter crane",
+                                  "by beatrix potter",
+                                  "by henry fuseli",
+                                  "by art spiegelman",
+                                  "by anthony van dyck",
+                                  "by coby whitmore",
+                                  "by terry redlin",
+                                  "by george inness",
+                                  "by cuno amiet",
+                                  "by john frederick kensett",
+                                  "by ted nasmith",
+                                  "by ralph mcquarrie",
+                                  "by hieronymus bosch",
+                                  "by james abbott mcneill whistler",
+                                  "by yiannis moralis",
+                                  "by robert mcginnis",
+                                  "by edvard munch",
+                                  "by dave mckean",
+                                  "by artemisia gentileschi",
+                                  "by augustus edwin mulready",
+                                  "by john constable",
+                                  "by utagawa kuniyoshi",
+                                  "by ansel adams",
+                                  "by peter lindbergh",
+                                  "by lee jeffries",
+                                  "by paul gauguin",
+                                  "by henri de toulouse-lautrec",
+                                  "by franz xaver winterhalter",
+                                  "by barry windsor smith",
+                                  "by asher brown durand",
+                                  "by dean cornwell",
+                                  "by henry ossawa tanner",
+                                  "by antonio mancini",
+                                  "by gaston bussière",
+                                  "by gaston bussiere",
+                                  "by david firth",
+                                  "by jack kirby",
+                                  "by filippino lippi",
+                                  "by hannah höch",
+                                  "by hannah hoch",
+                                  "by mike winkelmann",
+                                  "by tim and greg hildebrandt",
+                                  "by thomas eakins",
+                                  "by joe jusko",
+                                  "by barclay shaw",
+                                  "by laurel burch",
+                                  "by mead schaeffer",
+                                  "by francis coates jones",
+                                  "by william holman hunt",
+                                  "by shintaro kago",
+                                  "by camille pissarro",
+                                  "by carl barks",
+                                  "by f scott hess",
+                                  "by damien hirst",
+                                  "by milton glaser",
+                                  "by andré masson",
+                                  "by andre masson",
+                                  "by simon bisley",
+                                  "by gustaf tenggren",
+                                  "by hans hofmann",
+                                  "by ilya repin",
+                                  "by gustave courbet",
+                                  "by jackson pollock",
+                                  "by guido crepax",
+                                  "by roberto da matta",
+                                  "by ford madox brown",
+                                  "by bernie wrightson",
+                                  "by ruth bernhard",
+                                  "by george b. bridgman",
+                                  "by greg hildebrandt",
+                                  "by peter paul rubens",
+                                  "by esao andrews",
+                                  "by angus mckie",
+                                  "by meryl mcmaster",
+                                  "by robert rauschenberg",
+                                  "by junji ito",
+                                  "by jon foster",
+                                  "by mario sanchez nevado",
+                                  "by brad kunkle",
+                                  "by rembrandt",
+                                  "by filip hodas",
+                                  "by albrecht dürer",
+                                  "by albrecht durer",
+                                  "by kelly mckernan",
+                                  "by anna dittmann",
+                                  "by francisco goya",
+                                  "by frank xavier leyendecker",
+                                  "by william michael harnett",
+                                  "by tom lovell",
+                                  "by jeff koons",
+                                  "by marc simonetti",
+                                  "by jim burns",
+                                  "by jon whitcomb",
+                                  "by richard warren pousette-dart",
+                                  "by henry raleigh",
+                                  "by hendrick goltzius",
+                                  "by michael whelan",
+                                  "by j.m.w. turner",
+                                  "by john philip falter",
+                                  "by pierre-auguste renoir",
+                                  "by ray caesar",
+                                  "by ivan albright",
+                                  "by howard pyle",
+                                  "by gwen john",
+                                  "by atey ghailan",
+                                  "by caravaggio",
+                                  "by édouard manet",
+                                  "by edouard manet",
+                                  "by louis glackens",
+                                  "by ed emshwiller",
+                                  "by alex horley-orlandelli",
+                                  "by earl norem",
+                                  "by justin gerard",
+                                  "by hokusai",
+                                  "by hiromu arakawa",
+                                  "by franz sedlacek",
+                                  "by kate greenaway",
+                                  "by edward lear",
+                                  "by frank philip stella",
+                                  "by eugène delacroix",
+                                  "by eugene delacroix",
+                                  "by charles camoin",
+                                  "by darrell k. sweet",
+                                  "by william steig",
+                                  "by edward moran",
+                                  "by milton ernest robert rauschenberg",
+                                  "by terry oakes",
+                                  "by craig mullins",
+                                  "by diane dillon",
+                                  "by takeshi obata",
+                                  "by raphael lacoste",
+                                  "by alessio albi",
+                                  "by john howe",
+                                  "by emmanuel shiu",
+                                  "by philippe druillet",
+                                  "by jimmy nelson",
+                                  "by iain faulkner",
+                                  "by george luks",
+                                  "by dave dorman",
+                                  "by rhads",
+                                  "by peter helck",
+                                  "by yue minjun",
+                                  "by jeffrey smith",
+                                  "by edwin deakin",
+                                  "by bill sienkiewicz",
+                                  "by george cruikshank",
+                                  "by frida kahlo",
+                                  "by ron walotsky",
+                                  "by jamie hewlett",
+                                  "by kilian eng",
+                                  "by ed binkley",
+                                  "by beeple",
+                                  "by harvey kurtzman",
+                                  "by jesper ejsing",
+                                  "by guy billout",
+                                  "by charles schulz",
+                                  "by steve mccurry",
+                                  "by lyubov popova",
+                                  "by salvador dalí",
+                                  "by salvador dali",
+                                  "by olivier bonhomme",
+                                  "by bill watterson",
+                                  "by tintoretto",
+                                  "by louis rhead",
+                                  "by aleksi briclot",
+                                  "by brian stelfreeze",
+                                  "by akihiko yoshida",
+                                  "by howard chandler christy",
+                                  "by kelly freas",
+                                  "by austin briggs",
+                                  "by earnst haeckel",
+                                  "by will eisner",
+                                  "by william stout",
+                                  "by jim steranko",
+                                  "by sam spratt",
+                                  "by andreas rocha",
+                                  "by anna mary robertson moses",
+                                  "by banksy",
+                                  "by e.h. shepard",
+                                  "by dr. seuss",
+                                  "by john romita jr",
+                                  "by gustave doré",
+                                  "by gustave dore",
+                                  "by claude monet",
+                                  "by kawanabe kyōsai",
+                                  "by kawanabe kyosai",
+                                  "by hans baldung",
+                                  "by ethan van sciver",
+                                  "by vincent van gogh",
+                                  "by joachim beuckelaer",
+                                  "by cynthia sheppard",
+                                  "by don maitz",
+                                  "by wally wood",
+                                  "by gillis rombouts",
+                                  "by johfra bosschart",
+                                  "by william blake",
+                                  "by andy warhol",
+                                  "by joe shuster",
+                                  "by rossdraws",
+                                  "by konstantin vasilyev",
+                                  "by fitz henry lane",
+                                  "by kinuko craft",
+                                  "by lichtenstein",
+                                  "by maciej kuciara",
+                                  "by konstantinas ciurlionis",
+                                  "by greg rutkowski",
+                                  "by sandro botticelli",
+                                  "by titian",
+                                  "by morris louis bernstein",
+                                  "by liam wong",
+                                  "by lisa frank",
+                                  "by wes anderson",
+                                  "by chris moore",
+                                  "by delaunay",
+                                  "by harrison fisher",
+                                  "by masamune shirow",
+                                  "by raymond swanland",
+                                  "by david burliuk",
+                                  "by arthur adams",
+                                  "by takashi murakami",
+                                  "by tim bradstreet",
+                                  "by bill ward",
+                                  "by chris rallis",
+                                  "by jakub rebelka",
+                                  "by alex toth",
+                                  "by leo and diane dillon",
+                                  "by franklin booth",
+                                  "by jerry pinkney",
+                                  "by james gurney",
+                                  "by steven daluz",
+                                  "by seb mckinnon",
+                                  "by noah bradley",
+                                  "by monet",
+                                  "by victor moscoso",
+                                  "by jim warren",
+                                  "by lale westvind",
+                                  "by noriyoshi ohrai",
+                                  "by thomas nast",
+                                  "by earle bergey",
+                                  "by h.p. lovecraft",
+                                  "by laura muntz lyall",
+                                  "by harvey dunn",
+                                  "by phil foglio",
+                                  "by steve dillon",
+                                  "by sparth",
+                                  "by bunny yeager",
+                                  "by taro okamoto",
+                                  "by john martin",
+                                  "by gregory manchess",
+                                  "by april gornik",
+                                  "by cornelis bisschop",
+                                  "by ross tran",
+                                  "by henry justice ford",
+                                  "by slawomir maniak",
+                                  "by ralph horsley",
+                                  "by randolph caldecott",
+                                  "by thornton oakley",
+                                  "by tony sart",
+                                  "by dave gibbons",
+                                  "by keith parkinson",
+                                  "by anton otto fischer",
+                                  "by rob liefeld",
+                                  "by frank miller",
+                                  "by diego velázquez",
+                                  "by diego velazquez",
+                                  "by yoshiyuki tomino",
+                                  "by darek zabrocki",
+                                  "by christopher wren",
+                                  "by studio ghibli",
+                                  "by william turner",
+                                  "by tomek setowski",
+                                  "by vincent di fate",
+                                  "by makoto shinkai",
+                                  "by tyler edlin",
+                                  "by eric lafforgue",
+                                  "by osamu tezuka",
+                                  "by mario testino",
+                                  "by bayard wu",
+                                  "by stevan dohanos",
+                                  "by janet fish",
+                                  "by james montgomery flagg",
+                                  "by leonardo da vinci",
+                                  "by di-li feng",
+                                  "by cedric peyravernay",
+                                  "by amir zand",
+                                  "by rudolf hausner",
+                                  "by steve brodner",
+                                  "by walter beach humphrey",
+                                  "by clyde caldwell",
+                                  "by jim lee",
+                                  "by steve argyle",
+                                  "by igor kieryluk",
+                                  "by greg staples",
+                                  "by tuomas korpi",
+                                  "by stanisław wyspiański",
+                                  "by stanislaw wyspianski",
+                                  "by marie-gabrielle capet",
+                                  "by jorge jacinto",
+                                  "by hayao miyazaki",
+                                  "by aldus manutius",
+                                  "by ruth sanderson",
+                                  "by pat presley",
+                                  "by arthur burdett frost",
+                                  "by wojciech siudmak",
+                                  "by albert joseph pénot",
+                                  "by albert joseph penot",
+                                  "by joyce ballantyne brand",
+                                  "by pixar",
+                                  "by giovanni battista gaulli",
+                                  "by wlop",
+                                  "by tom hammick",
+                                  "by franciszek starowieyski",
+                                  "by svetlin velinov",
+                                  "by ignacy witkiewicz",
+                                  "by yoshitaka amano",
+                                  "by bauhaus",
+                                  "by clint cearley",
+                                  "by anthony palumbo",
+                                  "by kaja foglio",
+                                  "by jodorowsky",
+                                  "by steve prescott",
+                                  "by jason a. engle",
+                                  "by haddon sundblom",
+                                  "by jan miense molenaer",
+                                  "by maruyama ōkyo",
+                                  "by maruyama okyo",
+                                  "by terese nielsen",
+                                  "by josan gonzalez",
+                                  "by adolph frederick reinhardt",
+                                  "by sunil das",
+                                  "by tony diterlizzi",
+                                  "by jarosław jaśnikowski",
+                                  "by jaroslaw jasnikowski",
+                                  "by lucas graciano",
+                                  "by michelangelo buonarotti",
+                                  "by mauro belfiore",
+                                  "by jimmy ernst",
+                                  "by koyoharu gotouge",
+                                  "by sarah morris",
+                                  "by lin tinggui",
+                                  "by matthias grünewald",
+                                  "by matthias grunewald",
+                                  "by itō jakuchū",
+                                  "by ito jakuchu",
+                                  "by feng zhu",
+                                  "by kabbalah",
+                                  "by fred williams",
+                                  "by hans gustav burkhardt",
+                                  "by katsushika ōi",
+                                  "by katsushika oi",
+                                  "by michelangelo",
+                                  "by chip zdarsky",
+                                  "by zhang zeduan",
+                                  "by kanzan shimomura",
+                                  "by juan pablo roldan",
+                                  "by doug wildey",
+                                  "by art fitzpatrick",
+                                  "by david b. mattingly",
+                                  "by yumihiko amano",
+                                  "by felix octavius carr darley",
+                                  "by harold von schmidt",
+                                  "by barbara nessim",
+                                  "by johannes voss",
+                                  "by jordan grimmer",
+                                  "by chris cold",
+                                  "by e. simms campbell",
+                                  "by rudolph belarski",
+                                  "by gilles beloeil",
+                                  "by hanna-barbera",
+                                  "by gu hongzhong",
+                                  "by julie bell",
+                                  "by weiwei",
+                                  "by qian xuan",
+                                  "by joseph keppler",
+                                  "by henriette grindat",
+                                  "by edward sorel",
+                                  "by volkan baga",
+                                  "by neil blevins",
+                                  "by kunio okawara",
+                                  "by kazuo nakamura",
+                                  "by guo xi",
+                                  "by victor mosquera",
+                                  "by maurice esteve",
+                                  "by enzhe zhao",
+                                  "by makoto aida",
+                                  "by victor adame minguez",
+                                  "by alfonso angel yangco ossorio",
+                                  "by viktoria gavrilenko",
+                                  "by li tiefu",
+                                  "by erol otus",
+                                  "by bob ross",
+                                  "by albert dorne",
+                                  "by norman lewis",
+                                  "by john george sowerby",
+                                  "by pablo carpio",
+                                  "by jakub różalski",
+                                  "by robert fawcett",
+                                  "by aelita andre",
+                                  "by h.r. millar",
+                                  "by wayne england",
+                                  "by paulus decker",
+                                  "by iwao takamoto",
+                                  "by małgorzata serwatka",
+                                  "by malgorzata serwatka",
+                                  "by jane graverol",
+                                  "by andrei riabovitchev",
+                                  "by yeong-hao han",
+                                  "by yoshitoshi abe",
+                                  "by ryan pancoast",
+                                  "by christopher williams",
+                                  "by peter madsen",
+                                  "by tomasz jedruszek",
+                                  "by wylie beckert",
+                                  "by rick griffin",
+                                  "by cliff childs",
+                                  "by joel santos",
+                                  "by john carpenter",
+                                  "by maginel wright enright barney",
+                                  "by shekhar gurera",
+                                  "by john matson",
+                                  "by mary hallock foote",
+                                  "by exekias",
+                                  "by bikash bhattacharjee",
+                                  "by ryan yee",
+                                  "by titus lunter",
+                                  "by reginald richard redford",
+                                  "by alexander sharpe ross",
+                                  "by robert maguire",
+                                  "by lorenzo agius",
+                                  "by clara miller burd",
+                                  "by milton resnick",
+                                  "by mathias kollros",
+                                  "by jan brett",
+                                  "by lyle tuttle",
+                                  "by ned m. seidler",
+                                  "by johann kretzschmer",
+                                  "by alfred charles parker",
+                                  "by tatsuyuki tanaka",
+                                  "by peter fiore",
+                                  "by wendell minor",
+                                  "by vincent proce",
+                                  "by hideyuki kikuchi",
+                                  "by clovis trouille",
+                                  "by james paick",
+                                  "by evaline ness",
+                                  "by peter rockwell",
+                                  "by thota vaikuntham",
+                                  "by clyde aspevig",
+                                  "by richard rockwell",
+                                  "by riusuke fukahori",
+                                  "by yasar vurdem",
+                                  "by violet oakley",
+                                  "by thomas m. baxa",
+                                  "by yuko tatsushima",
+                                  "by david lazar",
+                                  "by anita kunz",
+                                  "by marek ruzyk",
+                                  "by jan kip",
+                                  "by frances jetter",
+                                  "by willian murai",
+                                  "by penny patricia poppycock",
+                                  "by zoltan boros",
+                                  "by brenda chamberlain",
+                                  "by donatello",
+                                  "by james warhola",
+                                  "by stan and jan berenstain",
+                                  "by florent lebrun",
+                                  "by tivadar csontváry kosztka",
+                                  "by tivadar csontvary kosztka",
+                                  "by fiona stephenson",
+                                  "by dan christensen",
+                                  "by malvin gray johnson",
+                                  "by arik brauer",
+                                  "by james ryman",
+                                  "by margareta sterian",
+                                  "by ayako rokkaku",
+                                  "by hisui sugiura",
+                                  "by li tang",
+                                  "by jennifer janesko",
+                                  "by dan frazier",
+                                  "by olha darchuk",
+                                  "by eleanor vere boyle",
+                                  "by zack snyder",
+                                  "by ren xun",
+                                  "by russell patterson",
+                                  "by chase stone",
+                                  "by barron storey",
+                                  "by elizabeth murray",
+                                  "by margaret brundage",
+                                  "by howard lyon",
+                                  "by yasutomo oka",
+                                  "by j. frederick smith",
+                                  "by eugeniusz zak",
+                                  "by jonathan solter",
+                                  "by olga rozanova",
+                                  "by dai jin",
+                                  "by virginia lee burton",
+                                  "by willard mullin",
+                                  "by dick bickenbach",
+                                  "by camille-pierre pambu bodo",
+                                  "by liza donnelly",
+                                  "by qu leilei",
+                                  "by natasha tan",
+                                  "by david martin",
+                                  "by steven belledin",
+                                  "by jung park",
+                                  "by jaime jones",
+                                  "by daniel ljunggren",
+                                  "by zacharias martin aagaard",
+                                  "by carla wyzgala",
+                                  "by luca zontini",
+                                  "by bob ringwood",
+                                  "by aaron miller",
+                                  "by amos sewell",
+                                  "by amy weber",
+                                  "by harold elliott",
+                                  "by narayan shridhar bendre",
+                                  "by arnie swekel",
+                                  "by pascal blanché",
+                                  "by pascal blanche",
+                                  "by loic zimmerman",
+                                  "by mark english",
+                                  "by yuumei",
+                                  "by alfred freddy krupa",
+                                  "by sheilah beckett",
+                                  "by józef mehoffer",
+                                  "by jozef mehoffer",
+                                  "by karl thiart",
+                                  "by marc bell",
+                                  "by lars grant-west",
+                                  "by francesco furini",
+                                  "by sakimichan",
+                                  "by ahmed karahisari",
+                                  "by ayshia taşkın",
+                                  "by ayshia taskin",
+                                  "by juan giménez",
+                                  "by juan gimenez",
+                                  "by lynn pauley",
+                                  "by gabor szikszai",
+                                  "by winona nelson",
+                                  "by diego gisbert llorens",
+                                  "by norman saunders",
+                                  "by robert peak",
+                                  "by dave melvin",
+                                  "by richard kane ferguson",
+                                  "by justin sweet",
+                                  "by thomas häfner",
+                                  "by thomas hafner",
+                                  "by johann bodin",
+                                  "by everett raymond kinstler",
+                                  "by nils hamm",
+                                  "by tyler jacobson",
+                                  "by christian august lorentzen",
+                                  "by mark mann",
+                                  "by elwood h. smith",
+                                  "by paul bril",
+                                  "by nina masic",
+                                  "by daren bader",
+                                  "by alexander bogen",
+                                  "by paul pepera",
+                                  "by anthony s waters",
+                                  "by hans hinterreiter",
+                                  "by claire hummel",
+                                  "by charlotte harding",
+                                  "by edmund f. ward",
+                                  "by aurél bernáth",
+                                  "by aurel bernath",
+                                  "by dave allsop",
+                                  "by edward kemble",
+                                  "by sheikh hamdullah",
+                                  "by manjit bawa",
+                                  "by franz vohwinkel",
+                                  "by rashed alakroka",
+                                  "by melissa a. benson",
+                                  "by joe bowler",
+                                  "by gloria stoll karn",
+                                  "by ben thompson",
+                                  "by marshall arisman",
+                                  "by dorothy hood",
+                                  "by jesper myrfors",
+                                  "by sarah gough adamson",
+                                  "by murakami",
+                                  "by stan galli",
+                                  "by robert weaver",
+                                  "by joan tuset",
+                                  "by taravat jalali farahani",
+                                  "by james jonathan jeffries",
+                                  "by eugene leroy",
+                                  "by richard hess",
+                                  "by susan heidi",
+                                  "by shaddy safadi",
+                                  "by carl critchlow",
+                                  "by istvan banyai",
+                                  "by francis souza",
+                                  "by ron spears",
+                                  "by keren katz",
+                                  "by jean cunningham",
+                                  "by jason chan",
+                                  "by jacqui morgan",
+                                  "by tom wänerstrand",
+                                  "by tom wanerstrand",
+                                  "by ruth deckard",
+                                  "by john atherton",
+                                  "by mark poole",
+                                  "by cricorps grégoire",
+                                  "by cricorps gregoire",
+                                  "by vint lawrence",
+                                  "by raffeaello ossola",
+                                  "by randy vargas",
+                                  "by andré françois",
+                                  "by andre francois",
+                                  "by bernie d’andrea",
+                                  "by bernie d'andrea",
+                                  "by lena alexander",
+                                  "by óscar domínguez",
+                                  "by oscar dominguez",
+                                  "by warren mahy",
+                                  "by teresa fasolino",
+                                  "by matt stone and trey parker",
+                                  "by rob alexander",
+                                  "by dave kendall",
+                                  "by pierre mion",
+                                  "by reuben nakian",
+                                  "by israel tsvaygenbaum",
+                                  "by r.o. blechman",
+                                  "by darrell riche",
+                                  "by glen angus",
+                                  "by brad holland",
+                                  "by wes wilson",
+                                  "by lee loughridge",
+                                  "by pia fries",
+                                  "by kev walker",
+                                  "by giuseppe camuncoli",
+                                  "by fred ludekens",
+                                  "by adam paquette",
+                                  "by heather hudson",
+                                  "by raphael",
+                                  "by john kingsley",
+                                  "by mark zug",
+                                  "by julian allen",
+                                  "by phil borges",
+                                  "by etienne delessert",
+                                  "by victoria francés",
+                                  "by victoria frances",
+                                  "by nancy stahl",
+                                  "by brian snøddy",
+                                  "by brian snoddy",
+                                  "by nele zirnite",
+                                  "by douglas shuler",
+                                  "by emma geary",
+                                  "by robert m. cunningham",
+                                  "by anna haifisch",
+                                  "by mary jane begin",
+                                  "by matthias weischer",
+                                  "by valentine hugo",
+                                  "by john backderf",
+                                  "by michael sutfin",
+                                  "by alex alice",
+                                  "by pat oliphant",
+                                  "by micha klein",
+                                  "by manny librodo",
+                                  "by lisa kristine",
+                                  "by neil boyle",
+                                  "by dave arredondo",
+                                  "by howard knotts",
+                                  "by thomas crane",
+                                  "by christopher moeller",
+                                  "by kogan gengei",
+                                  "by harriet powers",
+                                  "by mark tedin",
+                                  "by ric estrada",
+                                  "by eric peterson",
+                                  "by robert beatty",
+                                  "by steven james petruccio",
+                                  "by drew tucker",
+                                  "by a.b. frost",
+                                  "by enzo sciotti",
+                                  "by eric auld",
+                                  "by joseph bowler",
+                                  "by david a. trampier",
+                                  "by harry haenigsen",
+                                  "by chris spollen",
+                                  "by john alvin",
+                                  "by miyamoto",
+                                  "by kyle lambert",
+                                  "by olivia de berardinis",
+                                  "by david c. sutherland iii"]
+"""List of artists ordered by prevalence in the CLIP training data."""

@@ -1,209 +1,198 @@
 r"""List Of Art Movements from Wikipedia under the Creative Commons Attribution-ShareAlike License 3.0.
 """
 
-from .lists import multiline_text_to_list
 
-MOVEMENTS = multiline_text_to_list("""
-Afrofuturism
-ASCII art
-Abstract art
-Art Brut
-Abstract expressionism
-Abstract illusionism
-Academic art
-Action painting
-Aestheticism
-Altermodern
-American Barbizon school
-American impressionism
-American realism
-American Scene Painting
-Analytical art
-Antipodeans
-Arabesque
-Arbeitsrat für Kunst
-Art & Language
-Art Deco
-Art Informel
-Art Nouveau
-Art photography
-Arte Povera
-Arts and Crafts movement
-Ashcan School
-Assemblage
-Australian Tonalism
-Les Automatistes
-Auto-destructive art
-Barbizon school
-Baroque
-Bauhaus
-Berlin Secession
-Black Arts Movement
-Bengal School of Art
-Brutalism
-Classical Realism
-Cloisonnism
-COBRA
-Color Field
-Context art
-Computer art
-Concrete art
-Conceptual art
-Constructivism
-Crystal Cubism
-Cubo-Futurism
-Cubism
-Cynical realism
-Dada
-Dansaekhwa
-Danube school
-Dau-al-Set
-De Stijl (also known as Neoplasticism)
-Deconstructivism
-Digital art
-Ecological Art
-Environmental art
-Modern European ink painting
-Excessivism
-Expressionism
-Fantastic realism
-Fauvism
-Feminist art
-Figurative art
-Figuration Libre
-Fine Art
-Folk art
-Fluxus
-Funk art
-Futurism
-Geometric abstract art
-Glitch art
-Graffiti/Street Art
-Gutai group
-Gothic art
-Happening
-Harlem Renaissance
-Heidelberg School
-Hudson River School
-Hurufiyya
-Hypermodernism
-Hyperrealism
-Impressionism
-Incoherents
-Interactive Art
-Institutional critique
-International Gothic
-International Typographic Style
-Kinetic art
-Kinetic Pointillism
-Kitsch movement
-Land art
-Les Nabis
-Letterism
-Light and Space
-Lowbrow
-Lyco art
-Lyrical abstraction
-Magic realism
-Mail art
-Mannerism
-Massurrealism
-Maximalism
-Metaphysical painting
-Mingei
-Minimalism
-Modernism
-Modular constructivism
-Naive art
-Neoclassicism
-Neo-Dada
-Neo-expressionism
-Neo-Fauvism
-Neo-figurative
-Neogeo (art)
-Neoism
-Neo-primitivism
-Neo-romanticism
-Net art
-New Objectivity
-New Sculpture
-Northwest School
-Nuclear art
-Objective abstraction
-Op Art
-Orphism
-Photorealism
-Panfuturism
-Paris School
-Pixel art
-Plasticien
-Plein Air
-Pointillism
-Pop art
-Post-impressionism
-Postminimalism
-Precisionism
-Pre-Raphaelitism
-Primitivism
-Private Press
-Process art
-Psychedelic art
-Purism
-Qajar art
-Quito School
-Rasquache
-Rayonism
-Realism
-Regionalism
-Remodernism
-Renaissance
-Retrofuturism
-Rococo
-Romanesque
-Romanticism
-Samikshavad
-Serial art
-Shin hanga
-Shock art
-Sōsaku hanga
-Socialist realism
-Sots art
-Space art
-Street art
-Stuckism
-Sumatraism
-Superflat
-Suprematism
-Surrealism
-Symbolism
-Synchromism
-Synthetism
-Tachisme (aka Informel)
-Temporary art
-Toyism
-Transgressive art
-Tonalism
-Ukiyo-e
-Underground comix
-Unilalianism
-Vancouver School
-Vanitas
-Verdadism
-Video art
-Visual Art
-Viennese Actionism
-Vorticism
-""", lambda movement: f"{movement} movement")
-
-
-"""
-The MIT License (MIT)
-
-Copyright © 2022 Hex Miller-Bakewell
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-"""
+MOVEMENTS = ["abstract art movement",
+             "abstract expressionism movement",
+             "abstract illusionism movement",
+             "academic art movement",
+             "action painting movement",
+             "aestheticism movement",
+             "afrofuturism movement",
+             "altermodern movement",
+             "american barbizon school movement",
+             "american impressionism movement",
+             "american realism movement",
+             "american scene painting movement",
+             "analytical art movement",
+             "antipodeans movement",
+             "arabesque movement",
+             "arbeitsrat fur kunst movement",
+             "arbeitsrat für kunst movement",
+             "art and language movement",
+             "art brut movement",
+             "art deco movement",
+             "art informel movement",
+             "art nouveau movement",
+             "art photography movement",
+             "arte povera movement",
+             "arts and crafts movement movement",
+             "ascii art movement",
+             "ashcan school movement",
+             "assemblage movement",
+             "australian tonalism movement",
+             "auto-destructive art movement",
+             "barbizon school movement",
+             "baroque movement",
+             "bauhaus movement",
+             "bengal school of art movement",
+             "berlin secession movement",
+             "black arts movement",
+             "brutalism movement",
+             "classical realism movement",
+             "cloisonnism movement",
+             "cobra movement",
+             "color field movement",
+             "computer art movement",
+             "conceptual art movement",
+             "concrete art movement",
+             "constructivism movement",
+             "context art movement",
+             "crystal cubism movement",
+             "cubism movement",
+             "cubo-futurism movement",
+             "cynical realism movement",
+             "dada movement",
+             "dansaekhwa movement",
+             "danube school movement",
+             "dau-al-set movement",
+             "de stijl movement",
+             "deconstructivism movement",
+             "digital art movement",
+             "ecological art movement",
+             "environmental art movement",
+             "excessivism movement",
+             "expressionism movement",
+             "fantastic realism movement",
+             "fauvism movement",
+             "feminist art movement",
+             "figuration libre movement",
+             "figurative art movement",
+             "fine art movement",
+             "fluxus movement",
+             "folk art movement",
+             "funk art movement",
+             "futurism movement",
+             "geometric abstract art movement",
+             "glitch art movement",
+             "gothic art movement",
+             "graffiti art movement",
+             "gutai group movement",
+             "happening movement",
+             "harlem renaissance movement",
+             "heidelberg school movement",
+             "hudson river school movement",
+             "hurufiyya movement",
+             "hypermodernism movement",
+             "hyperrealism movement",
+             "impressionism movement",
+             "incoherents movement",
+             "informel movement",
+             "institutional critique movement",
+             "interactive art movement",
+             "international gothic movement",
+             "international typographic style movement",
+             "kinetic art movement",
+             "kinetic pointillism movement",
+             "kitsch movement",
+             "land art movement",
+             "les automatistes movement",
+             "les nabis movement",
+             "letterism movement",
+             "light and space movement",
+             "lowbrow movement",
+             "lyco art movement",
+             "lyrical abstraction movement",
+             "magic realism movement",
+             "mail art movement",
+             "mannerism movement",
+             "massurrealism movement",
+             "maximalism movement",
+             "metaphysical painting movement",
+             "mingei movement",
+             "minimalism movement",
+             "modern european ink painting movement",
+             "modernism movement",
+             "modular constructivism movement",
+             "naive art movement",
+             "neo-dada movement",
+             "neo-expressionism movement",
+             "neo-fauvism movement",
+             "neo-figurative movement",
+             "neo-primitivism movement",
+             "neo-romanticism movement",
+             "neoclassicism movement",
+             "neogeo art movement",
+             "neoism movement",
+             "neoplasticism movement",
+             "net art movement",
+             "new objectivity movement",
+             "new sculpture movement",
+             "northwest school movement",
+             "nuclear art movement",
+             "objective abstraction movement",
+             "op art movement",
+             "orphism movement",
+             "panfuturism movement",
+             "paris school movement",
+             "photorealism movement",
+             "pixel art movement",
+             "plasticien movement",
+             "plein air movement",
+             "pointillism movement",
+             "pop art movement",
+             "post-impressionism movement",
+             "postminimalism movement",
+             "pre-raphaelitism movement",
+             "precisionism movement",
+             "primitivism movement",
+             "private press movement",
+             "process art movement",
+             "psychedelic art movement",
+             "purism movement",
+             "qajar art movement",
+             "quito school movement",
+             "rasquache movement",
+             "rayonism movement",
+             "realism movement",
+             "regionalism movement",
+             "remodernism movement",
+             "renaissance movement",
+             "retrofuturism movement",
+             "rococo movement",
+             "romanesque movement",
+             "romanticism movement",
+             "samikshavad movement",
+             "serial art movement",
+             "shin hanga movement",
+             "shock art movement",
+             "socialist realism movement",
+             "sosaku hanga movement",
+             "sots art movement",
+             "space art movement",
+             "street art movement",
+             "stuckism movement",
+             "sumatraism movement",
+             "superflat movement",
+             "suprematism movement",
+             "surrealism movement",
+             "symbolism movement",
+             "synchromism movement",
+             "synthetism movement",
+             "sōsaku hanga movement",
+             "tachisme movement",
+             "temporary art movement",
+             "tonalism movement",
+             "toyism movement",
+             "transgressive art movement",
+             "ukiyo-e movement",
+             "underground comix movement",
+             "unilalianism movement",
+             "vancouver school movement",
+             "vanitas movement",
+             "verdadism movement",
+             "video art movement",
+             "viennese actionism movement",
+             "visual art movement",
+             "vorticism movement"]
+"""List of artistic movements (e.g. "cubism") from Wikipedia."""

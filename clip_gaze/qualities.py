@@ -3,15 +3,14 @@ r"""A short list of adjectives to see how CLIP subjectively rates an image.
 Given the nature of digital art it will probably pick up the resolution artefacts more the any aesthetic sensibility.
 """
 
-from .lists import multiline_text_to_list
-
-QUALITIES = multiline_text_to_list("""exceptional
-excellent
-good
-acceptable
-poor
-bad
-terrible""", lambda quality: f"{quality} quality")
+QUALITIES = ["acceptable quality",
+             "bad quality",
+             "excellent quality",
+             "exceptional quality",
+             "good quality",
+             "poor quality",
+             "terrible quality"]
+"""A short list of descriptors, to assess CLIP's notion of "quality"."""
 
 """
 The MIT License (MIT)

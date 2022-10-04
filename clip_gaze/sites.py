@@ -3,29 +3,27 @@ r"""A list of popular websites that host art.
 The list is purely based on art sites the author is aware of.
 """
 
-from .lists import multiline_text_to_list
 
-SITES = multiline_text_to_list("""
-artstation
-behance
-cg society
-cgsociety
-deviantart
-dribble
-flickr
-instagram
-opengameart
-pexels
-pinterest
-pixabay
-pixiv
-polycount
-reddit
-shutterstock
-tumblr
-unsplash
-zbrush central
-""")
+SITES = ["artstation",
+         "behance",
+         "cg society",
+         "cgsociety",
+         "deviantart",
+         "dribble",
+         "flickr",
+         "instagram",
+         "opengameart",
+         "pexels",
+         "pinterest",
+         "pixabay",
+         "pixiv",
+         "polycount",
+         "reddit",
+         "shutterstock",
+         "tumblr",
+         "unsplash",
+         "zbrush central"]
+"""List of art websites (e.g. "artstation")."""
 
 """
 The MIT License (MIT)
